@@ -2,7 +2,7 @@
 a{text-decoration: none;}
 li{list-style: none;}
 
-#container{width:760px;height:768px;margin: 0 0 0 -512px;top:0;left:50%;overflow: hidden;position: absolute;}
+#container{width:1024px;height:768px;margin: 0 0 0 -512px;top:0;left:50%;overflow: hidden;position: absolute;}
 body{font: bold 20px "helvetica neue", helvetica, arial, sans-serif;color:#fae325;text-shadow: 2px 2px 3px rgba(0,0,0,0.7);}
 #go{position:absolute;top:40%;left:50%;margin:0 0 0 -100px;}
 #main{overflow: auto!important;}
