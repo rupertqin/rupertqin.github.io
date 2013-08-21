@@ -1,4 +1,6 @@
-words_train
+my blog
 ===========
 
-drag words to train box
+* how to use it
+* be a child, so there is no limited
+* try to break rules everyday
