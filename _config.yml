@@ -1,4 +1,5 @@
 name: Your New Jekyll Site
 markdown: redcarpet
 pygments: true
-permalink: 	/blog/:title
+permalink: 	/:title
+port:				4000

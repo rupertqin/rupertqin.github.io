@@ -13,7 +13,7 @@ title: Your New Jekyll Site
     {% endfor %}
   </ul>
 
-  {% highlight ruby %}
+  {% highlight ruby linenos %}
     def show
       @widget = Widget(params[:id])
       respond_to do |format|
@@ -22,5 +22,7 @@ title: Your New Jekyll Site
       end
     end
   {% endhighlight %}
-  
+
+  <a href='{% post_url 2013-08-23-second-post %}'>my second post</a>
+
 </div>
