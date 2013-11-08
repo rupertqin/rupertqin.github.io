@@ -20,5 +20,14 @@ print_hi('Tom')
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh].
 
+<a href="#" class="btn"><span>Default</span></a>
+<a href="#" class="btn btn-blue"><span>Blue</span></a>
+<a href="#" class="btn btn-green"><span>Green</span></a>
+<a href="#" class="btn btn-red"><span>Red</span></a>
+<a href="#" class="btn btn-yellow"><span>Yellow</span></a>
+<a href="#" class="btn btn-turquoise"><span>Turquoise</span></a>
+<a href="#" class="btn btn-black"><span>Black</span></a>
+<a href="#" class="btn btn-brown"><span>Brown</span></a>
+
 [jekyll-gh]: https://github.com/mojombo/jekyll
 [jekyll]:    http://jekyllrb.com

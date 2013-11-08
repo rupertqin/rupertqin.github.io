@@ -26,7 +26,6 @@ Check out the [Jekyll docs][jekyll] for more info on how to get the most out of 
 
 {% gist 5e258462dad2059a7314 %}
 [I'm an inline-style link with title](https://www.google.com "Google's Homepage")
-[my second post]({% post_url 2013-08-23-second-post %})
 
 
 ![My helpful screenshot]({{ site.url }}/assets/images/3.jpg)

@@ -27,7 +27,6 @@ p { margin: 1em 0; }
 
 a         { color: #00a; }
 a:hover   { color: #000; }
-a:visited { color: #a0a; }
 
 /*****************************************************************************/
 /*
@@ -58,7 +57,7 @@ ul.posts span {
 .site {
   font-size: 115%;
   text-align: justify;
-  width: 42em;
+  width: 940px;
   margin: 3em auto 2em;
   line-height: 1.5em;
 }

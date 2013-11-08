@@ -2,27 +2,51 @@
 layout: default
 title: Your New Jekyll Site
 ---
+<div class="row">
 
-<div id="home">
-  <h1>Blog PostsYYYY</h1>
-  <ul class="posts">
-    {% for post in site.posts %}
-      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
+  <div class="col-sm-4">
+    <div class="widget-container boxed">
+      <div class="widget-container widget-avatar boxed boxed-turquoise">
+          <div class="inner">
+              <h5>Blog Posts</h5>
+              <ul class="posts">
+                {% for post in site.posts %}
+                  <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
 
-      </li>
-    {% endfor %}
-  </ul>
+                  </li>
+                {% endfor %}
+              </ul>
+          </div>
+      </div>
+    </div>
+  </div>
 
-  {% highlight ruby linenos %}
-    def show
-      @widget = Widget(params[:id])
-      respond_to do |format|
-        format.html # show.html.erb
-        format.json { render json: @widget }
-      end
-    end
-  {% endhighlight %}
+  <div class="col-sm-4">
+    <div class="widget-container boxed">
+      <div class="widget-container widget-avatar boxed boxed-yellow">
+          <div class="inner">
+              <h5>Rupert QIN</h5>
+              <span class="subtitle">developer</span>
+              <div class="avatar">
+                  <img src="https://0.gravatar.com/avatar/fb5c8dd46aa5d16a89468e407c824faf?d=https%3A%2F%2Fidenticons.github.com%2F41ee64667355e1b88d44d7d6e9692736.png&r=x&s=440" alt="" />
+              </div>
+              <div class="followers">
+                  <span class="counter">125</span> followers
+              </div>
+              <a href="#" class="btn btn-brown btn-follow">
+                  <span><i></i>Follow</span>
+              </a>
+          </div>
+      </div>
+    </div>
+  </div>
 
-  <a href='{% post_url 2013-08-23-second-post %}'>my second post</a>
+  <div class="col-sm-4">
+    <div class="widget-container widget_calendar boxed boxed-red">
+      <div class="inner">
+        <input type="text" name="date_departure" class="inputField" id="date_departure">
+      </div>
+    </div>
+  </div>
 
 </div>

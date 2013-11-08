@@ -6,6 +6,23 @@
         <title>Your New Jekyll Site</title>
         <meta name="viewport" content="width=device-width">
 
+     
+
+        <!-- main JS libs -->
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/modernizr.min.js"></script>
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/jquery-1.10.0.js"></script>
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/jquery-ui.min.js"></script>
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/bootstrap.min.js"></script>
+
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/general.js"></script>
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/jquery.powerful-placeholder.min.js"></script>
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/jquery-ui.multidatespicker.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- Style CSS -->
+        <link href="/PixelKit/modern-touch/modern-touch-css/css/bootstrap.css" media="screen" rel="stylesheet">
+        <link href="/PixelKit/modern-touch/modern-touch-css/style.css" media="screen" rel="stylesheet">
+        
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
 
@@ -16,61 +33,117 @@
     <body>
 
         <div class="container">
-          <div class="site">
-            <div class="header">
-              <h1 class="title"><a href="/">School on fire</a></h1>
-              <a class="extra" href="/">home</a>
+          <div class="content">
+            <div class="row">
+              <div class="col-sm-12">
+                <div id="topmenu">
+                  <ul class="dropdown clearfix boxed boxed-blue">
+                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <li><a href="/"><span>Home</span></a></li>
+                      <li><a href="#"><span>Services</span></a>
+                          <ul>
+                              <li><a href="#">Link 1</a></li>
+                              <li><a href="#">Link 2</a></li>
+                              <li><a href="#">Link 3</a>
+                                  <ul>
+                                      <li><a href="#">Link 4</a></li>
+                                      <li><a href="#">Link 5</a></li>
+                                      <li><a href="#">Link 6</a></li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </li>
+                      <li><a href="#"><span>About</span></a></li>
+                      <li class="menu-search">
+                          <form id="searchForm" class="menu-search-form" method="post">
+                              <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
+                              <input type="submit" value="" class="btn menu-search-submit" name="search-send" />
+                          </form>
+                      </li>
+                  </ul>
+                </div>
+                <h1 class="title"><a href="/">School on fire</a></h1>
+              
+                
+              </div>
+
             </div>
 
-                <div id="home">
-  <h1>Blog PostsYYYY</h1>
-  <ul class="posts">
-    
-      <li><span>23 Aug 2013</span> &raquo; <a href="/second-post">my second post</a>
+            <div class="row">
 
-      </li>
-    
-      <li><span>22 Aug 2013</span> &raquo; <a href="/welcome-to-jekyll">Welcome to Jekyll!</a>
+  <div class="col-sm-4">
+    <div class="widget-container boxed">
+      <div class="widget-container widget-avatar boxed boxed-turquoise">
+          <div class="inner">
+              <h5>Blog Posts</h5>
+              <ul class="posts">
+                
+                  <li><span>22 Aug 2013</span> &raquo; <a href="/second-post">my second post</a>
 
-      </li>
-    
-      <li><span>22 Aug 2013</span> &raquo; <a href="/first-post">my first post</a>
+                  </li>
+                
+                  <li><span>21 Aug 2013</span> &raquo; <a href="/welcome-to-jekyll">Welcome to Jekyll!</a>
 
-      </li>
-    
-  </ul>
+                  </li>
+                
+                  <li><span>21 Aug 2013</span> &raquo; <a href="/first-post">my first post</a>
 
-  <div class="highlight"><pre><code class="ruby"><span class="lineno">1</span>     <span class="k">def</span> <span class="nf">show</span>
-<span class="lineno">2</span>       <span class="vi">@widget</span> <span class="o">=</span> <span class="no">Widget</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
-<span class="lineno">3</span>       <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
-<span class="lineno">4</span>         <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="c1"># show.html.erb</span>
-<span class="lineno">5</span>         <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@widget</span> <span class="p">}</span>
-<span class="lineno">6</span>       <span class="k">end</span>
-<span class="lineno">7</span>     <span class="k">end</span>
-<span class="lineno">8</span>   
-</code></pre></div>
+                  </li>
+                
+              </ul>
+          </div>
+      </div>
+    </div>
+  </div>
 
-  <a href='/second-post'>my second post</a>
+  <div class="col-sm-4">
+    <div class="widget-container boxed">
+      <div class="widget-container widget-avatar boxed boxed-yellow">
+          <div class="inner">
+              <h5>Rupert QIN</h5>
+              <span class="subtitle">developer</span>
+              <div class="avatar">
+                  <img src="https://0.gravatar.com/avatar/fb5c8dd46aa5d16a89468e407c824faf?d=https%3A%2F%2Fidenticons.github.com%2F41ee64667355e1b88d44d7d6e9692736.png&r=x&s=440" alt="" />
+              </div>
+              <div class="followers">
+                  <span class="counter">125</span> followers
+              </div>
+              <a href="#" class="btn btn-brown btn-follow">
+                  <span><i></i>Follow</span>
+              </a>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-4">
+    <div class="widget-container widget_calendar boxed boxed-red">
+      <div class="inner">
+        <input type="text" name="date_departure" class="inputField" id="date_departure">
+      </div>
+    </div>
+  </div>
 
 </div>
 
-            <div class="footer">
-              <div class="contact">
-                <p>
-                  Your Name<br />
-                  What You Are<br />
-                  your@email.com
-                </p>
-              </div>
-              <div class="contact">
-                <p>
-                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
-                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
-                </p>
+            <div class="row">
+              <div class="footer">
+                <div class="contact">
+                  <p>
+                    Rupert qin<br />
+                    conveyr@qq.com
+                  </p>
+                </div>
+                <div class="contact">
+                  <p>
+                    <a href="http://github.com/rupertqin/">github.com/rupertqin</a><br />
+                  </p>
+                </div>
               </div>
             </div>
+
           </div>
-        </div> <!-- /container -->
+        </div>
 
     </body>
 </html>
