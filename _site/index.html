@@ -6,9 +6,6 @@
         <title>Your New Jekyll Site</title>
         <meta name="viewport" content="width=device-width">
 
-     
-
-        
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="/css/syntax.css">
 
@@ -18,6 +15,62 @@
     </head>
     <body>
 
+        <div class="container">
+          <div class="site">
+            <div class="header">
+              <h1 class="title"><a href="/">School on fire</a></h1>
+              <a class="extra" href="/">home</a>
+            </div>
+
+                <div id="home">
+  <h1>Blog PostsYYYY</h1>
+  <ul class="posts">
+    
+      <li><span>23 Aug 2013</span> &raquo; <a href="/second-post">my second post</a>
+
+      </li>
+    
+      <li><span>22 Aug 2013</span> &raquo; <a href="/welcome-to-jekyll">Welcome to Jekyll!</a>
+
+      </li>
+    
+      <li><span>22 Aug 2013</span> &raquo; <a href="/first-post">my first post</a>
+
+      </li>
+    
+  </ul>
+
+  <div class="highlight"><pre><code class="ruby"><span class="lineno">1</span>     <span class="k">def</span> <span class="nf">show</span>
+<span class="lineno">2</span>       <span class="vi">@widget</span> <span class="o">=</span> <span class="no">Widget</span><span class="p">(</span><span class="n">params</span><span class="o">[</span><span class="ss">:id</span><span class="o">]</span><span class="p">)</span>
+<span class="lineno">3</span>       <span class="n">respond_to</span> <span class="k">do</span> <span class="o">|</span><span class="nb">format</span><span class="o">|</span>
+<span class="lineno">4</span>         <span class="nb">format</span><span class="o">.</span><span class="n">html</span> <span class="c1"># show.html.erb</span>
+<span class="lineno">5</span>         <span class="nb">format</span><span class="o">.</span><span class="n">json</span> <span class="p">{</span> <span class="n">render</span> <span class="ss">json</span><span class="p">:</span> <span class="vi">@widget</span> <span class="p">}</span>
+<span class="lineno">6</span>       <span class="k">end</span>
+<span class="lineno">7</span>     <span class="k">end</span>
+<span class="lineno">8</span>   
+</code></pre></div>
+
+  <a href='/second-post'>my second post</a>
+
+</div>
+
+            <div class="footer">
+              <div class="contact">
+                <p>
+                  Your Name<br />
+                  What You Are<br />
+                  your@email.com
+                </p>
+              </div>
+              <div class="contact">
+                <p>
+                  <a href="http://github.com/yourusername/">github.com/yourusername</a><br />
+                  <a href="http://twitter.com/yourusername/">twitter.com/yourusername</a><br />
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> <!-- /container -->
 
     </body>
 </html>
