@@ -5,28 +5,6 @@
 /*****************************************************************************/
 
 /* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-}
-
-html, body { height: 100%; }
-
-body {
-  background-color: #FFF;
-  font: 13.34px Helvetica, Arial, sans-serif;
-  font-size: small;
-  text-align: center;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-size: 100%; }
-
-h1 { margin-bottom: 1em; }
-p { margin: 1em 0; }
-
-a         { color: #00a; }
-a:hover   { color: #000; }
 
 /*****************************************************************************/
 /*
@@ -36,6 +14,7 @@ a:hover   { color: #000; }
 ul.posts {
   list-style-type: none;
   margin-bottom: 2em;
+  text-align: left;
 }
 
 ul.posts li {
@@ -43,16 +22,21 @@ ul.posts li {
 }
 
 ul.posts span {
-  color: #aaa;
+  color: #666;
   font-family: Monaco, "Courier New", monospace;
   font-size: 80%;
 }
+
+ul.posts a {color: #fff;margin-left: 5px;}
 
 /*****************************************************************************/
 /*
 /* Site
 /*
 /*****************************************************************************/
+
+.header .title {text-align: center;}
+.header .title a {font-size: 36px;color: #14B1C7;line-height: 100px;}
 
 .site {
   font-size: 115%;
@@ -127,10 +111,18 @@ ul.posts span {
 /*****************************************************************************/
 
 /* standard */
+.post {
+  background: #fff;
+  padding: 30px;
+  text-align: left;
+}
+a {color: #428bca;}
+.post a:hover {color: #3bbec0;}
 .post pre {
   border: 1px solid #ddd;
   background-color: #eef;
-  padding: 0 .4em;
+  padding: .5em .8em;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
 }
 
 .post ul, .post ol {
@@ -141,6 +133,7 @@ ul.posts span {
   border: 1px solid #ddd;
   background-color: #eef;
   padding: 0 .2em;
+  line-height: 162%;
 }
 
 .post pre code {
@@ -157,3 +150,8 @@ ul.posts span {
 .post pre.terminal code {
   background-color: #333;
 }
+
+h1 {font-size: 20px; text-align: center;font-style: normal;font-weight: bold;}
+.meta {border-bottom: 1px dashed #ccc;padding-bottom: 10px;}
+
+.footer {text-align: center;margin: 30px auto;color: #eee;}
