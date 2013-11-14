@@ -16,6 +16,15 @@ title: Your New Jekyll Site
                   </li>
                 {% endfor %}
               </ul>
+
+              <ul class="posts">
+                {% for post in site.tags.TAG %}
+                  <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
+
+                  </li>
+                {% endfor %}
+              </ul>
+              
           </div>
       </div>
     </div>

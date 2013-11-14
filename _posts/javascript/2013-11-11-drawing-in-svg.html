@@ -1,0 +1,119 @@
+<meta content="text/html;charset=UTF-8" http-equiv="Content-type">
+<script src="js/jquery.js"></script>
+<script src="js/raphael.js"></script>
+<style>
+  body{background: #ccc;}
+  .container{display: inline-block;margin: 20px;padding: 20px;}
+  .container svg{background: #fff;}
+</style>
+<script>
+$(document).ready(function(){
+
+var Drawing = {
+
+  paper : {},
+
+  line : {},
+
+  pathArray : [],
+
+  config : {
+    container : $("#container"),
+    width: 1000,
+    height: 1000,
+    color: "#ff6600",
+    strokeWidth: 3
+  },
+
+  init : function(config){
+
+    // provide for custom configuration via init()
+    if (config && typeof(config) == 'object') {
+        $.extend(this.config, config);
+    }
+
+    var $container = this.config.container,
+        width = this.config.width,
+        height = this.config.height;
+
+     this.paper = Raphael($container[0], width, height);
+
+    // set container the same size
+    $container.css({
+      width: width,
+      height: height
+    })
+
+    // bind events
+    $container.on('mousedown', {self: this}, this.mouseDownHandle)
+    $(document).mouseup(function(){ $(this).off('mousemove'); })
+
+  },
+
+  mouseDownHandle : function(e){
+    var self = e.data.self
+    var coordinates = self.getCoordinates(e)
+    self.pathArray = ["M", coordinates.x, coordinates.y];
+    
+    // new line
+    self.line = self.paper.path()
+    self.setLineAttr()
+
+    // bind mousemove to document is fatal, so when you draw out and in the paper, the lines don't mess up
+    $(document).on('mousemove', {self: self}, self.mouseMoveHandle)
+    
+  },
+
+  mouseMoveHandle : function(e){
+    var self = e.data.self
+    var coordinates = self.getCoordinates(e)
+    self.pathArray.push(coordinates.x, coordinates.y);
+
+    // draw line
+    self.line.attr("path", self.pathArray);
+  },
+
+  setLineAttr : function(){
+    this.line.attr({
+      stroke: this.config.color,
+      "stroke-width": this.config.strokeWidth
+    });
+  },
+
+  getCoordinates : function(e){
+    var $container = this.config.container,
+        position = $container.find('svg').offset(),
+        x = e.pageX - position.left,
+        y = e.pageY - position.top;
+
+    return {x:x, y:y}
+  }
+
+}
+var draw1 = jQuery.extend(true, {}, Drawing);
+var draw2 = jQuery.extend(true, {}, Drawing);
+draw1.init({
+  container : $("#draw1"),
+  color: '#aaff77',
+  strokeWidth: 5,
+  width: 500,
+  height: 360
+})
+
+draw2.init({
+  container : $("#draw2"),
+  color: '#eeff77',
+  strokeWidth: 8,
+  width: 500,
+  height: 360
+})
+
+
+
+})
+</script>
+
+<body>
+ <div id='draw1' class="container"> </div>
+ <div id='draw2' class="container"> </div>
+</body>
