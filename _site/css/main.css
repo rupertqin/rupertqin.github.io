@@ -35,8 +35,8 @@ ul.posts a {color: #fff;margin-left: 5px;}
 /*
 /*****************************************************************************/
 
-.header .title {text-align: center;}
-.header .title a {font-size: 36px;color: #14B1C7;line-height: 100px;}
+.header .title {text-align: center;margin: 0 auto 40px;}
+.header .title a {font-size: 36px;color: #14B1C7;}
 
 .site {
   font-size: 115%;
@@ -123,6 +123,7 @@ a {color: #428bca;}
   background-color: #eef;
   padding: .5em .8em;
   font-family: Consolas, "Liberation Mono", Courier, monospace;
+  margin-bottom: 30px;
 }
 
 .post ul, .post ol {

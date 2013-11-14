@@ -1,5 +1,5 @@
 name: Coigres
 markdown: redcarpet
 pygments: true
-permalink: 	/:title
+permalink: 	none
 port:				4000
