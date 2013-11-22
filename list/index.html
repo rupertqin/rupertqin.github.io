@@ -16,7 +16,11 @@ title: Your New Jekyll Site
                 <span class="date">{{ post.date }}</span>
               </p>
               <div class="content">
-                {{ post.content }}
+                {% if post.description %}
+                <span class="body">{{ post.description }}</span>
+                {% else %}
+                <span class="body">{{ post.excerpt | strip_html }}</span>
+                {% endif %}
               </div>
             {% endfor %}
 
