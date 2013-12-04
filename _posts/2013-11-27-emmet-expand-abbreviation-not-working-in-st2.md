@@ -1,0 +1,37 @@
+---
+layout: post
+title:  "emmet expand abbreviation not working in sublime-text-2"
+categories: za
+tags: editor emmet
+---
+
+[emmet syntax](http://docs.emmet.io/abbreviations/syntax/)
+## use `Tab` to expand this   
+`ul>li.item$@3*5`  
+it should transformed to from 3 to 7,but the result is:
+	
+```html
+
+	<ul>
+	    <li class="item1"></li>
+	    <li class="item2"></li>
+	    <li class="item3"></li>
+	    <li class="item4"></li>
+	    <li class="item5"></li>
+	</ul>
+```
+
+
+## Using `Ctrl+E` to instead of `Tab`:
+
+```html
+
+	<ul>
+	    <li class="item3"></li>
+	    <li class="item4"></li>
+	    <li class="item5"></li>
+	    <li class="item6"></li>
+	    <li class="item7"></li>
+	</ul>
+``` 
+

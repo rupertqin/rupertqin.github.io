@@ -133,8 +133,10 @@ a {color: #428bca;}
 .post code {
   border: 1px solid #ddd;
   background-color: #eef;
-  padding: 0 .2em;
+  padding: .2em .3em;
   line-height: 162%;
+  font-size: 12px;
+  font-family: Menlo, Monaco;
 }
 
 .post pre code {
@@ -152,7 +154,9 @@ a {color: #428bca;}
   background-color: #333;
 }
 
-h1 {font-size: 20px; text-align: center;font-style: normal;font-weight: bold;}
+.post h2 {margin-top: 50px;font-weight: 500;}
+
+h1 {font-size: 36px;text-align: center;font-style: normal;font-weight: 500;}
 .meta {border-bottom: 1px dashed #ccc;padding-bottom: 10px;}
 
 .footer {text-align: center;margin: 30px auto;color: #eee;}

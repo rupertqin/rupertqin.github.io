@@ -31,3 +31,16 @@ instead of
 Find your node installation path simply by typing
 
 `which node`
+
+
+## using node version manager to install node
+[stackoverflow](http://stackoverflow.com/questions/5123533/how-can-i-uninstall-or-upgrade-my-old-node-js-version)
+
+1. Install npm using curl (or wget)  
+`curl http://npmjs.org/install.sh | sh` or `curl -k https://npmjs.org/install.sh | sudo sh`
+
+2. Install n using npm  
+`npm install -g n`
+
+3. Install the latest version of node using n  
+`n latest`

@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "github fork api"
+categories: za
+---
+
+## Showcase your GitHub repo's success with these three simple, static buttons featuring dynamic watch, fork, and follower counts.
+
+http://ghbtns.com/
+
+<iframe id="gh-fork" src="http://ghbtns.com/github-btn.html?user=ironsummitmedia&amp;repo=startbootstrap&amp;type=fork" allowtransparency="true" frameborder="0" scrolling="0" width="55px" height="20px"></iframe>
+
+<iframe id="gh-star" src="http://ghbtns.com/github-btn.html?user=ironsummitmedia&amp;repo=startbootstrap&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="110px" height="20px"></iframe>
