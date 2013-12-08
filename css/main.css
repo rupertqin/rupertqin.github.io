@@ -3,7 +3,10 @@
 /* Common
 /*
 /*****************************************************************************/
-
+p {line-height: 162%;}
+ul {line-height: 162%;}
+a {color: #428bca;text-decoration: underline;}
+a:hover {text-decoration: underline;}
 /* Global Reset */
 
 /*****************************************************************************/
@@ -37,7 +40,8 @@ ul.posts a {color: #fff;margin-left: 5px;}
 
 .header .title {text-align: center;margin: 0 auto 40px;}
 .header .title a {font-size: 36px;color: #14B1C7;}
-
+.header a {text-decoration: none;}
+.header a:hover {text-decoration: none;}
 .site {
   font-size: 115%;
   text-align: justify;
@@ -116,7 +120,6 @@ ul.posts a {color: #fff;margin-left: 5px;}
   padding: 30px;
   text-align: left;
 }
-a {color: #428bca;}
 .post a:hover {color: #3bbec0;}
 .post pre {
   border: 1px solid #ddd;
@@ -155,8 +158,10 @@ a {color: #428bca;}
 }
 
 .post h2 {margin-top: 50px;font-weight: 500;}
+.post img {max-width: 80%;margin: 30px auto;}
 
 h1 {font-size: 36px;text-align: center;font-style: normal;font-weight: 500;}
 .meta {border-bottom: 1px dashed #ccc;padding-bottom: 10px;}
 
 .footer {text-align: center;margin: 30px auto;color: #eee;}
+.footer a {color: #eee;}
