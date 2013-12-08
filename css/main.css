@@ -178,3 +178,15 @@ ul.posts a {color: #fff;margin-left: 5px;}
 
 .footer {text-align: center;margin: 30px auto;color: #eee;}
 .footer a {color: #eee;}
+
+/*****************************************************************************/
+/*
+/* artcle list
+/*
+/*****************************************************************************/
+
+.artcle_list .inner{text-align: left;}
+.artcle_list .inner h1 {text-align: left;}
+.artcle_list .inner h2 {margin-top: 50px;font-weight: 500;}
+.artcle_list .inner .author {font-size: 9px;}
+.artcle_list .inner .content {padding: 10px 0;color: #333;font-size: 14px;}

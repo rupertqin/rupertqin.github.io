@@ -2,16 +2,16 @@
 layout: default
 title: Your New Jekyll Site
 ---
-<div class="row">
+<div class="row artcle_list">
 
   <div class="col-sm-12">
     <div class="widget-container boxed">
       <div class="widget-container widget-avatar boxed">
           <div class="inner">
-            <h5>Blog Posts</h5>
+            <h1>Blog Posts</h1>
             <!-- This loops through the paginated posts -->
             {% for post in paginator.posts %}
-              <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+              <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
               <p class="author">
                 <span class="date">{{ post.date }}</span>
               </p>
