@@ -10,7 +10,7 @@ title: Your New Jekyll Site
           <div class="inner">
             <h5>Blog Posts</h5>
             <ul class="posts">
-              {% for post in site.categories.za limit:5 %}  <!-- site.tags.fun -->
+              {% for post in site.categories.za limit:8 %}  <!-- site.tags.fun -->
                 <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a>
                 </li>
               {% endfor %}

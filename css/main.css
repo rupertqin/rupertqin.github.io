@@ -5,8 +5,14 @@
 /*****************************************************************************/
 p {line-height: 162%;}
 ul {line-height: 162%;}
-a {color: #428bca;text-decoration: underline;}
-a:hover {text-decoration: underline;}
+
+li a, .post a {color: #428bca;text-decoration: underline;}
+li a:hover, .post a:hover {text-decoration: underline;}
+.post a:hover {color: #3bbec0;}
+
+h1 {font-size: 36px;text-align: center;font-style: normal;font-weight: 500;}
+.meta {border-bottom: 1px dashed #ccc;padding-bottom: 10px;}
+
 /* Global Reset */
 
 /*****************************************************************************/
@@ -31,6 +37,8 @@ ul.posts span {
 }
 
 ul.posts a {color: #fff;margin-left: 5px;}
+
+.col-sm-4 .posts li {white-space: nowrap;overflow: hidden;}
 
 /*****************************************************************************/
 /*
@@ -120,7 +128,7 @@ ul.posts a {color: #fff;margin-left: 5px;}
   padding: 30px;
   text-align: left;
 }
-.post a:hover {color: #3bbec0;}
+
 .post pre {
   border: 1px solid #ddd;
   background-color: #eef;
@@ -160,8 +168,13 @@ ul.posts a {color: #fff;margin-left: 5px;}
 .post h2 {margin-top: 50px;font-weight: 500;}
 .post img {max-width: 80%;margin: 30px auto;}
 
-h1 {font-size: 36px;text-align: center;font-style: normal;font-weight: 500;}
-.meta {border-bottom: 1px dashed #ccc;padding-bottom: 10px;}
+
+
+/*****************************************************************************/
+/*
+/* footer
+/*
+/*****************************************************************************/
 
 .footer {text-align: center;margin: 30px auto;color: #eee;}
 .footer a {color: #eee;}
