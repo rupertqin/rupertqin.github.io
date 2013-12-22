@@ -12,7 +12,6 @@ categories: javascript
   * [Closure](http://jsfiddle.net/vnkuZ/2586/)
 
 ```javascript
-
 	function makeSizer(size) {
 	  return function() {
 	    document.body.style.fontSize = size + 'px';

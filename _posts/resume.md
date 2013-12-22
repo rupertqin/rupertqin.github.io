@@ -5,7 +5,7 @@ Name: 				|Rupert qin(覃湘)	|	Gender:  | Male
 ------- 			| --------------	| 		-------| -----
 Date of Birth:		|1985/2/25		 	|Residency:|Shanghai-Xuhui
 Mobile Phone:		|18692806389	 	|Email:|conveyr@qq.com
-Salary Expectation:|150,000-180,000RMB
+Salary Expectation:|120,000-150,000RMB
 Github:				|https://github.com/rupertqin
 
 
