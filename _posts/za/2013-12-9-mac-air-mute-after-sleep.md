@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "mac air sound is mute after sleep"
-categories: za
-tags: mac air sound
+tags: za mac air sound
 ---
 
 ## mac air mute after sleep

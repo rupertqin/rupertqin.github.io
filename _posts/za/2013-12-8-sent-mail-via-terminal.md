@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "sent mail via terminal"
-categories: za
+tags: za
 ---
 
 [using macosx lion command line mail with gmail as smtp](http://www.anujgakhar.com/2011/12/09/using-macosx-lion-command-line-mail-with-gmail-as-smtp/)

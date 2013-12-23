@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  '"could not start spork for rspec" in guard-spork'
-categories: za
-tags: ruby rails
+tags: za ruby rails
 ---
 
 [guard-spork](https://github.com/guard/guard-spork#options)

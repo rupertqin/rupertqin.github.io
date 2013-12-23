@@ -1,7 +1,8 @@
 name: Coigres
 markdown: redcarpet
+encoding: UTF-8
 pygments: true
-permalink: 	none
+permalink: /:categories/:title/
 port:				5000
-paginate: 5
+paginate: 20
 paginate_path: "list/:num"

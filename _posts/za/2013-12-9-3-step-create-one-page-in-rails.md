@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "3 step create one page in rails"
-categories: za
-tags: rails ruby
+tags: za rails ruby
 ---
 
 * `config/routes.rb` config a path: `A#B`

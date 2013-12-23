@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "uninstall app clean in mac"
-categories: za
+tags: za
 ---
 
 [Uninstall iBooks Author – How to Remove iBooks Author from Mac OS X](http://www.uninstallapp.org/uninstall-ibooks-author-how-to-remove-ibooks-author-from-mac-os-x)

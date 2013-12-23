@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "github fork api"
-categories: za
+tags: za
 ---
 
 ## Showcase your GitHub repo's success with these three simple, static buttons featuring dynamic watch, fork, and follower counts.

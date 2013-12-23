@@ -1,8 +1,7 @@
 ---
 layout: post
 title:  "emmet expand abbreviation not working in sublime-text-2"
-categories: za
-tags: editor emmet
+tags: za editor emmet
 ---
 
 [emmet syntax](http://docs.emmet.io/abbreviations/syntax/)
