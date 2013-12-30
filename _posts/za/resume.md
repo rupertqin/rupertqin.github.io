@@ -4,7 +4,7 @@
 Name: 				|Rupert qin(覃湘)	|	Gender:  | Male
 ------- 			| --------------	| 		-------| -----
 Date of Birth:		|1985/2/25		 	|Residency:|Shanghai-Xuhui
-Mobile Phone:		|18692806389	 	|Email:|conveyr@qq.com
+Mobile Phone:		|18692806389	 	|Email:|rupert.qing@gmail.com
 Salary Expectation:|120,000-150,000RMB
 Github:				|https://github.com/rupertqin
 
@@ -18,12 +18,12 @@ Senior Front-end developer, 2012/3--
 	* responsible for the main tasks in front-end's core moudels
 
 * Affordable Luxury Network  
-Senior Front-end developer, 2010/9--2012/1
+Senior Front-end developer, 2010/9--2012/3
 
 	* reconstrcture our web site in the front-end. And created wedgets to improve the 	site.
 	
 * ChenLu Inc.
-Junior Front-end developer, 2008/6--2010/8
+Junior Front-end developer, 20010/2--2010/9
 
 	* built games' web sites. Web designers did the designs, I converted it to dynamic web 	pages. And designed,developed and optimized the front-end functionality.
 	
