@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  "Chinese css counter"
-categories: font-end
-tags: css
+categories: front-end
+tags: css front-end
 ---
 ### Mozilla developer:
 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type" class="btn btn-yellow"><span>list-style-type</span></a>
