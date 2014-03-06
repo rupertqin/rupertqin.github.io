@@ -41,5 +41,7 @@ Github:				|https://github.com/rupertqin
 
 * 擅长html5,css3,canvas,SVG等前端新技术 
 * 常使用的框架有Jquery, mootools, backbone, underscore, requirejs, Angularjs等  
-* 熟练使用coffeescript,sass等提高开发效率的工具
+* 运用git进行代码的开发和管理  
+* 对nodejs和ruby on rails等后端技术，和mysql， postgresql数据库有一定了解
+* 熟练使用grunt, bower等提高开发效率的工具
 
