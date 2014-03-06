@@ -5,7 +5,7 @@
 ------- 			| --------------	| 		-------| -----
 生日:		|1985/2/25		 	|住址:|上海徐汇
 手机:		|18692806389	 	|邮箱:|rupert.qing@gmail.com
-个人主页:				|http://coigres.com|期望薪资:|150,000-200,000RMB
+个人主页:				|http://coigres.com|期望薪资:|130,000-160,000RMB
 Github:				|https://github.com/rupertqin
 
 
