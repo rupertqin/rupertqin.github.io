@@ -38,5 +38,7 @@ E-Business Bachelor, May 2009
 
 * good at Html5, css3,canvas,SVG etc. 
 * the most commonly used framework include Jquery, mootools, backbone, underscore, requirejs, Angularjs. 
-* familiar with coffee js and Sass that make my work efficient.
+* using Git to maintain code for my projects.
+* familiar with grunt and bower ect. that make my work efficient.
+* interesting to and understand backend lang such as nodejs, ruby on rails
 
