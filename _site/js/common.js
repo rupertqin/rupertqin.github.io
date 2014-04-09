@@ -15,4 +15,13 @@ $(document).ready(function($) {
 	}
 
 	assignCalendar('#date_departure');
+
+	$("#searchForm").submit(function(event){
+		if($(this).find(":text[name=search]").val() == "") {
+			event.preventDefault();
+		}
+	});
+
+	
+
 });

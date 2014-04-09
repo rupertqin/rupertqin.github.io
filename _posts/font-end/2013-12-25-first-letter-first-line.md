@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "first-letter uppercase in CSS"
-categories: font-end
+categories: frontend
 tags: css
 ---
 

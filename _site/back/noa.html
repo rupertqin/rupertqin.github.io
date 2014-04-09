@@ -17,6 +17,7 @@
         <script src="/PixelKit/modern-touch/modern-touch-css/js/general.js"></script>
         <script src="/PixelKit/modern-touch/modern-touch-css/js/jquery.powerful-placeholder.min.js"></script>
         <script src="/PixelKit/modern-touch/modern-touch-css/js/jquery-ui.multidatespicker.js"></script>
+        <script src="/js/fuse.js"></script>
         <script src="/js/common.js"></script>
 
         <!-- Style CSS -->
@@ -57,9 +58,9 @@
                       </li>
                       <li><a href="#"><span>About</span></a></li>
                       <li class="menu-search">
-                          <form id="searchForm" class="menu-search-form" method="post">
+                          <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
-                              <input type="submit" value="" class="btn menu-search-submit" name="search-send" />
+                              <input type="submit" value="" class="btn menu-search-submit" />
                           </form>
                       </li>
                   </ul>

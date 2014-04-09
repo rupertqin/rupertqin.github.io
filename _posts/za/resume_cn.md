@@ -5,7 +5,7 @@
 ------- 			| --------------	| 		-------| -----
 生日:		|1985/2/25		 	|住址:|上海徐汇
 手机:		|18692806389	 	|邮箱:|rupert.qing@gmail.com
-个人主页:				|http://coigres.com|期望薪资:|130,000-160,000RMB
+个人主页:				|http://coigres.com|期望薪资:|180,000-200,000RMB
 Github:				|https://github.com/rupertqin
 
 
@@ -42,6 +42,6 @@ Github:				|https://github.com/rupertqin
 * 擅长html5,css3,canvas,SVG等前端新技术 
 * 常使用的框架有Jquery, mootools, backbone, underscore, requirejs, Angularjs等  
 * 运用git进行代码的开发和管理  
-* 对nodejs和ruby on rails等后端技术，和mysql， postgresql数据库有一定了解
+* 对nodejs和ruby on rails等后端技术，和mysql， postgresql数据库有一定的实践
 * 熟练使用grunt, bower等提高开发效率的工具
 

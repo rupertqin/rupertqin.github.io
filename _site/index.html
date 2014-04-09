@@ -17,6 +17,7 @@
         <script src="/PixelKit/modern-touch/modern-touch-css/js/general.js"></script>
         <script src="/PixelKit/modern-touch/modern-touch-css/js/jquery.powerful-placeholder.min.js"></script>
         <script src="/PixelKit/modern-touch/modern-touch-css/js/jquery-ui.multidatespicker.js"></script>
+        <script src="/js/fuse.js"></script>
         <script src="/js/common.js"></script>
 
         <!-- Style CSS -->
@@ -57,9 +58,9 @@
                       </li>
                       <li><a href="#"><span>About</span></a></li>
                       <li class="menu-search">
-                          <form id="searchForm" class="menu-search-form" method="post">
+                          <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
-                              <input type="submit" value="" class="btn menu-search-submit" name="search-send" />
+                              <input type="submit" value="" class="btn menu-search-submit" />
                           </form>
                       </li>
                   </ul>
@@ -79,6 +80,18 @@
             <h5>Blog Posts</h5>
             <ul class="posts">
                 <!-- site.tags.fun -->
+                <li><span>06 Apr 2014</span> &raquo; <a href="/todo-list/">the todo list</a>
+                </li>
+                <!-- site.tags.fun -->
+                <li><span>01 Apr 2014</span> &raquo; <a href="/product/">product</a>
+                </li>
+                <!-- site.tags.fun -->
+                <li><span>01 Apr 2014</span> &raquo; <a href="/game-theory/">game theory</a>
+                </li>
+                <!-- site.tags.fun -->
+                <li><span>03 Mar 2014</span> &raquo; <a href="/node/framework/">framework in nodejs</a>
+                </li>
+                <!-- site.tags.fun -->
                 <li><span>19 Feb 2014</span> &raquo; <a href="/node/port-is-ocuppied/">port is ocuppied</a>
                 </li>
                 <!-- site.tags.fun -->
@@ -89,18 +102,6 @@
                 </li>
                 <!-- site.tags.fun -->
                 <li><span>11 Jan 2014</span> &raquo; <a href="/rails/">rails</a>
-                </li>
-                <!-- site.tags.fun -->
-                <li><span>11 Jan 2014</span> &raquo; <a href="/heroku/">heroku</a>
-                </li>
-                <!-- site.tags.fun -->
-                <li><span>25 Dec 2013</span> &raquo; <a href="/emacs/">emacs</a>
-                </li>
-                <!-- site.tags.fun -->
-                <li><span>24 Dec 2013</span> &raquo; <a href="/safari/">Safari</a>
-                </li>
-                <!-- site.tags.fun -->
-                <li><span>23 Dec 2013</span> &raquo; <a href="/jxb/">jiaoxuebang</a>
                 </li>
               
             </ul>
@@ -120,7 +121,7 @@
                   <img src="https://0.gravatar.com/avatar/fb5c8dd46aa5d16a89468e407c824faf?d=https%3A%2F%2Fidenticons.github.com%2F41ee64667355e1b88d44d7d6e9692736.png&r=x&s=440" alt="" />
               </div>
               <div class="followers">
-                  <span class="counter">125</span> followers
+                  <span class="counter">1</span> followers
               </div>
               <a href="#" class="btn btn-brown btn-follow">
                   <span><i></i>Follow</span>

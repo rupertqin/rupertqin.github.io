@@ -191,3 +191,13 @@ ul.posts a {color: #fff;margin-left: 5px;}
 .artcle_list .inner h2 {margin-top: 50px;font-weight: 500;}
 .artcle_list .inner .author {font-size: 9px;}
 .artcle_list .inner .content {padding: 10px 0;color: #333;font-size: 14px;}
+
+/*****************************************************************************/
+/*
+/* search page
+/*
+/*****************************************************************************/
+
+.search-list .categories,.search-list .tags{float: right;margin-left: 20px;}
+.search-list .categories{font-weight: bold;display: none;}
+.search-list .tags{font-style: italic;}

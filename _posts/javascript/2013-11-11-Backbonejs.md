@@ -21,6 +21,9 @@ categories: javascript
 ## Relation between View Collection and Model
 ** the key is only the instance can use then methods of API **
 
+## backbone-patterns
+[backbone-patterns](http://ricostacruz.com/backbone-patterns/)
+
 #### Instance a View then set its model, then set edit the model
 ```javascript
 
