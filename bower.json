@@ -1,0 +1,9 @@
+{
+	"name": "rupert qin's blog",
+	"private": true,
+	"dependencies": {
+		"angular": "latest",
+		"jquery": "latest",
+		"firebase": "latest"
+	}
+}

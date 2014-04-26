@@ -1,12 +1,13 @@
 ---
 layout: post
-title:  "regular expressions"
-tags: regular
+title:  regular expression
+tags: regular expression
 ---
 
 ## source
 reference:  
 [Regular Expressions Quick Reference](http://www.regular-expressions.info/refquick.html)
+[揭开正则表达式的神秘面纱](http://www.regexlab.com/zh/regref.htm)
 [Regular Expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 
 tutorial:  

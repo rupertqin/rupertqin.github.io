@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  jquery boilerplate
-categories: frontend
+title: workflow in frontend
+categories: front-end
 ---
 
 ## Grunt
