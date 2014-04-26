@@ -17,7 +17,7 @@ Because Angular is totally modular, you can easily replace any of its parts.
 
 Lets look at `ngSrc` for a case where this technique is useful:
 
-```
+```html
 <img ng-src="/img/users/{{user.id}}.png">
 ```
 
@@ -37,7 +37,7 @@ the value of `ngSrc` and only set `src` if all of them are defined.
 We can use [decorators](https://github.com/btford/brian-talks-about-decorators) to make `ngSrc`
 have this behavior.
 
-```javascript
+```js
 angular.module('btford.ng-src', []).
   config(function ($provide) {
 
@@ -47,8 +47,8 @@ angular.module('btford.ng-src', []).
           parts = [],
           left,
           right;
-      while ((left = str.indexOf('{{', offset)) > -1 &&
-             (right = str.indexOf('}}', offset)) > -1) {
+      while ((left = str.indexOf('{ {', offset)) > -1 &&
+             (right = str.indexOf('} }', offset)) > -1) {
         parts.push(str.substr(left+2, right-left-2));
         offset = right + 1;
       }

@@ -1,15 +1,6 @@
----
-layout: post
-title:  angularFire chat app
-categories: javascript
-tags: angularFire
----
-
-
-
 <link rel="stylesheet" type="text/css" href="https://www.firebase.com/css/example.css">
 
-<script src="bower_components/angular/angular.min.js"></script>
+<script src="/bower_components/angular/angular.min.js"></script>
 
 <div  ng-app="chat" ng-controller="Chat">
   <div>
@@ -25,9 +16,9 @@ tags: angularFire
     <input id="message" type="text" ng-model="message" placeholder="Message...">
     <input id="send" type="submit" id="submit" value="Send" style="font-size:24px;">
   </form>
-  
-  <script src="bower_components/firebase/firebase.js"></script>
-  <script src="lib/angularfire.min.js"></script>
+
+  <script src="/bower_components/firebase/firebase.js"></script>
+  <script src="/lib/angularfire.0.2.0.min.js"></script>
   <script >
     angular.module('chat', ['firebase'])
       .controller('Chat', ['$scope', '$timeout', 'angularFireCollection',
