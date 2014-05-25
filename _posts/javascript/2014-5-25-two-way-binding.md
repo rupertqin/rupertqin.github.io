@@ -149,6 +149,8 @@ and the mockup:
 <div data-bind-123="id" ></div>
 ```
 
-<a class="jsbin-embed" href="http://jsbin.com/matopuwe/1/embed?js,output">Welcome to JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
+__jQuery:__
+<a class="jsbin-embed" href="http://jsbin.com/matopuwe/3/embed?html,js,output">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
 
-<a class="jsbin-embed" href="http://jsbin.com/matopuwe/1/embed">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
+__valilla:__
+<a class="jsbin-embed" href="http://jsbin.com/matopuwe/2/embed?html">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
