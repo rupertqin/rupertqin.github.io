@@ -4,6 +4,9 @@ title:  easy two-way data binding
 tags: javascript
 ---
 
+## a library
+[DataBind.js](https://github.com/grnadav/databind)
+
 ## Easy Two-Way Data Binding in JavaScript
 [Easy Two-Way Data Binding in JavaScript](http://www.lucaongaro.eu/blog/2012/12/02/easy-two-way-data-binding-in-javascript/)
 
@@ -149,8 +152,10 @@ and the mockup:
 <div data-bind-123="id" ></div>
 ```
 
+### examples 
+
 __jQuery:__
 <a class="jsbin-embed" href="http://jsbin.com/matopuwe/3/embed?html,js,output">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
 
 __valilla:__
-<a class="jsbin-embed" href="http://jsbin.com/matopuwe/2/embed?html">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
+<a class="jsbin-embed" href="http://jsbin.com/matopuwe/2/embed?html,js,output">JS Bin</a><script src="http://static.jsbin.com/js/embed.js"></script>
