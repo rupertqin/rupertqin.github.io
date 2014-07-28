@@ -14,7 +14,7 @@ tutorial:
 [Regular-Expressions.info](http://www.regular-expressions.info/)
 [Regular Expression Reference](http://www.araxis.com/merge/documentation-windows/regular-expression-reference)
 
-online tool:   
+online tool:
 [RegExr](http://gskinner.com/RegExr/)
 [Debuggex](https://www.debuggex.com)
 
@@ -28,3 +28,10 @@ URL: `^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$`
 IP: `^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$`
 
 HTML tag: `^<([a-z]+)([^<]+)*(?:>(.*)<\/\1>|\s+\/>)$`
+
+
+## match last one, use `$`
+for example: match '.jpg/.png' ect:
+```js
+/\.[a-zA-Z]+$/
+```
