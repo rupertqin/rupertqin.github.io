@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  response design
-categories: front-end
+categories: frontend
 tags: css response
 ---
 

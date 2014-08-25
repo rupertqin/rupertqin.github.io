@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  css trick
-categories: front-end
+categories: frontend
 tags: css
 ---
 

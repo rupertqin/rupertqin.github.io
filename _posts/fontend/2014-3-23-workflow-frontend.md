@@ -1,7 +1,7 @@
 ---
 layout: post
 title: workflow in frontend
-categories: front-end
+categories: frontend
 ---
 
 ## Grunt

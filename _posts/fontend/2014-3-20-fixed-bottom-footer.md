@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  a footer fixed to bottom
-categories: front-end
+categories: frontend
 tags: front-end footer
 ---
 

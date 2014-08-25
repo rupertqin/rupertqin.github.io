@@ -1,7 +1,7 @@
 ---
 layout: post
 title: things you dont know about frontend
-categories: front-end
+categories: frontend
 tags: trick 
 ---
 

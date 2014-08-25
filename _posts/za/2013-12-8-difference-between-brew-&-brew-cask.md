@@ -1,9 +1,0 @@
----
-layout: post
-title:  "difference between brew & brew cask"
-tags: za
----
-
-`brew` install services, such as mysql node
-
-`brew cask` install Apps, such as mou sublimeText2
