@@ -5,14 +5,14 @@ Name: 				|Rupert qin(覃湘)	|	Gender:  | Male
 ------- 			| --------------	| 		-------| -----
 Date of Birth:		|1985/2/25		 	|Residency:|Shanghai-Xuhui
 Mobile Phone:		|18692806389	 	|Email:|rupert.qing@gmail.com
-Salary Expectation:|130,000-160,000RMB
+个人主页:				|http://coigres.com|Salary Expectation:|250,000-300,000RMB
 Github:				|https://github.com/rupertqin
 
 
 ### Work Experience
 
 * Qinjing Tech Inc 
-Senior Front-end developer, 2012/3--
+Senior Front-end developer, 2012/3--2014/6
 
 	* deploy the project's front-end architecture 
 	* responsible for the main tasks in front-end's core moudels
@@ -37,8 +37,8 @@ E-Business Bachelor, May 2009
 ### Skills
 
 * good at Html5, css3,canvas,SVG etc. 
-* the most commonly used framework include Jquery, mootools, backbone, underscore, requirejs, Angularjs. 
-* using Git to maintain code for my projects.
-* familiar with grunt and bower ect. that make my work efficient.
+* the most commonly used framework include Jquery, mootools, lodash, requirejs, Angularjs. 
+* Used to develop under Unix/linux platform,  using Git to maintain code for my projects.
+* familiar with gulp and bower ect. that make my work efficient.
 * interesting to and understand backend lang such as nodejs, ruby on rails
 
