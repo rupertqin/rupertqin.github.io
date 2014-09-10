@@ -42,5 +42,5 @@ Github:				|https://github.com/rupertqin
 * 擅长html5,css3,canvas,SVG等前端新技术
 * 常使用的框架有jQuery, coffeescript, lodash, requirejs, Angularjs等  
 * 熟悉Unix/linux下开发，运用git进行代码的开发和管理  
-* 对nodejs和ruby on rails等后端技术，和mysql， postgresql数据库有一定的实践
+* 对nodejs和ruby on rails等后端技术，和mysql， postgresql，mongodb数据库有一定的实践
 * 熟练使用gulp, bower等提高开发效率的工具

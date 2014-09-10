@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  lamp
-tags: lamp
+title:  lamp wordpress
+tags: lamp wordpress
 ---
 
 [How To Install Wordpress on Ubuntu 14.04](https://www.digitalocean.com/community/tutorials/how-to-install-wordpress-on-ubuntu-14-04)
@@ -11,3 +11,9 @@ tags: lamp
 ##  Error: You don't have permission to access / on this server.
 
     sudo chown www-data:www-data -R /root
+
+
+## Error: Wordpress Edit Image Button Not Showing Up
+
+    aptitude update
+    aptitude install php5-gd php5-imagick﻿
