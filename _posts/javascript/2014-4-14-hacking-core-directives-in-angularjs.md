@@ -41,7 +41,6 @@ have this behavior.
 angular.module('btford.ng-src', []).
   config(function ($provide) {
 
-    // given `{{x}} y {{z}}` return `['x', 'z']`
     function getExpressions (str) {
       var offset = 0,
           parts = [],
