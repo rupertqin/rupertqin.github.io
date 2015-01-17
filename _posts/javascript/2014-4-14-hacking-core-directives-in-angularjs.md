@@ -18,7 +18,7 @@ Because Angular is totally modular, you can easily replace any of its parts.
 Lets look at `ngSrc` for a case where this technique is useful:
 
 ```html
-<img ng-src="/img/users/{{user.id}}.png">
+<img ng-src="/img/users/{{user.id\}\}.png">
 ```
 
 Consider the case where `user` or `user.id` is `undefined`.
