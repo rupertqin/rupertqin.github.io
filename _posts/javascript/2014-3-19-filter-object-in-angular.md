@@ -24,7 +24,7 @@ myApp.filter('orderObjectBy', function() {
 
 ```html
 <ul ng-controller="scartter">
-  <li ng-repeat="(key, item) in items | orderObjectBy:'color':true">{{ item.color }}</li>
+  <li ng-repeat="(key, item) in items | orderObjectBy:'color':true">{ { item.color } }</li>
 </ul>
 ```
 
