@@ -17,9 +17,9 @@ categories: javascript
 ```javascript
   function(){
     a = p;
-  } 
+  }
 
-  a = {name: function(){ b = p }}        
+  a = {name: function(){ b = p } }        
 ```
 
 the second one don't throw an error, and see this you will understand why it does:
@@ -45,13 +45,13 @@ generator.uniqueString("bohr"); //=> bohr1
 so above is different from in the return function closure as this:
 
 ```javascript
-function makeUniqueStringFunction(start) { 
+function makeUniqueStringFunction(start) {
 	var COUNTER = start;
 	return function(prefix) {
 		return [prefix, COUNTER++].join('');
-	} 
+	}
 };
-var uniqueString = makeUniqueStringFunction(0); 
+var uniqueString = makeUniqueStringFunction(0);
 
 uniqueString("dari");//=> "dari0"
 uniqueString("dari"); //=> "dari1"

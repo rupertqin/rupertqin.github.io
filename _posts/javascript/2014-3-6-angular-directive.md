@@ -20,7 +20,7 @@ $scope.someSelected = function (object) {
 ```html
 <input
     type="checkbox"
-    value="{{val.id}}"
+    value="{ {val.id} }"
     ng-model="formData.selectedFruits[val.id]"
     ng-required="!someSelected(formData.selectedFruits)"
 >
