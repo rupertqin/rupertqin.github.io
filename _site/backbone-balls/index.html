@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>
+      backbone practice
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=620">
+    <style>
+    body{height: 1000px;}
+    div{position: absolute;width: 20px;height: 20px;border-radius: 50%;margin: -10px 0 0 -10px;text-align: center;line-height: 20px;opacity: 0.3;font-size: 0;color: #fff;}
+    div span{}
+    </style>
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/underscore.js" type="text/javascript"></script>
+    <script src="js/backbone.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      $(function(){
+         // 每个新增的item
+         var Item = Backbone.Model.extend({
+           defaults: {
+             part1: 'hello',
+             part2: 'world'
+           }
+         });
+
+         var Cube = Backbone.Model.extend({
+           defaults: {
+             color: 'red',
+             country: 'China'
+           }
+         });
+
+         var List = Backbone.Collection.extend({
+           model: Item
+         });
+
+         var Space = Backbone.Collection.extend({
+           model: Cube
+         });
+         // 每个item html渲染
+         var ItemView = Backbone.View.extend({
+           tagName: 'li', // name of (orphan) root tag in this.el
+           initialize: function(){
+             _.bindAll(this, 'render'); // every function that uses 'this' as the current object should be in here
+             return this.render();
+           },
+           render: function(){
+             $(this.el).html('<span>'+this.model.get('part1')+' '+this.model.get('part2')+'</span>');
+             return this; // for chainable calls, like .render().el
+           }
+         });
+         var CubeView = Backbone.View.extend({
+           tagName: 'div', // name of (orphan) root tag in this.el
+           initialize: function(){
+             _.bindAll(this, 'render'); // every function that uses 'this' as the current object should be in here
+             return this.render();
+           },
+           render: function(){
+             $(this.el)
+             .css("background", this.model.get('color'))
+             .html('<span>'+this.model.get('country')+'</span>');
+             return this; // for chainable calls, like .render().el
+           },
+           events: {
+             'click': 'clickCube',
+             'change textarea': 'changeCube',
+             'mousedown': 'mousedownCube'
+           },
+
+           flag: false,
+
+           clickCube: function(e){
+             if(this.flag){
+               e.stopPropagation();
+             }
+           },
+
+           changeCube: function(e){
+             console.log("change")
+           },
+
+           mousedownCube: function(e){
+               e.stopPropagation();
+           }
+
+         });
+         // 最终的view操作
+         var ListView = Backbone.View.extend({
+           el: $('body'), // el attaches to existing element
+           events: {
+             'click button#add': 'addItem',
+             'click': 'addCube',
+             'mousedown': 'prevent'
+           },
+
+           initialize: function(){
+             _.bindAll(this, 'render', 'addItem', 'appendItem', 'addCube', 'appendCube'); // every function that uses 'this' as the current object should be in here
+              console.log(this)
+             this.collection = new List();
+             this.CubesCollection = new Space();
+
+             this.collection.on('add', this.appendItem); // collection event binder
+             this.CubesCollection.on('add', this.appendCube);
+
+             this.counter = 0;
+             this.ChinaCounter = 0;
+             return this.render();
+           },
+
+           render: function(){
+             var self = this;
+             $(this.el).append("<button id='add'>Add list item</button>");
+             $(this.el).append("<ul></ul>");
+             // 插入每个item
+             _(this.collection.models).each(function(item){ // in case collection is not empty
+               self.appendItem(item);
+             }, this);
+             _(this.CubesCollection.models).each(function(cube){ // in case collection is not empty
+               self.appendCube(cube, "self");
+             });
+             return this;
+           },
+
+           addItem: function(e){
+             e.stopPropagation();
+             this.counter++;
+             // 创建modle实例
+             var item = new Item();
+             // 更改属性
+             item.set({
+               part2: item.get('part2') + this.counter // modify item defaults
+             });
+             // 添加到collection 层,这个时候会触发add
+             // 也就是调用 this.collection.bind('add', this.appendItem);
+             this.collection.add(item);
+             // console.log(this.collection);
+           },
+
+           addCube: function(e){
+            console.log(this)
+             this.ChinaCounter++;
+             this.X = e.pageX;
+             this.Y = e.pageY;
+             var cube = new Cube();
+             cube.set({
+               country: cube.get('country') + this.ChinaCounter
+             })
+             this.CubesCollection.add(cube);
+           },
+
+           appendItem: function(item){
+             console.log(item)
+             var itemView = new ItemView({
+               model: item
+             });
+             console.log('-----------------');
+             $('ul').append(itemView.el);
+             // console.log(itemView.render());
+           },
+
+           appendCube: function(m){
+              console.log(this)
+             var cubeView = new CubeView({
+               model: m
+             })
+             $("body").append(cubeView.el)
+
+            $(cubeView.el).css({
+              left: this.X,
+              top: this.Y
+            });
+            var positionLeft = 1000 * Math.random() + 50;
+            var positionTop = 1000 * Math.random() + 50;
+            var t = setTimeout(function(){
+              $(cubeView.el)
+              .animate({
+                left: positionLeft,
+                top: positionTop
+              },1200, function(){
+                $(this).css("font-size", '12px')
+              })
+              .animate({
+                width: 100,
+                height: 100,
+                marginTop: '-=40px',
+                marginLeft: '-=40px',
+                lineHeight: '100px',
+                opacity: 1,
+                fontSize: '25px'
+              }, 1000, function(){
+
+                cubeView.flag = true;
+
+                var $this = $(this);
+
+                $this.attr('contenteditable', true)
+                     .addClass('pang');
+
+                var t = setInterval(function(){
+                  $this
+                  .animate({
+                    width: '-=20px',
+                    height: '-=20px',
+                    top: '+=10px',
+                    left: '+=10px',
+                    lineHeight: '-=20px',
+                    fontSize: '-=5px'
+                  }, 500, function(){
+                    $this
+                    .animate({
+                      width: 100,
+                      height: 100,
+                      top: positionTop,
+                      left: positionLeft,
+                      lineHeight: '100px',
+                      fontSize: '25px'
+                    }, 500)
+                  })
+                }, 1000)
+
+
+              })
+            }, 1000);
+
+
+
+           },
+
+           prevent: function(){
+             return false;
+           }
+
+         });
+
+         var listView = new ListView();
+
+       })
+     </script>
+</head>
+<body>
+  <h3 contenteditable=true>Click body to create circles</h3>
+
+</body>
+</html>

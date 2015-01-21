@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Example Application</title>
+    <script src="js/jquery.js"></script>
+
+</head>
+<body>
+    <h1 id="test">Example Application</h1>   
+    <input id="inputElem" value=t>
+<script type="text/javascript">
+var GLOBALVAR = {};
+// 处理钩子的对象
+var hook = (function(){
+    return {
+        timer:null,
+        init:function(){
+            this.callHooks('init');
+        },  
+        callHooks:function(init){
+            var s = "hook_" + init + '_event',
+            f = []; 
+            for(var h in GLOBALVAR){
+                if(h.indexOf(s) != 0) continue;
+                f.push(h);
+            }   
+            this.hooksTimeout(f);
+        },  
+        hooksTimeout:function(hooks){
+            if(0 === hooks.length){
+                if(this.timer) clearTimeout(this.timer);
+                return;
+            }   
+
+            var h = hooks.shift();
+            GLOBALVAR[h]();
+            GLOBALVAR[h] = undefined;
+
+            window.setTimeout(function(){hook.hooksTimeout(hooks);}, 200);
+        }   
+    }   
+}());
+
+
+
+// 钩子1
+ GLOBALVAR.hook_init_event_tpl_html = function(){
+    document.getElementById('test').innerHTML = 'This is HTML!';
+}
+
+// 钩子2
+ GLOBALVAR.hook_init_event_tpl_console = function(){
+    console.log('This is hook!');
+}
+
+//GLOBALVAR.hook_init_event_tpl_html.apply()
+// 最好在页面加载完之前调用，也就是在window.onload()之前
+
+</script>
+<script type="text/javascript">
+
+hook.init();
+
+</script>
+             
+</body>
+</html>

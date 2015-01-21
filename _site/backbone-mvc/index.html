@@ -1,0 +1,126 @@
+<html> 
+<head>
+  <meta charset="utf-8">
+  <title>backbone MVC</title>
+</head>
+<body> 
+
+<div>共有<span id="num"></span>条, 当前为<span id="currentList"></span></div>
+
+
+
+<script src="js/jquery.js"></script>
+<script src="js/underscore.js"></script>
+<script src="js/backbone.js"></script>
+<script>
+(function($){
+  var Item = Backbone.Model.extend({
+    defaults: {
+      part1: 'hello',
+      part2: 'world',
+      counter: 0
+    }
+  });
+  
+  var List = Backbone.Collection.extend({
+    model: Item
+  });
+  
+  var list = new List();
+      
+  var ItemView = Backbone.View.extend({
+  	tagName: 'li',
+
+    events: {
+      "mousedown": "prevent",
+      "click .delete": "remove",
+      "click .increase": "increase"
+    },
+
+  	initialize: function(){
+      this.model.on("remove", this.unrender, this);
+      this.model.on("change", this.render, this);
+      this.model.on("change remove", this.update, this);
+  	},
+
+  	render: function(){
+  		$(this.el).html(this.model.get("counter") + ' ' + '<span>' + this.model.get('part1') + ' ' + this.model.get('part2') + '</span>' + "<span class='delete'> delete</span><span class='increase'> increase</span>");
+
+      return this; // for chainable calls, like .render().el
+  	},
+
+    update: function(){
+      var currentList = this.model.get('counter') + ' ' + this.model.get('part1') + ' ' + this.model.get('part2');
+      $("#currentList").text(currentList);
+      var itemNum = list.models.length;
+      $("#num").text(itemNum);
+    },
+
+    unrender: function(){
+      this.$el.remove();
+
+      this.render();
+    },
+
+    remove: function(){
+      this.model.destroy();
+    },
+
+    increase: function(){
+      this.model.set({
+        counter: this.model.get("counter") + 1
+      })
+      
+    },
+
+    prevent: function(e){
+      e.preventDefault();
+    }
+
+  })
+
+  var ListView = Backbone.View.extend({
+    el: $('body'),
+    events: {
+      'click button#add': 'addItem'
+    },
+    initialize: function(){
+      // _.bindAll(this, 'render', 'addItem', 'appendItem'); // remember: every function that uses 'this' as the current object should be in here
+
+      this.collection = new List();
+      // this.collection.bind('add', this.appendItem); // collection event binder
+
+      this.counter = 0;
+      this.render();
+    },
+    render: function(){
+      var self = this;
+      $(this.el).append("<button id='add'>Add list item</button>");
+      $(this.el).append("<ul></ul>");
+      _(list.models).each(function(item){ // in case collection is not empty
+        self.appendItem(item);
+      }, this);
+    },
+    addItem: function(){
+      this.counter++;
+      var item = new Item();
+      list.add(item); // add item to collection; view is updated via event 'add'
+      
+      var itemView = new ItemView({
+        model: item
+      })
+      itemView.model.set({
+        counter: this.counter,
+      });
+      $('ul', this.el).append(itemView.render().el);
+    }
+
+  });
+
+  var listView = new ListView();
+
+})(jQuery);
+
+</script> 
+</body>
+</html>

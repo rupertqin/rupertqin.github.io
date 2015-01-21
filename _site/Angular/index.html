@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Angular</title>
+        <meta name="viewport" content="width=device-width">
+
+
+
+        <!-- main JS libs -->
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/modernizr.min.js"></script>
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/jquery-1.10.0.js"></script>
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/jquery-ui.min.js"></script>
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/bootstrap.min.js"></script>
+
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/general.js"></script>
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/jquery.powerful-placeholder.min.js"></script>
+        <script src="/PixelKit/modern-touch/modern-touch-css/js/jquery-ui.multidatespicker.js"></script>
+        <script src="/js/fuse.js"></script>
+        <script src="/js/common.js"></script>
+
+        <!-- Style CSS -->
+        <link href="/PixelKit/modern-touch/modern-touch-css/css/bootstrap.css" media="screen" rel="stylesheet">
+        <link href="/PixelKit/modern-touch/modern-touch-css/style.css" media="screen" rel="stylesheet">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body>
+
+        <div class="container">
+          <div class="content">
+            <div class="row header">
+              <div class="col-sm-12">
+                <div class="title"><a href="/">Coigres</a></div>
+
+                <div id="topmenu">
+                  <ul class="dropdown clearfix boxed boxed-blue">
+                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <li><a href="/"><span>Home</span></a></li>
+                      <li><a href="#"><span>Services</span></a>
+                          <ul>
+                              <li><a href="#">Link 1</a></li>
+                              <li><a href="#">Link 2</a></li>
+                              <li><a href="#">Link 3</a>
+                                  <ul>
+                                      <li><a href="#">Link 4</a></li>
+                                      <li><a href="#">Link 5</a></li>
+                                      <li><a href="#">Link 6</a></li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </li>
+                      <li><a href="#"><span>About</span></a></li>
+                      <li class="menu-search">
+                          <form id="searchForm" class="menu-search-form" method="get" action="search.html">
+                              <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
+                              <input type="submit" value="" class="btn menu-search-submit" />
+                          </form>
+                      </li>
+                  </ul>
+                </div>
+
+
+              </div>
+
+            </div>
+
+            <div class="row main">
+	<div class="col-sm-12">
+		<div class="post">
+			<h1>Angular</h1>
+			<p class="meta">11 Nov 2013</p>
+
+			<div class="">
+				<h2>Code</h2>
+
+<p><a href="http://code.angularjs.org">code.angularjs.org</a></p>
+
+<h2>The disavantiges of angularjs</h2>
+
+<ol>
+<li>there is not a canvas or SVG drawing drective in angularjs</li>
+<li>too optioned</li>
+</ol>
+
+<h2>Examples</h2>
+
+<p><a href="https://github.com/angular/angular.js/wiki/JsFiddle-Examples">JSFiddle Examples</a></p>
+
+<h2>AngularJS Batarang -- Chrome Plugin</h2>
+
+<p>Useful tool for developing AngularJs</p>
+
+<h2>Resources</h2>
+
+<ul>
+<li><a href="http://www.yearofmoo.com/">year of moo</a> a blog that focus on AngularJs</li>
+<li><a href="http://angular-tips.com/">angular tips</a></li>
+<li><a href="http://stackoverflow.com/questions/15112584/using-scope-watch-and-scope-apply">$watch &amp; $apply</a></li>
+<li><a href="http://css.dzone.com/articles/drag-and-drop-angularjs-using">An example of drag and drop in angularjs</a></li>
+<li><a href="http://blog.jobbole.com/54716/">2013年AngularJS学习资源精选</a></li>
+<li><a href="https://github.com/vhf/free-programming-books/blob/master/javascript-frameworks-resources.md">javascript-frameworks-resources</a></li>
+<li><a href="http://pascalprecht.github.io/slides/mastering-angularjs-directives">mastering-angularjs-directives</a></li>
+<li><a href="http://syntaxspectrum.com/">AngularJS Highlights: Best of 2013</a></li>
+<li><a href="http://ngmodules.org/">find module for angularjs</a></li>
+<li><a href="https://github.com/angular-translate/angular-translate">angular translate</a></li>
+<li><a href="http://atian25.github.io/2014/05/09/angular-performace/">angular 性能优化心得</a></li>
+</ul>
+
+<h2>ngMessage</h2>
+
+<p><a href="http://www.yearofmoo.com/2014/05/how-to-use-ngmessages-in-angularjs.html">How to use ngMessages in AngularJS</a>
+<a href="https://yearofmoo.github.io/ngMessages/">example</a></p>
+
+<h2>Allow duplicate objects in ngRepeat.</h2>
+
+<p><strong>reading:</strong><br>
+<a href="https://github.com/angular/angular.js/pull/2505">Allow duplicate objects in ngRepeat</a><br>
+<a href="http://docs.angularjs.org/api/ng.directive:ngRepeat">Api: ngRepeat</a>  </p>
+
+<p><code>ng-repeat=&#39;i in [1,1,1]&#39;</code> is now allowed  </p>
+
+<p>but this will do what you want:<br>
+<code>ng-repeat=&#39;i in [1,1,1] track by $index&#39;</code></p>
+
+<h2>&#39;Error: Template must have exactly one root element.&#39;</h2>
+
+<p><a href="http://stackoverflow.com/questions/11426114/angularjs-why-doesnt-replace-true-work-with-templateurl-property">angularjs why doesnt replace true work with templateurl property</a></p>
+
+<p>if the template root have more than one element, this error occur, it&#39;s must wrapped in one element.</p>
+
+<h2>&#39;REFERENCING DOM NODES IN ANGULAR EXPRESSIONS IS DISALLOWED&#39;</h2>
+
+<p><a href="http://jorshasaur.us/referencing-dom-nodes-in-angular-expressions-is-disallowed/">REFERENCING DOM NODES IN ANGULAR EXPRESSIONS IS DISALLOWED</a></p>
+
+<p>this often occur when you using coffeescript.</p>
+
+<p>Follow this chain to find the culprit:</p>
+
+<ol>
+<li><p>Check out the callback you&#39;re triggering in your template (probably through something like ng-click).</p></li>
+<li><p>Look at the callback function in your directive. Is the last line in the function in some way deal with the DOM?</p></li>
+<li><p>If that directive doesn&#39;t implicitly specify a return value, just add a return true to the bottom.</p></li>
+</ol>
+
+<h2>get event element</h2>
+
+<p>in the Dom side use <code>$event</code> to pass reference:<br>
+<code>ng-click=&quot;do($event)&quot;</code></p>
+
+<p>then in script:<br>
+<code>event.target</code> to get the element.</p>
+
+<h2>check for changes in file input fields</h2>
+
+<p><a href="http://stackoverflow.com/questions/17922557/angularjs-how-to-check-for-changes-in-file-input-fields">AngularJs: How to check for changes in file input fields?</a></p>
+
+<p>since <code>ng-change</code> doesn&#39;t work in <code>&lt;input type=&quot;file&quot; ng-change=&quot;validate()&quot; /&gt;</code></p>
+
+<p>should edit as below:</p>
+
+<p><code>&lt;input type=&quot;file&quot; onchange=&quot;angular.element(this).scope().validate(this)&quot; /&gt;</code></p>
+
+<p>this example maybe as a tutorial:
+<a href="http://jsfiddle.net/danielzen/utp7j/">drag drop file upload</a></p>
+
+<h2>when minify occur &quot;Error: Unknown provider: bProvider &lt;- b&quot;</h2>
+
+<p><a href="https://groups.google.com/forum/#!topic/angular/2gpf8Ea-PFQ">Error: Unknown provider: bProvider &lt;- b</a></p>
+
+<p><a href="http://docs.angularjs.org/guide/di">Dependency Injection</a></p>
+
+<p>maybe you should change the code:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">someModule</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyController&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">dep1</span><span class="p">,</span> <span class="nx">dep2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">aMethod</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="p">}</span>
+  <span class="p">...</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>to:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">someModule</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s1">&#39;MyController&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$scope&#39;</span><span class="p">,</span> <span class="s1">&#39;dep1&#39;</span><span class="p">,</span> <span class="s1">&#39;dep2&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">dep1</span><span class="p">,</span> <span class="nx">dep2</span><span class="p">)</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="nx">$scope</span><span class="p">.</span><span class="nx">aMethod</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">...</span>
+  <span class="p">}</span>
+  <span class="p">...</span>
+<span class="p">}]);</span>
+</code></pre></div>
+<h2>directive restrict=&quot;M&quot;</h2>
+
+<ul>
+<li>this model require setting: <code>replace: true</code>, and this setting require the a root element of template</li>
+</ul>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="p">.</span><span class="nx">directive</span><span class="p">(</span><span class="s1">&#39;myCustomer&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">{</span>
+    <span class="nx">restrict</span><span class="o">:</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span>
+    <span class="nx">replace</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">template</span><span class="o">:</span> <span class="s1">&#39;&lt;div&gt;Name: { {customer.name} } Address: { {customer.address} }&lt;/div&gt;&#39;</span>
+  <span class="p">};</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2>example: how scope works</h2>
+
+<p>http://jsfiddle.net/2WKky/</p>
+
+<h2>tutorial: AngularJS Development with Yeoman, Grunt and Bower</h2>
+
+<p>http://www.sitepoint.com/kickstart-your-angularjs-development-with-yeoman-grunt-and-bower/</p>
+
+<h2>get key name of object in ng-repeat</h2>
+
+<p><a href="http://stackoverflow.com/questions/19544904">ng-repeat: access key and value for each object in array of objects</a></p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">ng-repeat=</span><span class="s">&quot;step in steps&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">ng-repeat=</span><span class="s">&quot;(key, value) in step&quot;</span><span class="nt">&gt;</span>
+        { {key} } : { {value} }
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre></div>
+<h2>accessing the element that trigger an event</h2>
+
+<p><a href="http://stackoverflow.com/questions/12430820">Accessing clicked element in angularjs</a></p>
+
+<p>since in the controller, you can&#39;t accessing the element via <code>this</code> but <code>event.target</code></p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$scope</span><span class="p">.</span><span class="nx">setMaster</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+  <span class="nx">$</span><span class="p">(</span><span class="nx">event</span><span class="p">.</span><span class="nx">target</span><span class="p">).</span><span class="nx">dosometh</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div>
+<h2>select tag bind change event</h2>
+
+<p><a href="http://docs.angularjs.org/api/ng.directive:ngChange">ng.directive:ngChange</a></p>
+
+<p><a href="http://docs.angularjs.org/api/ng.directive:select">ng.directive:select</a></p>
+
+<p><a href="http://docs.angularjs.org/api/ng.directive:ngSelected">ng.directive:ngSelected</a></p>
+
+<p><a href="http://www.grobmeier.de/angular-js-ng-select-and-ng-options-21112012.html">Angular.js: ng-select and ng-options</a>:</p>
+
+<p>it&#39;s different from input or textarea, the select tag&#39;s binding method is as this:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;select</span>
+    <span class="na">ng-change=</span><span class="s">&quot;selectAction()&quot;</span>
+    <span class="na">ng-model=</span><span class="s">&quot;myOption&quot;</span>
+    <span class="na">ng-options=</span><span class="s">&quot;value.id as value.label group by value.group for value in myOptions&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;option&gt;</span>--<span class="nt">&lt;/option&gt;</span>
+<span class="nt">&lt;/select&gt;</span>
+</code></pre></div><div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$scope</span><span class="p">.</span><span class="nx">selectAction</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">$scope</span><span class="p">.</span><span class="nx">myOption</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div>
+<h2>angular bootstrap VS ng-app=&#39;&#39;</h2>
+
+<p>angular bootstrp is more boust than ng-app=&#39;&#39;</p>
+
+<h2>customize select options&#39; values</h2>
+
+<p>since option&#39;s value always generate order numbers,but we want to bind it&#39;s values to some words.</p>
+
+<p><strong>object:</strong><br>
+API: <code>select as label for (key , value) in object</code>
+Example: <code>quesion.name as question.locale for (key, question) in questions</code></p>
+
+<p><strong>array:</strong><br>
+API: <code>select as label for value in array</code><br>
+Example: <code>quesion.name as question.locale for question in questions</code></p>
+
+<h2>disable default html5 validation</h2>
+
+<p><a href="http://stackoverflow.com/questions/3090369/">disable-validation-of-html5-form-elements</a><br>
+to make angular work well with form&#39;s required, you must disable default html5 validation, add <code>novalidate</code> to form :</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;form novalidate&gt;&lt;/form&gt;
+</code></pre></div>
+				
+			</div>
+			<div id="disqus_thread"></div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'coigres'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<a href="http://foo.com/bar.html#disqus_thread">Link</a>
+<script type="text/javascript">
+/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+var disqus_shortname = 'coigres'; // required: replace example with your forum shortname
+
+/* * * DON'T EDIT BELOW THIS LINE * * */
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+            <div class="row footer">
+              <div class="col-sm-12">
+                <div class="contact">
+                  <ul>
+                    <li>Rupert qin</li>
+                    <li>rupert.qing@gmail.com</li>
+                    <li><a href="http://github.com/rupertqin/">github.com/rupertqin</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+    </body>
+</html>
