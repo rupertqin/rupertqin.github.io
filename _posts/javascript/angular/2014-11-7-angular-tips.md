@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Angular"
-tags: javascript
+title: ng-model was undefined
+tags: javascript Angular
 ---
 ## ng-model not work
 [ng-model-undefined-in-the-controller](http://stackoverflow.com/questions/22762725/)

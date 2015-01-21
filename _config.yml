@@ -6,3 +6,4 @@ permalink: /:categories/:title/
 port:				5000
 paginate: 20
 paginate_path: "list/:num"
+relative_permalinks: true

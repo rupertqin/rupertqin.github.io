@@ -14,8 +14,8 @@
     <script src="js/jquery.js" type="text/javascript"></script>
     <script src="js/underscore.js" type="text/javascript"></script>
     <script src="js/backbone.js" type="text/javascript"></script>
-    
-    <script type="text/javascript">  
+
+    <script type="text/javascript">
       $(function(){
          // 每个新增的item
          var Item = Backbone.Model.extend({
@@ -24,7 +24,7 @@
              part2: 'world'
            }
          });
-   
+
          var Cube = Backbone.Model.extend({
            defaults: {
              color: 'red',
@@ -35,7 +35,7 @@
          var List = Backbone.Collection.extend({
            model: Item
          });
-   
+
          var Space = Backbone.Collection.extend({
            model: Cube
          });
@@ -68,23 +68,23 @@
              'change textarea': 'changeCube',
              'mousedown': 'mousedownCube'
            },
-     
+
            flag: false,
-     
+
            clickCube: function(e){
              if(this.flag){
                e.stopPropagation();
              }
            },
-           
+
            changeCube: function(e){
              console.log("change")
-           }, 
-           
+           },
+
            mousedownCube: function(e){
                e.stopPropagation();
            }
-     
+
          });
          // 最终的view操作
          var ListView = Backbone.View.extend({
@@ -94,13 +94,13 @@
              'click': 'addCube',
              'mousedown': 'prevent'
            },
-     
+
            initialize: function(){
              _.bindAll(this, 'render', 'addItem', 'appendItem', 'addCube', 'appendCube'); // every function that uses 'this' as the current object should be in here
               console.log(this)
              this.collection = new List();
              this.CubesCollection = new Space();
-       
+
              this.collection.on('add', this.appendItem); // collection event binder
              this.CubesCollection.on('add', this.appendCube);
 
@@ -108,7 +108,7 @@
              this.ChinaCounter = 0;
              return this.render();
            },
-     
+
            render: function(){
              var self = this;
              $(this.el).append("<button id='add'>Add list item</button>");
@@ -122,7 +122,7 @@
              });
              return this;
            },
-     
+
            addItem: function(e){
              e.stopPropagation();
              this.counter++;
@@ -132,12 +132,12 @@
              item.set({
                part2: item.get('part2') + this.counter // modify item defaults
              });
-             // 添加到collection 层,这个时候会触发add 
+             // 添加到collection 层,这个时候会触发add
              // 也就是调用 this.collection.bind('add', this.appendItem);
              this.collection.add(item);
              // console.log(this.collection);
            },
-     
+
            addCube: function(e){
             console.log(this)
              this.ChinaCounter++;
@@ -149,7 +149,7 @@
              })
              this.CubesCollection.add(cube);
            },
-     
+
            appendItem: function(item){
              console.log(item)
              var itemView = new ItemView({
@@ -159,14 +159,14 @@
              $('ul').append(itemView.el);
              // console.log(itemView.render());
            },
-     
+
            appendCube: function(m){
               console.log(this)
              var cubeView = new CubeView({
                model: m
              })
              $("body").append(cubeView.el)
-              
+
             $(cubeView.el).css({
               left: this.X,
               top: this.Y
@@ -219,25 +219,25 @@
                     }, 500)
                   })
                 }, 1000)
-                  
+
 
               })
             }, 1000);
 
-             
+
 
            },
-     
+
            prevent: function(){
              return false;
            }
-     
+
          });
 
-         var listView = new ListView();   
-            
+         var listView = new ListView();
+
        })
-     </script> 
+     </script>
 </head>
 <body>
   <h3 contenteditable=true>Click body to create circles</h3>
