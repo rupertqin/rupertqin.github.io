@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 如何在 angular 中验证中英混合字符的长度
-tags:  angular
+tags:  angular javascript
 ---
 
 在 js 中我们通常用此方法获取长度：
@@ -14,7 +14,7 @@ tags:  angular
 var len = str.match(/[^ -~]/g) == null ? str.length : str.length + str.match(/[^ -~]/g).length;
 
 // 或者
-var len = str.replace(/[^\x00-\xFF]/g,'**').length; 
+var len = str.replace(/[^\x00-\xFF]/g,'**').length;
 ```
 
 但在 angular 中，如用 ngParttern, 在文档中，只能输入正则表达式， 所以上面的方法行不通

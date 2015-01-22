@@ -1,13 +1,12 @@
 ---
 layout: post
-title:  vanilla js vs jquery
-tags: javascript vanilla jquery
+title: 看原生 js 怎么做到 jQuery 做到的事情
+tags: javascript jquery
 ---
 
 
-# 现在已经是不是可以不需要jQuery了？
 
-jQuery 4大功能： 1，选择器 2，Dom操作 3，事件绑定 4，Ajax。 我们试试看用原生 js 和 jQuery 对比看看
+# jQuery 4大功能： 1，选择器 2，Dom操作 3，事件绑定 4，Ajax。 我们试试看用原生 js 和 jQuery 对比看看
 
 ## 1，选择器
 

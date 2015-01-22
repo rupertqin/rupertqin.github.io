@@ -86,7 +86,7 @@
 <span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/[^ -~]/g</span><span class="p">)</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">:</span> <span class="nx">str</span><span class="p">.</span><span class="nx">length</span> <span class="o">+</span> <span class="nx">str</span><span class="p">.</span><span class="nx">match</span><span class="p">(</span><span class="sr">/[^ -~]/g</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
 
 <span class="c1">// 或者</span>
-<span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[^\x00-\xFF]/g</span><span class="p">,</span><span class="s1">&#39;**&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span> 
+<span class="kd">var</span> <span class="nx">len</span> <span class="o">=</span> <span class="nx">str</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[^\x00-\xFF]/g</span><span class="p">,</span><span class="s1">&#39;**&#39;</span><span class="p">).</span><span class="nx">length</span><span class="p">;</span>
 </code></pre></div>
 <p>但在 angular 中，如用 ngParttern, 在文档中，只能输入正则表达式， 所以上面的方法行不通
 不过我们可以看 ngParttern 中的源码片断</p>
