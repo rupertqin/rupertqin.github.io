@@ -81,6 +81,15 @@ window.$ = function(selector) {
 };
 ```
 
+是否包含某个className
+```javascript
+// jQuery
+el.is('.className');
+
+// Vanilla
+el.classList.contains('className')
+```
+
 
 ## 2，Dom 操作
 
