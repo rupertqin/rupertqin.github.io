@@ -416,6 +416,7 @@ var formData = new FormData(),
     file = document.getElementById('test-input').files[0],
     xhr = new XMLHttpRequest();
 
+xhr.onload = ajaxSuccess;
 formData.append('file', file);
 xhr.open('POST', 'myserver/uploads');
 xhr.send(formData);
