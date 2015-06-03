@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  use strict
+title:  严格模式
 tags: strict model
 ---
 
