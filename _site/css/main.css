@@ -42,6 +42,10 @@ ul.posts a {color: #fff;margin-left: 5px;}
 
 .boxed-white li a {color: #3f4b56;}
 
+.newest-posts .posts li {color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;}
+.newest-posts .posts li span{}
+.newest-posts .posts li a{color: #fff;}
+
 /*****************************************************************************/
 /*
 /* Site
@@ -203,3 +207,12 @@ ul.posts a {color: #fff;margin-left: 5px;}
 .search-list .categories,.search-list .tags{float: right;margin-left: 20px;}
 .search-list .categories{font-weight: bold;display: none;}
 .search-list .tags{font-style: italic;}
+
+
+/*****************************************************************************/
+/*
+/* about page
+/*
+/*****************************************************************************/
+
+.about img {width: 100%;}

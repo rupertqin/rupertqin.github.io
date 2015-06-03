@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -249,6 +249,10 @@ git checkout master Checkout master.
 git reset --hard b3d92c5 Reset master to last usable commit.
 git merge repair Merge our new branch onto master.
 git push --hard origin master Push master to the remote repo.
+</code></pre></div>
+<h2>Force Git to overwrite local files on pull</h2>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git fetch --all
+git reset --hard origin/master
 </code></pre></div>
 				
 			</div>

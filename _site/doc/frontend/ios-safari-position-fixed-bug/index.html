@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>moot.it -- a free embed forum</title>
+        <title>怎么解决 ios safari 中当 focus on input 弹出键盘，fixed element 位置错乱的问题</title>
         <meta name="viewport" content="width=device-width">
 
 
@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -74,15 +74,17 @@
             <div class="row main">
 	<div class="col-sm-12">
 		<div class="post">
-			<h1>moot.it -- a free embed forum</h1>
-			<p class="meta">20 Mar 2014</p>
+			<h1>怎么解决 ios safari 中当 focus on input 弹出键盘，fixed element 位置错乱的问题</h1>
+			<p class="meta">31 Mar 2015</p>
 
 			<div class="">
-				<h2>moot.it</h2>
-
-<p><a href="moot.it/rupert">moot.it/rupert</a>
-<a href="moot.it/coigres">moot.it/coigres</a></p>
-
+				<p><a href="http://stackoverflow.com/questions/15273098/">how-do-i-stop-my-fixed-navigation-from-moving-like-this-when-the-virtual-keyboar</a></p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;focus&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea,input,select&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.navbar.navbar-fixed-top&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="s1">&#39;absolute&#39;</span><span class="p">);</span>
+<span class="p">}).</span><span class="nx">on</span><span class="p">(</span><span class="s1">&#39;blur&#39;</span><span class="p">,</span> <span class="s1">&#39;textarea,input,select&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;.navbar.navbar-fixed-top&#39;</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">&#39;position&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
 				
 			</div>
 			<div id="disqus_thread"></div>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>ios</title>
+        <title>解析 url 对象</title>
         <meta name="viewport" content="width=device-width">
 
 
@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -74,18 +74,34 @@
             <div class="row main">
 	<div class="col-sm-12">
 		<div class="post">
-			<h1>ios</h1>
-			<p class="meta">17 Apr 2014</p>
+			<h1>解析 url 对象</h1>
+			<p class="meta">4 Mar 2015</p>
 
 			<div class="">
-				<h2>ios 工具集：Github-iOS备忘</h2>
-
-<p><a href="http://github.ibireme.com/github/list/ios/">Github-iOS备忘</a></p>
-
-<h2>iOS 7开源项目干货集合</h2>
-
-<p><a href="http://www.cocoachina.com/applenews/devnews/2013/1024/7234.html">iOS 7开源项目干货集合</a></p>
-
+				<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">parseURL</span><span class="p">(</span><span class="nx">url</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">parser</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">),</span>
+        <span class="nx">searchObject</span> <span class="o">=</span> <span class="p">{},</span>
+        <span class="nx">queries</span><span class="p">,</span> <span class="nx">split</span><span class="p">,</span> <span class="nx">i</span><span class="p">;</span>
+    <span class="c1">// Let the browser do the work</span>
+    <span class="nx">parser</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+    <span class="c1">// Convert query string to object</span>
+    <span class="nx">queries</span> <span class="o">=</span> <span class="nx">parser</span><span class="p">.</span><span class="nx">search</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/^\?/</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">).</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;&amp;&#39;</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">queries</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="nx">split</span> <span class="o">=</span> <span class="nx">queries</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">);</span>
+        <span class="nx">searchObject</span><span class="p">[</span><span class="nx">split</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="nx">split</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="p">{</span>
+        <span class="nx">protocol</span><span class="o">:</span> <span class="nx">parser</span><span class="p">.</span><span class="nx">protocol</span><span class="p">,</span>
+        <span class="nx">host</span><span class="o">:</span> <span class="nx">parser</span><span class="p">.</span><span class="nx">host</span><span class="p">,</span>
+        <span class="nx">hostname</span><span class="o">:</span> <span class="nx">parser</span><span class="p">.</span><span class="nx">hostname</span><span class="p">,</span>
+        <span class="nx">port</span><span class="o">:</span> <span class="nx">parser</span><span class="p">.</span><span class="nx">port</span><span class="p">,</span>
+        <span class="nx">pathname</span><span class="o">:</span> <span class="nx">parser</span><span class="p">.</span><span class="nx">pathname</span><span class="p">,</span>
+        <span class="nx">search</span><span class="o">:</span> <span class="nx">parser</span><span class="p">.</span><span class="nx">search</span><span class="p">,</span>
+        <span class="nx">searchObject</span><span class="o">:</span> <span class="nx">searchObject</span><span class="p">,</span>
+        <span class="nx">hash</span><span class="o">:</span> <span class="nx">parser</span><span class="p">.</span><span class="nx">hash</span>
+    <span class="p">};</span>
+<span class="p">}</span>
+</code></pre></div>
 				
 			</div>
 			<div id="disqus_thread"></div>

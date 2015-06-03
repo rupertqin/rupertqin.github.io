@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -93,11 +93,11 @@
 
 <p><a href="http://stackoverflow.com/questions/2424346/getting-error-while-running-simple-javascript-using-node-framework">stackoverflow</a><br>
 If Node.js installation as suggested by ninja works for you (like on AWS Ubuntu):</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">    sudo apt-get update  
-    sudo apt-get install python-software-properties
-    sudo add-apt-repository ppa:chris-lea/node.js
-    sudo apt-get update  
-    sudo apt-get install nodejs
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo apt-get update  
+sudo apt-get install python-software-properties
+sudo add-apt-repository ppa:chris-lea/node.js
+sudo apt-get update  
+sudo apt-get install nodejs
 </code></pre></div>
 <p>you might still want to add node to your system path like this:</p>
 
@@ -168,6 +168,15 @@ kill -9 &lt;id&gt;
 </code></pre></div>
 <h2>Find your Server’s IP address</h2>
 <div class="highlight"><pre><code class="language-text" data-lang="text">ifconfig eth0 | grep inet | awk &#39;{ print $2 }&#39;
+</code></pre></div>
+<h2>Commands to check the Linux Version, Release name &amp; Kernel version</h2>
+<div class="highlight"><pre><code class="language-text" data-lang="text">uname -a (Print all Information)
+uname -r (Print the kernel name)
+cat /proc/version
+cat /etc/issue
+cat /etc/redhat-release
+lsb_release –a
+tail /etc/redhat-release
 </code></pre></div>
 				
 			</div>

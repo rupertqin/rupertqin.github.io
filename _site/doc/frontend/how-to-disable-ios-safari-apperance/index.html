@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>coffee</title>
+        <title>怎么取消 iOS 的 safari 浏览器中 select, link, input等 默认的样式</title>
         <meta name="viewport" content="width=device-width">
 
 
@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -74,40 +74,19 @@
             <div class="row main">
 	<div class="col-sm-12">
 		<div class="post">
-			<h1>coffee</h1>
-			<p class="meta">31 Dec 2013</p>
+			<h1>怎么取消 iOS 的 safari 浏览器中 select, link, input等 默认的样式</h1>
+			<p class="meta">20 Mar 2015</p>
 
 			<div class="">
-				<h2>indentation chaos</h2>
-
-<p><a href="http://v2ex.com/t/95015">CoffeeScript 强制锁进有时候挺好，有时很很蛋疼啊</a></p>
-
-<p><strong>Vim:</strong></p>
-
-<p><code>%s:/ / /g</code></p>
-
-<p><strong>Sublime text:</strong></p>
-
-<p><code>ctrl + a</code> to watch the indentation status<br>
-click the right-bottom to check <strong>&#39;indendt Using Spaces&#39;</strong> to true, so you can always using spaces to prevent couz chaos<br>
-also could <strong>convert indenttation to spaces</strong> or the revert.</p>
-
-<h2>tool for js to coffee</h2>
-
-<p><a href="http://ricostacruz.com/js2coffee/">js2coffee</a></p>
-
-<p><a href="js2coffee.org">js2coffee.org</a></p>
-
-<h2>three kinds of loop</h2>
-
-<p><a href="http://stackoverflow.com/questions/6433207/">for-var-key-in-object-in-coffeescript</a></p>
-
-<p><strong><em>for key in list</em></strong></p>
-
-<p><strong><em>for key, value of obj</em></strong></p>
-
-<p><strong><em>for own key, value of obj</em></strong></p>
-
+				<h2>iOS 的 safari 浏览器中 select, link, input等都有一些默认样式，我们怎么取消呢？</h2>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">-webkit-appearance</span><span class="o">:</span> <span class="nt">none</span><span class="o">;</span>
+</code></pre></div>
+<h2>对 link, label[for] 点击会闪一下背景色，这样设置取消:</h2>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">-webkit-tap-highlight-color</span><span class="o">:</span> <span class="nt">rgba</span><span class="o">(</span><span class="nt">0</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">0</span><span class="o">,</span> <span class="nt">0</span><span class="o">);</span>
+</code></pre></div>
+<h2>取消iOS 的 safari 自动识别电话号码样式</h2>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;format-detection&quot;</span> <span class="na">content=</span><span class="s">&quot;telephone=no&quot;</span><span class="nt">&gt;</span>
+</code></pre></div>
 				
 			</div>
 			<div id="disqus_thread"></div>

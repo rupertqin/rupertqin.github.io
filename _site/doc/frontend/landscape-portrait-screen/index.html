@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>regular expression</title>
+        <title>在移动端判断横屏竖屏</title>
         <meta name="viewport" content="width=device-width">
 
 
@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -74,44 +74,34 @@
             <div class="row main">
 	<div class="col-sm-12">
 		<div class="post">
-			<h1>regular expression</h1>
-			<p class="meta">8 Jan 2014</p>
+			<h1>在移动端判断横屏竖屏</h1>
+			<p class="meta">9 Mar 2015</p>
 
 			<div class="">
-				<h2>source</h2>
+				<h2>CSS</h2>
 
-<p>reference:<br>
-<a href="http://www.regular-expressions.info/refquick.html">Regular Expressions Quick Reference</a>
-<a href="http://www.regexlab.com/zh/regref.htm">揭开正则表达式的神秘面纱</a>
-<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions">Regular Expressions</a></p>
-
-<p>tutorial:<br>
-<a href="http://www.regular-expressions.info/">Regular-Expressions.info</a>
-<a href="http://www.araxis.com/merge/documentation-windows/regular-expression-reference">Regular Expression Reference</a></p>
-
-<p>online tool:
-<a href="http://gskinner.com/RegExr/">RegExr</a>
-<a href="https://www.debuggex.com">Debuggex</a></p>
-
-<h2>groups</h2>
-
-<p><code>(0{1,})|(abs){2}|([1-9][0-9]*)</code></p>
-
-<p>email: <code>^([\w.-]+)@([\da-z\-]+)(\.([a-z]{2,6})){1,2}$</code></p>
-
-<p>URL: <code>^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$</code></p>
-
-<p>IP: <code>^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$</code></p>
-
-<p>HTML tag: <code>^&lt;([a-z]+)([^&lt;]+)*(?:&gt;(.*)&lt;\/\1&gt;|\s+\/&gt;)$</code></p>
-
-<h2>match last one, use <code>$</code></h2>
-
-<p>for example: match &#39;.jpg/.png&#39; ect:
-<code>js
-/\.[a-zA-Z]+$/
+<p>1、<br>
+<code>css
+ @media (orientation: landscape) { }
+ @media (orientation: portrait) { }
+</code>
+ 2、
+ <code>html  
+ &lt;link rel=&quot;stylesheet&quot; media=&quot;all and (orientation:landscape)&quot; href=&quot;landscape.css&quot;&gt;
+ &lt;link rel=&quot;stylesheet&quot; media=&quot;all and (orientation:portrait)&quot; href=&quot;portrait.css&quot;&gt;
 </code></p>
 
+<h2>js</h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">landscapeOrportrait</span><span class="p">(){</span>  
+  <span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">orientation</span><span class="o">==</span><span class="mi">180</span><span class="o">||</span><span class="nb">window</span><span class="p">.</span><span class="nx">orientation</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;竖屏状态！&quot;</span><span class="p">)</span>
+  <span class="p">}</span>  
+  <span class="k">if</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">orientation</span><span class="o">==</span><span class="mi">90</span><span class="o">||</span><span class="nb">window</span><span class="p">.</span><span class="nx">orientation</span><span class="o">==-</span><span class="mi">90</span><span class="p">){</span>
+    <span class="nx">alert</span><span class="p">(</span><span class="s2">&quot;横屏状态！&quot;</span><span class="p">)</span>
+  <span class="p">}</span>  
+<span class="p">}</span>  
+<span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;onorientationchange&quot;</span> <span class="k">in</span> <span class="nb">window</span> <span class="o">?</span> <span class="s2">&quot;orientationchange&quot;</span> <span class="o">:</span> <span class="s2">&quot;resize&quot;</span><span class="p">,</span> <span class="nx">landscapeOrportrait</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>  
+</code></pre></div>
 				
 			</div>
 			<div id="disqus_thread"></div>

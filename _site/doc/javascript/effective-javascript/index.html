@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Grunt</title>
+        <title><< effective javascript >></title>
         <meta name="viewport" content="width=device-width">
 
 
@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -74,14 +74,19 @@
             <div class="row main">
 	<div class="col-sm-12">
 		<div class="post">
-			<h1>Grunt</h1>
-			<p class="meta">4 Dec 2013</p>
+			<h1><< effective javascript >></h1>
+			<p class="meta">2 Jun 2015</p>
 
 			<div class="">
-				<h2>An grunt example</h2>
+				<h2>“第 40 条： 避免继承标准类” 中的关于创建一个继承数组类的方法， 可以改成这样, 便有了 length 属性：</h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">Dir</span><span class="p">(</span><span class="nx">path</span><span class="p">,</span> <span class="nx">entries</span><span class="p">){</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">path</span> <span class="o">=</span> <span class="nx">path</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">n</span> <span class="o">=</span> <span class="nx">entries</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">n</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">entries</span><span class="p">[</span><span class="nx">i</span><span class="p">])</span>
+  <span class="p">}</span>
 
-<p><a href="http://www.anujgakhar.com/2013/02/28/writing-a-simple-grunt-task-using-gruntjs/">Writing a Simple Grunt Task using GruntJS</a></p>
-
+<span class="p">}</span>
+</code></pre></div>
 				
 			</div>
 			<div id="disqus_thread"></div>

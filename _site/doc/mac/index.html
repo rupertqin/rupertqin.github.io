@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -154,6 +154,28 @@ by setting:  </p>
 <p>get path from finder:</p>
 
 <p>drag finder to terminal</p>
+
+<h2>delete a world in Terminal shell</h2>
+
+<p>Under Terminal &gt; Profiles &gt; Keyboard you can check &quot;Use option key as meta key.</p>
+
+<p>then use <code>alt + delete</code></p>
+
+<h2>mac air mute after sleep</h2>
+
+<p><a href="http://v2ex.com/t/87156">2013款MBA发现在升级安装Maverick后，休眠-&gt;唤醒，系统会没有声音</a></p>
+
+<p><strong>ways 1:</strong></p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo kextunload /System/Library/Extensions/AppleHDA.kext
+sudo kextload /System/Library/Extensions/AppleHDA.kext
+</code></pre></div>
+<p><strong>ways 2:</strong></p>
+
+<ol>
+<li>open up activity monitor</li>
+<li>search for coreaudio</li>
+<li>kill!</li>
+</ol>
 
 				
 			</div>

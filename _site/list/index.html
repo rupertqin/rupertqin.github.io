@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -79,6 +79,209 @@
           <div class="inner">
             <h1>Blog Posts</h1>
             <!-- This loops through the paginated posts -->
+            
+              <h2><a href="/doc/javascript/effective-javascript/"><< effective javascript >></a></h2>
+              <p class="author">
+                <span class="date">2015-06-02 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">“第 40 条： 避免继承标准类” 中的关于创建一个继承数组类的方法， 可以改成这样, 便有了 length 属性：
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/javascript/strict-model/">严格模式</a></h2>
+              <p class="author">
+                <span class="date">2015-05-23 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">一般来说js 只有函数才能产生作用域， 而没有块级作用域，但在严格模式下是个例外,带上 &#39;use strict&#39;和不带上,结果不同：
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/session-cookie/">session vs cookie</a></h2>
+              <p class="author">
+                <span class="date">2015-05-14 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">When to use $SESSION vs $COOKIE
+Cookies vs. Sessions
+Understanding Cookies and Sessions
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/frontend/optimize/">about the optimizing of front-end</a></h2>
+              <p class="author">
+                <span class="date">2015-05-14 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">Web前端优化最佳实践及工具集锦
+Yahoo前端优化十四条军规
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/tmux/">tmux</a></h2>
+              <p class="author">
+                <span class="date">2015-05-03 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">Source
+
+Tmux - Linux从业者必备利器
+tmux shortcuts &amp; cheatsheet
+tmux 使用手册
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/nodejs/change-process.env.PORT/">how to change the value of process.env.PORT</a></h2>
+              <p class="author">
+                <span class="date">2015-04-14 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">For just one run (from the unix shell prompt):
+PORT=1234 node app.js
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/frontend/ios-safari-position-fixed-bug/">怎么解决 ios safari 中当 focus on input 弹出键盘，fixed element 位置错乱的问题</a></h2>
+              <p class="author">
+                <span class="date">2015-03-31 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">how-do-i-stop-my-fixed-navigation-from-moving-like-this-when-the-virtual-keyboar
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/frontend/how-to-disable-ios-safari-apperance/">怎么取消 iOS 的 safari 浏览器中 select, link, input等 默认的样式</a></h2>
+              <p class="author">
+                <span class="date">2015-03-20 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">iOS 的 safari 浏览器中 select, link, input等都有一些默认样式，我们怎么取消呢？
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/frontend/landscape-portrait-screen/">在移动端判断横屏竖屏</a></h2>
+              <p class="author">
+                <span class="date">2015-03-09 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">CSS
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/javascript/parse-url/">解析 url 对象</a></h2>
+              <p class="author">
+                <span class="date">2015-03-04 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">function parseURL(url) {
+    var parser = document.createElement(&#39;a&#39;),
+        searchObject = {},
+        queries, split, i;
+    // Let the browser do the work
+    parser.href = url;
+    // Convert query string to object
+    queries = parser.search.replace(/^\?/, &#39;&#39;).split(&#39;&amp;&#39;);
+    for( i = 0; i &lt; queries.length; i++ ) {
+        split = queries[i].split(&#39;=&#39;);
+        searchObject[split[0]] = split[1];
+    }
+    return {
+        protocol: parser.protocol,
+        host: parser.host,
+        hostname: parser.hostname,
+        port: parser.port,
+        pathname: parser.pathname,
+        search: parser.search,
+        searchObject: searchObject,
+        hash: parser.hash
+    };
+}
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/frontend/input-upload-and-select-css/">给 input[type=file], select 自定义样式</a></h2>
+              <p class="author">
+                <span class="date">2015-03-04 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">1, 实现原理是把 input/select 设为透明，置于按钮顶层，js 监听 onchange 事件，把 value 取出放于页面内
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/javascript/input-range-css/">给 input range 定义样式</a></h2>
+              <p class="author">
+                <span class="date">2015-03-04 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">例子
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/javascript/detect-browser-in-mobile/">判断客户端是否是iOS或者Android,是否在微信内部</a></h2>
+              <p class="author">
+                <span class="date">2015-03-04 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">var browser={
+    versions:function(){
+        var u = navigator.userAgent, app = navigator.appVersion;
+        return {
+            trident: u.indexOf(&#39;Trident&#39;) &gt; -1, //IE内核
+            presto: u.indexOf(&#39;Presto&#39;) &gt; -1, //opera内核
+            webKit: u.indexOf(&#39;AppleWebKit&#39;) &gt; -1, //苹果、谷歌内核
+            gecko: u.indexOf(&#39;Gecko&#39;) &gt; -1 &amp;&amp; u.indexOf(&#39;KHTML&#39;) == -1,//火狐内核
+            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+            ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+            android: u.indexOf(&#39;Android&#39;) &gt; -1 || u.indexOf(&#39;Linux&#39;) &gt; -1, //android终端或者uc浏览器
+            iPhone: u.indexOf(&#39;iPhone&#39;) &gt; -1 , //是否为iPhone或者QQHD浏览器
+            iPad: u.indexOf(&#39;iPad&#39;) &gt; -1, //是否iPad
+            webApp: u.indexOf(&#39;Safari&#39;) == -1, //是否web应该程序，没有头部与底部
+            weixin: u.indexOf(&#39;MicroMessenger&#39;) &gt; -1, //是否微信 （2015-01-22新增）
+            qq: u.match(/\sQQ/i) == &quot; qq&quot; //是否QQ
+        };
+    }(),
+    language:(navigator.browserLanguage || navigator.language).toLowerCase()
+}
+</span>
+                
+              </div>
+            
+              <h2><a href="/doc/javascript/download-file-in-browser/">在浏览器中生成文件并下载</a></h2>
+              <p class="author">
+                <span class="date">2015-03-03 00:00:00 +0800</span>
+              </p>
+              <div class="content">
+                
+                <span class="body">利用 a 标签的 download 属性, 然后 trigger 点击事件，实现下载
+</span>
+                
+              </div>
             
               <h2><a href="/customize-input-pattern/">如何在 angular 中验证中英混合字符的长度</a></h2>
               <p class="author">
@@ -140,28 +343,6 @@ How to Set Up Apache Virtual Hosts on Ubuntu 13.10
                 
               </div>
             
-              <h2><a href="/doc/ghost/">ghost</a></h2>
-              <p class="author">
-                <span class="date">2014-08-03 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">How to install Ghost on CentOS 6.x
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/tmux/">tmux</a></h2>
-              <p class="author">
-                <span class="date">2014-07-03 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">Tmux tutorial, multiscreen terminal and a better ssh experience
-</span>
-                
-              </div>
-            
               <h2><a href="/doc/Nginx/">nginx</a></h2>
               <p class="author">
                 <span class="date">2014-07-03 00:00:00 +0800</span>
@@ -169,143 +350,6 @@ How to Set Up Apache Virtual Hosts on Ubuntu 13.10
               <div class="content">
                 
                 <span class="body">restart
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/svn/">svn</a></h2>
-              <p class="author">
-                <span class="date">2014-06-18 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">Basic SVN Commands  
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/frontend/front-end/font/">font</a></h2>
-              <p class="author">
-                <span class="date">2014-06-03 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">Custom Built and Crisp Icon Fonts, Done Right
-icomoon
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/javascript/two-way-binding/">easy two-way data binding</a></h2>
-              <p class="author">
-                <span class="date">2014-05-25 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">a library
-
-DataBind.js
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/frontend/html5/">html5</a></h2>
-              <p class="author">
-                <span class="date">2014-05-19 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">Tutorials
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/bash/">bash</a></h2>
-              <p class="author">
-                <span class="date">2014-05-19 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">Bash脚本15分钟进阶教程
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/frontend/web-components/">web components</a></h2>
-              <p class="author">
-                <span class="date">2014-05-18 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">reading
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/javascript/snow/">snow</a></h2>
-              <p class="author">
-                <span class="date">2014-05-17 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">
-
-
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/tools/">tools</a></h2>
-              <p class="author">
-                <span class="date">2014-05-12 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">math:
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/frontend/limit-input-with-english-and-chinese/">limit input with both english and chinese</a></h2>
-              <p class="author">
-                <span class="date">2014-05-07 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">get the length of field&#39;s text
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/frontend/vertical-align-middle/">vercical align middle</a></h2>
-              <p class="author">
-                <span class="date">2014-05-06 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">Centering in CSS: A Complete Guide
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/atom/">atom</a></h2>
-              <p class="author">
-                <span class="date">2014-05-02 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">Atom Editor Keyboard Shortcut Cheat Sheet
-</span>
-                
-              </div>
-            
-              <h2><a href="/doc/javascript/frontend-dev-bookmarks/">books of javascript</a></h2>
-              <p class="author">
-                <span class="date">2014-04-27 00:00:00 +0800</span>
-              </p>
-              <div class="content">
-                
-                <span class="body">Github: frontend-dev-bookmarks
 </span>
                 
               </div>

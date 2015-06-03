@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>sublime text 2</title>
+        <title>在浏览器中生成文件并下载</title>
         <meta name="viewport" content="width=device-width">
 
 
@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -74,21 +74,30 @@
             <div class="row main">
 	<div class="col-sm-12">
 		<div class="post">
-			<h1>sublime text 2</h1>
-			<p class="meta">10 Feb 2014</p>
+			<h1>在浏览器中生成文件并下载</h1>
+			<p class="meta">3 Mar 2015</p>
 
 			<div class="">
-				<p><a href="http://code.tutsplus.com/tutorials/sublime-text-2-tips-and-tricks--net-21519">sublime text 2 tips and tricks</a></p>
-
-<h2>how to find method definition</h2>
-
-<p><a href="http://stackoverflow.com/questions/10276340/">ide sublime2 how to find method definition</a></p>
-
-<ul>
-<li>command+R</li>
-<li>comandd+P then type &#39;@&#39;</li>
-</ul>
-
+				<h2>利用 a 标签的 <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#attr-download">download</a> 属性, 然后 trigger 点击事件，实现下载</h2>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">function</span> <span class="nx">downloadFile</span><span class="p">(</span><span class="nx">fileName</span><span class="p">,</span> <span class="nx">content</span><span class="p">){</span>
+    <span class="kd">var</span> <span class="nx">aLink</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">blob</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Blob</span><span class="p">([</span><span class="nx">content</span><span class="p">]);</span>
+    <span class="kd">var</span> <span class="nx">evt</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&quot;HTMLEvents&quot;</span><span class="p">);</span>
+    <span class="nx">evt</span><span class="p">.</span><span class="nx">initEvent</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span><span class="c1">//initEvent 不加后两个参数在FF下会报错</span>
+    <span class="nx">aLink</span><span class="p">.</span><span class="nx">download</span> <span class="o">=</span> <span class="nx">fileName</span><span class="p">;</span>
+    <span class="nx">aLink</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">URL</span><span class="p">.</span><span class="nx">createObjectURL</span><span class="p">(</span><span class="nx">blob</span><span class="p">);</span>
+    <span class="nx">aLink</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">evt</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>保存图片的一个<a href="http://jsfiddle.net/codepo8/V6ufG/2/">例子</a>：</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">link</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">);</span>
+<span class="nx">link</span><span class="p">.</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="s1">&#39;download image&#39;</span><span class="p">;</span>
+<span class="nx">link</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">link</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">toDataURL</span><span class="p">();</span>
+    <span class="nx">link</span><span class="p">.</span><span class="nx">download</span> <span class="o">=</span> <span class="s2">&quot;mypainting.png&quot;</span><span class="p">;</span>
+<span class="p">},</span> <span class="kc">false</span><span class="p">);</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">link</span><span class="p">);</span>
+</code></pre></div>
 				
 			</div>
 			<div id="disqus_thread"></div>

@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -96,6 +96,13 @@
 <p>2.</p>
 
 <p>add <code>encoding: UTF-8</code> in &#39;_config.yml&#39;</p>
+
+<h2>基于文件路径的分类</h2>
+
+<p>一般我们把新文章放入 <code>_posts/news/</code>, 加分类要在每个文章头部加上 <code>categories: news</code>, 然后文章的 url 结构为 <code>:categories: ...</code>, 就可以为文章分类了
+默认情况下，我们想基于文件夹路径的分类却做不到，但是我们可以通过 <code>news/_post</code> <code>news/fun/_post</code> 这样的结构达到分类的效果。</p>
+
+<p><a href="https://github.com/jekyll/jekyll/blob/master/lib/jekyll/post.rb#L55">源码</a></p>
 
 				
 			</div>

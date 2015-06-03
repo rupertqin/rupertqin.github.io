@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>ssh</title>
+        <title>给 input range 定义样式</title>
         <meta name="viewport" content="width=device-width">
 
 
@@ -41,9 +41,9 @@
 
                 <div id="topmenu">
                   <ul class="dropdown clearfix boxed boxed-blue">
-                      <li class="link-more"><a href="#"><i></i></a></li>
+                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
                       <li><a href="/"><span>Home</span></a></li>
-                      <li><a href="#"><span>Services</span></a>
+                      <!-- <li><a href="#"><span>Services</span></a>
                           <ul>
                               <li><a href="#">Link 1</a></li>
                               <li><a href="#">Link 2</a></li>
@@ -55,8 +55,8 @@
                                   </ul>
                               </li>
                           </ul>
-                      </li>
-                      <li><a href="#"><span>About</span></a></li>
+                      </li> -->
+                      <li><a href="/about.html"><span>About</span></a></li>
                       <li class="menu-search">
                           <form id="searchForm" class="menu-search-form" method="get" action="search.html">
                               <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
@@ -74,17 +74,17 @@
             <div class="row main">
 	<div class="col-sm-12">
 		<div class="post">
-			<h1>ssh</h1>
-			<p class="meta">20 Feb 2014</p>
+			<h1>给 input range 定义样式</h1>
+			<p class="meta">4 Mar 2015</p>
 
 			<div class="">
-				<h2>generat ss key</h2>
+				<p><a href="http://codepen.io/collection/DgYaMj/">例子</a></p>
 
-<p><a href="https://help.github.com/articles/generating-ssh-keys">generating ssh keys</a></p>
-
-<p><strong>copy key :</strong>
-<code>pbcopy &lt; ~/.ssh/id_rsa.pub</code></p>
-
+<h2>怎么把默认横向的 range 变成竖的？</h2>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nt">input</span><span class="o">[</span><span class="nt">type</span><span class="o">=</span><span class="nt">range</span><span class="o">]</span> <span class="p">{</span>
+<span class="n">transform</span><span class="o">:</span> <span class="n">rotate</span><span class="p">(</span><span class="m">90</span><span class="n">deg</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
 				
 			</div>
 			<div id="disqus_thread"></div>
