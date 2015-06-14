@@ -16,3 +16,26 @@ tags: css
 [六种实现元素水平居中](http://www.w3cplus.com/css/elements-horizontally-center-with-css.html)
 
 [CSS制作水平垂直居中对齐](http://www.w3cplus.com/css/vertically-center-content-with-css)
+
+[10 Simple & Smart CSS Snippets](http://www.hongkiat.com/blog/simple-css-snippets/)
+
+
+## 文字过长省略为 “...”
+```css
+hide-ellipsis{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+```
+
+## 中平居中
+```css
+.verticalcenter{
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+```
