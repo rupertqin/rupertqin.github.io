@@ -8,6 +8,7 @@ tags: js puzzle
 [前端技能挑战](http://www.nowcoder.com/ta/front-end)
 
 ## dom 节点查找
+
 ```js
 
 ```
@@ -158,22 +159,23 @@ function formatDate(oDate, sFormation) {
     var twoFill = function(num){
         return num < 10 ? '0' + num : num;
     }
-    var obj = {};
-    obj.yyyy = oDate.getFullYear(),
-    obj.yy = obj.yyyy.toString().slice(2,4),
-    obj.MM = twoFill( oDate.getMonth() + 1 ),
-    obj.M = oDate.getMonth() + 1,
-    obj.dd = twoFill( oDate.getDate() ),
-    obj.d = oDate.getDate(),
-    obj.HH = twoFill( oDate.getHours() ),
-    obj.H = oDate.getHours(),
-    obj.hh = twoFill( obj.HH-12 ),
-    obj.h = obj.HH - 12,
-    obj.mm = oDate.getMinutes(),
-    obj.m = twoFill( oDate.getMinutes() ),
-    obj.ss = oDate.getSeconds(),
-    obj.s = twoFill( oDate.getSeconds() ),
-    obj.w =  ['日', '一', '二', '三', '四', '五', '六'][oDate.getDay()];
+    var obj = {
+      yyyy: oDate.getFullYear(),
+      yy: oDate.getFullYear().toString().slice(2,4),
+      MM: twoFill( oDate.getMonth() + 1 ),
+      M: oDate.getMonth() + 1,
+      dd: twoFill( oDate.getDate() ),
+      d: oDate.getDate(),
+      HH: twoFill( oDate.getHours() ),
+      H: oDate.getHours(),
+      hh: twoFill( oDate.getHours()%12 || 12 ),
+      h: oDate.getHours()%12 || 12,
+      mm: twoFill( oDate.getMinutes() ),
+      m: oDate.getMinutes(),
+      ss: twoFill( oDate.getSeconds() ),
+      s: oDate.getSeconds(),
+      w:  ['日', '一', '二', '三', '四', '五', '六'][oDate.getDay()]
+    };
     for (key in obj) {
         if (sFormation.indexOf(key) !== -1) {
             var reg = new RegExp(key, 'g');
@@ -181,6 +183,34 @@ function formatDate(oDate, sFormation) {
         }
     }
     return sFormation;
+}
+
+function formatDate(oDate, sFormation) {
+    var twoFill = function(num){
+        return num < 10 ? '0' + num : num;
+    }
+    var obj = {
+      yyyy: oDate.getFullYear(),
+      yy: oDate.getFullYear().toString().slice(2,4),
+      MM: twoFill( oDate.getMonth() + 1 ),
+      M: oDate.getMonth() + 1,
+      dd: twoFill( oDate.getDate() ),
+      d: oDate.getDate(),
+      HH: twoFill( oDate.getHours() ),
+      H: oDate.getHours(),
+      hh: twoFill( oDate.getHours()%12 || 12 ),
+      h: oDate.getHours()%12 || 12,
+      mm: twoFill( oDate.getMinutes() ),
+      m: oDate.getMinutes(),
+      ss: twoFill( oDate.getSeconds() ),
+      s: oDate.getSeconds(),
+      w:  ['日', '一', '二', '三', '四', '五', '六'][oDate.getDay()]
+    };
+
+    var token = /(yy){1,2}|(([HhMdms])\1){1,2}|w/g;
+    return sFormation.replace(token, function ($0) {
+        return $0 in obj ? obj[$0] : $0.slice(1, $0.length - 1);
+    });
 }
 ```
 
