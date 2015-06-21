@@ -22,6 +22,7 @@ getUrlParam('http://www.nowcoder.com?key=1&key=2&key=3&test=4#hehe', 'key')
 
 输出例子:
 ['1', '2', '3']
+
 ```js
 function getUrlParam(sUrl, sKey) {
     var str = sUrl.split('?')[1];
@@ -59,6 +60,7 @@ bindThis(function(a, b){return this.test + a + b}, {test: 1})(2, 3)
 
 输出例子:
 6
+
 ```js
 function bindThis(f, oTarget) {
     return function() {
@@ -75,6 +77,7 @@ namespace({a: {test: 1, b: 2}}, 'a.b.c.d')
 
 输出描述:
 {a: {test: 1, b: {c: {d: {}}}}}
+
 ```js
 function namespace(oNamespace, sPackage) {
     for (var i= 0, n = sPackage.length; i < n; i++) {
@@ -94,6 +97,7 @@ function namespace(oNamespace, sPackage) {
 
 输出例子:
 [false, true, undefined, null, NaN, 0, 1, {}, {}, 'a']
+
 ```js
 Array.prototype.uniq = function () {
     var arr = this;
@@ -115,6 +119,7 @@ Array.prototype.uniq = function () {
 
 ## 斐波那契数列
 用 JavaScript 实现斐波那契数列函数,返回第n个斐波那契数。 f(1) = 1, f(2) = 1 等
+
 ```js
 function fibonacci(n) {
     if (n == 1 || n == 2) return 1;
@@ -147,6 +152,7 @@ formatDate(new Date(1409894060000), 'yyyy-MM-dd HH:mm:ss 星期w')
 
 输出例子:  
 2014-09-05 13:14:20 星期五  
+
 ```js
 function formatDate(oDate, sFormation) {
     var twoFill = function(num){
@@ -177,6 +183,8 @@ function formatDate(oDate, sFormation) {
     return sFormation;
 }
 ```
+
+
 ## 获取字符串的长度
 
 如果第二个参数 bUnicode255For1 === true，则所有字符长度为 1
@@ -207,6 +215,7 @@ function strLength(s, bUnicode255For1) {
 
 输出描述:  
 true表示格式正确  
+
 ```js
 function isAvailableEmail(sEmail) {
     return  /^\w+@(\[A-Za-z0-9].){2,3}$/.test(sEmail);
