@@ -154,6 +154,9 @@ formatDate(new Date(1409894060000), 'yyyy-MM-dd HH:mm:ss 星期w')
 输出例子:  
 2014-09-05 13:14:20 星期五  
 
+
+[eralston / DateFormat.js](https://gist.github.com/eralston/968809)
+
 ```js
 function formatDate(oDate, sFormation) {
     var twoFill = function(num){

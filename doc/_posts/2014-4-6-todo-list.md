@@ -4,6 +4,12 @@ title:  the todo list
 tags: za todo
 ---
 
+## ES6 js
+[es6features](https://github.com/lukehoban/es6features)
+[The Art of Command Line](https://github.com/jlevy/the-art-of-command-line)
+
+
+
 ## Apis
 [An Introduction to APIs](https://zapier.com/learn/apis/)
 

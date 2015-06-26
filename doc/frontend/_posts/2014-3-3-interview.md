@@ -6,6 +6,8 @@ tags: front-end interview
 ---
 ## resource
 
+[Interview Questions for front-end-Developer](http://www.thatjsdude.com/interview/index.html)
+
 [Front end Developer Interview Questions](https://github.com/darcyclarke/Front-end-Developer-Interview-Questions)
 
 [前端攻略系列(二) - 前端各种面试题](http://www.cnblogs.com/Darren_code/archive/2012/01/31/questions.html)
@@ -68,7 +70,7 @@ alert('出现次数最多的是:'+iIndex+'出现'+iMax+'次');
 ```
 
 
-## 写一个method, 去掉数组 [1,2,3,1,2,3,4,5,1,2,3,4] 中的重复元素 
+## 写一个method, 去掉数组 [1,2,3,1,2,3,4,5,1,2,3,4] 中的重复元素
 
 ```js
 var arr = [1,2,3,1,2,3,4,5,1,2,3,4];
