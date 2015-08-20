@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  关于 <audio> 和 <video> 标签在移动端设置了 autoplay 不起作用的问题
+title:  关于 `audio 和 video 标签在移动端设置了 autoplay 不起作用的问题
 ---
 
 1.  因为节省带宽的原因才这样设置
