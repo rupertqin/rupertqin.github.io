@@ -11,6 +11,7 @@ tags: za fun
     TrailingSpaces        多余空格标记，强迫症患者福音
     Brackethighlighter    标签对标记
     Emmet               　前端神器
+    SublimeCodeIntel    　全能代码提示
 
 ## php Chinese character show as "???"
 in st2, `File -> save with Encoding -> UTF-8`
