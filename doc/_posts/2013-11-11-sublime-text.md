@@ -1,8 +1,16 @@
 ---
 layout: post
-title:  editor
+title:  sublime text
 tags: za fun
 ---
+
+## 插件列表：
+
+    QuoteHTML             把HTML拼接成js插入字符串，神器
+    ConvertToUTF8         GBK编码兼容
+    TrailingSpaces        多余空格标记，强迫症患者福音
+    Brackethighlighter    标签对标记
+
 ## php Chinese character show as "???"
 in st2, `File -> save with Encoding -> UTF-8`
 
