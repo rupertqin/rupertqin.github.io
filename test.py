@@ -2,7 +2,7 @@
 # -*- coding:utf8 -*-
 
 from mongoengine import Document, EmbeddedDocument
-from mongoengine.fields import ObjectIdField,StringField,LongField,IntField,FloatField,ListField,BooleanField
+from mongoengine.fields import StringField,LongField,IntField,FloatField,ListField
 from mongoengine.fields import EmbeddedDocumentField
 from position_model import *
 
@@ -116,11 +116,12 @@ class JobNextIncMost(EmbeddedDocument):
     next_inc = StringField(help_text="去向公司")
     next_inc_rank = IntField(help_text="去向公司排名")
 
+
 class JobDurationStats(EmbeddedDocument):
     """
     平均在职时长
     """
-    position_duration = FloatField(help_text="改职位平均在职时长")
+    position_duration = FloatField(help_text="该职位平均在职时长")
     position_industry_average = FloatField(help_text="同行业平均在职时长")
     position_over_ratio = FloatField(help_text="在职时长比x%其他职位高")
 
@@ -146,7 +147,7 @@ class PositionIndicatorStatsByCity(Document):
         "strict":False,
         "indexes":[
             {   
-                "fields":("position_id","position_city","stat_date"),
+                "fields":("position_id","position_city"),
                 "unique":False
             }   
         ]   
@@ -161,8 +162,9 @@ class PositionIndicatorStatsNoCity(Document):
     position_id = StringField(help_text="职位ID")
     position_role = StringField(help_text="职位对应职能")
     position_sample = LongField(help_text="该职位统计样本数")
+    salary_factor_stats = FloatField(default=0, help_text="该职位全国薪酬指数")
     avg_diploma_ratio = FloatField(help_text="该职位平均学历百分比(本科以上学历占比)")
-    avg_diploma_over_ratio = FloatField(help_text="改职位平均学历高于x%职位")
+    avg_diploma_over_ratio = FloatField(help_text="该职位平均学历高于x%职位")
     gender_stats = ListField(EmbeddedDocumentField(GenderStats, help_text="性别统计"))
     diploma_stats = ListField(EmbeddedDocumentField(DiplomaStats, help_text="学历统计"))
     job_startend_stats = ListField(EmbeddedDocumentField(JobStartEndStats, help_text="最近5年入职离职周期"))
@@ -178,8 +180,28 @@ class PositionIndicatorStatsNoCity(Document):
         "strict":False,
         "indexes":[
             {   
-                "fields":("position_id","stat_date"),
+                "fields":("position_id"),
                 "unique":False
+            }   
+        ]   
+    }
+
+
+class PositionCityList(Document):
+    """
+    职位库指标统计-职位的城市列表
+    """
+    position_id = StringField(help_text="职位ID")
+    position_city = ListField(StringField(), help_text="职位所在城市列表")
+
+    meta = { 
+        "db_alias":"position_v5",
+        "collection":"position_city_list",
+        "strict":False,
+        "indexes":[
+            {   
+                "fields":("position_id"),
+                "unique":True
             }   
         ]   
     }
