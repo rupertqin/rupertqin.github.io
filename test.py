@@ -4,7 +4,6 @@
 from mongoengine import Document, EmbeddedDocument
 from mongoengine.fields import StringField,LongField,IntField,FloatField,ListField
 from mongoengine.fields import EmbeddedDocumentField
-from position_model import *
 
 class GenderStats(EmbeddedDocument):
     """
@@ -180,7 +179,7 @@ class PositionIndicatorStatsNoCity(Document):
         "strict":False,
         "indexes":[
             {   
-                "fields":("position_id"),
+                "fields":("position_id",),
                 "unique":False
             }   
         ]   
@@ -200,7 +199,7 @@ class PositionCityList(Document):
         "strict":False,
         "indexes":[
             {   
-                "fields":("position_id"),
+                "fields":("position_id",),
                 "unique":True
             }   
         ]   
