@@ -3,7 +3,7 @@
 ------- 			| --------------	| 		-------| -----
 生日:		|1985/2/25		 	||
 手机:		|18692806389 	 	|邮箱:|rupert.qing@gmail.com
-个人主页:				|http://rupertqin.github.io|    薪资| 20K/M
+个人主页:				|http://rupertqin.github.io|    薪资| 25K/M
 Github:				|https://github.com/rupertqin
 Coding:                           |https://coding.net/u/rupert
 
