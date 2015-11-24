@@ -1,21 +1,25 @@
-## 覃湘
-
 ### 基本资料
 姓名: 				| 覃湘	|	性别:  | 男
 ------- 			| --------------	| 		-------| -----
-生日:		|1985/2/25		 	|住址:|上海徐汇
-手机:		|18692806389	 	|邮箱:|rupert.qing@gmail.com
-个人主页:				|http://coigres.com|期望薪资:|250,000-300,000RMB
+生日:		|1985/2/25		 	||
+手机:		|18692806389 	 	|邮箱:|rupert.qing@gmail.com
+个人主页:				|http://rupertqin.github.io|    薪资| 20K/M
 Github:				|https://github.com/rupertqin
+Coding:                           |https://coding.net/u/rupert
 
 
 ### 工作经验
 
-* 秦镜网络
-前端工程师, 2012/3--2014/6
+* 本事网
+前端工程师, 2014/5--2014/12
 
-	* 负责前端架构的部署
-	* 承担WEB前端核心模块的设计、实现工作；
+	* 负责官网社交和商城平台的前端实现
+	* 运用用 Html5 技术开发 Hyprid App
+
+* 秦镜网络
+前端工程师, 2012/3--2014/5
+
+	* 教学平台前端页面和模块的设计、实现工作；
 	* 与Ruby程序员配合实现模块功能;
 
 * 遨乐网  
@@ -39,8 +43,8 @@ Github:				|https://github.com/rupertqin
 
 ### 技能
 
-* 擅长html5,css3,canvas,SVG等前端新技术
-* 常使用的框架有jQuery, coffeescript, lodash, requirejs, Angularjs等  
+* 擅长html5,css3, js, Ajax, canvas,SVG等, 熟悉 oop, functional javascript 编程
+* 熟悉CommonJS, AMD 规范
+* 熟悉jQuery, coffeescript, lodash, requirejs, Angularjs, React, Codorva
 * 熟悉Unix/linux下开发，运用git进行代码的开发和管理  
-* 对nodejs和ruby on rails等后端技术，和mysql， postgresql，mongodb数据库有一定的实践
-* 熟练使用gulp, bower等提高开发效率的工具
+* 熟练使用Gulp, Browserify, Webpack 等提高开发效率的工具
