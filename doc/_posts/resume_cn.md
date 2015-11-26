@@ -10,14 +10,13 @@ Coding:                           |https://coding.net/u/rupert
 
 ### 工作经验
 
-* 本事网
-前端工程师, 2014/5--2014/12
+* 爱拼
+高级前端工程师, 2015/9--
 
-	* 负责官网社交和商城平台的前端实现
-	* 运用用 Html5 技术开发 Hyprid App
+	* 负责主站后台与前端的开发
 
 * 秦镜网络
-前端工程师, 2012/3--2014/5
+前端工程师, 2012/3--2014/12
 
 	* 教学平台前端页面和模块的设计、实现工作；
 	* 与Ruby程序员配合实现模块功能;
@@ -43,8 +42,8 @@ Coding:                           |https://coding.net/u/rupert
 
 ### 技能
 
-* 擅长html5,css3, js, Ajax, canvas,SVG等, 熟悉 oop, functional javascript 编程
+* 擅长html5,css3, js, 熟悉 oop, functional javascript 编程
 * 熟悉CommonJS, AMD 规范
-* 熟悉jQuery, coffeescript, lodash, requirejs, Angularjs, React, Codorva
+* 熟悉lodash, Angularjs, React, Codorva
 * 熟悉Unix/linux下开发，运用git进行代码的开发和管理  
 * 熟练使用Gulp, Browserify, Webpack 等提高开发效率的工具
