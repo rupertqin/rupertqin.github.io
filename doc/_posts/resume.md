@@ -3,7 +3,7 @@
 ### Basic Info.
 Name: 			|Rupert qin(覃湘)	|	Gender:  | Male
 ------- 		| --------------	| 		-------| -----
-Date of Birth:		|1985/2/25		 	|Residency:|Shanghai-Xuhui
+Date of Birth:		|1985/2/25		 	|Residency:|ShenZhen-BaoAn
 Mobile Phone:		|18692806389	 		|Email:|rupert.qing@gmail.com
 site:			|http://rupertqin.github.io	|Salary Expectation:| 25k
 Github:			|https://github.com/rupertqin
@@ -27,7 +27,7 @@ Front-end developer, 2012/3--2014/12
 * Affordable Luxury Network  
 Front-end developer, 2010/9--2012/3
 
-	* reconstrcture our web site in the front-end. And created wedgets to improve the 	site.
+	* reconstrcture our web site in the front-end. And created wedgets to improve the site.
 
 * ChenLu Inc.
 Junior Front-end developer, 20010/2--2010/9
