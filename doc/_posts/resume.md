@@ -12,17 +12,22 @@ Github:			|https://github.com/rupertqin
 ### Work Experience
 
 * iPIN
-Senior Front-end developer, 2015/9 -- 
-
-	* develop some web site in nodejs
-	* develop official web site in python
+Senior Front-end developer, 2015/9 --
+  1. develop some web site in nodejs
+    * we use koa , in MVC pattern
+    * Yet another point to consider.
+  2. develop official web site in python
+    * the project was developed in a framework of django
+  3. in the front-end, we use AMD manage modules
+    * use zepto.js, raphael.js, easing.js etc small libs
+    * we use sass, and use compass to deal with sprite images
 
 * Qinjing Tech Inc
 Front-end developer, 2012/3--2014/12
-
-	* deploy the project's front-end architecture
-	* responsible for the main tasks in front-end's core moudels
-
+  1. use backbone, requirejs, jqueryui, bootstrap as front-end stack
+  2. build a Hybrid App using ionic/Angular Codorva
+  3. develop some tools such as 'pen', 'quiz test', 'editor'
+  4. Rails as our back-end framework, kaltura as our video solution
 
 * Affordable Luxury Network  
 Front-end developer, 2010/9--2012/3
