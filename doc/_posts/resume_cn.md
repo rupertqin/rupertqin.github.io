@@ -3,7 +3,7 @@
 ------- 			| --------------	| 		-------| -----
 生日:		|1985/2/25		 	||
 手机:		|18692806389 	 	|邮箱:|rupert.qing@gmail.com
-个人主页:				|http://rupertqin.github.io|    薪资| 25K/M
+个人主页:				|http://rupertqin.github.io|    薪资| 25k~30k
 Github:				|https://github.com/rupertqin
 Coding:                           |https://coding.net/u/rupert
 
@@ -12,7 +12,8 @@ Coding:                           |https://coding.net/u/rupert
 
 * 爱拼
 高级前端工程师, 2015/9--
-
+	
+	* 用 nodejs 开发web应用
 	* 负责主站后台与前端的开发
 
 * 秦镜网络
@@ -43,7 +44,6 @@ Coding:                           |https://coding.net/u/rupert
 ### 技能
 
 * 擅长html5,css3, js, 熟悉 oop, functional javascript 编程
-* 熟悉CommonJS, AMD 规范
 * 熟悉lodash, Angularjs, React, Codorva
 * 熟悉Unix/linux下开发，运用git进行代码的开发和管理  
 * 熟练使用Gulp, Browserify, Webpack 等提高开发效率的工具

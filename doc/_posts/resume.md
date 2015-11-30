@@ -5,7 +5,7 @@ Name: 			|Rupert qin(覃湘)	|	Gender:  | Male
 ------- 		| --------------	| 		-------| -----
 Date of Birth:		|1985/2/25		 	|Residency:|ShenZhen-BaoAn
 Mobile Phone:		|18692806389	 		|Email:|rupert.qing@gmail.com
-site:			|http://rupertqin.github.io	|Salary Expectation:| 25k
+site:			|http://rupertqin.github.io	|Salary Expectation:| 25~30k
 Github:			|https://github.com/rupertqin
 
 
@@ -14,8 +14,8 @@ Github:			|https://github.com/rupertqin
 * iPIN
 Senior Front-end developer, 2015/9 -- 
 
+	* develop some web site in nodejs
 	* develop official web site in python
-	* build some web site in nodejs
 
 * Qinjing Tech Inc
 
