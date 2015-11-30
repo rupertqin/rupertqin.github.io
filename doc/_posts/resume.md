@@ -18,11 +18,11 @@ Senior Front-end developer, 2015/9 --
 	* develop official web site in python
 
 * Qinjing Tech Inc
-
 Front-end developer, 2012/3--2014/12
 
 	* deploy the project's front-end architecture
 	* responsible for the main tasks in front-end's core moudels
+
 
 * Affordable Luxury Network  
 Front-end developer, 2010/9--2012/3
