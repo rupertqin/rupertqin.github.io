@@ -18,13 +18,13 @@ Senior Front-end developer, 2015/9 --
     * Yet another point to consider.
   2. develop official web site in python
     * the project was developed in a framework of django
-  3. in the front-end, we use AMD manage modules
-    * use zepto.js, raphael.js, easing.js etc small libs
-    * we use sass, and use compass to deal with sprite images
+  3. in the front-end,  use AMD manage modules
+    *  zepto.js, raphael.js, easing.js etc small libs
+    *  sass, and use compass to deal with sprite images
 
 * Qinjing Tech Inc
 Front-end developer, 2012/3--2014/12
-  1. use backbone, requirejs, jqueryui, bootstrap as front-end stack
+  1. in main site, using backbone, requirejs, jqueryui, bootstrap as front-end stack
   2. build a Hybrid App using ionic/Angular Codorva
   3. develop some tools such as 'pen', 'quiz test', 'editor'
   4. Rails as our back-end framework, kaltura as our video solution
@@ -49,6 +49,6 @@ E-Business Bachelor, May 2009
 ### Skills
 
 * good at Html5, css3 to build responsive mobile website.
-* the most commonly used framework include Jquery, lodash, requirejs, Angularjs, reactjs.
+* the most commonly used framework include Jquery, lodash, requirejs, Angularjs, reactjs, ES6, nodejs.
 * Used to develop under Unix/linux platform, using Git to maintain code for my projects.
 * familiar with gulp, browserify, Git and bower ect. that make my work efficient.
