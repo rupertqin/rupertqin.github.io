@@ -41,7 +41,7 @@ Coding:                           |https://coding.net/u/rupert
 
 ### 技能
 
-* 擅长html5,css3, js, 熟悉 oop, functional javascript 编程
+* 擅长html5,css3, js/ES6, 熟悉 oop, functional javascript 编程
 * 熟悉lodash, Angularjs, React, Codorva
 * 熟悉Unix/linux下开发，运用git进行代码的开发和管理  
 * 熟练使用Gulp, Browserify, Webpack 等提高开发效率的工具
