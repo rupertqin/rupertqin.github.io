@@ -5,7 +5,7 @@ Name: 			|Rupert qin(覃湘)	|	Gender:  | Male
 ------- 		| --------------	| 		-------| -----
 Date of Birth:		|1985/2/25		 	|Residency:|ShenZhen-BaoAn
 Mobile Phone:		|18692806389	 		|Email:|rupert.qing@gmail.com
-site:			|http://rupertqin.github.io	|Salary Expectation:| 25~30k
+site:			|http://rupertqin.github.io	|Salary Expectation:| 
 Github:			|https://github.com/rupertqin
 
 
@@ -48,7 +48,7 @@ E-Business Bachelor, May 2009
 
 ### Skills
 
-* good at Html5, css3 to build responsive mobile website.
-* the most commonly used framework include Jquery, lodash, requirejs, Angularjs, reactjs, ES6, nodejs.
+* Good at Html5, css3 to build responsive mobile website.
+* The most commonly used framework include lodash, requirejs, Angularjs, reactjs, ES6, koa.js.
 * Used to develop under Unix/linux platform, using Git to maintain code for my projects.
-* familiar with gulp, browserify, Git and bower ect. that make my work efficient.
+* Familiar with NPM, gulp, browserify, Git and webpack ect. that make my work efficient.
