@@ -10,11 +10,17 @@ Coding:                           |https://coding.net/u/rupert
 
 ### 工作经验
 
-* 爱拼
+* 爱拼网
 高级前端工程师, 2015/9--
 	
-	* 用 nodejs 开发web应用
-	* 负责主站后台与前端的开发
+	1. 用 nodejs 开发 web 应用
+        * 用的 koa 栈
+        * 负责多个项目，包括 校园、高考、数据组
+    2. 开发公司 用 django 框架写的 python 主站
+    3. 负责项目的前端交互
+        * 用的是 AMD 模块规范
+        * 有用到 zepto.js, raphael.js, easing.js, avalonjs 等 js 库
+        * css 预处理器用的是 sass 
 
 * 秦镜网络
 前端工程师, 2012/3--2014/12
@@ -44,4 +50,4 @@ Coding:                           |https://coding.net/u/rupert
 * 擅长html5,css3, js/ES6, 熟悉 oop, functional javascript 编程
 * 熟悉lodash, Angularjs, React, Codorva
 * 熟悉Unix/linux下开发，运用git进行代码的开发和管理  
-* 熟练使用Gulp, Browserify, Webpack 等提高开发效率的工具
+* 熟练使用Gulp, Browserify, NPM script, Webpack 等提高开发效率的工具
