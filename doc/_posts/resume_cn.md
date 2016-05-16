@@ -2,7 +2,7 @@
 姓名: 				| 覃湘	|	性别:  | 男
 ------- 			| --------------	| 		-------| -----
 生日:		|1985/2/25		 	||
-手机:		|18692806389 	 	|邮箱:|rupert.qing@gmail.com
+手机:		|13560772069 	 	|邮箱:|rupert.qing@gmail.com
 个人主页:				|http://rupertqin.github.io|    薪资| 25k~30k
 Github:				|https://github.com/rupertqin
 Coding:                           |https://coding.net/u/rupert
