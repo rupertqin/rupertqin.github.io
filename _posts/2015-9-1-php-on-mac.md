@@ -89,3 +89,24 @@ PHP 上传文件限制在 `/private/etc/php.in` 配置， 如果没有这个文�
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule . /ebest-wordpress/index.php [L]
     </IfModule>
+
+## 升级MacOS 至 EI CAPITAN 执行 `sudo apachectl configtest` 后遇到提示这个问题：  
+
+    AH00526: Syntax error on line 20 of /private/etc/apache2/extra/httpd-mpm.conf: Invalid command 'LockFile', perhaps misspelled or defined by a module not included in the server configuration.
+    
+    
+    需要把这一段注释掉：
+    
+    #
+    # The accept serialization lock file MUST BE STORED ON A LOCAL DISK.
+    #
+    <IfModule !mpm_winnt_module>
+    <IfModule !mpm_netware_module>
+      LockFile "/private/var/log/apache2/accept.lock"
+    </IfModule>
+    </IfModule>
+    
+    [el-capitan-apache-error-message-ah00526](http://apple.stackexchange.com/questions/211015/el-capitan-apache-error-message-ah00526)
+    
+    
+    
