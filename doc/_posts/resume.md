@@ -32,7 +32,8 @@ Front-end developer, 2012/3--2014/12
 * Affordable Luxury Network  
 Front-end developer, 2010/9--2012/3
 
-	* reconstrcture our web site in the front-end. And created wedgets to improve the site.
+	* Build E-commerce website in the front-end. 
+	* And created wedgets to improve the site.
 
 * ChenLu Inc.
 Junior Front-end developer, 20010/2--2010/9
