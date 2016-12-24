@@ -189,7 +189,9 @@ article .meta {
 	font-size: 0.85em;
 	font-style: italic;
 }
-
+img {
+	max-width: 100%;
+}
 img.left {
 	float: left;
 	margin: 0 1em 1em 0;
