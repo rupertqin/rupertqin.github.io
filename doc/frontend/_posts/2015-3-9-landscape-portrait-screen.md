@@ -6,13 +6,12 @@ tags: orientation
 
 ## CSS
 
-1、  
 ```css
  @media (orientation: landscape) { }
  @media (orientation: portrait) { }
 ```
- 2、
- ```html  
+
+```html  
  <link rel="stylesheet" media="all and (orientation:landscape)" href="landscape.css">
  <link rel="stylesheet" media="all and (orientation:portrait)" href="portrait.css">
 ```

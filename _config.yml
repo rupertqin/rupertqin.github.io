@@ -1,9 +1,10 @@
-name: Coigres
-encoding: UTF-8
-# highlighter: pygments
-highlighter: rouge
-relative_permalinks: false
-permalink: /:categories/:title/
-port:				5000
-paginate: 20
-paginate_path: "list/:num"
+name:                   Rupert Qin
+description:            Javascript and Elixir Full Stack developer in China
+encoding:               UTF-8
+# highlighter:            pygments
+highlighter:            rouge
+relative_permalinks:    false
+permalink:              /:categories/:title/
+port:			              5000
+paginate:               20
+paginate_path:          "list/:num"
