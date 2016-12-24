@@ -135,6 +135,7 @@ h3 {
 }
 
 #content {
+	position: relative;
 	width: 500px;
 	margin: 0 auto;
 }
@@ -143,7 +144,7 @@ h3 {
 	position: absolute;
 	text-align: right;
 	width: 160px;
-	top: 173px;
+	top: 0;
 	left: -240px;
 }
 
