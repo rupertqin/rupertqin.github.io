@@ -143,7 +143,7 @@ h3 {
 	position: absolute;
 	text-align: right;
 	width: 160px;
-	top: 0;
+	top: 128px;
 	left: -240px;
 }
 
@@ -301,16 +301,12 @@ img.center {
 
 
 /* Sticky Footer*/
-html, body {
-  height: 100%;
-  margin: 0;
-}
-#page {
+html {height: 100%;}
+body {
   min-height: 100%;
+	display: flex;
+  flex-direction: column;
 }
 #page .content {
-  padding-bottom: 100px;
-}
-#footer {
-  margin-top: -100px;
+  flex: 1;
 }
