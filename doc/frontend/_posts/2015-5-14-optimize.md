@@ -41,7 +41,8 @@ tags: optimize
 则建议你使用下面的代码来替代。
 
 [html] view plaincopy
-<link rel="style.css" href="style.css" type="text/css">  
+
+  <link rel="style.css" href="style.css" type="text/css">  
 3.  避免使用document.write
 
 在JavaScript中，可以使用 document.write在网页上显示内容或调用外部资源，而通过此方法，浏览器必须采取一些多余的步骤——下载资源、读取资源、运行JavaScript来了解需要做什么，调用其他资源时需要重新再执行一次这个过程。由于浏览器之前不知道要显示什么，所以会降低页面加载的速度。
@@ -49,11 +50,16 @@ tags: optimize
 要知道，任何能够被document.write调用的资源，都可以通过HTML来调用，这样速度会更快。检查你的页面代码，如果存在类似于下面的代码：
 
 [js] view plaincopy
+
+```js
 document.write('<script src="another.js"></script>');  
+```
 建议修改为：
 
 [html] view plaincopy
-<script src="another.js"></script>  
+
+  <script src="another.js"></script>  
+
 4.  合并多个外部CSS文件
 
 在网站中每使用一个CSS文件，都会让你的页面加载速度慢一点点。如果你有一个以上的CSS文件，你应该将它们合并为一个文件。
@@ -85,7 +91,8 @@ CSS sprites需要有两个步骤：整合图像、定位图像。比如你可以
 下面是Google的建议。
 
 [js] view plaincopy
-<script type="text/javascript">  
+
+```js
 function downloadJSAtOnload() {  
 var element = document.createElement("script");  
 element.src = "defer.js";  
@@ -96,7 +103,7 @@ window.addEventListener("load", downloadJSAtOnload, false);
 else if (window.attachEvent)  
 window.attachEvent("onload", downloadJSAtOnload);  
 else window.onload = downloadJSAtOnload;  
-</script>  
+```
 这段代码的意思是等待页面加载完成后，然后再加载外部的“defer.js”文件。下面是测试结果。
 
 
