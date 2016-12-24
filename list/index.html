@@ -3,42 +3,58 @@ layout: default
 title: Posts List 
 ---
 <div class="row artcle_list">
-
   <div class="inner">
-      <h1>Blog Posts</h1>
       <!-- This loops through the paginated posts -->
       {% for post in paginator.posts %}
-        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        <p class="author">
-          <span class="date">{{ post.date }}</span>
-        </p>
-        <div class="content">
-          {% if post.description %}
-          <span class="body">{{ post.description }}</span>
-          {% else %}
-          <span class="body">{{ post.excerpt | strip_html }}</span>
-          {% endif %}
+        <div class="bm-2">
+          <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+          <p class="author">
+            <span class="date">{{ post.date }}</span>
+          </p>
+          <div class="post-content">
+            {{ post.description | post.content }}
+          </div>
         </div>
       {% endfor %}
 
       <!-- Pagination links -->
-      <div class="pagination">
-
-        {% if paginator.previous_page %}
-          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="previous">&laquo; Previous</a>
-        {% else %}
-          <span class="previous">&laquo; Previous</span>
-        {% endif %}
-
-        <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-
-        {% if paginator.next_page %}
-          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="next">Next &raquo;</a>
-        {% else %}
-          <span class="next ">Next &raquo;</span>
-        {% endif %}
-
-      </div>
-
+      {% if paginator.total_pages > 1 %}
+        <div class="pagination">
+          {% if paginator.previous_page %}
+            <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="previous">&laquo; Previous</a>
+          {% else %}
+            <span class="previous">&laquo; Previous</span>
+          {% endif %}
+          <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+          {% if paginator.next_page %}
+            <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="next">Next &raquo;</a>
+          {% else %}
+            <span class="next ">Next &raquo;</span>
+          {% endif %}
+        </div>
+      {% endif %}
     </div>
+    {% if paginator.total_pages > 1 %}
+	<div class="postnavigation">
+
+		{% if paginator.previous_page %}
+			{% if paginator.page == 2 %}
+				<a class="prev left" href="/">&larr; Newer</a>
+			{% else %}
+				<a class="prev left" href="/page{{paginator.previous_page}}/">&larr; Newer</a>
+			{% endif %}
+		{% else %}
+			<span class="nope left">&larr; Newer</span>
+		{% endif %}
+
+		<span class="pages">Page {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+		{% if paginator.next_page %}
+			<a class="next right" href="/page{{paginator.next_page}}/">Older &rarr;</a>
+		{% else %}
+			<span class="nope right">Older &rarr;</span>
+		{% endif %}
+
+	</div>
+{% endif %}
 </div>
