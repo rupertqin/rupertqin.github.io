@@ -280,9 +280,9 @@ img.center {
 .icon-anchor {
 	font-size: 65%;
 }
-.bm-2 {
-	margin-bottom: 2em;
-}
+.bm-2 {margin-bottom: 2em;}
+.bm-5 {margin-bottom: 5em;}
+.bm-8 {margin-bottom: 8em;}
 
 .artcle_list h1,
 .artcle_list h2,
