@@ -298,3 +298,19 @@ img.center {
 }
 
 .artcle_list h1.orange {color: #cb4b16;}
+
+
+/* Sticky Footer*/
+html, body {
+  height: 100%;
+  margin: 0;
+}
+#page {
+  min-height: 100%;
+}
+#page .content {
+  padding-bottom: 100px;
+}
+#footer {
+  margin-top: -100px;
+}
