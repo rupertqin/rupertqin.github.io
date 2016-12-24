@@ -1,5 +1,4 @@
 name: Coigres
-markdown: redcarpet
 encoding: UTF-8
 # highlighter: pygments
 highlighter: rouge
