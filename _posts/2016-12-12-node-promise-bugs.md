@@ -26,6 +26,7 @@ knex.schema.createTable('articles', function(table) {
   console.log('done')
 })
 ```
+
 ### 这是什么原因呢？ 
 
 最后发现当执行到 `createTable` 这里时，这个脚本就结束了，返回一个 promise，退出 node 进程！
