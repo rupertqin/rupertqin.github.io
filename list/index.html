@@ -1,50 +1,44 @@
 ---
 layout: default
-title: Your New Jekyll Site
+title: Posts List 
 ---
 <div class="row artcle_list">
 
-  <div class="col-sm-12">
-    <div class="widget-container boxed">
-      <div class="widget-container widget-avatar boxed">
-          <div class="inner">
-            <h1>Blog Posts</h1>
-            <!-- This loops through the paginated posts -->
-            {% for post in paginator.posts %}
-              <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
-              <p class="author">
-                <span class="date">{{ post.date }}</span>
-              </p>
-              <div class="content">
-                {% if post.description %}
-                <span class="body">{{ post.description }}</span>
-                {% else %}
-                <span class="body">{{ post.excerpt | strip_html }}</span>
-                {% endif %}
-              </div>
-            {% endfor %}
+  <div class="inner">
+      <h1>Blog Posts</h1>
+      <!-- This loops through the paginated posts -->
+      {% for post in paginator.posts %}
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        <p class="author">
+          <span class="date">{{ post.date }}</span>
+        </p>
+        <div class="content">
+          {% if post.description %}
+          <span class="body">{{ post.description }}</span>
+          {% else %}
+          <span class="body">{{ post.excerpt | strip_html }}</span>
+          {% endif %}
+        </div>
+      {% endfor %}
 
-            <!-- Pagination links -->
-            <div class="pagination">
+      <!-- Pagination links -->
+      <div class="pagination">
 
-              {% if paginator.previous_page %}
-                <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="previous">&laquo; Previous</a>
-              {% else %}
-                <span class="previous">&laquo; Previous</span>
-              {% endif %}
+        {% if paginator.previous_page %}
+          <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="previous">&laquo; Previous</a>
+        {% else %}
+          <span class="previous">&laquo; Previous</span>
+        {% endif %}
 
-              <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+        <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
 
-              {% if paginator.next_page %}
-                <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="next">Next &raquo;</a>
-              {% else %}
-                <span class="next ">Next &raquo;</span>
-              {% endif %}
+        {% if paginator.next_page %}
+          <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}" class="next">Next &raquo;</a>
+        {% else %}
+          <span class="next ">Next &raquo;</span>
+        {% endif %}
 
-            </div>
-
-          </div>
       </div>
+
     </div>
-  </div>
 </div>

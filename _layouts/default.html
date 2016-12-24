@@ -5,88 +5,44 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>{{ page.title }}</title>
         <meta name="viewport" content="width=device-width">
-
-
-
-        <!-- main JS libs -->
-        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/modernizr.min.js"></script>
-        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/jquery-1.10.0.js"></script>
-        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/jquery-ui.min.js"></script>
-        <script src="/PixelKit/modern-touch/modern-touch-css/js/libs/bootstrap.min.js"></script>
-
-        <script src="/PixelKit/modern-touch/modern-touch-css/js/general.js"></script>
-        <script src="/PixelKit/modern-touch/modern-touch-css/js/jquery.powerful-placeholder.min.js"></script>
-        <script src="/PixelKit/modern-touch/modern-touch-css/js/jquery-ui.multidatespicker.js"></script>
-        <script src="/js/fuse.js"></script>
-        <script src="/js/common.js"></script>
-
-        <!-- Style CSS -->
-        <link href="/PixelKit/modern-touch/modern-touch-css/css/bootstrap.css" media="screen" rel="stylesheet">
-        <link href="/PixelKit/modern-touch/modern-touch-css/style.css" media="screen" rel="stylesheet">
-
-        <!-- syntax highlighting CSS -->
-        <link rel="stylesheet" href="/css/syntax.css">
-
-        <!-- Custom CSS -->
-        <link rel="stylesheet" href="/css/main.css">
-
+        <!--[if lt IE 9]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+        <link href="/assets/css/style.css" rel="stylesheet" />
+        <link href="/assets/css/colors-dark.css" rel="stylesheet" />
     </head>
     <body>
-
-        <div class="container">
-          <div class="content">
-            <div class="row header">
-              <div class="col-sm-12">
-                <div class="title"><a href="/">{{ site.name }}</a></div>
-
-                <div id="topmenu">
-                  <ul class="dropdown clearfix boxed boxed-blue">
-                      <!-- <li class="link-more"><a href="#"><i></i></a></li> -->
-                      <li><a href="/"><span>Home</span></a></li>
-                      <!-- <li><a href="#"><span>Services</span></a>
-                          <ul>
-                              <li><a href="#">Link 1</a></li>
-                              <li><a href="#">Link 2</a></li>
-                              <li><a href="#">Link 3</a>
-                                  <ul>
-                                      <li><a href="#">Link 4</a></li>
-                                      <li><a href="#">Link 5</a></li>
-                                      <li><a href="#">Link 6</a></li>
-                                  </ul>
-                              </li>
-                          </ul>
-                      </li> -->
-                      <li><a href="/about.html"><span>About</span></a></li>
-                      <li class="menu-search">
-                          <form id="searchForm" class="menu-search-form" method="get" action="search.html">
-                              <input type="text" name="search" value="" class="menu-search-field" placeholder="Search the website" />
-                              <input type="submit" value="" class="btn menu-search-submit" />
-                          </form>
-                      </li>
-                  </ul>
-                </div>
-
-
-              </div>
-
+        <header id="header">
+            <h1><a href="/">{{ site.name }}</a></h1>
+            <h2>{{ site.description }}</h2>
+        </header>
+        <div id="page">
+            <div id="sidebar">
+                <nav>
+                    <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/archives">Archive</a></li>
+                    <li><a href="/about.html">About</a></li> 
+                    <li><a href="https://twitter.com/rupertqin">Twitter</a></li>
+                    <li><a href="/feed.xml">RSS Feed</a></li>
+                    </ul>
+                </nav>
             </div>
-
-            {{ content }}
-
-            <div class="row footer">
-              <div class="col-sm-12">
-                <div class="contact">
-                  <ul>
-                    <li>Rupert qin</li>
-                    <li>rupert.qing@gmail.com</li>
-                    <li><a href="http://github.com/rupertqin/">github.com/rupertqin</a></li>
-                  </ul>
-                </div>
-              </div>
+            <div id="content">
+                {{ content }}
             </div>
-
-          </div>
         </div>
+        <footer id="footer">
+            <p class="copyright">Copyright &copy; {{ site.time | date: '%Y' }} {{ site.name }}. Powered by <a href="http://jekyllrb.com">Jekyll</a>, theme by <a href="http://www.webmaster-source.com">Matt Harzewski</a></p>
+        </footer>
 
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+        <script src="/assets/js/jquery.mobilemenu.min.js"></script>
+
+        <script>
+            $(document).ready(function(){
+                $('#sidebar nav ul').mobileMenu({'topOptionText': 'Menu', 'prependTo': '#sidebar nav'});
+            });
+        </script>
     </body>
 </html>
