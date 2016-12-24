@@ -283,3 +283,18 @@ img.center {
 .bm-2 {
 	margin-bottom: 2em;
 }
+
+.artcle_list h1,
+.artcle_list h2,
+.artcle_list h3,
+.artcle_list h4,
+.artcle_list h5,
+.artcle_list h6 {
+	 color: #2aa198
+}
+
+.artcle_list h1 {
+	 color: #2aa198
+}
+
+.artcle_list h1.orange {color: #cb4b16;}
