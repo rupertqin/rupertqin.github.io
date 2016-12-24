@@ -12,7 +12,11 @@ title: Posts List
           <span class="date">{{ post.date | date: '%Y-%m-%d' }}</span>
         </p>
         <div class="post-content">
-          {{ post.description || post.content }}
+          {% if post.description %}
+            {{ post.description }}
+          {% else %}
+            {{ post.content }}
+          {% endif %}
         </div>
       </div>
     {% endfor %}
