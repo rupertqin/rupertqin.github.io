@@ -12,6 +12,7 @@ both shape should remove outline
 [adobe-illustrator-copy-gradient-of-one-object-into-another-object](http://graphicdesign.stackexchange.com/questions/1502/adobe-illustrator-copy-gradient-of-one-object-into-another-object)
 
 ### 1.
+
 #### Save style
 drag the object containing the gradient to the `Graphic Styles Panel`
 
