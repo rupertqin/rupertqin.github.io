@@ -44,3 +44,5 @@ press the Alt key (Windows) or the Option key (Mac OS) and click the closed regi
     二， 使用 `Anchor Point Tool` 
 
     三， 或者把其中一个 handle 收回去，另一边就可自由移动了。。。
+
+## `Group Selection Tool` 可以显示所有 points
