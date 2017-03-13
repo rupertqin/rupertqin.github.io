@@ -6,7 +6,7 @@ tags: node
 
 ## How to trigger stdin end event
 
-```js
+```js  
 process.stdin.setEncoding('utf8');
 
 process.stdin.on('readable', () => {
@@ -20,4 +20,5 @@ process.stdin.on('end', () => {
   process.stdout.write('end');
 });
 ```
+
 ### Answer: ctr+d
