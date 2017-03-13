@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  process stdin and stdout
+title:  nodejs process stdin and stdout
 tags: node
 ---
 
