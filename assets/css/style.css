@@ -315,3 +315,5 @@ body {
 #page {
   flex: 1;
 }
+
+.highlighter-rouge {margin-bottom: 1em;}
