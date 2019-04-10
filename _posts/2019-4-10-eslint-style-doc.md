@@ -148,7 +148,7 @@ const {
   password: 'oiopp',
   description,
 }
-// bad
+// good
 const {
   id,
   description,
@@ -190,11 +190,13 @@ function deal() {
 ```
 
 ## 大写下划线变量
+
 ```js
 // 只在引用外部文件这么用
 // CONST.js
 export const MAPPING = {
-  'KEY': 'value'
+  'KEY': 'value',
+  'KEY_PHONE_ID': 'value',
 };
 ```
 
@@ -251,10 +253,10 @@ if ( jsonData
 // 不同的 case 重复定义的问题
 switch (foo) {
   case 1:
-    var x = 1;
+    let x = 1;
     break;
   case 2:
-    var x = 2;
+    let x = 2;
     break;
   case 3:
     function f() {
@@ -295,6 +297,15 @@ if (value1 > value2) {
 } else {
 
 }
+
+// bad
+fetchCurrentUser((error, currentUser) => {
+    if(error) throw Error;
+    fetchArticles(currentUser.id, (error, articles) => {
+        if(error) throw Error;
+        // articles here...
+    });
+});
 
 ```
 
