@@ -16,6 +16,9 @@
             <header id="header">
                 <h1><a href="/">{{ site.name }}</a></h1>
                 <h2>{{ site.description }}</h2>
+                <div id="searchbox"></div>
+                <div id="refinement"></div>
+                <div id="hits"></div>
             </header>
             <div id="content">
                 <div id="sidebar">
@@ -36,6 +39,24 @@
             <p class="copyright">Copyright &copy; {{ site.time | date: '%Y' }} {{ site.name }}. Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
             <a href="http://beian.miit.gov.cn">桂ICP备19009757号-1</a>
         </footer>
-
+        <script>
+          const {
+            searchBox,
+            hits
+          } = instantsearch.widgets;
+          search.addWidgets([
+            searchBox({
+              container: "#searchbox"
+            }),
+            hits({
+              container: "#hits"
+            }),
+            refinementList({
+              container: "#refinement",
+              attribute: "company"
+            }),
+          ]);
+          search.start();
+        </script>
     </body>
 </html>
