@@ -1,0 +1,17 @@
+{
+  "full_name": "姓名",
+  "full_name_placeholder": "请输入您的姓名",
+  "mail_placeholder": "john.doe@email.com",
+  "message": "还有什么要说的吗？",
+  "message_placeholder": "在此输入您的留言…",
+  "submit": "提交",
+  "read_more": "阅读更多",
+  "page_not_found": "页面未找到",
+  "working_mail": "工作邮箱",
+  "anything_else": "还有什么要说的吗？",
+  "contact_message_placeholder": "在此输入您的留言…",
+  "page_not_found_content": "您寻找的页面可能已被删除、重命名或暂时不可用。",
+  "back_to_home": "返回首页",
+  "get_started": "开始使用",
+  "announcement": "<span class='text-center block'>♥️ 喜欢 Astroplate？<a class='underline' href='https://github.com/zeon-studio/astroplate' target='_blank' rel='noopener'>请在 Github 上 ⭐️ 支持我们</a></span>"
+}

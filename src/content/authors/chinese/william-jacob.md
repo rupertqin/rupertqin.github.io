@@ -1,5 +1,5 @@
 ---
-title: Guillaume Jacob
+title: William Jacob
 email: williamjacob@email.com
 image: "/images/avatar.png"
 description: this is meta description

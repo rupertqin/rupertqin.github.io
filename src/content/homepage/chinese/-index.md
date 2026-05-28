@@ -1,51 +1,51 @@
 ---
 # Banner
 banner:
-  title: "Le modèle de démarrage ultime dont vous avez besoin pour démarrer votre projet Astro"
-  content: "Astroplate est un modèle de démarrage gratuit construit avec Astro et TailwindCSS, fournissant tout ce dont vous avez besoin pour démarrer votre projet Astro et gagner un temps précieux."
+  title: "启动 Astro 项目所需的终极启动模板"
+  content: "Astroplate 是一个免费的启动模板，使用 Astro 和 TailwindCSS 构建，为您提供启动 Astro 项目所需的一切，节省宝贵时间。"
   image: "/images/banner.png"
   button:
     enable: true
-    label: "Dupliquer, déployer et modifier en ligne 🚀"
+    label: "克隆、部署并在线编辑 🚀"
     link: "https://app.sitepins.com/new/clone?name=Astroplate&repository=https://github.com/zeon-studio/astroplate/tree/multilingual"
 
 # Features
 features:
-  - title: "Ce qui est inclus dans Astroplate"
+  - title: "Astroplate 包含的内容"
     image: "/images/service-1.png"
-    content: "Astroplate est un modèle de démarrage complet qui inclut tout ce dont vous avez besoin pour démarrer votre projet Astro. Ce qui est inclus dans Astroplate"
+    content: "Astroplate 是一个全面的启动模板，包含启动 Astro 项目所需的一切。Astroplate 包含的内容"
     bulletpoints:
-      - "10+ pages pré-construites"
-      - "Score Google Pagespeed de 95+"
-      - "Construit avec Astro et TailwindCSS pour un style facile et personnalisable"
-      - "Entièrement responsive sur tous les appareils"
-      - "Optimisé pour le référencement pour de meilleurs classements dans les moteurs de recherche"
-      - "**Open-source et gratuit** pour une utilisation personnelle et commerciale"
+      - "10+ 个预构建页面"
+      - "Google Pagespeed 评分 95+"
+      - "使用 Astro 和 TailwindCSS 构建，易于样式定制"
+      - "全设备响应式"
+      - "SEO 优化，获得更好的搜索引擎排名"
+      - "**开源且免费**，可用于个人和商业用途"
     button:
       enable: false
-      label: "Commencer maintenant"
+      label: "现在开始"
       link: "#"
 
-  - title: "Découvrez les fonctionnalités clés d'Astro"
+  - title: "探索 Astro 的关键特性"
     image: "/images/service-2.png"
-    content: "Astro est un framework web tout-en-un pour construire des sites web rapides et centrés sur le contenu. Il offre une gamme de fonctionnalités excitantes pour les développeurs et les créateurs de sites web. Certaines des fonctionnalités clés sont :"
+    content: "Astro 是一个一体化的 Web 框架，用于构建快速、内容驱动的网站。它为开发者和网站创作者提供了一系列令人兴奋的功能。其中一些关键特性包括："
     bulletpoints:
-      - "Zéro JS, par défaut : Aucun surcoût d'exécution JavaScript pour vous ralentir."
-      - "Personnalisable : Tailwind, MDX et plus de 100 autres intégrations au choix."
-      - "Agnostique à l'UI : Supporte React, Preact, Svelte, Vue, Solid, Lit et plus encore."
+      - "零 JS 默认：没有 JavaScript 运行时开销拖慢您的速度。"
+      - "可定制：Tailwind、MDX 和 100 多种其他集成可供选择。"
+      - "UI 无关：支持 React、Preact、Svelte、Vue、Solid、Lit 等。"
     button:
       enable: true
-      label: "Commencer maintenant"
+      label: "现在开始"
       link: "https://github.com/zeon-studio/astroplate"
 
-  - title: "Les principales raisons de choisir Astro pour votre prochain projet"
+  - title: "选择 Astro 进行下一个项目的主要原因"
     image: "/images/service-3.png"
-    content: "Avec Astro, vous pouvez construire des sites web modernes et centrés sur le contenu sans sacrifier la performance ou la facilité d'utilisation."
+    content: "使用 Astro，您可以构建现代、内容驱动的网站，而无需牺牲性能或易用性。"
     bulletpoints:
-      - "Charge instantanée des sites statiques pour une meilleure expérience utilisateur et SEO."
-      - "Syntaxe intuitive et support pour les frameworks populaires rendent l'apprentissage et l'utilisation d'Astro un jeu d'enfant."
-      - "Utilisez n'importe quelle bibliothèque ou framework front-end, ou construisez des composants personnalisés, pour tout type de projet."
-      - "Construit sur une technologie de pointe pour garder vos projets à jour avec les dernières normes web."
+      - "即时加载的静态站点，提供更好的用户体验和 SEO。"
+      - "直观的语法和对流行框架的支持，使学习和使用 Astro 变得轻而易举。"
+      - "使用任何前端库或框架，或构建自定义组件，适用于任何类型的项目。"
+      - "构建于尖端技术之上，使您的项目与最新的 Web 标准保持同步。"
     button:
       enable: false
       label: ""

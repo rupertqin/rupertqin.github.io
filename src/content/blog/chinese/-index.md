@@ -1,7 +1,7 @@
 ---
-title: "Articles de blog"
+title: "博客文章"
 meta_title: ""
-description: "Ceci est une méta-description"
+description: "这是 meta 描述"
 image: ""
 draft: false
 ---
