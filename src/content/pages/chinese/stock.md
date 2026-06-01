@@ -8,8 +8,8 @@ description: "基于人工智能和大数据技术，为投资者提供专业、
 基于人工智能和大数据技术，为投资者提供专业、精准的股票趋势分析和智能选股服务。
 
 <div class="flex justify-center gap-4 mb-8">
-  <a href="#" class="btn btn-primary">免费体验</a>
-  <a href="#" class="btn btn-outline">了解更多</a>
+  <a href="https://invest.gantz.host" class="btn btn-primary">免费体验</a>
+  <a href="https://invest.gantz.host" class="btn btn-outline">了解更多</a>
 </div>
 
 ## 核心功能
