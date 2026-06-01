@@ -1,51 +1,130 @@
 ---
-import Logo from "@/components/Logo.astro";
-import Social from "@/components/Social.astro";
 import config from "@/config/config.json";
-import social from "@/config/social.json";
-import {
-  getLangFromUrl,
-  getTranslations,
-  slugSelector,
-} from "@/lib/utils/languageParser";
+import { getLangFromUrl, getTranslations, slugSelector } from "@/lib/utils/languageParser";
 import { markdownify } from "@/lib/utils/textConverter";
-
 
 const lang = getLangFromUrl(Astro.url);
 const menu = await getTranslations(lang);
+const siteName = config.site.title || "秦项科技";
+const logo = config.site.logo_dark || "/images/logo.svg";
+const gitHash = import.meta.env.PUBLIC_GIT_HASH || "";
+const beian = config.params.beian || "";
+
 let footer: any = [];
 if (menu) {
   footer = menu.footer;
 }
 ---
 
-<footer class="bg-light dark:bg-darkmode-light">
-  <div class="container">
-    <div class="row items-center py-10">
-      <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:text-left">
-        <Logo />
-      </div>
-      <div class="mb-8 text-center lg:col-6 lg:mb-0">
-        <ul>
-          {
-            footer.map((menu: any) => (
-              <li class="m-3 inline-block">
-                <a href={slugSelector(menu.url, lang)}>{menu.name}</a>
-              </li>
-            ))
-          }
+<footer class="bg-gray-100 dark:bg-gray-800 py-12 mt-16">
+  <div class="container mx-auto px-4">
+    <!-- Main Footer Content -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <!-- Product Column -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">产品</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href={slugSelector("/mbti-test", lang)} class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              MBTI 测试
+            </a>
+          </li>
+          <li>
+            <a href={slugSelector("/cognitive-functions-table", lang)} class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              认知功能
+            </a>
+          </li>
+          <li>
+            <a href={slugSelector("/stock", lang)} class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              股票分析
+            </a>
+          </li>
         </ul>
       </div>
-      <div class="mb-8 text-center lg:col-3 lg:mb-0 lg:mt-0 lg:text-right">
-        <Social source={social.main} className="social-icons" />
+
+      <!-- Solutions Column -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">解决方案</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              企业数字化转型
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              人工智能应用
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              数据分析服务
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Resources Column -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">资源</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              文档中心
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              API 参考
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              常见问题
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div>
+        <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">公司</h3>
+        <ul class="space-y-2">
+          <li>
+            <a href={slugSelector("/about", lang)} class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              关于我们
+            </a>
+          </li>
+          <li>
+            <a href={slugSelector("/contact", lang)} class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              联系我们
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
-  </div>
-  <div class="border-t border-border py-7 dark:border-darkmode-border">
-    <div
-      class="container text-center text-text-light dark:text-darkmode-text-light"
-    >
-      <p set:html={markdownify(config.params.copyright)} />
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-200 dark:border-gray-700 pt-8 text-center">
+      <div class="flex justify-center items-center mb-4">
+        <img src={logo} alt="Logo" class="w-10 h-10 mr-2" />
+        <span class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
+          {siteName}
+        </span>
+      </div>
+      <p class="text-gray-600 dark:text-gray-400">
+        &copy; {new Date().getFullYear()} {siteName}
+        {beian && (
+          <span class="ml-2">
+            <a href="https://beian.miit.gov.cn/" target="_blank" class="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400">
+              {beian}
+            </a>
+          </span>
+        )}
+      </p>
+      {gitHash && (
+        <p class="mt-1 text-xs text-gray-500 dark:text-gray-500">Build: {gitHash}</p>
+      )}
     </div>
   </div>
 </footer>

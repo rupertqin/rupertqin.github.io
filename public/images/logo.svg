@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 40 40">
+    <!-- "q" letter with gradient fill - adjusted to be similar size to "x" -->
+    <path d="M10 20C10 15.5817 13.5817 12 18 12C22.4183 12 26 15.5817 26 20C26 24.4183 22.4183 28 18 28C16.1193 28 14.3734 27.3542 13 26.2361"
+          stroke="url(#letter-gradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M18 28L22 32"
+          stroke="url(#letter-gradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- "x" letter (emphasized to represent infinity) with gradient fill -->
+    <path d="M23 12L34 28"
+          stroke="url(#x-gradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M34 12L23 28"
+          stroke="url(#x-gradient)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Infinity symbol element integrated with the "x" -->
+    <path d="M28.5 20C29.2 19 30.3 19 31 20C31.7 21 32.8 21 33.5 20"
+          stroke="url(#infinity-gradient)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M28.5 20C27.8 21 26.7 21 26 20C25.3 19 24.2 19 23.5 20"
+          stroke="url(#infinity-gradient)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Tech circuit elements with gradient fill -->
+    <circle cx="18" cy="20" r="1.5" fill="#8B5CF6" />
+    <circle cx="28.5" cy="20" r="1.5" fill="#8B5CF6" />
+    <circle cx="23" cy="12" r="1.5" fill="#3B82F6" />
+    <circle cx="34" cy="12" r="1.5" fill="#3B82F6" />
+    <circle cx="23" cy="28" r="1.5" fill="#3B82F6" />
+    <circle cx="34" cy="28" r="1.5" fill="#3B82F6" />
+
+    <!-- Gradient definitions -->
+    <defs>
+        <linearGradient id="letter-gradient" x1="10" y1="12" x2="26" y2="32" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#3B82F6" /> <!-- blue-500 -->
+            <stop offset="100%" stop-color="#8B5CF6" /> <!-- purple-500 -->
+        </linearGradient>
+
+        <linearGradient id="x-gradient" x1="23" y1="12" x2="34" y2="28" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#8B5CF6" /> <!-- purple-500 -->
+            <stop offset="100%" stop-color="#3B82F6" /> <!-- blue-500 -->
+        </linearGradient>
+
+        <linearGradient id="infinity-gradient" x1="23.5" y1="19" x2="33.5" y2="21" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#3B82F6" /> <!-- blue-500 -->
+            <stop offset="100%" stop-color="#8B5CF6" /> <!-- purple-500 -->
+        </linearGradient>
+    </defs>
+</svg>

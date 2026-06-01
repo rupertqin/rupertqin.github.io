@@ -13,5 +13,15 @@
   "page_not_found_content": "The page you are looking for may have been removed, renamed, or is temporarily unavailable.",
   "back_to_home": "Back to Home",
   "get_started": "Get Started",
-  "announcement": "<span class='text-center block'>♥️ Loving Astroplate? <a class='underline' href='https://github.com/zeon-studio/astroplate' target='_blank' rel='noopener'>Please ⭐️ on Github</a></span>"
+  "announcement": "<span class='text-center block'>♥️ Loving Astroplate? <a class='underline' href='https://github.com/zeon-studio/astroplate' target='_blank' rel='noopener'>Please ⭐️ on Github</a></span>",
+  "free_trial": "Free Trial",
+  "book_demo": "Book Demo",
+  "contact_sales": "Contact Sales",
+  "learn_more": "Learn More",
+  "view_result": "View Result",
+  "next_question": "Next",
+  "prev_question": "Previous",
+  "please_select": "Please select an option",
+  "please_answer_all": "Please answer all questions",
+  "retake_test": "Retake Test"
 }

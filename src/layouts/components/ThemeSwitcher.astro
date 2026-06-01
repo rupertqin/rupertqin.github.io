@@ -1,44 +1,59 @@
 ---
 import config from "@/config/config.json";
-
-const { theme_switcher }: { theme_switcher: boolean; default_theme: string } =
-  config.settings;
+const { default_theme }: { default_theme: string } = config.settings;
 const { className }: { className?: string } = Astro.props;
 ---
-
 {
-  theme_switcher && (
-    <div class={`theme-switcher ${className}`}>
-      <input id="theme-switcher" data-theme-switcher type="checkbox" />
-      <label for="theme-switcher">
-        <span class="sr-only">theme switcher</span>
-        <span>
-          <svg
-            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-100 dark:opacity-0"
-            viewBox="0 0 56 56"
-            fill="#fff"
-            height="16"
-            width="16"
-          >
-            <path d="M30 4.6c0-1-.9-2-2-2a2 2 0 0 0-2 2v5c0 1 .9 2 2 2s2-1 2-2Zm9.6 9a2 2 0 0 0 0 2.8c.8.8 2 .8 2.9 0L46 13a2 2 0 0 0 0-2.9 2 2 0 0 0-3 0Zm-26 2.8c.7.8 2 .8 2.8 0 .8-.7.8-2 0-2.9L13 10c-.7-.7-2-.8-2.9 0-.7.8-.7 2.1 0 3ZM28 16a12 12 0 0 0-12 12 12 12 0 0 0 12 12 12 12 0 0 0 12-12 12 12 0 0 0-12-12Zm23.3 14c1.1 0 2-.9 2-2s-.9-2-2-2h-4.9a2 2 0 0 0-2 2c0 1.1 1 2 2 2ZM4.7 26a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4.9c1 0 2-.9 2-2s-1-2-2-2Zm37.8 13.6a2 2 0 0 0-3 0 2 2 0 0 0 0 2.9l3.6 3.5a2 2 0 0 0 2.9 0c.8-.8.8-2.1 0-3ZM10 43.1a2 2 0 0 0 0 2.9c.8.7 2.1.8 3 0l3.4-3.5c.8-.8.8-2.1 0-2.9-.8-.8-2-.8-2.9 0Zm20 3.4c0-1.1-.9-2-2-2a2 2 0 0 0-2 2v4.9c0 1 .9 2 2 2s2-1 2-2Z" />
-          </svg>
-          <svg
-            class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 opacity-0 dark:opacity-100"
-            viewBox="0 0 24 24"
-            fill="none"
-            height="16"
-            width="16"
-          >
-            <path
-              fill="#000"
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M8.2 2.2c1-.4 2 .6 1.6 1.5-1 3-.4 6.4 1.8 8.7a8.4 8.4 0 0 0 8.7 1.8c1-.3 2 .5 1.5 1.5v.1a10.3 10.3 0 0 1-9.4 6.2A10.3 10.3 0 0 1 3.2 6.7c1-2 2.9-3.5 4.9-4.4Z"
-            />
-          </svg>
-        </span>
-      </label>
-    </div>
+  config.settings.theme_switcher && (
+    <button
+      id="theme-switcher-btn"
+      class={`relative w-10 h-6 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900 ${className || ""}`}
+      aria-label="Toggle theme"
+      data-theme-switcher
+    >
+      <span class="sr-only">Toggle theme</span>
+      <!-- Track -->
+      <span
+        id="theme-switcher-track"
+        class="absolute inset-0 rounded-full bg-gray-300 dark:bg-blue-600 transition-colors duration-300"
+      ></span>
+      <!-- Thumb with icons -->
+      <span
+        id="theme-switcher-thumb"
+        class="absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow flex items-center justify-center transition-transform duration-300 translate-x-0 dark:translate-x-4"
+      >
+        <!-- Sun icon (light mode) - Feather style -->
+        <svg
+          id="theme-icon-sun"
+          class="w-3 h-3 text-yellow-500 block dark:hidden"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          viewBox="0 0 24 24"
+        >
+          <circle cx="12" cy="12" r="5" />
+          <line x1="12" y1="1" x2="12" y2="3" />
+          <line x1="12" y1="21" x2="12" y2="23" />
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+          <line x1="1" y1="12" x2="3" y2="12" />
+          <line x1="21" y1="12" x2="23" y2="12" />
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+        </svg>
+        <!-- Moon icon (dark mode) - crescent -->
+        <svg
+          id="theme-icon-moon"
+          class="w-3 h-3 text-blue-600 hidden dark:block"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+        </svg>
+      </span>
+    </button>
   )
 }
 
@@ -46,44 +61,46 @@ const { className }: { className?: string } = Astro.props;
   import { settings } from "@/config/config.json";
   const matchMedia = window.matchMedia("(prefers-color-scheme: dark)");
 
-  matchMedia.addEventListener("change", () =>
-    toggleTheme(document.querySelectorAll("[data-theme-switcher]")),
-  );
+  matchMedia.addEventListener("change", () => {
+    applyTheme();
+  });
 
-  function toggleTheme(themeSwitch: NodeListOf<Element>) {
+  function applyTheme() {
     const defaulTheme =
       settings.default_theme === "system"
-        ? matchMedia.matches
-          ? "dark"
-          : "light"
+        ? matchMedia.matches ? "dark" : "light"
         : settings.default_theme;
     const currentTheme = localStorage.getItem("theme") || defaulTheme;
-    const isDarkTheme = currentTheme === "dark";
-    themeSwitch.forEach((sw: any) => (sw.checked = isDarkTheme));
-    document.documentElement.classList.toggle("dark", isDarkTheme);
+    const isDark = currentTheme === "dark";
+    document.documentElement.classList.toggle("dark", isDark);
+
+    const track = document.getElementById("theme-switcher-track");
+    const thumb = document.getElementById("theme-switcher-thumb");
+    if (track) {
+      track.classList.toggle("bg-gray-300", !isDark);
+      track.classList.toggle("bg-blue-600", isDark);
+    }
+    if (thumb) {
+      thumb.classList.toggle("translate-x-0", !isDark);
+      thumb.classList.toggle("translate-x-4", isDark);
+    }
   }
 
-  const setDarkMode = () => {
-    const themeSwitch = document.querySelectorAll("[data-theme-switcher]");
-    toggleTheme(themeSwitch);
-    themeSwitch.forEach((sw) => {
-      sw.addEventListener("click", function () {
-        const defaulTheme =
-          settings.default_theme === "system"
-            ? matchMedia.matches
-              ? "dark"
-              : "light"
-            : settings.default_theme;
-        const currentTheme = localStorage.getItem("theme") || defaulTheme;
-        const newTheme = currentTheme === "light" ? "dark" : "light";
-        localStorage.setItem("theme", newTheme);
-        toggleTheme(themeSwitch);
-      });
-    });
-  };
+  function toggleTheme() {
+    const currentTheme = document.documentElement.classList.contains("dark") ? "dark" : "light";
+    const newTheme = currentTheme === "light" ? "dark" : "light";
+    localStorage.setItem("theme", newTheme);
+    applyTheme();
+  }
 
-  // Runs on initial navigation
-  setDarkMode();
-  // Runs on view transitions navigation
-  document.addEventListener("astro:after-swap", setDarkMode);
+  // Init
+  applyTheme();
+
+  const btn = document.getElementById("theme-switcher-btn");
+  if (btn) {
+    btn.addEventListener("click", toggleTheme);
+  }
+
+  // Re-init after view transitions
+  document.addEventListener("astro:after-swap", applyTheme);
 </script>

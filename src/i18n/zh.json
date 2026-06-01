@@ -13,5 +13,15 @@
   "page_not_found_content": "您寻找的页面可能已被删除、重命名或暂时不可用。",
   "back_to_home": "返回首页",
   "get_started": "开始使用",
-  "announcement": "<span class='text-center block'>♥️ 喜欢 Astroplate？<a class='underline' href='https://github.com/zeon-studio/astroplate' target='_blank' rel='noopener'>请在 Github 上 ⭐️ 支持我们</a></span>"
+  "announcement": "<span class='text-center block'>♥️ 喜欢 Astroplate？<a class='underline' href='https://github.com/zeon-studio/astroplate' target='_blank' rel='noopener'>请在 Github 上 ⭐️ 支持我们</a></span>",
+  "free_trial": "免费试用",
+  "book_demo": "预约演示",
+  "contact_sales": "联系销售",
+  "learn_more": "了解更多",
+  "view_result": "查看结果",
+  "next_question": "下一题",
+  "prev_question": "上一题",
+  "please_select": "请选择一个选项",
+  "please_answer_all": "请回答所有问题",
+  "retake_test": "重新测试"
 }

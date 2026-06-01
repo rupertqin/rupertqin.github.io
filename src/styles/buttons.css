@@ -1,15 +1,39 @@
+/* === Button Base === */
 .btn {
-  @apply inline-block rounded border border-transparent px-5 py-2 font-semibold transition;
+  @apply inline-flex items-center justify-center rounded-md border border-transparent px-5 py-2 font-semibold transition-colors duration-200;
 }
 
 .btn-sm {
-  @apply rounded-sm px-4 py-1.5 text-sm;
+  @apply rounded-md px-4 py-1.5 text-sm;
 }
 
+.btn-lg {
+  @apply rounded-lg px-8 py-4 text-lg;
+}
+
+/* === Primary Button (Blue) === */
 .btn-primary {
-  @apply border-primary bg-primary dark:border-darkmode-primary dark:text-text-dark text-white dark:bg-darkmode-primary;
+  @apply border-blue-600 bg-blue-600 text-white hover:bg-blue-700 hover:border-blue-700;
+  @apply dark:border-blue-500 dark:bg-blue-500 dark:hover:bg-blue-600;
 }
 
+/* === Outline Primary Button === */
 .btn-outline-primary {
-  @apply border-dark text-text-dark hover:bg-dark dark:hover:text-text-dark bg-transparent hover:text-white dark:border-darkmode-primary dark:text-white dark:hover:bg-darkmode-primary;
+  @apply border-blue-600 bg-transparent text-blue-600 hover:bg-blue-600 hover:text-white;
+  @apply dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-500 dark:hover:text-white;
+}
+
+/* === White Button (for dark backgrounds) === */
+.btn-white {
+  @apply border-white bg-white text-blue-600 hover:bg-gray-100;
+}
+
+.btn-outline-white {
+  @apply border-white bg-transparent text-white hover:bg-white hover:text-blue-600;
+}
+
+/* === Ghost Button === */
+.btn-ghost {
+  @apply border-transparent bg-transparent text-blue-600 hover:bg-blue-50;
+  @apply dark:text-blue-400 dark:hover:bg-gray-800;
 }

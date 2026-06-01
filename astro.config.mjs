@@ -3,6 +3,7 @@ import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import AutoImport from "astro-auto-import";
+import compressor from "astro-compressor";
 import { defineConfig } from "astro/config";
 import remarkCollapse from "remark-collapse";
 import remarkToc from "remark-toc";
@@ -31,6 +32,22 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap(),
+    compressor({
+      gzip: { level: 9 },
+      brotli: true,
+      zstd: false,
+      fileExtensions: [
+        ".html",
+        ".css",
+        ".svg",
+        ".txt",
+        ".xml",
+        ".js",
+        ".cjs",
+        ".mjs",
+        ".json",
+      ],
+    }),
     AutoImport({
       imports: [
         "@/shortcodes/Button",

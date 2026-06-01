@@ -2,9 +2,11 @@
   "main": [
     { "name": "Home", "url": "/" },
     { "name": "About", "url": "/about" },
-    { "name": "Elements", "url": "/elements" },
+    { "name": "Stock Analysis", "url": "/stock" },
+    { "name": "MBTI Test", "url": "/mbti-test" },
+    { "name": "Cognitive Functions", "url": "/cognitive-functions-table" },
     {
-      "name": "Pages",
+      "name": "More",
       "url": "",
       "hasChildren": true,
       "children": [
@@ -12,13 +14,11 @@
         { "name": "Blog", "url": "/blog" },
         { "name": "Authors", "url": "/authors" },
         { "name": "Categories", "url": "/categories" },
-        { "name": "Tags", "url": "/tags" },
-        { "name": "404 Page", "url": "/404" }
+        { "name": "Tags", "url": "/tags" }
       ]
     }
   ],
   "footer": [
-    { "name": "Elements", "url": "/elements" },
     { "name": "Privacy Policy", "url": "/privacy-policy" }
   ]
 }

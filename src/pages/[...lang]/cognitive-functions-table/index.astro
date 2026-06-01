@@ -1,0 +1,31 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getLangFromUrl } from "@/lib/utils/languageParser";
+import { supportedLang } from "@/lib/utils/languageParser";
+import MBTITable from "@/layouts/components/MbtiTable";
+
+export function getStaticPaths() {
+  return supportedLang.map((lang) => ({
+    params: { lang: lang === "zh" ? undefined : lang },
+  }));
+}
+
+const lang = getLangFromUrl(Astro.url);
+---
+
+<Base title={lang === "en" ? "Cognitive Functions & I-Ching" : "认知功能与易经"} lang={lang}>
+  <section class="section">
+    <div class="container">
+      <h1 class="text-3xl font-bold text-center mb-4 text-gray-800 dark:text-white">
+        {lang === "en" ? "MBTI Cognitive Functions & I-Ching Hexagrams" : "MBTI 认知功能与易经卦象"}
+      </h1>
+      <p class="text-center text-gray-600 dark:text-gray-300 mb-12">
+        {lang === "en"
+          ? "Explore the mapping between Jungian cognitive functions and I-Ching hexagrams"
+          : "探索荣格认知功能与易经卦象的对应关系"}
+      </p>
+
+      <MBTITable client:only="react" />
+    </div>
+  </section>
+</Base>

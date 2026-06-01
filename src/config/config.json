@@ -1,15 +1,15 @@
 {
   "site": {
-    "title": "Rupert Qin",
+    "title": "秦项科技",
     "base_url": "https://rupertqin.github.io",
     "base_path": "/",
     "trailing_slash": false,
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_darkmode": "/images/logo-darkmode.png",
-    "logo_width": "150",
-    "logo_height": "30",
-    "logo_text": "Rupert Qin"
+    "favicon": "/images/favicon.svg",
+    "logo": "/images/logo.svg",
+    "logo_darkmode": "/images/logo.svg",
+    "logo_width": "40",
+    "logo_height": "40",
+    "logo_text": "秦项科技"
   },
 
   "settings": {
@@ -17,7 +17,7 @@
     "sticky_header": true,
     "theme_switcher": true,
     "default_theme": "system",
-    "pagination": 2,
+    "pagination": 6,
     "summary_length": 200,
     "blog_folder": "blog",
     "default_language": "zh",
@@ -26,19 +26,20 @@
   },
 
   "announcement": {
-    "enable": true,
+    "enable": false,
     "expire_days": 7
   },
 
   "params": {
     "contact_form_action": "#",
-    "copyright": "Designed And Developed by [Zeon Studio](https://zeon.studio)"
+    "copyright": "版权所有 &copy; 2025 秦项科技 - 保留所有权利",
+    "beian": "桂ICP备2023011846号-1"
   },
 
   "navigation_button": {
-    "enable": true,
-    "label": "Github",
-    "link": "https://github.com/zeon-studio/astroplate/tree/multilingual"
+    "enable": false,
+    "label": "免费试用",
+    "link": "/mbti-test"
   },
 
   "google_tag_manager": {
@@ -47,15 +48,15 @@
   },
 
   "disqus": {
-    "enable": true,
-    "shortname": "themefisher-template",
+    "enable": false,
+    "shortname": "",
     "settings": {}
   },
 
   "metadata": {
-    "meta_author": "zeon.studio",
+    "meta_author": "秦项科技",
     "meta_image": "/images/og-image.png",
-    "meta_description": "astro and tailwind boilerplate"
+    "meta_description": "秦项科技 - 专注于人工智能与科技创新"
   },
 
   "llms": {

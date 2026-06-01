@@ -1,0 +1,339 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getLangFromUrl } from "@/lib/utils/languageParser";
+import { supportedLang } from "@/lib/utils/languageParser";
+import { mbtiQuestions } from "@/data/mbti-questions";
+
+export function getStaticPaths() {
+  return supportedLang.map((lang) => ({
+    params: { lang: lang === "zh" ? undefined : lang },
+  }));
+}
+
+const lang = getLangFromUrl(Astro.url);
+const isEn = lang === "en";
+const mbtiQuestionsJson = JSON.stringify(mbtiQuestions);
+---
+
+<Base title={isEn ? "MBTI Test - Qinxiang Tech" : "MBTI 测试 - 秦项科技"} lang={lang}>
+  <main class="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div class="container mx-auto px-4 py-12">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl font-bold text-center mb-8">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
+            {isEn ? "MBTI Test" : "MBTI 测试"}
+          </span>
+        </h1>
+
+        <!-- 测试说明 -->
+        <div id="intro-container" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
+          <div class="prose dark:prose-invert max-w-none">
+            <h2 class="text-2xl font-semibold mb-4">{isEn ? "Test Instructions" : "测试说明"}</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-6">
+              {isEn
+                ? "This test consists of 60 questions. Please choose the option that best matches your true thoughts. The test takes about 10-20 minutes. Please ensure you take the test in a quiet environment for the most accurate results."
+                : "本测试包含60个问题，请根据你的真实想法选择最符合你的选项。测试大约需要10-20分钟完成。请确保在安静的环境中进行测试，以获得最准确的结果。"}
+            </p>
+
+            <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg mb-8">
+              <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-300 mb-2">{isEn ? "Test Tips:" : "测试提示："}</h3>
+              <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
+                <li>{isEn ? "Choose the option that best matches your true thoughts" : "选择最符合你真实想法的选项"}</li>
+                <li>{isEn ? "Don't overthink, trust your first instinct" : "不要过度思考，相信你的第一直觉"}</li>
+                <li>{isEn ? "Choose the option you prefer, not the one you think is 'correct'" : "选择你更倾向于的选项，而不是你认为正确的选项"}</li>
+                <li>{isEn ? "If neither option fits perfectly, choose the one closer to your true thoughts" : "如果两个选项都不完全符合，选择更接近你真实想法的那个"}</li>
+              </ul>
+            </div>
+
+            <div class="flex justify-center mt-8">
+              <button
+                id="start-test-btn"
+                class="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-xl hover:opacity-90 transition-opacity shadow-lg"
+              >
+                {isEn ? "Start Test" : "开始测试"}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- 测试问题 (hidden initially) -->
+        <div id="test-container" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 hidden">
+          <div class="max-w-3xl mx-auto">
+            <h1 class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">
+              {isEn ? "MBTI Personality Test" : "MBTI 人格测试"}
+            </h1>
+            <p class="text-center text-gray-600 dark:text-gray-300 mb-12">
+              {isEn ? "60 questions total, please choose the option that best matches your situation" : "共 60 题，请根据您的实际情况选择最符合的选项"}
+            </p>
+          </div>
+
+          <style is:global>
+            .option-btn {
+              position: relative;
+              border-radius: 9999px;
+              transition: all 0.2s ease-in-out;
+              cursor: pointer;
+              border-width: 2px;
+              border-style: solid;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            }
+            .option-btn:focus {
+              outline: none;
+              box-shadow: 0 0 0 2px rgba(147, 51, 234, 0.2);
+            }
+            .check-icon {
+              opacity: 0;
+              transform: scale(0.8);
+              transition: all 0.2s ease-in-out;
+              pointer-events: none;
+            }
+            .option-btn.selected { background-color: currentColor; }
+            .option-btn.selected .check-icon { opacity: 1; transform: scale(1); color: white; }
+            .option-btn:hover .check-icon { opacity: 1; transform: scale(1); color: white; }
+            .option-btn[data-value^="left"] { border-color: rgb(34, 197, 94); color: rgb(34, 197, 94); }
+            .option-btn[data-value^="left"]:hover { background-color: rgb(34, 197, 94); }
+            .option-btn[data-value^="left"].selected { background-color: rgb(34, 197, 94); }
+            .option-btn[data-value="middle"] { border-color: rgb(156, 163, 175); color: rgb(156, 163, 175); }
+            .option-btn[data-value="middle"]:hover { background-color: rgb(156, 163, 175); }
+            .option-btn[data-value="middle"].selected { background-color: rgb(156, 163, 175); }
+            .option-btn[data-value^="right"] { border-color: rgb(147, 51, 234); color: rgb(147, 51, 234); }
+            .option-btn[data-value^="right"]:hover { background-color: rgb(147, 51, 234); }
+            .option-btn[data-value^="right"].selected { background-color: rgb(147, 51, 234); }
+            html.dark .option-btn[data-value^="left"] { border-color: rgba(34, 197, 94, 0.8); }
+            html.dark .option-btn[data-value="middle"] { border-color: rgba(156, 163, 175, 0.8); }
+            html.dark .option-btn[data-value^="right"] { border-color: rgba(147, 51, 234, 0.8); }
+          </style>
+
+          <div id="test-questions" class="space-y-8">
+            <div class="space-y-3">
+              <div class="mb-2">
+                <span id="progress-text" class="text-lg font-medium text-gray-700 dark:text-gray-300">
+                  {isEn ? "Question 1 of 60" : "第 1 题，共 60 题"}
+                </span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-700">
+                <div id="progress-bar" class="bg-gradient-to-r from-purple-600 to-blue-500 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+              </div>
+            </div>
+
+            <div id="question-cards-container"></div>
+
+            <div class="flex justify-between mt-12">
+              <button
+                id="prev-btn"
+                class="px-8 py-3 text-lg font-medium bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isEn ? "Previous" : "上一题"}
+              </button>
+              <button
+                id="next-btn"
+                class="px-8 py-3 text-lg font-medium bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-xl hover:opacity-90 transition-opacity"
+              >
+                {isEn ? "Next" : "下一题"}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Base>
+
+<!-- Pass data via window global, then init in astro:page-load -->
+<script is:inline define:vars={{ __mbtiData: mbtiQuestionsJson }}>
+  window.__MBTI_QUESTIONS__ = JSON.parse(__mbtiData);
+</script>
+
+<script>
+  function initMbtiTest() {
+    const introContainer = document.getElementById("intro-container");
+    const testContainer = document.getElementById("test-container");
+    const startBtn = document.getElementById("start-test-btn");
+    const questionCardsContainer = document.getElementById("question-cards-container");
+    const progressBar = document.getElementById("progress-bar");
+    const progressText = document.getElementById("progress-text");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+
+    if (!startBtn || !introContainer || !testContainer || !questionCardsContainer) return;
+
+    const mbtiQuestions = window.__MBTI_QUESTIONS__;
+    if (!mbtiQuestions) return;
+
+    let currentQuestion = 0;
+    const answers = {};
+    const totalQuestions = mbtiQuestions.length;
+
+    startBtn.addEventListener("click", function () {
+      introContainer.classList.add("hidden");
+      testContainer.classList.remove("hidden");
+      renderQuestions();
+      showQuestion(0);
+    });
+
+    function renderQuestions() {
+      questionCardsContainer.innerHTML = "";
+      const lang = document.documentElement.lang === "en" ? "en" : "zh";
+
+      mbtiQuestions.forEach(function (question, index) {
+        const card = document.createElement("div");
+        card.className = "question-card hidden";
+        card.setAttribute("data-question-id", String(question.id));
+        card.setAttribute("data-dimension", question.dimension);
+        card.setAttribute("data-direction", question.direction);
+
+        const questionText = lang === "en" ? question.question.en : question.question.zh;
+
+        card.innerHTML = `
+          <h3 class="text-2xl font-semibold mb-8 text-center text-gray-800 dark:text-white">${questionText}</h3>
+          <div class="flex flex-col gap-6 w-full max-w-2xl mx-auto">
+            <div class="flex justify-between items-center text-base font-medium mb-4 px-4">
+              <span class="text-green-500">${lang === "en" ? "Agree" : "同意"}</span>
+              <span class="text-purple-600">${lang === "en" ? "Disagree" : "不同意"}</span>
+            </div>
+            <div class="flex justify-between items-center gap-2 sm:gap-4 px-2 relative">
+              <button type="button" class="option-btn size-10 sm:size-14 flex items-center justify-center" data-value="left3">
+                <svg class="w-4 sm:w-6 h-4 sm:h-6 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </button>
+              <button type="button" class="option-btn size-9 sm:size-12 flex items-center justify-center" data-value="left2">
+                <svg class="w-4 sm:w-5 h-4 sm:h-5 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </button>
+              <button type="button" class="option-btn size-8 sm:size-10 flex items-center justify-center" data-value="left1">
+                <svg class="w-3 sm:w-4 h-3 sm:h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </button>
+              <button type="button" class="option-btn size-7 sm:size-8 flex items-center justify-center" data-value="middle">
+                <svg class="w-3 sm:w-4 h-3 sm:h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </button>
+              <button type="button" class="option-btn size-8 sm:size-10 flex items-center justify-center" data-value="right1">
+                <svg class="w-3 sm:w-4 h-3 sm:h-4 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </button>
+              <button type="button" class="option-btn size-9 sm:size-12 flex items-center justify-center" data-value="right2">
+                <svg class="w-4 sm:w-5 h-4 sm:h-5 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </button>
+              <button type="button" class="option-btn size-10 sm:size-14 flex items-center justify-center" data-value="right3">
+                <svg class="w-4 sm:w-6 h-4 sm:h-6 check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </button>
+            </div>
+          </div>
+        `;
+
+        questionCardsContainer.appendChild(card);
+      });
+
+      document.querySelectorAll(".question-card").forEach(function (card) {
+        var questionId = parseInt(card.getAttribute("data-question-id") || "0") - 1;
+        var options = card.querySelectorAll(".option-btn");
+        options.forEach(function (option) {
+          option.addEventListener("click", function (e) {
+            var target = e.currentTarget;
+            options.forEach(function (opt) { opt.classList.remove("selected", "border-purple-500"); });
+            target.classList.add("selected", "border-purple-500");
+            var value = target.getAttribute("data-value") || "middle";
+            saveAnswer(questionId, value);
+          });
+        });
+      });
+    }
+
+    function showQuestion(index) {
+      var questionCards = document.querySelectorAll(".question-card");
+      questionCards.forEach(function (card, i) {
+        card.classList.toggle("hidden", i !== index);
+      });
+
+      var lang = document.documentElement.lang === "en" ? "en" : "zh";
+      var progressLabel = lang === "en" ? "Question " + (index + 1) + " of " + totalQuestions : "第 " + (index + 1) + " 题，共 " + totalQuestions + " 题";
+      var nextLabel = index === totalQuestions - 1 ? (lang === "en" ? "View Result" : "查看结果") : (lang === "en" ? "Next" : "下一题");
+      var prevLabel = lang === "en" ? "Previous" : "上一题";
+
+      progressBar.style.width = ((index + 1) / totalQuestions * 100) + "%";
+      progressText.textContent = progressLabel;
+      prevBtn.disabled = index === 0;
+      nextBtn.textContent = nextLabel;
+      prevBtn.textContent = prevLabel;
+    }
+
+    function calculatePersonalityType() {
+      var totals = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+      Object.values(answers).forEach(function (answer) {
+        totals[answer.dimension] += answer.score;
+      });
+      var result = "";
+      result += totals.E > totals.I ? "E" : "I";
+      result += totals.S > totals.N ? "S" : "N";
+      result += totals.T > totals.F ? "T" : "F";
+      result += totals.J > totals.P ? "J" : "P";
+      return result;
+    }
+
+    function saveAnswer(questionId, value) {
+      var questionCard = document.querySelector('[data-question-id="' + (questionId + 1) + '"]');
+      if (!questionCard) return;
+      var dimensionPair = questionCard.getAttribute("data-dimension");
+      var direction = questionCard.getAttribute("data-direction");
+
+      var rawScore = 0;
+      switch (value) {
+        case "left3": rawScore = 3; break;
+        case "left2": rawScore = 2; break;
+        case "left1": rawScore = 1; break;
+        case "middle": rawScore = 0; break;
+        case "right1": rawScore = -1; break;
+        case "right2": rawScore = -2; break;
+        case "right3": rawScore = -3; break;
+      }
+
+      var dimensionMap = { EI: ["E", "I"], SN: ["S", "N"], TF: ["T", "F"], JP: ["J", "P"] };
+      var firstLetter = dimensionMap[dimensionPair][0];
+      var secondLetter = dimensionMap[dimensionPair][1];
+      var dimension = direction === "positive" ? firstLetter : secondLetter;
+      answers[questionId] = { score: rawScore, dimension: dimension };
+    }
+
+    function showResult() {
+      var type = calculatePersonalityType();
+      var lang = document.documentElement.lang === "en" ? "en" : "zh";
+      window.location.href = "/" + lang + "/mbti-test/result?type=" + type;
+    }
+
+    prevBtn.addEventListener("click", function () {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        showQuestion(currentQuestion);
+      }
+    });
+
+    nextBtn.addEventListener("click", function () {
+      var currentCard = document.querySelector(".question-card:not(.hidden)");
+      if (!currentCard) return;
+      var currentQuestionId = parseInt(currentCard.getAttribute("data-question-id") || "0") - 1;
+
+      if (!answers[currentQuestionId]) {
+        var lang = document.documentElement.lang === "en" ? "en" : "zh";
+        alert(lang === "en" ? "Please select an option" : "请选择一个选项");
+        return;
+      }
+
+      if (currentQuestion < totalQuestions - 1) {
+        currentQuestion++;
+        showQuestion(currentQuestion);
+      } else {
+        var answeredQuestions = Object.keys(answers).length;
+        if (answeredQuestions < totalQuestions) {
+          var lang = document.documentElement.lang === "en" ? "en" : "zh";
+          alert(lang === "en" ? "Please answer all questions (" + answeredQuestions + "/" + totalQuestions + ")" : "请回答所有问题（" + answeredQuestions + "/" + totalQuestions + "）");
+          return;
+        }
+        showResult();
+      }
+    });
+  }
+
+  // Guard against duplicate execution
+  if (!window.__mbtiTestInitialized) {
+    window.__mbtiTestInitialized = true;
+    document.addEventListener("astro:page-load", initMbtiTest);
+  }
+</script>

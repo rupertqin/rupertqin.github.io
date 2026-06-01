@@ -54,6 +54,7 @@ const pagesCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/pages" }),
   schema: z.object({
     ...commonFields,
+    draft: z.boolean().optional(),
   }),
 });
 
@@ -62,6 +63,7 @@ const aboutCollection = defineCollection({
   loader: glob({ pattern: "**/*.{md,mdx}", base: "src/content/about" }),
   schema: z.object({
     ...commonFields,
+    draft: z.boolean().optional(),
   }),
 });
 
