@@ -16,13 +16,11 @@ const lang = getLangFromUrl(Astro.url);
   <section class="section">
     <div class="container max-w-4xl mx-auto">
       <div id="result-container" class="space-y-12">
-        <!-- 类型结果 -->
         <div class="text-center">
           <h1 id="type-result" class="text-5xl font-bold text-purple-600 dark:text-purple-400"></h1>
           <p id="type-description" class="text-xl text-gray-600 dark:text-gray-300 mt-4"></p>
         </div>
 
-        <!-- 认知功能 -->
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
             <h3 class="text-lg font-semibold mb-2 text-green-600">主导功能 (Dominant)</h3>
@@ -42,31 +40,26 @@ const lang = getLangFromUrl(Astro.url);
           </div>
         </div>
 
-        <!-- 优势 -->
         <div>
           <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">优势</h2>
           <ul id="strengths-list" class="grid grid-cols-1 md:grid-cols-2 gap-3"></ul>
         </div>
 
-        <!-- 发展领域 -->
         <div>
           <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">发展领域</h2>
           <ul id="weaknesses-list" class="grid grid-cols-1 md:grid-cols-2 gap-3"></ul>
         </div>
 
-        <!-- 职业建议 -->
         <div>
           <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">职业建议</h2>
           <div id="career-suggestions" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
         </div>
 
-        <!-- 发展建议 -->
         <div>
           <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">发展建议</h2>
           <div id="development-areas" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
         </div>
 
-        <!-- 人际关系 -->
         <div>
           <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">人际关系</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -81,7 +74,6 @@ const lang = getLangFromUrl(Astro.url);
           </div>
         </div>
 
-        <!-- 工作风格 -->
         <div>
           <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-white">工作风格</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -96,10 +88,9 @@ const lang = getLangFromUrl(Astro.url);
           </div>
         </div>
 
-        <!-- 重新测试 -->
         <div class="text-center pt-8">
           <a
-            href={`/${lang}/mbti-test`}
+            href={`/${lang}/psychoanalytic/mbti-test`}
             class="inline-block px-8 py-3 text-lg font-medium bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-xl hover:opacity-90 transition-opacity"
           >
             {lang === "en" ? "Retake Test" : "重新测试"}
@@ -127,7 +118,7 @@ const lang = getLangFromUrl(Astro.url);
 
   function checkValidSource() {
     const type = getMBTITypeFromURL();
-    if (!type) window.location.href = `/${document.documentElement.lang === "en" ? "en" : "zh"}/mbti-test`;
+    if (!type) window.location.href = `/${document.documentElement.lang === "en" ? "en" : "zh"}/psychoanalytic/mbti-test`;
   }
 
   function showResult(type: string) {
@@ -218,13 +209,12 @@ const lang = getLangFromUrl(Astro.url);
   }
 
   document.addEventListener("astro:page-load", () => {
-    // Guard against duplicate execution
     if ((window as any)._mbtiResultLoaded) return;
     (window as any)._mbtiResultLoaded = true;
 
     checkValidSource();
     const type = getMBTITypeFromURL();
     if (type) showResult(type);
-    else window.location.href = `/${document.documentElement.lang === "en" ? "en" : "zh"}/mbti-test`;
+    else window.location.href = `/${document.documentElement.lang === "en" ? "en" : "zh"}/psychoanalytic/mbti-test`;
   });
 </script>

@@ -3,15 +3,14 @@
     { "name": "首页", "url": "/" },
     { "name": "关于", "url": "/about" },
     { "name": "股票分析", "url": "/stock" },
-    { "name": "MBTI 测试", "url": "/mbti-test" },
-    { "name": "认知功能", "url": "/cognitive-functions-table" },
+    { "name": "心理分析", "url": "/psychoanalytic" },
+    { "name": "博客", "url": "/blog" },
     {
       "name": "更多",
       "url": "",
       "hasChildren": true,
       "children": [
         { "name": "联系", "url": "/contact" },
-        { "name": "博客", "url": "/blog" },
         { "name": "作者", "url": "/authors" },
         { "name": "分类", "url": "/categories" },
         { "name": "标签", "url": "/tags" }

@@ -1,0 +1,259 @@
+---
+import Base from "@/layouts/Base.astro";
+import { getLangFromUrl } from "@/lib/utils/languageParser";
+import { supportedLang } from "@/lib/utils/languageParser";
+
+export function getStaticPaths() {
+  return supportedLang.map((lang) => ({
+    params: { lang: lang === "zh" ? undefined : lang },
+  }));
+}
+
+const lang = getLangFromUrl(Astro.url);
+const isEn = lang === "en";
+const mbtiTestUrl = isEn ? "/en/psychoanalytic/mbti-test" : "/psychoanalytic/mbti-test";
+const cogFuncUrl = isEn ? "/en/psychoanalytic/cognitive-functions-table" : "/psychoanalytic/cognitive-functions-table";
+
+const t = {
+  pageTitle: isEn ? "Psychoanalytic - MBTI Test and Cognitive Functions" : "心理分析 - MBTI 测试与认知功能",
+  heroTitle: isEn ? "MBTI Test \u2014 Discover Your True Self" : "MBTI测试发现真实的自己",
+  heroDesc: isEn ? "Get a surprisingly accurate personality description in just 10 minutes. Understand your behavior and why." : "仅需10分钟，获得惊人准确的性格描述，了解你的行为方式和原因。",
+  startTest: isEn ? "Start Test \u2192" : "开始测试 \u2192",
+  dailyTests: isEn ? "DAILY TESTS" : "今日测试人数",
+  totalTests: isEn ? "Total Tests" : "总测试人数",
+  accuracy: isEn ? "Accuracy" : "准确率",
+  userQuote1: isEn ? '"The MBTI test is incredibly accurate! It helped me not only understand myself but also communicate better with my colleagues."' : '"MBTI测试非常准确！它帮助我不仅了解自己，还能更好地与同事沟通。"',
+  userQuote2: isEn ? '"I was skeptical at first, but the insights were spot-on. The MBTI test helped me make better career decisions and improve my relationships."' : '"起初我很怀疑，但洞察非常准确。MBTI测试帮助我做出更好的职业决策，改善我的人际关系。"',
+  userQuote3: isEn ? '"The MBTI test gave me the clarity I needed. Understanding my personality type has been transformative for both my personal and professional life."' : '"MBTI测试给了我所需的清晰度。了解我的性格类型对我的个人和职业生活都产生了变革性的影响。"',
+  faqWhat: isEn ? "What is the MBTI test?" : "什么是MBTI测试？",
+  faqWhatAns: isEn ? "The MBTI test is a personality assessment tool based on the Myers-Briggs Type Indicator (MBTI). Our platform provides detailed personality insights to help you better understand yourself and improve your relationships with others." : "MBTI测试是一个基于迈尔斯-布里格斯类型指标（MBTI）的性格评估工具。我们的平台提供详细的性格特征洞察，帮助你更好地理解自己和改善与他人的关系。",
+  faqAcc: isEn ? "How accurate is the MBTI test?" : "MBTI测试的准确度如何？",
+  faqAccAns: isEn ? 'The MBTI test has been refined through extensive research and user feedback. Over 91% of users report their results as "accurate" or "very accurate." However, remember that personality is complex and may change over time.' : 'MBTI测试经过广泛研究和用户反馈的完善。超过91%的用户认为他们的结果"准确"或"非常准确"。然而，请记住性格是复杂的，可能会随时间变化。我们建议定期重新测试以追踪性格类型的变化。',
+  faqTime: isEn ? "How long does the MBTI test take?" : "MBTI测试需要多长时间？",
+  faqTimeAns: isEn ? "The MBTI test typically takes 10-15 minutes to complete. Our questions are designed to be straightforward yet comprehensive, ensuring you get accurate results without taking too much of your time." : "MBTI测试通常需要10-15分钟完成。我们设计的问题简单明了但全面，确保你能获得准确的结果而不会花费太多时间。",
+  faqResult: isEn ? "What will I get after completing the MBTI test?" : "完成MBTI测试后我会得到什么？",
+  faqResultAns: isEn ? "After completing the test, you will receive:" : "完成测试后，你将收到：",
+  faqResult1: isEn ? "Your detailed personality type profile" : "你的详细性格类型档案",
+  faqResult2: isEn ? "Insights into your strengths and potential growth areas" : "关于你的优势和潜在成长领域的洞察",
+  faqResult3: isEn ? "Tips for better communication with other personality types" : "与其他性格类型更好沟通的技巧",
+  faqResult4: isEn ? "Career suggestions matching your personality type" : "与你的性格类型匹配的职业建议",
+  faqResult5: isEn ? "Relationship compatibility insights" : "关系兼容性洞察",
+  faqTeam: isEn ? "Can the MBTI test help with team building?" : "MBTI测试能帮助团队建设吗？",
+  faqTeamAns: isEn ? "Yes! The MBTI test offers dedicated team assessments that can help improve team dynamics, communication, and collaboration. Understanding team members' personality types can lead to better working relationships, increased productivity, and more effective conflict resolution." : "是的！MBTI测试提供专门的团队评估，可以帮助改善团队动态、沟通和协作。了解团队成员的性格类型可以带来更好的工作关系、提高生产力和更有效的冲突解决。",
+  faqSafe: isEn ? "Is my data safe with the MBTI test?" : "我的数据在MBTI测试中安全吗？",
+  faqSafeAns: isEn ? "Absolutely. At the MBTI test, we take your privacy very seriously. All test responses and personal information are encrypted and securely stored. We never share your personal data with third parties." : "绝对安全。在MBTI测试中，我们非常重视你的隐私。所有测试回答和个人信息都经过加密并安全存储。我们绝不会与第三方共享你的个人数据。你可以在我们的隐私政策中了解更多。",
+  sectionPersonalityType: isEn ? "PERSONALITY TYPES" : "性格类型",
+  exploreTitle: isEn ? "Explore 16 Personality Types" : "探索16种性格类型与MBTI测试",
+  exploreDesc: isEn ? "In our free type descriptions, you'll discover what truly drives, inspires, and worries different personality types, helping you build more meaningful relationships." : "在我们免费的类型描述中，你将了解不同性格类型的真正驱动力、灵感和担忧，帮助你建立更有意义的关系。",
+  cognitiveFuncLink: isEn ? "Cognitive Functions Analysis" : "认知功能与八维分析",
+  sectionTeams: isEn ? "TEAMS" : "团队",
+  teamsTitle: isEn ? "MBTI Test for Teams" : "MBTI测试团队版",
+  teamsDesc: isEn ? "Better understand your team through our team assessment. Improve communication, create harmony, and help team members develop personal strengths." : "通过我们的团队评估更好地了解你的团队。改善沟通，创造和谐，帮助团队成员发展个人优势。适用于各种规模的团队。",
+  startNow: isEn ? "Start Test Now" : "立即开始测试",
+  howTitle: isEn ? "How MBTI Test Works" : "MBTI测试如何工作",
+  step1Title: isEn ? "Prepare Yourself" : "准备自己",
+  step1Desc: isEn ? "Make sure you are in a relaxing environment conducive to focus." : "确保你在一个有利于集中注意力的放松环境中进行测试。",
+  step2Title: isEn ? "Complete the Test" : "完成测试",
+  step2Desc: isEn ? "Answer questions designed to reveal aspects of your personality." : "回答设计用来揭示你性格各个方面的问题。",
+  step3Title: isEn ? "Get Insights" : "获取洞察",
+  step3Desc: isEn ? "View your report, explore personality types, and find where you belong!" : "查看你的报告，探索各种性格类型，找出你的归属！",
+  storyTitle: isEn ? "MBTI Test Success Stories" : "MBTI测试成功故事",
+  storyDesc: isEn ? "Here are what some users say about their personality test experience." : "以下是一些用户对我们性格测试体验的评价。",
+  ctaTitle: isEn ? "Start Your MBTI Journey Today" : "今天就开始你的MBTI测试之旅",
+  ctaDesc: isEn ? "Join millions who have found clarity and self-understanding through our personality test." : "加入数百万通过我们的性格测试找到清晰和自我理解的人",
+  userPotential: isEn ? "They unlocked their potential through testing." : "他们通过测试释放了潜能。",
+};
+---
+
+<Base title={t.pageTitle} lang={lang}>
+  <main class="min-h-screen">
+    <!-- Hero Section -->
+    <section class="relative bg-white dark:bg-gray-900 py-20">
+      <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto text-center">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">{t.heroTitle}</span>
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-gray-300 mb-8">{t.heroDesc}</p>
+          <div class="flex justify-center gap-4">
+            <a href={mbtiTestUrl} class="px-8 py-4 text-lg font-semibold bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md">{t.startTest}</a>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 max-w-3xl mx-auto">
+          <div class="text-center">
+            <div class="text-4xl font-bold text-blue-500 mb-2">32K<span class="text-2xl">+</span></div>
+            <div class="text-gray-600 dark:text-gray-300 uppercase tracking-wider text-sm font-semibold">{t.dailyTests}</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-green-500 mb-2">13M<span class="text-2xl">+</span></div>
+            <div class="text-gray-600 dark:text-gray-300">{t.totalTests}</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-bold text-purple-600 mb-2">91.2<span class="text-2xl">%</span></div>
+            <div class="text-gray-600 dark:text-gray-300 font-medium">{t.accuracy}</div>
+          </div>
+        </div>
+        <div class="flex justify-center mt-12 space-x-2">
+          <img src="/images/test-users.png" alt="User" style="width: 161px" />
+        </div>
+        <p class="text-center text-gray-600 mt-4">{t.userPotential}</p>
+      </div>
+    </section>
+
+    <!-- Personality Types Section -->
+    <section class="py-16">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row items-center gap-12">
+          <div class="md:w-1/2">
+            <div class="inline-block text-sm font-semibold text-blue-600 mb-2 uppercase tracking-wider">{t.sectionPersonalityType}</div>
+            <h2 class="text-3xl font-bold mb-6">{t.exploreTitle}</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-8">{t.exploreDesc}</p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href={cogFuncUrl} class="text-blue-600 font-semibold hover:underline">{t.cognitiveFuncLink}</a>
+            </div>
+          </div>
+          <div class="md:w-1/2">
+            <img src="/images/personality-types.jpg" alt="Personality Types Illustration" class="w-[300px]" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teams Section -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+          <div class="md:w-1/2">
+            <div class="inline-block text-sm font-semibold text-blue-600 mb-2 uppercase tracking-wider">{t.sectionTeams}</div>
+            <h2 class="text-3xl font-bold mb-6">{t.teamsTitle}</h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-8">{t.teamsDesc}</p>
+            <a href={mbtiTestUrl} class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors inline-block">{t.startNow}</a>
+          </div>
+          <div class="md:w-1/2">
+            <img src="/images/team-assessments.jpg" alt="Team Assessments Illustration" class="w-[600px]" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">{t.howTitle}</h2>
+        <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4"><span class="text-2xl font-bold text-blue-600">1</span></div>
+            <h3 class="text-xl font-semibold mb-2">{t.step1Title}</h3>
+            <p class="text-gray-600 dark:text-gray-300">{t.step1Desc}</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4"><span class="text-2xl font-bold text-blue-600">2</span></div>
+            <h3 class="text-xl font-semibold mb-2">{t.step2Title}</h3>
+            <p class="text-gray-600 dark:text-gray-300">{t.step2Desc}</p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4"><span class="text-2xl font-bold text-blue-600">3</span></div>
+            <h3 class="text-xl font-semibold mb-2">{t.step3Title}</h3>
+            <p class="text-gray-600 dark:text-gray-300">{t.step3Desc}</p>
+          </div>
+        </div>
+        <div class="text-center mt-12">
+          <a href={mbtiTestUrl} class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors inline-block">{t.startNow}</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Stories Section -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">{t.storyTitle}</h2>
+        <p class="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto">{t.storyDesc}</p>
+        <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+            <p class="text-gray-600 dark:text-gray-300 mb-6 italic">{t.userQuote1}</p>
+            <div class="flex items-center">
+              <img src="/images/user1.jpg" alt="Johnson" class="w-12 h-12 rounded-full mr-4" />
+              <div>
+                <h4 class="font-semibold">Johnson</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-300">ENFJ</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+            <p class="text-gray-600 dark:text-gray-300 mb-6 italic">{t.userQuote2}</p>
+            <div class="flex items-center">
+              <img src="/images/user2.jpg" alt="Michael Smith" class="w-12 h-12 rounded-full mr-4" />
+              <div>
+                <h4 class="font-semibold">Michael Smith</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-300">INFJ</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl">
+            <p class="text-gray-600 dark:text-gray-300 mb-6 italic">{t.userQuote3}</p>
+            <div class="flex items-center">
+              <img src="/images/user3.jpg" alt="Emma" class="w-12 h-12 rounded-full mr-4" />
+              <div>
+                <h4 class="font-semibold">Emma</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-300">ISTJ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50 dark:bg-gray-800">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">{isEn ? "Frequently Asked Questions" : "关于MBTI测试的常见问题"}</h2>
+        <div class="max-w-3xl mx-auto space-y-6">
+          <div class="bg-white dark:bg-gray-900 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold mb-2">{t.faqWhat}</h3>
+            <p class="text-gray-600 dark:text-gray-300">{t.faqWhatAns}</p>
+          </div>
+          <div class="bg-white dark:bg-gray-900 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold mb-2">{t.faqAcc}</h3>
+            <p class="text-gray-600 dark:text-gray-300">{t.faqAccAns}</p>
+          </div>
+          <div class="bg-white dark:bg-gray-900 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold mb-2">{t.faqTime}</h3>
+            <p class="text-gray-600 dark:text-gray-300">{t.faqTimeAns}</p>
+          </div>
+          <div class="bg-white dark:bg-gray-900 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold mb-2">{t.faqResult}</h3>
+            <p class="text-gray-600 dark:text-gray-300 mb-2">{t.faqResultAns}</p>
+            <ul class="text-gray-600 dark:text-gray-300 list-disc list-inside space-y-1">
+              <li>{t.faqResult1}</li>
+              <li>{t.faqResult2}</li>
+              <li>{t.faqResult3}</li>
+              <li>{t.faqResult4}</li>
+              <li>{t.faqResult5}</li>
+            </ul>
+          </div>
+          <div class="bg-white dark:bg-gray-900 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold mb-2">{t.faqTeam}</h3>
+            <p class="text-gray-600 dark:text-gray-300">{t.faqTeamAns}</p>
+          </div>
+          <div class="bg-white dark:bg-gray-900 p-6 rounded-xl">
+            <h3 class="text-xl font-semibold mb-2">{t.faqSafe}</h3>
+            <p class="text-gray-600 dark:text-gray-300">{t.faqSafeAns}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative bg-blue-600">
+      <img src="/images/cta-background.jpg" alt="Team collaboration" class="object-cover w-full" style="position: absolute; height: 100%; width: 100%; inset: 0px; color: transparent;" />
+      <div class="absolute bg-opacity-70 w-full h-full bg-gray-600 opacity-70"></div>
+      <div class="relative flex flex-col justify-center text-center min-h-[600px] text-white">
+        <div class="container mx-auto px-4">
+          <h2 class="text-6xl font-bold mb-6 text-white">{t.ctaTitle}</h2>
+          <p class="text-xl mb-8 max-w-3xl mx-auto text-white">{t.ctaDesc}</p>
+          <a href={mbtiTestUrl} class="px-8 py-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors inline-block">{t.startNow}</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Base>
