@@ -5,7 +5,7 @@
   "author": "zeon.studio",
   "license": "MIT",
   "type": "module",
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "pnpm@10.18.0",
   "scripts": {
     "dev": "concurrently \"node scripts/themeGenerator.js --watch\" \"node scripts/jsonGenerator.js && astro dev\"",
     "build": "node scripts/themeGenerator.js && node scripts/jsonGenerator.js && astro build && node scripts/llmsGenerator.js",
@@ -14,10 +14,10 @@
     "check": "astro check",
     "generate-json": "node scripts/jsonGenerator.js",
     "generate-llms": "node scripts/llmsGenerator.js",
-    "remove-darkmode": "node scripts/removeDarkmode.js && yarn format",
-    "remove-multilang": "node scripts/removeMultilang.js && yarn format",
-    "deploy:cf-workers": "npm run build && wrangler deploy",
-    "preview:cf-workers": "npm run build && wrangler dev"
+    "remove-darkmode": "node scripts/removeDarkmode.js && pnpm format",
+    "remove-multilang": "node scripts/removeMultilang.js && pnpm format",
+    "deploy:cf-workers": "pnpm build && wrangler deploy",
+    "preview:cf-workers": "pnpm build && wrangler dev"
   },
   "dependencies": {
     "@astrojs/check": "0.9.8",
@@ -74,8 +74,15 @@
     "typescript": "^6.0.2",
     "wrangler": "^4.80.0"
   },
-  "overrides": {
-    "typescript": "$typescript",
-    "astro": "$astro"
+  "pnpm": {
+    "overrides": {
+      "typescript": "$typescript",
+      "astro": "$astro"
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp",
+      "workerd"
+    ]
   }
 }
