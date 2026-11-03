@@ -29,6 +29,7 @@ export default defineConfig({
   vite: { plugins: [tailwindcss()] },
   i18n: { locales: filteredSupportedLang, defaultLocale: default_language },
   image: { service: sharp() },
+
   integrations: [
     react(),
     sitemap(),
@@ -61,6 +62,7 @@ export default defineConfig({
     }),
     mdx(),
   ],
+
   markdown: {
     remarkPlugins: [remarkToc, [remarkCollapse, { test: "Table of contents" }]],
     shikiConfig: { theme: "one-dark-pro", wrap: true },
