@@ -3,3 +3,4 @@
 dist
 .wrangler
 .codebuddy
+.DS_Store
