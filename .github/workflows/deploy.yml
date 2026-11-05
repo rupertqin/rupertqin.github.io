@@ -1,5 +1,9 @@
 name: Deploy to GitHub Pages
 
+# 说明：GitHub Pages 是纯静态托管，无法反代。父站 /typography 在这里是
+# public/typography/index.html 的跳转页，跳到独立部署的 https://typography.gantz.host/。
+# 真正的同路径子功能在 Cloudflare Workers 通道（见 deploy-cloudflare.yml + worker/index.js）。
+
 on:
   push:
     branches: [main]
@@ -38,6 +42,17 @@ jobs:
 
       - name: Build with Astro
         run: pnpm build
+
+      - name: Verify static output
+        run: |
+          set -euo pipefail
+          test -f dist/index.html
+          test -f dist/typography/index.html
+          if [ -f dist/_worker.js ] || [ -f dist/_routes.json ]; then
+            echo "::error::检测到 SSR 适配器产物（dist/_worker.js 或 dist/_routes.json），GitHub Pages 需要纯静态产物"
+            exit 1
+          fi
+          echo "dist 文件数: $(find dist -type f | wc -l)"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

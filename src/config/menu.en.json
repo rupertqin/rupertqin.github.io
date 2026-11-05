@@ -10,6 +10,7 @@
       "url": "",
       "hasChildren": true,
       "children": [
+        { "name": "Typography", "url": "/typography" },
         { "name": "Contact", "url": "/contact" },
         { "name": "Authors", "url": "/authors" },
         { "name": "Categories", "url": "/categories" },

@@ -1,14 +1,24 @@
 {
-  // Cloudflare Workers — Static Assets only (纯静态托管，无 SSR、无绑定)
+  // Cloudflare Workers —— 静态资源 + 子功能反代
   // Docs: https://developers.cloudflare.com/workers/static-assets/
   // Deploy:  pnpm deploy:workers
   // Preview: pnpm preview:workers
   //
-  // Cloudflare Pages 走同一份 dist，命令见 pnpm deploy:pages。
+  // /typography 前缀由 worker/index.js 反代到子项目 typography（Cloudflare Pages），
+  // 其余路径仍由 assets 直出；run_worker_first 保证这些请求先进入 Worker。
+  //
+  // Cloudflare Pages 通道（pnpm deploy:pages）不执行 Worker，该前缀会落到
+  // public/typography/index.html 的跳转页，作为备用入口。
   "name": "qinxiang-site",
+  "main": "./worker/index.js",
   "compatibility_date": "2026-03-02",
+  "vars": {
+    "SUBAPP_ORIGIN": "https://typography.pages.dev",
+  },
   "assets": {
     "directory": "./dist",
+    "binding": "ASSETS",
     "not_found_handling": "404-page",
+    "run_worker_first": ["/typography", "/typography/*"],
   },
 }

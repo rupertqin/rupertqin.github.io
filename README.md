@@ -126,7 +126,47 @@ pnpm run preview:cf-workers
 ### 👉 Deploy to Cloudflare Workers
 
 ```bash
-pnpm run deploy:cf-workers
+pnpm run deploy:workers
+```
+
+### 👉 子功能：Typography（`/typography`）
+
+`/typography` 是独立仓库 [rupertqin/Typography](https://github.com/rupertqin/Typography)
+（公众号排版风格），部署在 Cloudflare Pages 项目 `typography`（自定义域
+`https://typography.gantz.host/`）。子项目只产出一份产物，构建期前缀固定为 `/typography`，
+所以子路由（主入口）与子域名（辅入口）共用同一份文件，父站侧只做路径转发。
+
+本仓库**不构建、不拷贝**子应用产物，各通道行为如下：
+
+| 通道 | `/typography` 行为 |
+| --- | --- |
+| Cloudflare Workers（`gantz.host`，主入口） | `worker/index.js` 反代到 `typography.pages.dev`，同域同路径真子功能 |
+| Cloudflare Pages（`qinxiang-site.pages.dev`，备用） | Pages 不执行 Worker，落到 `public/typography/index.html` 跳转页 |
+| GitHub Pages | 纯静态，同样落到跳转页 → `https://typography.gantz.host/` |
+
+- 反代只匹配 `/typography` 与 `/typography/*`（`wrangler.jsonc` 的 `assets.run_worker_first`），其余路径仍由 assets 直出
+- 上游地址由 `wrangler.jsonc` 的 `vars.SUBAPP_ORIGIN` 控制，本地可用 `--var SUBAPP_ORIGIN:...` 覆盖
+- 子应用只有一份产物（构建期 `BASE_PATH=/typography`，文件在 Pages 站点根目录，靠其 `_redirects` 做 200 路径映射），所以反代只需原样转发路径，不用改写 HTML
+
+开发态：子应用不在本仓库，`pnpm dev` 访问 `/typography` 会拿到跳转页（`public/typography/index.html`）。要联调真应用开两个终端：
+
+```bash
+# 终端 1：子项目
+cd ../typography && BASE_PATH=/typography npm run dev -- --port 4322
+
+# 终端 2：父站
+pnpm dev    # /typography 由 astro.config 的 vite proxy 转发到 4322
+```
+
+本地联调反代（可选）：
+
+```bash
+# 终端 1：模拟上游，把子项目的 dist 当作 Pages 根
+cd ../typography && npx serve dist -l 8899
+
+# 终端 2：Worker 本地运行
+pnpm build
+pnpm exec wrangler dev --var SUBAPP_ORIGIN:http://127.0.0.1:8899
 ```
 
 ### 👉 Build and Run With Docker

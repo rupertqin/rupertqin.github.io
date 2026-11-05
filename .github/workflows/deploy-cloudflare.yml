@@ -1,9 +1,11 @@
 name: Deploy to Cloudflare
 
-# 纯静态产物双通道发布：
-#   - Workers Static Assets（主入口，qinxiang-site.<子域>.workers.dev）
-#   - Cloudflare Pages（备用/对照，qinxiang-site.pages.dev）
-# 与既有的 GitHub Pages 流水线（deploy.yml）互不影响。
+# 静态资源 + 子功能反代双通道发布：
+#   - Workers Static Assets（主入口，qinxiang-site.<子域>.workers.dev）：worker/index.js
+#     会把 /typography 前缀反代到子项目 typography（Cloudflare Pages）
+#   - Cloudflare Pages（备用/对照，qinxiang-site.pages.dev）：纯静态，不执行 Worker，
+#     /typography 会落到 public/typography/index.html 的跳转页
+# 与 GitHub Pages 流水线（deploy.yml）互不影响。
 #
 # 需要的仓库 Secrets：
 #   CLOUDFLARE_API_TOKEN  —— 权限：Workers Scripts:Edit、Cloudflare Pages:Edit、Account Settings:Read
@@ -52,14 +54,26 @@ jobs:
       - name: Build with Astro
         run: pnpm build
 
+      # 子功能不在本仓库构建：/typography 由 worker/index.js 反代到 typography
+      - name: Check Worker
+        run: |
+          set -euo pipefail
+          test -f worker/index.js
+          node --check worker/index.js
+          grep -q '"main": "./worker/index.js"' wrangler.jsonc
+          grep -q 'typography' wrangler.jsonc
+          echo "worker/index.js 语法与 wrangler 配置校验通过"
+
       - name: Verify static output
         run: |
           set -euo pipefail
           test -f dist/index.html
           test -f dist/404.html
           test -f dist/_headers
+          # 纯静态通道的兜底跳转页
+          test -f dist/typography/index.html
           if [ -f dist/_worker.js ] || [ -f dist/_routes.json ]; then
-            echo "::error::检测到 Worker 产物（dist/_worker.js 或 dist/_routes.json），说明适配器仍在生效，产物不是纯静态"
+            echo "::error::检测到 SSR 适配器产物（dist/_worker.js 或 dist/_routes.json），产物不是纯静态"
             exit 1
           fi
           echo "dist 文件数: $(find dist -type f | wc -l)"

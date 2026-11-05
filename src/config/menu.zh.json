@@ -10,6 +10,7 @@
       "url": "",
       "hasChildren": true,
       "children": [
+        { "name": "排版", "url": "/typography" },
         { "name": "联系", "url": "/contact" },
         { "name": "作者", "url": "/authors" },
         { "name": "分类", "url": "/categories" },
