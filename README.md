@@ -133,40 +133,29 @@ pnpm run deploy:workers
 
 `/typography` 是独立仓库 [rupertqin/Typography](https://github.com/rupertqin/Typography)
 （公众号排版风格），部署在 Cloudflare Pages 项目 `typography`（自定义域
-`https://typography.gantz.host/`）。子项目只产出一份产物，构建期前缀固定为 `/typography`，
-所以子路由（主入口）与子域名（辅入口）共用同一份文件，父站侧只做路径转发。
+`https://typography.gantz.host/`）。子项目只产出一份产物（相对路径，挂任意路径都可用），
+本仓库**不构建、不拷贝**它的产物。
 
-本仓库**不构建、不拷贝**子应用产物，各通道行为如下：
+本仓库**不做子站反代**，所有通道都落到 `public/typography/index.html` 跳转页：
 
 | 通道 | `/typography` 行为 |
 | --- | --- |
-| Cloudflare Workers（`gantz.host`，主入口） | `worker/index.js` 反代到 `typography.pages.dev`，同域同路径真子功能 |
-| Cloudflare Pages（`qinxiang-site.pages.dev`，备用） | Pages 不执行 Worker，落到 `public/typography/index.html` 跳转页 |
-| GitHub Pages | 纯静态，同样落到跳转页 → `https://typography.gantz.host/` |
+| Cloudflare Workers Static Assets（`gantz.host`，主入口） | 跳转页 → `https://typography.gantz.host/` |
+| Cloudflare Pages（`qinxiang-site.pages.dev`，备用） | 跳转页 |
+| GitHub Pages | 跳转页 |
 
-- 反代只匹配 `/typography` 与 `/typography/*`（`wrangler.jsonc` 的 `assets.run_worker_first`），其余路径仍由 assets 直出
-- 上游地址由 `wrangler.jsonc` 的 `vars.SUBAPP_ORIGIN` 控制，本地可用 `--var SUBAPP_ORIGIN:...` 覆盖
-- 子应用只有一份产物（构建期 `BASE_PATH=/typography`，文件在 Pages 站点根目录，靠其 `_redirects` 做 200 路径映射），所以反代只需原样转发路径，不用改写 HTML
+- `wrangler.jsonc` 没有 `main` 脚本，只有 `assets`（assets-only）：所有请求走 Static Assets，**免费且不限量，不消耗 Workers 请求配额**
+- 跳转页用 `<meta http-equiv="refresh">` + `<link rel="canonical">`，并标 `noindex`
+- 去掉反代后少两个故障点（Worker 脚本、上游地址配置），代价是主入口地址栏会跳到子域名
 
-开发态：子应用不在本仓库，`pnpm dev` 访问 `/typography` 会拿到跳转页（`public/typography/index.html`）。要联调真应用开两个终端：
+开发态：`/typography` 由 `astro.config.mjs` 的 vite proxy 转发到子项目 dev server（4322）：
 
 ```bash
-# 终端 1：子项目
+# 终端 1：子项目（只有 dev 需要 BASE_PATH 注册路由，build 不需要）
 cd ../typography && BASE_PATH=/typography npm run dev -- --port 4322
 
 # 终端 2：父站
-pnpm dev    # /typography 由 astro.config 的 vite proxy 转发到 4322
-```
-
-本地联调反代（可选）：
-
-```bash
-# 终端 1：模拟上游，把子项目的 dist 当作 Pages 根
-cd ../typography && npx serve dist -l 8899
-
-# 终端 2：Worker 本地运行
-pnpm build
-pnpm exec wrangler dev --var SUBAPP_ORIGIN:http://127.0.0.1:8899
+pnpm dev
 ```
 
 ### 👉 Build and Run With Docker
