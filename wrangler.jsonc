@@ -1,11 +1,6 @@
 {
-  // Cloudflare Workers —— 纯静态资源（assets-only，无 Worker 脚本）
-  // Docs: https://developers.cloudflare.com/workers/static-assets/
-  // Deploy:  pnpm deploy:workers
-  //
-  // 不做子站反代：/typography 落到 public/typography/index.html 的跳转页，
-  // 由浏览器跳到独立的 https://typography.gantz.host/ 。
-  // 这样所有请求都走 Static Assets（免费不限量），不消耗 Workers 请求配额。
+  // 纯静态资源部署（assets-only，无 Worker 脚本），不消耗 Workers 请求配额。
+  // /typography 落到 public/typography/index.html 的跳转页。
   "name": "qinxiang-site",
   "compatibility_date": "2026-03-02",
   "assets": {

@@ -1,14 +1,7 @@
 name: Deploy
 
-# 一次构建，三处发布（同一份 dist）：
-#   1. GitHub Pages（用户站点根路径 rupertqin.github.io）——纯静态
-#   2. Cloudflare Workers Static Assets（gantz.host 主入口）——assets-only，
-#      无 Worker 脚本，所有请求走静态资源（免费不限量）
-#   3. Cloudflare Pages（qinxiang-site.pages.dev，备用/对照）
-# 三处的 /typography 都落到 public/typography/index.html 跳转页（不做反代）。
-#
-# 合并前这三处分别由 deploy.yml 与 deploy-cloudflare.yml 各构建一次；现在 build
-# 只跑一次，两个部署通道并行消费同一份 artifact，避免「一个入口新版、一个旧版」。
+# 一次构建，三处发布（同一份 dist）：GitHub Pages、Cloudflare Workers Static
+# Assets、Cloudflare Pages。三处的 /typography 都落到跳转页。
 #
 # 需要的仓库 Secrets：
 #   CLOUDFLARE_API_TOKEN  —— 权限：Workers Scripts:Edit、Cloudflare Pages:Edit、Account Settings:Read
@@ -60,6 +53,9 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build with Astro
+        env:
+          # 子站跳转目标由仓库 Variables 提供，不写死在源码里
+          TYPOGRAPHY_URL: ${{ vars.TYPOGRAPHY_URL }}
         run: pnpm build
 
       - name: Verify static output
@@ -68,7 +64,7 @@ jobs:
           test -f dist/index.html
           test -f dist/404.html
           test -f dist/_headers
-          # 纯静态通道的兜底跳转页（Workers 通道由 worker 反代，不命中它）
+          # 跳转页（所有通道都靠它）
           test -f dist/typography/index.html
           if [ -f dist/_worker.js ] || [ -f dist/_routes.json ]; then
             echo "::error::检测到 SSR 适配器产物（dist/_worker.js 或 dist/_routes.json），三个通道都需要纯静态产物"

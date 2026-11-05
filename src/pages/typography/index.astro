@@ -1,11 +1,19 @@
+---
+// 子站跳转页。目标地址由构建期变量注入（CI 从仓库 Variables 的 TYPOGRAPHY_URL 取），
+// 不在源码里写死域名；本地无该变量时退化为回首页。
+// 容错：只填域名时自动补 https:// 与尾斜杠，否则 meta refresh 会当相对路径解析。
+const raw = (process.env.TYPOGRAPHY_URL ?? '').trim().replace(/\/+$/, '');
+const target = raw ? (/^https?:\/\//i.test(raw) ? `${raw}/` : `https://${raw}/`) : '/';
+---
+
 <!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <meta http-equiv="refresh" content="0; url=https://typography.gantz.host/" />
-    <link rel="canonical" href="https://typography.gantz.host/" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={target} />
     <title>公众号排版风格 · Typography</title>
     <style>
       html,
@@ -28,10 +36,6 @@
     </style>
   </head>
   <body>
-    <!--
-      静态兜底页：Cloudflare Workers 通道由 worker/index.js 反代真实应用，
-      只有 GitHub Pages / Cloudflare Pages 这类纯静态通道会落到这里，直接跳转独立站点。
-    -->
-    <p>正在打开「公众号排版风格」… <a href="https://typography.gantz.host/">点此进入</a></p>
+    <p>正在打开「公众号排版风格」… <a href={target}>点此进入</a></p>
   </body>
 </html>
