@@ -46,22 +46,22 @@ export default defineConfig({
   integrations: [
     react(),
     sitemap(),
-    compressor({
-      gzip: { level: 9 },
-      brotli: true,
-      zstd: false,
-      fileExtensions: [
-        ".html",
-        ".css",
-        ".svg",
-        ".txt",
-        ".xml",
-        ".js",
-        ".cjs",
-        ".mjs",
-        ".json",
-      ],
-    }),
+    // compressor({
+    //   gzip: { level: 6 },
+    //   brotli: true,
+    //   zstd: false,
+    //   fileExtensions: [
+    //     ".html",
+    //     ".css",
+    //     ".svg",
+    //     ".txt",
+    //     ".xml",
+    //     ".js",
+    //     ".cjs",
+    //     ".mjs",
+    //     ".json",
+    //   ],
+    // }),
     AutoImport({
       imports: [
         "@/shortcodes/Button",
