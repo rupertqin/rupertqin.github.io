@@ -27,21 +27,21 @@ const allTags = await getAllTaxonomy(langCollection, "tags");
 
 <Base title={"Tags"}>
   <PageHeader title={"Tags"} />
-  <section class="section">
-    <div class="container text-center">
-      <ul>
+  <section class="section-sm">
+    <div class="container">
+      <ul class="flex flex-wrap gap-2">
         {
           tags.map((tag: any) => {
             const count = allTags.filter((c) => c === tag).length;
             return (
-              <li class="m-3 inline-block">
+              <li>
                 <a
                   href={slugSelector(`/tags/${tag}`, lang)}
-                  class="block rounded bg-light px-4 py-2 text-xl text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark"
+                  class="tech-tag px-3.5 py-2 text-[13px]"
                 >
-                  {humanize(tag)}{" "}
-                  <span class="ml-2 rounded bg-body px-2 dark:bg-darkmode-body">
-                    {count}
+                  {humanize(tag)}
+                  <span class="ml-2 font-mono text-[10px] tabular-nums text-ink-muted">
+                    {String(count).padStart(2, "0")}
                   </span>
                 </a>
               </li>

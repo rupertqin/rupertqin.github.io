@@ -6,7 +6,6 @@
     "trailing_slash": false,
     "favicon": "/images/favicon.svg",
     "logo": "/images/logo.svg",
-    "logo_darkmode": "/images/logo.svg",
     "logo_width": "40",
     "logo_height": "40",
     "logo_text": "秦项科技"
@@ -15,8 +14,6 @@
   "settings": {
     "search": true,
     "sticky_header": true,
-    "theme_switcher": true,
-    "default_theme": "system",
     "pagination": 6,
     "summary_length": 200,
     "blog_folder": "blog",

@@ -37,12 +37,13 @@ const swiperOptions: SwiperOptions = {
 
 {
   testimonial.data.enable && (
-    <section class="section">
+    <section class="section border-t border-line">
       <div class="container">
         <div class="row">
-          <div class="mx-auto mb-12 text-center md:col-10 lg:col-8 xl:col-6">
-            <h2 set:html={markdownify(testimonial.data.title)} class="mb-4" />
-            <p set:html={markdownify(testimonial.data.description)} />
+          <div class="mx-auto mb-12 md:col-10 lg:col-8 xl:col-6">
+            <p class="eyebrow mb-4">Testimonials</p>
+            <h2 set:html={markdownify(testimonial.data.title)} class="mb-3" />
+            <p set:html={markdownify(testimonial.data.description)} class="text-ink-sub" />
           </div>
           <div class="col-12">
             <Swiper options={swiperOptions} class="testimonial-slider">
@@ -55,11 +56,11 @@ const swiperOptions: SwiperOptions = {
                     designation: string;
                   }) => (
                     <SwiperSlide>
-                      <div class="rounded-lg bg-light px-7 py-10 dark:bg-darkmode-light">
-                        <div class="text-text-dark dark:text-white">
+                      <div class="h-full rounded-md border border-line bg-background px-7 py-8">
+                        <div class="text-line-strong">
                           <svg
-                            width="33"
-                            height="20"
+                            width="28"
+                            height="18"
                             viewBox="0 0 33 20"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -71,28 +72,28 @@ const swiperOptions: SwiperOptions = {
                           </svg>
                         </div>
                         <blockquote
-                          class="mt-8"
+                          class="mt-6 text-[15px] leading-[1.75] text-ink-sub"
                           set:html={markdownify(item.content)}
                         />
-                        <div class="mt-11 flex items-center">
-                          <div class="text-text-dark dark:text-white">
+                        <div class="mt-8 flex items-center border-t border-line pt-6">
+                          <div>
                             <ImageMod
-                              height={50}
-                              width={50}
-                              class="rounded-full"
+                              height={44}
+                              width={44}
+                              class="rounded-full border border-line"
                               src={item.avatar}
                               alt={item.name}
                               format="webp"
                             />
                           </div>
-                          <div class="ml-4">
+                          <div class="ml-3.5">
                             <h3
                               set:text={item.name}
-                              class="h5 font-primary font-semibold"
+                              class="text-[14px] font-semibold text-ink"
                             />
                             <p
                               set:text={item.designation}
-                              class="text-text-dark dark:text-white"
+                              class="mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-muted"
                             />
                           </div>
                         </div>

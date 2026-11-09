@@ -117,17 +117,9 @@ Configuration is in `src/config/config.json` under `llms`:
 - `include`: include only selected routes/globs (empty = all files). Examples: `/about`, `/blog/**` (all files in blog folder)
 - `exclude`: exclude routes/globs on top of defaults. Example: `/blog/index.html`
 
-### 👉 本地联调子功能（`/typography`）
+### 👉 子站入口（`/typography`）
 
-`/typography` 由独立仓库 [rupertqin/typography](https://github.com/rupertqin/typography)（公众号排版风格）提供，本仓库不构建、不拷贝它的产物，只在开发态把请求代理过去：
-
-```bash
-# 终端 1：子项目（只有 dev 需要 BASE_PATH 注册路由）
-cd ../typography && BASE_PATH=/typography npm run dev -- --port 4322
-
-# 终端 2：父站
-pnpm dev
-```
+`/typography` 由独立仓库 [rupertqin/typography](https://github.com/rupertqin/typography)（公众号排版风格）独立部署，本仓库不构建、不拷贝它的产物，也不在本地做 proxy 联调；本站只提供一个构建期的跳转页（`src/pages/typography/index.astro`），目标地址来自 `TYPOGRAPHY_URL`。
 
 ### 👉 发布
 

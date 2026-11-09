@@ -1,5 +1,5 @@
 ---
-// Enhanced Button component with variants similar to the React Button
+// Button component with monochrome "technical editorial" variants
 interface Props {
 	variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | 'outline-white' | 'white';
 	size?: 'default' | 'sm' | 'lg' | 'icon';
@@ -16,26 +16,26 @@ const {
 	...rest
 } = Astro.props;
 
-// Base classes
-const baseClasses = "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0";
+// Base classes — border colour lives in each variant so it never ties with `border-transparent`
+const baseClasses = "inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border text-sm font-medium leading-none transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0";
 
 // Variant classes
 const variantClasses = {
-	default: "bg-blue-600 text-white shadow hover:bg-blue-700",
-	destructive: "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
-	outline: "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
-	"outline-white": "border-2 border-white text-white bg-transparent hover:bg-white/20",
-	white: "bg-white text-gray-900 shadow-sm hover:bg-gray-100",
-	secondary: "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80",
-	ghost: "hover:bg-accent hover:text-accent-foreground",
-	link: "text-primary underline-offset-4 hover:underline"
+	default: "border-primary bg-primary text-primary-foreground hover:border-[var(--ui-accent-hover)] hover:bg-[var(--ui-accent-hover)]",
+	destructive: "border-destructive bg-destructive text-destructive-foreground hover:bg-destructive/90",
+	outline: "border-line-strong bg-background text-ink hover:border-blue hover:bg-blue-soft hover:text-blue",
+	"outline-white": "border-white/45 bg-transparent text-white hover:border-white hover:bg-white hover:text-ink-strong",
+	white: "border-white bg-white text-ink-strong hover:bg-soft-hover",
+	secondary: "border-secondary bg-secondary text-secondary-foreground hover:bg-soft-hover",
+	ghost: "border-transparent hover:bg-soft hover:text-ink",
+	link: "border-transparent text-blue underline underline-offset-4 decoration-[var(--ui-accent-line)] hover:decoration-[var(--ui-blue-hover)]"
 };
 
 // Size classes
 const sizeClasses = {
-	default: "h-9 px-4 py-2",
-	sm: "h-8 rounded-md px-3 text-xs",
-	lg: "h-10 rounded-md px-8",
+	default: "h-10 px-5",
+	sm: "h-8 rounded-[6px] px-3.5 text-[13px]",
+	lg: "h-11 rounded-[6px] px-6",
 	icon: "h-9 w-9"
 };
 

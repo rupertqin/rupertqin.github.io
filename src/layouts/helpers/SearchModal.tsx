@@ -145,7 +145,7 @@ const SearchModal = ({ lang }: { lang: string | undefined }) => {
                 viewBox="0 0 512 512"
                 height="18"
                 width="18"
-                className="hover:text-red-500 cursor-pointer -mt-0.5"
+                className="cursor-pointer -mt-0.5 hover:text-ink"
               >
                 <title>close icon</title>
                 <path

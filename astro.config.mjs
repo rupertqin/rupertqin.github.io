@@ -28,17 +28,6 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "ignore",
   vite: {
     plugins: [tailwindcss()],
-    server: {
-      proxy: {
-        // 子功能 Typography 的开发态：另有独立 dev server，不由本仓库构建。
-        // 启动方式：在 typography 仓库执行 `BASE_PATH=/typography npm run dev -- --port 4322`
-        "/typography": {
-          target: "http://127.0.0.1:4322",
-          changeOrigin: true,
-          ws: true,
-        },
-      },
-    },
   },
   i18n: { locales: filteredSupportedLang, defaultLocale: default_language },
   image: { service: sharp() },

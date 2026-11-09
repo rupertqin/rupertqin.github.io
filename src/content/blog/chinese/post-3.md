@@ -3,7 +3,7 @@ title: "使用现代技术构建应用"
 meta_title: ""
 description: "这是 meta 描述"
 date: 2025-04-04T05:00:00Z
-image: "/images/image-placeholder.png"
+image: "/images/blog-cover-3.jpg"
 categories: ["Software"]
 author: "John Doe"
 tags: ["software", "tailwind"]

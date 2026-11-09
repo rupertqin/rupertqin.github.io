@@ -4,7 +4,6 @@ import Base from "@/layouts/Base.astro";
 import { getListPage } from "@/lib/contentParser.astro";
 import { render } from "astro:content";
 import { supportedLang } from "@/lib/utils/languageParser";
-import { markdownify } from "@/lib/utils/textConverter";
 
 
 export function getStaticPaths() {
@@ -34,19 +33,22 @@ const { title, description, meta_title, image } = about[0].data;
     <div class="container">
       <div class="row justify-center">
         <div class="md:col-10 lg:col-8">
+          <p class="eyebrow mb-6">About / 关于我们</p>
           {
             image && (
-              <ImageMod
-                class="mx-auto mb-6 rounded"
-                src={image}
-                width={1200}
-                height={600}
-                alt={title}
-                format="webp"
-              />
+              <div class="media-frame mb-8 aspect-[2/1]">
+                <ImageMod
+                  class="h-full w-full object-cover"
+                  src={image}
+                  width={1200}
+                  height={600}
+                  alt={title}
+                  format="webp"
+                  fit="cover"
+                />
+              </div>
             )
           }
-          <h2 set:html={markdownify(title)} class="h3 mb-6" />
           <div class="content">
             <Content />
           </div>

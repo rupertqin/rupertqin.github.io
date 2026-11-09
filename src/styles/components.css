@@ -1,130 +1,108 @@
-/* section style */
+/* section rhythm — 80px mobile / 96px desktop */
 .section {
-  @apply py-24 xl:py-28;
+  @apply py-16 xl:py-24;
 }
 
 .section-sm {
-  @apply py-16 xl:py-20;
+  @apply py-12 xl:py-16;
 }
 
 /* container */
 .container {
-  @apply mx-auto xl:!max-w-[1320px] px-4;
+  @apply mx-auto w-full max-w-[1320px] px-5;
 }
 
 /* social icons */
 .social-icons {
-  @apply space-x-4;
+  @apply space-x-2;
 }
 .social-icons li {
   @apply inline-block;
 }
 .social-icons li a {
-  @apply flex h-9 w-9 items-center justify-center rounded-sm bg-primary text-center leading-9 text-white dark:bg-darkmode-primary dark:text-text-dark;
+  @apply flex h-9 w-9 items-center justify-center rounded-sm border border-line bg-transparent text-center leading-9 text-ink transition-colors duration-200;
+}
+.social-icons li a:hover {
+  @apply border-blue bg-blue text-white;
 }
 .social-icons li a svg {
-  @apply h-5 w-5;
+  @apply h-4 w-4;
 }
 
 /* notice */
 .notice {
-  @apply mb-6 rounded-lg border px-8 py-6;
+  @apply mb-6 rounded-sm border border-line px-6 py-5;
 }
-
 .notice-head {
   @apply flex items-center;
 }
-
 .notice-head svg {
   @apply mr-3;
 }
-
 .notice-head p {
-  @apply font-secondary text-xl font-semibold text-text-dark dark:text-darkmode-text-light;
+  @apply font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-ink;
 }
-
 .notice-body {
   @apply mt-3;
 }
-
 .notice-body p {
   @apply my-0;
 }
-
 .notice.note {
-  @apply text-[#1B83E2];
-  @apply border-current;
+  @apply border-l-[3px] border-l-line-strong text-ink;
 }
-
 .notice.tip {
-  @apply text-[#40D294];
-  @apply border-current;
+  @apply border-l-[3px] border-l-blue bg-transparent text-ink;
 }
-
 .notice.info {
-  @apply text-[#E3A72C];
-  @apply border-current;
+  @apply border-l-[3px] border-l-line-strong text-ink-sub;
 }
-
 .notice.warning {
-  @apply text-[#DB2C23];
-  @apply border-current;
+  @apply border-l-[3px] border-l-ink-strong text-ink;
 }
 
 /* tab */
 .tab {
-  @apply overflow-hidden rounded-lg border border-border dark:border-darkmode-border;
+  @apply overflow-hidden rounded-sm border border-line;
 }
-
 .tab-nav {
-  @apply flex border-b border-border bg-light dark:border-darkmode-border dark:bg-darkmode-light !m-0 !list-none;
+  @apply flex border-b border-line bg-soft !m-0 !list-none;
 }
-
 .tab-nav-item {
-  @apply cursor-pointer border-b-[3px] border-border py-2 text-lg text-text-dark opacity-80 dark:border-darkmode-border !my-0 !px-8;
+  @apply cursor-pointer border-b border-line py-3 text-[13px] text-ink-sub transition-colors duration-200 !my-0 !px-6;
 }
-
 .tab-nav-item.active {
-  @apply border-b-[3px] border-dark opacity-100 dark:border-darkmode-primary;
+  @apply border-b-2 border-blue text-ink;
 }
-
 .tab-content {
   @apply px-5;
 }
-
 .tab-content-panel {
-  @apply p-8;
+  @apply p-6;
 }
-
 .tab-content-panel p {
   @apply mb-0;
 }
-
 .tab-content-panel.active {
   @apply block;
 }
 
 /* accordion */
 .accordion {
-  @apply mb-6 overflow-hidden rounded-lg border border-border bg-light dark:border-darkmode-border dark:bg-darkmode-light;
+  @apply mb-4 overflow-hidden rounded-sm border border-line;
 }
-
 .accordion-header {
-  @apply flex w-full cursor-pointer items-center justify-between px-8 py-4 text-lg text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-light;
+  @apply flex w-full cursor-pointer items-center justify-between px-5 py-4 text-[15px] font-medium text-ink;
 }
-
 .accordion-icon {
-  @apply h-[.8em] w-[.8em] rotate-[-90deg] transition-transform duration-200;
+  @apply h-[0.8em] w-[0.8em] rotate-[-90deg] transition-transform duration-200;
 }
-
 .accordion-content {
-  @apply max-h-0 overflow-hidden px-8 py-0;
+  @apply max-h-0 overflow-hidden px-5 py-0 text-ink-sub;
 }
-
 .accordion.active .accordion-icon {
   @apply rotate-0;
 }
-
 .accordion.active .accordion-content {
   @apply max-h-screen;
 }
@@ -133,39 +111,341 @@
 .modal {
   @apply fixed inset-0 z-40 hidden h-full w-full overflow-auto;
 }
-
 .modal-overlay {
   @apply fixed inset-0 z-40 hidden h-full w-full bg-black/40;
 }
-
 .modal-content {
-  @apply relative top-1/2 z-50 mx-auto max-w-[90%] -translate-y-1/2 rounded-lg bg-body p-8 dark:bg-darkmode-body;
+  @apply relative top-1/2 z-50 mx-auto max-w-[90%] -translate-y-1/2 rounded-md border border-line bg-background p-8;
+  box-shadow: var(--ui-shadow-dialog);
 }
-
 .modal-close {
-  @apply absolute right-3 top-3 h-8 w-8 rounded-full bg-light text-center leading-8 text-text-dark dark:bg-darkmode-light dark:text-darkmode-text-dark;
+  @apply absolute right-3 top-3 h-8 w-8 rounded-sm border border-line bg-background text-center leading-8 text-ink;
 }
 
-/* content style */
+/* ==========================================================================
+   MBTI quiz answer options — monochrome scale
+   agree (strong hairline) → neutral (medium) → disagree (light dashed)
+   ========================================================================== */
+.option-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ui-line);
+  border-radius: 9999px;
+  color: var(--ui-ink);
+  cursor: pointer;
+  transition:
+    background-color 0.18s var(--ui-ease),
+    border-color 0.18s var(--ui-ease),
+    color 0.18s var(--ui-ease);
+}
+
+.option-btn:focus-visible {
+  outline: 2px solid var(--ui-accent);
+  outline-offset: 2px;
+}
+
+.option-btn[data-value^="left"] {
+  border-color: var(--ui-accent);
+}
+
+.option-btn[data-value="middle"] {
+  border-color: var(--ui-field-line);
+}
+
+.option-btn[data-value^="right"] {
+  border-color: var(--ui-line);
+  border-style: dashed;
+}
+
+.option-btn:hover,
+.option-btn.selected {
+  border-color: var(--ui-accent);
+  border-style: solid;
+  background-color: var(--ui-accent);
+  color: var(--ui-accent-fg);
+}
+
+.check-icon {
+  opacity: 0;
+  transform: scale(0.8);
+  pointer-events: none;
+  transition: all 0.18s var(--ui-ease);
+}
+
+.option-btn:hover .check-icon,
+.option-btn.selected .check-icon {
+  opacity: 1;
+  transform: scale(1);
+  color: var(--ui-accent-fg);
+}
+
+/* ==========================================================================
+   .content — editorial markdown rendering
+   ========================================================================== */
 .content {
-  @apply [&>*:first-child]:mt-0 [&>*:first-child]:pt-0;
   @apply prose max-w-none;
-  @apply prose-headings:mb-[.3em] prose-headings:mt-[.6em] prose-headings:text-text-dark dark:prose-headings:text-darkmode-text-dark;
-  @apply prose-h1:text-h1-sm md:prose-h1:text-h1;
-  @apply prose-h2:text-h2-sm md:prose-h2:text-h2;
-  @apply prose-h3:text-h3-sm md:prose-h3:text-h3;
-  @apply prose-p:text-base prose-p:text-text dark:prose-p:text-darkmode-text;
-  @apply prose-a:text-text prose-a:[&.btn]:no-underline  dark:prose-a:text-darkmode-text;
-  @apply prose-img:max-w-full prose-img:rounded-lg;
-  @apply prose-strong:text-text-dark dark:prose-strong:text-darkmode-text;
-  @apply prose-hr:border-border dark:prose-hr:border-darkmode-border;
-  @apply prose-pre:rounded-lg prose-pre:bg-light dark:prose-pre:bg-darkmode-light;
-  @apply prose-code:text-darkmode-text-dark;
-  @apply prose-li:text-text dark:prose-li:text-darkmode-text;
-  @apply prose-blockquote:rounded-lg prose-blockquote:border prose-blockquote:border-l-[10px] prose-blockquote:border-primary prose-blockquote:bg-light prose-blockquote:px-8 prose-blockquote:py-10 prose-blockquote:font-secondary prose-blockquote:text-2xl prose-blockquote:not-italic prose-blockquote:text-text-dark dark:prose-blockquote:border-darkmode-primary dark:prose-blockquote:bg-darkmode-light dark:prose-blockquote:text-darkmode-text-light;
-  @apply prose-table:relative prose-table:overflow-hidden prose-table:rounded-lg prose-table:before:absolute prose-table:before:left-0 prose-table:before:top-0 prose-table:before:h-full prose-table:before:w-full prose-table:before:rounded-[inherit] prose-table:before:border prose-table:before:border-border prose-table:before:content-[""] dark:prose-table:before:border-darkmode-border;
-  @apply prose-thead:border-border prose-thead:bg-light dark:prose-thead:border-darkmode-border dark:prose-thead:bg-darkmode-light;
-  @apply prose-th:relative prose-th:z-10 prose-th:px-4 prose-th:py-[18px] prose-th:text-text-dark dark:prose-th:text-darkmode-text;
-  @apply prose-tr:border-border dark:prose-tr:border-darkmode-border;
-  @apply prose-td:relative prose-td:z-10 prose-td:px-3 prose-td:py-[18px] dark:prose-td:text-darkmode-text;
+  color: var(--ui-sub);
+  font-size: 16px;
+  line-height: 1.78;
+}
+
+.content > *:first-child {
+  margin-top: 0 !important;
+}
+
+.content :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--ui-ink);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: 30px 0 12px;
+}
+
+.content h1 {
+  font-size: clamp(26px, 3vw, 34px);
+}
+.content h2 {
+  font-size: clamp(21px, 2.2vw, 26px);
+  margin-top: 38px;
+}
+.content h3 {
+  font-size: 20px;
+  margin-top: 30px;
+}
+.content h4 {
+  font-size: 17px;
+}
+.content h5 {
+  font-size: 15px;
+}
+.content h6 {
+  font-size: 14px;
+}
+
+.content p {
+  margin: 0 0 17px;
+  color: var(--ui-sub);
+}
+
+/* text links only — buttons keep their own colours */
+.content a:not(.btn) {
+  color: var(--ui-blue);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--ui-accent-line);
+  text-underline-offset: 3px;
+  transition:
+    color 180ms var(--ui-ease),
+    text-decoration-color 180ms var(--ui-ease);
+}
+
+.content a:not(.btn):hover {
+  color: var(--ui-blue-hover);
+  text-decoration-color: var(--ui-blue-hover);
+}
+
+/* buttons embedded in markdown must keep their own foreground colour */
+.content a.btn {
+  text-decoration: none;
+}
+
+.content .btn-primary {
+  color: var(--ui-blue-fg);
+}
+
+.content .btn-outline-primary {
+  color: var(--ui-ink);
+}
+
+.content .btn-white {
+  color: var(--ui-ink-strong);
+}
+
+/* markdown lists that carry their own layout (checkmark rows, price rows) */
+.content ul.list-none {
+  padding-left: 0;
+  list-style: none;
+}
+
+.content strong {
+  color: var(--ui-ink);
+  font-weight: 600;
+}
+
+.content em {
+  font-style: italic;
+}
+
+.content ul,
+.content ol {
+  margin: 0 0 17px;
+  padding-left: 24px;
+  color: var(--ui-sub);
+}
+
+.content ul {
+  list-style: disc;
+}
+
+.content ol {
+  list-style: decimal;
+}
+
+.content li {
+  margin: 0 0 8px;
+  padding-left: 2px;
+}
+
+.content li::marker {
+  color: var(--ui-muted);
+}
+
+.content li > p:last-child {
+  margin-bottom: 0;
+}
+
+.content blockquote {
+  margin: 22px 0;
+  padding: 2px 0 2px 17px;
+  border-left: 3px solid var(--ui-field-line);
+  background: transparent;
+  color: var(--ui-sub);
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+.content blockquote p {
+  margin: 0 0 10px;
+  color: inherit;
+}
+
+.content blockquote > *:last-child {
+  margin-bottom: 0;
+}
+
+.content hr {
+  margin: 32px 0;
+  border: 0;
+  border-top: 1px solid var(--ui-line);
+}
+
+.content img {
+  @apply rounded-sm border border-line;
+  max-width: 100%;
+  height: auto;
+}
+
+.content figure {
+  margin: 24px 0;
+}
+
+.content figcaption {
+  margin-top: 8px;
+  color: var(--ui-muted);
+  font-family: var(--ui-font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+.content code {
+  padding: 0.1em 0.38em;
+  border-radius: 5px;
+  background: var(--ui-soft);
+  color: var(--ui-ink);
+  font-family: var(--ui-font-mono);
+  font-size: 0.88em;
+  font-weight: 400;
+}
+
+.content code::before,
+.content code::after {
+  content: none;
+}
+
+.content pre {
+  margin: 20px 0;
+  padding: 16px 18px;
+  overflow-x: auto;
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-radius-sm);
+  background: var(--ui-soft);
+  color: var(--ui-ink);
+  font-family: var(--ui-font-mono);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.content pre code {
+  padding: 0;
+  background: transparent;
+  font-size: inherit;
+  color: inherit;
+}
+
+.content table {
+  width: 100%;
+  margin: 20px 0;
+  border-collapse: collapse;
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-radius-sm);
+  overflow: hidden;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.content thead {
+  background: var(--ui-soft);
+}
+
+.content th {
+  padding: 10px 13px;
+  border-bottom: 1px solid var(--ui-line);
+  color: var(--ui-ink);
+  font-weight: 600;
+  text-align: left;
+  vertical-align: top;
+}
+
+.content td {
+  padding: 10px 13px;
+  border-bottom: 1px solid var(--ui-line);
+  color: var(--ui-sub);
+  vertical-align: top;
+}
+
+.content tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.content tbody tr:hover {
+  background: var(--ui-soft-hover);
+}
+
+.content table::before,
+.content table::after {
+  content: none;
+}
+
+.content iframe,
+.content video {
+  max-width: 100%;
+  border-radius: var(--ui-radius-sm);
+  border: 1px solid var(--ui-line);
+}
+
+.content details {
+  margin: 16px 0;
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-radius-sm);
+  padding: 12px 16px;
+}
+
+.content summary {
+  cursor: pointer;
+  color: var(--ui-ink);
+  font-weight: 500;
 }

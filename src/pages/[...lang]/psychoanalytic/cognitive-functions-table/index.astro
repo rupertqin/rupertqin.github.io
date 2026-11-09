@@ -14,18 +14,23 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <Base title={lang === "en" ? "Cognitive Functions & I-Ching" : "认知功能与易经"} lang={lang}>
-  <section class="section">
+  <section class="section-sm">
     <div class="container">
-      <h1 class="text-3xl font-bold text-center mb-4 text-gray-800 dark:text-white">
-        {lang === "en" ? "MBTI Cognitive Functions & I-Ching Hexagrams" : "MBTI 认知功能与易经卦象"}
-      </h1>
-      <p class="text-center text-gray-600 dark:text-gray-300 mb-12">
-        {lang === "en"
-          ? "Explore the mapping between Jungian cognitive functions and I-Ching hexagrams"
-          : "探索荣格认知功能与易经卦象的对应关系"}
-      </p>
+      <div class="mx-auto max-w-4xl">
+        <p class="eyebrow">{lang === "en" ? "Psychoanalytic / Cognitive Functions" : "心理分析 / 认知功能"}</p>
+        <h1 class="mt-4 text-[clamp(26px,3.6vw,38px)] font-semibold leading-[1.2] tracking-[-0.03em] text-ink">
+          {lang === "en" ? "MBTI Cognitive Functions & I-Ching Hexagrams" : "MBTI 认知功能与易经卦象"}
+        </h1>
+        <p class="mt-4 max-w-[640px] text-[15px] leading-[1.75] text-ink-sub">
+          {lang === "en"
+            ? "Explore the mapping between Jungian cognitive functions and I-Ching hexagrams"
+            : "探索荣格认知功能与易经卦象的对应关系"}
+        </p>
+      </div>
 
-      <MBTITable client:only="react" />
+      <div class="mt-10 border-t border-line pt-10">
+        <MBTITable client:only="react" />
+      </div>
     </div>
   </section>
 </Base>

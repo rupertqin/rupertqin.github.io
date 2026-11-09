@@ -32,16 +32,8 @@ const iconPath = icons[name];
     color: inherit;
   }
 
-  /* Apply color to SVG elements */
+  /* Flatten multicolor SVG icons to a single ink silhouette */
   span img {
-    filter: brightness(0) saturate(100%) invert(var(--icon-invert, 0));
-  }
-
-  /* Dark mode support */
-  :global(.dark) span img,
-  @media (prefers-color-scheme: dark) {
-    span img {
-      --icon-invert: 1;
-    }
+    filter: brightness(0) saturate(100%);
   }
 </style>

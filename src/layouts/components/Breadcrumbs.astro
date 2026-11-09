@@ -36,19 +36,17 @@ paths.forEach((label: string, i: number) => {
 ---
 
 <nav aria-label="Breadcrumb" class={className}>
-  <ol class="inline-flex" role="list">
+  <ol class="flex flex-wrap items-center font-mono text-[11px] uppercase tracking-[0.1em]" role="list">
     {
       parts.map(({ label, ...attrs }, index) => (
-        <li class="mx-1 capitalize" role="listitem">
-          {index > 0 && <span class="inline-block mr-1">/</span>}
+        <li class="flex items-center" role="listitem">
+          {index > 0 && <span class="mx-2 text-line-strong">/</span>}
           {index !== parts.length - 1 ? (
-            <a class="text-primary dark:text-darkmode-primary" {...attrs}>
+            <a class="text-ink-muted transition-colors duration-200 hover:text-blue" {...attrs}>
               {label}
             </a>
           ) : (
-            <span class="text-text-light dark:text-darkmode-text-light">
-              {label}
-            </span>
+            <span class="text-ink">{label}</span>
           )}
         </li>
       ))

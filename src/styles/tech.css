@@ -1,0 +1,196 @@
+/* ==========================================================================
+   tech.css — "technical editorial" primitives, Notion paper + blue accent
+   Only semantic classes live here; templates should reuse these instead of
+   stacking raw palette utilities.
+   ========================================================================== */
+
+/* thin monospace micro-label: dates, categories, section eyebrows, numbers */
+.eyebrow {
+  @apply inline-flex items-center gap-2 font-mono text-[11px] font-medium uppercase leading-none tracking-[0.14em] text-ink-muted;
+}
+
+.eyebrow--strong {
+  @apply text-ink;
+}
+
+/* 1px separator line */
+.hairline {
+  @apply h-px w-full border-0 bg-line;
+}
+
+/* hairline card */
+.tech-card {
+  @apply rounded-md border border-line bg-background transition-all duration-200;
+  transition-timing-function: var(--ui-ease);
+}
+
+.tech-card:hover {
+  @apply border-blue-line;
+}
+
+.tech-card--lift:hover {
+  box-shadow: var(--ui-shadow);
+  transform: translateY(-2px);
+}
+
+/* inline text link with underline — Notion blue */
+.tech-link {
+  @apply inline-flex items-center gap-1.5 text-blue underline underline-offset-4 transition-colors duration-200;
+  text-decoration-color: var(--ui-accent-line);
+  text-decoration-thickness: 1px;
+}
+
+.tech-link:hover {
+  color: var(--ui-blue-hover);
+  text-decoration-color: var(--ui-blue-hover);
+}
+
+/* arrow affordance used on cards / learn-more links */
+.tech-link-arrow svg,
+.tech-link-arrow i {
+  @apply transition-transform duration-200;
+  transition-timing-function: var(--ui-ease);
+}
+
+.tech-link-arrow:hover svg,
+.tech-link:hover .tech-link-arrow svg {
+  transform: translateX(3px);
+}
+
+/* monospace figures */
+.tech-num {
+  @apply font-mono tabular-nums tracking-tight;
+  font-variant-numeric: tabular-nums;
+}
+
+/* image frame — hairline + small radius on a white plate */
+.media-frame {
+  @apply overflow-hidden rounded-sm border border-line bg-white;
+}
+
+.media-frame img {
+  @apply block h-full w-full object-cover;
+}
+
+/* quote with a 3px rule, no background */
+.tech-quote {
+  @apply border-l-[3px] border-line-strong pl-4 text-ink-sub;
+}
+
+/* pill tag */
+.tech-tag {
+  @apply inline-flex items-center rounded-sm border border-line px-2.5 py-1 text-[12px] leading-none text-ink-sub transition-colors duration-200;
+}
+
+.tech-tag:hover {
+  @apply border-blue text-blue;
+}
+
+/* numbered feature grid: 01 / 02 / 03 */
+.tech-grid {
+  @apply grid grid-cols-1 gap-x-10 gap-y-10 md:grid-cols-3;
+}
+
+.tech-feature {
+  @apply border-t border-line pt-6 transition-all duration-200;
+  transition-timing-function: var(--ui-ease);
+}
+
+.tech-feature:hover {
+  @apply border-blue;
+  transform: translateY(-2px);
+}
+
+.tech-feature-index {
+  @apply font-mono text-[11px] font-medium leading-none tracking-[0.14em] text-blue;
+}
+
+.tech-feature-title {
+  @apply mt-4 text-[20px] font-semibold leading-snug text-ink;
+}
+
+/* full-bleed band separated by hairlines instead of a colour block */
+.tech-band {
+  @apply border-y border-line bg-soft;
+}
+
+/* side panel: plain paper card — blue stays on the label, never as a fill */
+.callout {
+  @apply rounded-md border border-line bg-background p-6;
+}
+
+.callout .eyebrow {
+  @apply text-blue;
+}
+
+.callout .tech-kv,
+.callout .tech-kv:last-child {
+  border-color: var(--ui-line);
+}
+
+/* optional 3px blue rail on the leading edge */
+.callout--rail {
+  @apply border-l-[3px] border-l-blue;
+}
+
+/* key / value list */
+.tech-kv {
+  @apply flex items-baseline justify-between gap-4 border-b border-line py-3 text-[14px];
+}
+
+.tech-kv dt {
+  @apply font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted;
+}
+
+.tech-kv dd {
+  @apply font-mono tabular-nums text-ink;
+}
+
+/* square icon box (replaces emoji circles) */
+.tech-icon {
+  @apply inline-flex h-9 w-9 items-center justify-center rounded-sm border border-line text-ink;
+}
+
+/* clickable card wrapper */
+.tech-card-link {
+  @apply block h-full rounded-md border border-line bg-background p-6 transition-all duration-200;
+  transition-timing-function: var(--ui-ease);
+}
+
+.tech-card-link:hover {
+  @apply border-blue-line;
+}
+
+/* stat block */
+.tech-stat {
+  @apply border-t border-line pt-4;
+}
+
+.tech-stat-value {
+  @apply font-mono text-[32px] font-semibold leading-none tracking-tight text-ink;
+  font-variant-numeric: tabular-nums;
+}
+
+.tech-stat-label {
+  @apply mt-2 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted;
+}
+
+/* page / section heading rhythm */
+.tech-section-head {
+  @apply mb-10 border-b border-line pb-6;
+}
+
+.tech-title {
+  font-size: clamp(28px, 3.4vw, 40px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: var(--ui-ink);
+}
+
+.tech-lede {
+  max-width: 640px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--ui-sub);
+}

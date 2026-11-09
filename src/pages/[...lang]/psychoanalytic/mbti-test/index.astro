@@ -16,115 +16,87 @@ const mbtiQuestionsJson = JSON.stringify(mbtiQuestions);
 ---
 
 <Base title={isEn ? "MBTI Test - Psychoanalytic" : "MBTI 测试 - 心理分析"} lang={lang}>
-  <main class="min-h-screen bg-gray-50 dark:bg-gray-900">
-    <div class="container mx-auto px-4 py-12">
-      <div class="max-w-4xl mx-auto">
-        <h1 class="text-4xl font-bold text-center mb-8">
-          <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
-            {isEn ? "MBTI Test" : "MBTI 测试"}
-          </span>
-        </h1>
+  <div class="container py-14 md:py-20">
+    <div class="mx-auto max-w-4xl">
+      <p class="eyebrow">{isEn ? "Psychoanalytic / MBTI" : "心理分析 / MBTI"}</p>
+      <h1 class="mt-4 text-[clamp(28px,4vw,40px)] font-semibold leading-[1.15] tracking-[-0.03em] text-ink">
+        {isEn ? "MBTI Test" : "MBTI 测试"}
+      </h1>
+      <div class="mt-8 border-t border-line"></div>
 
-        <!-- Intro -->
-        <div id="intro-container" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8">
-          <div class="prose dark:prose-invert max-w-none">
-            <h2 class="text-2xl font-semibold mb-4">{isEn ? "Test Instructions" : "测试说明"}</h2>
-            <p class="text-gray-600 dark:text-gray-300 mb-6">
-              {isEn
-                ? "This test consists of 60 questions. Please choose the option that best matches your true thoughts. The test takes about 10-20 minutes."
-                : "本测试包含60个问题，请根据你的真实想法选择最符合你的选项。测试大约需要10-20分钟完成。"}
-            </p>
+      <!-- Intro -->
+      <div id="intro-container" class="mt-8 rounded-md border border-line bg-background p-6 md:p-8">
+        <div>
+          <h2 class="text-[20px] font-semibold tracking-[-0.02em] text-ink">{isEn ? "Test Instructions" : "测试说明"}</h2>
+          <p class="mt-3 max-w-[640px] text-[15px] leading-[1.75] text-ink-sub">
+            {isEn
+              ? "This test consists of 60 questions. Please choose the option that best matches your true thoughts. The test takes about 10-20 minutes."
+              : "本测试包含60个问题，请根据你的真实想法选择最符合你的选项。测试大约需要10-20分钟完成。"}
+          </p>
 
-            <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg mb-8">
-              <h3 class="text-lg font-semibold text-blue-700 dark:text-blue-300 mb-2">{isEn ? "Test Tips:" : "测试提示："}</h3>
-              <ul class="list-disc list-inside text-gray-600 dark:text-gray-300 space-y-2">
-                <li>{isEn ? "Choose the option that best matches your true thoughts" : "选择最符合你真实想法的选项"}</li>
-                <li>{isEn ? "Don't overthink, trust your first instinct" : "不要过度思考，相信你的第一直觉"}</li>
-                <li>{isEn ? "Choose the option you prefer, not the one you think is 'correct'" : "选择你更倾向于的选项，而不是你认为正确的选项"}</li>
-                <li>{isEn ? "If neither option fits perfectly, choose the closer one" : "如果两个选项都不完全符合，选择更接近你真实想法的那个"}</li>
-              </ul>
-            </div>
+          <div class="mt-6 rounded-sm border border-line bg-soft p-5">
+            <h3 class="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-ink">
+              {isEn ? "Test Tips" : "测试提示"}
+            </h3>
+            <ul class="mt-3 space-y-2 text-[14px] leading-[1.7] text-ink-sub">
+              <li class="flex gap-2.5">
+                <span class="font-mono text-[11px] text-ink-muted">01</span>
+                <span>{isEn ? "Choose the option that best matches your true thoughts" : "选择最符合你真实想法的选项"}</span>
+              </li>
+              <li class="flex gap-2.5">
+                <span class="font-mono text-[11px] text-ink-muted">02</span>
+                <span>{isEn ? "Don't overthink, trust your first instinct" : "不要过度思考，相信你的第一直觉"}</span>
+              </li>
+              <li class="flex gap-2.5">
+                <span class="font-mono text-[11px] text-ink-muted">03</span>
+                <span>{isEn ? "Choose the option you prefer, not the one you think is 'correct'" : "选择你更倾向于的选项，而不是你认为正确的选项"}</span>
+              </li>
+              <li class="flex gap-2.5">
+                <span class="font-mono text-[11px] text-ink-muted">04</span>
+                <span>{isEn ? "If neither option fits perfectly, choose the closer one" : "如果两个选项都不完全符合，选择更接近你真实想法的那个"}</span>
+              </li>
+            </ul>
+          </div>
 
-            <div class="flex justify-center mt-8">
-              <button
-                id="start-test-btn"
-                class="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-xl hover:opacity-90 transition-opacity shadow-lg"
-              >
-                {isEn ? "Start Test" : "开始测试"}
-              </button>
-            </div>
+          <div class="mt-8">
+            <button id="start-test-btn" class="btn btn-primary btn-lg">
+              {isEn ? "Start Test" : "开始测试"}
+            </button>
           </div>
         </div>
+      </div>
 
-        <!-- Test Questions -->
-        <div id="test-container" class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-8 hidden">
-          <div class="max-w-3xl mx-auto">
-            <h1 class="text-3xl font-bold text-center mb-8 text-gray-800 dark:text-white">
-              {isEn ? "MBTI Personality Test" : "MBTI 人格测试"}
-            </h1>
-            <p class="text-center text-gray-600 dark:text-gray-300 mb-12">
-              {isEn ? "60 questions total, choose the option that best matches your situation" : "共 60 题，请根据您的实际情况选择最符合的选项"}
-            </p>
-          </div>
+      <!-- Test Questions -->
+      <div id="test-container" class="mt-8 hidden rounded-md border border-line bg-background p-6 md:p-8">
+        <div class="mx-auto max-w-3xl">
+          <h2 class="text-[20px] font-semibold tracking-[-0.02em] text-ink">
+            {isEn ? "MBTI Personality Test" : "MBTI 人格测试"}
+          </h2>
+          <p class="mt-2 text-[14px] text-ink-sub">
+            {isEn ? "60 questions total, choose the option that best matches your situation" : "共 60 题，请根据您的实际情况选择最符合的选项"}
+          </p>
+        </div>
 
-          <style is:global>
-            .option-btn {
-              position: relative;
-              border-radius: 9999px;
-              transition: all 0.2s ease-in-out;
-              cursor: pointer;
-              border-width: 2px;
-              border-style: solid;
-              display: flex;
-              align-items: center;
-              justify-content: center;
-            }
-            .option-btn:focus {
-              outline: none;
-              box-shadow: 0 0 0 2px rgba(147, 51, 234, 0.2);
-            }
-            .check-icon {
-              opacity: 0;
-              transform: scale(0.8);
-              transition: all 0.2s ease-in-out;
-              pointer-events: none;
-            }
-            .option-btn.selected { background-color: currentColor; }
-            .option-btn.selected .check-icon { opacity: 1; transform: scale(1); color: white; }
-            .option-btn:hover .check-icon { opacity: 1; transform: scale(1); color: white; }
-            .option-btn[data-value^="left"] { border-color: rgb(34, 197, 94); color: rgb(34, 197, 94); }
-            .option-btn[data-value^="left"]:hover { background-color: rgb(34, 197, 94); }
-            .option-btn[data-value^="left"].selected { background-color: rgb(34, 197, 94); }
-            .option-btn[data-value="middle"] { border-color: rgb(156, 163, 175); color: rgb(156, 163, 175); }
-            .option-btn[data-value="middle"]:hover { background-color: rgb(156, 163, 175); }
-            .option-btn[data-value="middle"].selected { background-color: rgb(156, 163, 175); }
-            .option-btn[data-value^="right"] { border-color: rgb(147, 51, 234); color: rgb(147, 51, 234); }
-            .option-btn[data-value^="right"]:hover { background-color: rgb(147, 51, 234); }
-            .option-btn[data-value^="right"].selected { background-color: rgb(147, 51, 234); }
-            html.dark .option-btn[data-value^="left"] { border-color: rgba(34, 197, 94, 0.8); }
-            html.dark .option-btn[data-value="middle"] { border-color: rgba(156, 163, 175, 0.8); }
-            html.dark .option-btn[data-value^="right"] { border-color: rgba(147, 51, 234, 0.8); }
-          </style>
-
-          <div id="test-questions" class="space-y-8">
+        <div id="test-questions" class="mt-8 space-y-8">
             <div class="space-y-3">
-              <div class="mb-2">
-                <span id="progress-text" class="text-lg font-medium text-gray-700 dark:text-gray-300">
+              <div class="flex items-baseline justify-between">
+                <span id="progress-text" class="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">
                   {isEn ? "Question 1 of 60" : "第 1 题，共 60 题"}
                 </span>
+                <span class="font-mono text-[11px] text-ink-muted">01 / 60</span>
               </div>
-              <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-700">
-                <div id="progress-bar" class="bg-gradient-to-r from-purple-600 to-blue-500 h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+              <div class="h-1 w-full overflow-hidden rounded-full bg-soft">
+                <div id="progress-bar" class="h-1 rounded-full bg-blue transition-all duration-300" style="width: 0%"></div>
               </div>
             </div>
 
             <div id="question-cards-container"></div>
 
-            <div class="flex justify-between mt-12">
-              <button id="prev-btn" class="px-8 py-3 text-lg font-medium bg-gray-100 text-gray-700 rounded-xl hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+            <div class="mt-10 flex justify-between border-t border-line pt-6">
+              <button id="prev-btn" class="btn btn-outline-primary disabled:cursor-not-allowed disabled:opacity-40">
                 {isEn ? "Previous" : "上一题"}
               </button>
-              <button id="next-btn" class="px-8 py-3 text-lg font-medium bg-gradient-to-r from-purple-600 to-blue-500 text-white rounded-xl hover:opacity-90 transition-opacity">
+              <button id="next-btn" class="btn btn-primary">
                 {isEn ? "Next" : "下一题"}
               </button>
             </div>
@@ -132,7 +104,6 @@ const mbtiQuestionsJson = JSON.stringify(mbtiQuestions);
         </div>
       </div>
     </div>
-  </main>
 </Base>
 
 <script is:inline define:vars={{ __mbtiData: mbtiQuestionsJson }}>
@@ -180,11 +151,11 @@ const mbtiQuestionsJson = JSON.stringify(mbtiQuestions);
         const questionText = lang === "en" ? question.question.en : question.question.zh;
 
         card.innerHTML = `
-          <h3 class="text-2xl font-semibold mb-8 text-center text-gray-800 dark:text-white">${questionText}</h3>
-          <div class="flex flex-col gap-6 w-full max-w-2xl mx-auto">
-            <div class="flex justify-between items-center text-base font-medium mb-4 px-4">
-              <span class="text-green-500">${lang === "en" ? "Agree" : "同意"}</span>
-              <span class="text-purple-600">${lang === "en" ? "Disagree" : "不同意"}</span>
+          <h3 class="mx-auto mb-10 max-w-2xl text-center text-[20px] font-semibold leading-snug tracking-[-0.02em] text-ink">${questionText}</h3>
+          <div class="mx-auto flex w-full max-w-2xl flex-col gap-6">
+            <div class="mb-2 flex items-center justify-between px-4 font-mono text-[10px] uppercase tracking-[0.12em]">
+              <span class="text-ink">${lang === "en" ? "Agree" : "同意"}</span>
+              <span class="text-ink-muted">${lang === "en" ? "Disagree" : "不同意"}</span>
             </div>
             <div class="flex justify-between items-center gap-2 sm:gap-4 px-2 relative">
               <button type="button" class="option-btn size-10 sm:size-14" data-value="left3">
@@ -221,8 +192,8 @@ const mbtiQuestionsJson = JSON.stringify(mbtiQuestions);
         options.forEach(function (option) {
           option.addEventListener("click", function (e) {
             var target = e.currentTarget;
-            options.forEach(function (opt) { opt.classList.remove("selected", "border-purple-500"); });
-            target.classList.add("selected", "border-purple-500");
+            options.forEach(function (opt) { opt.classList.remove("selected"); });
+            target.classList.add("selected");
             var value = target.getAttribute("data-value") || "middle";
             saveAnswer(questionId, value);
           });

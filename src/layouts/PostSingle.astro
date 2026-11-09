@@ -9,7 +9,6 @@ import { slugSelector } from "@/lib/utils/languageParser";
 import similarItems from "@/lib/utils/similarItems";
 import { humanize, markdownify, slugify } from "@/lib/utils/textConverter";
 import { render } from "astro:content";
-import { FaRegClock, FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 import ImageMod from "./components/ImageMod.astro";
 const { default_language } = config.settings;
 
@@ -30,73 +29,75 @@ const { Content } = await render(post);
 const { title, description, author, categories, image, date, tags } = post.data;
 ---
 
-<section class="section pt-7">
+<section class="section-sm pt-10">
   <div class="container">
     <div class="row justify-center">
-      <article class="lg:col-10">
+      <article class="lg:col-9">
         {
           image && (
-            <div class="mb-10">
+            <div class="media-frame mb-10 aspect-[16/9]">
               <ImageMod
                 src={image}
                 height={500}
                 width={1200}
                 alt={title}
-                class="w-full rounded"
+                class="h-full w-full object-cover"
                 format="webp"
+                fit="cover"
               />
             </div>
           )
         }
-        <h1 set:html={markdownify(title)} class="h2 mb-4" />
-        <ul class="mb-4">
-          <li class="mr-4 inline-block">
-            <a href={slugSelector(`/authors/${slugify(author)}`, lang)}>
-              <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
-              {humanize(author)}
-            </a>
-          </li>
-          <li class="mr-4 inline-block">
-            <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
-            {
-              categories.map((category: string, index: number) => (
+
+        <div class="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
+          {date && <span>{dateFormat(date)}</span>}
+          {
+            categories.map((category: string, index: number) => (
+              <>
+                <span class="text-line-strong">/</span>
                 <a
+                  class="transition-colors duration-200 hover:text-blue"
                   href={slugSelector(`/categories/${slugify(category)}`, lang)}
                 >
                   {humanize(category)}
                   {index !== categories.length - 1 && ","}
                 </a>
-              ))
-            }
-          </li>
-          <li class="mr-4 inline-block">
-            <FaRegClock className={"mr-2 -mt-1 inline-block"} />
-            {dateFormat(date)}
-          </li>
-        </ul>
-        <div class="content mb-10">
+              </>
+            ))
+          }
+        </div>
+
+        <h1
+          set:html={markdownify(title)}
+          class="mt-4 text-[clamp(26px,3.6vw,40px)] font-semibold leading-[1.2] tracking-[-0.03em] text-ink"
+        />
+
+        <div class="mt-5 flex items-center gap-3 border-y border-line py-4">
+          <a
+            href={slugSelector(`/authors/${slugify(author)}`, lang)}
+            class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-sub transition-colors duration-200 hover:text-blue"
+          >
+            {humanize(author)}
+          </a>
+        </div>
+
+        <div class="content mt-10">
           <Content />
         </div>
-        <div class="row items-start justify-between">
-          <div class="mb-10 flex items-center lg:col-5 lg:mb-0">
-            <h5 class="mr-3">Tags :</h5>
-            <ul>
-              {
-                tags.map((tag: string) => (
-                  <li class="inline-block">
-                    <a
-                      class="m-1 block rounded bg-light px-3 py-1 hover:bg-primary hover:text-white dark:bg-darkmode-light dark:hover:bg-darkmode-primary dark:hover:text-text-dark"
-                      href={slugSelector(`/tags/${slugify(tag)}`, lang)}
-                    >
-                      {humanize(tag)}
-                    </a>
-                  </li>
-                ))
-              }
-            </ul>
+
+        <div class="mt-12 flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">Tags</span>
+            {
+              tags.map((tag: string) => (
+                <a class="tech-tag" href={slugSelector(`/tags/${slugify(tag)}`, lang)}>
+                  {humanize(tag)}
+                </a>
+              ))
+            }
           </div>
-          <div class="flex items-center lg:col-4">
-            <h5 class="mr-3">Share :</h5>
+          <div class="flex items-center gap-3">
+            <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">Share</span>
             <Share
               className="social-icons"
               title={title}
@@ -105,17 +106,23 @@ const { title, description, author, categories, image, date, tags } = post.data;
             />
           </div>
         </div>
-        <Disqus className="mt-20" client:only="react" />
+
+        <Disqus className="mt-16" client:only="react" />
       </article>
     </div>
 
     <!-- Related posts -->
-    <div class="section pb-0">
-      <h2 class="h3 mb-12 text-center">Related Posts</h2>
+    <div class="mt-20 border-t border-line pt-14">
+      <div class="mb-10 flex items-end justify-between">
+        <h2 class="text-[22px] font-semibold tracking-[-0.02em] text-ink">Related Posts</h2>
+        <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
+          {String(similarPosts.length).padStart(2, "0")}
+        </span>
+      </div>
       <div class="row justify-center">
         {
           similarPosts.map((post) => (
-            <div class="lg:col-4 md:col-6 mb-14">
+            <div class="lg:col-4 md:col-6 mb-10">
               <BlogCard data={post} />
             </div>
           ))

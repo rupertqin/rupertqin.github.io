@@ -2,13 +2,13 @@
 import config from "@/config/config.json";
 import { getLangFromUrl, slugSelector } from "@/lib/utils/languageParser";
 
-const { logo, logo_darkmode, logo_width, logo_height, title } = config.site;
+const { logo, title } = config.site;
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<a href={slugSelector("/", lang)} class="flex items-center">
-  <img src={logo} alt={title} class="w-10 h-10 mr-2" />
-  <span class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
+<a href={slugSelector("/", lang)} class="flex items-center gap-2.5">
+  <img src={logo} alt={title} class="h-8 w-8" />
+  <span class="text-[17px] font-semibold leading-none tracking-[-0.01em] text-ink">
     {config.site.logo_text || title}
   </span>
 </a>

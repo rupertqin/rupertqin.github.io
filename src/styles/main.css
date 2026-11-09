@@ -3,13 +3,98 @@
 @plugin "@tailwindcss/typography";
 @plugin 'tailwind-bootstrap-grid';
 @plugin 'tailwindcss-animate';
-@custom-variant dark (&:where(.dark, .dark *));
 
 /* Auto-generated theme from "theme.json"*/
 @import "./generated-theme.css";
 
 @import "./safe.css";
 @import "./utilities.css";
+
+/* ==========================================================================
+  Design tokens — Notion-like paper surfaces + a single blue accent
+  Grey builds the structure, blue marks what is actionable or current.
+  ========================================================================== */
+:root {
+  /* surfaces */
+  --ui-page: #fbfbfa;
+  --ui-surface: #ffffff;
+  --ui-soft: #f7f7f5;
+  --ui-soft-hover: #f1f1ef;
+  --ui-selected: #efefed;
+
+  /* hairlines */
+  --ui-line: #e9e9e7;
+  --ui-field-line: #d3d1cb;
+
+  /* warm ink */
+  --ui-ink-strong: #1c1b19;
+  --ui-ink: #37352f;
+  --ui-sub: #5f5d57;
+  --ui-muted: #8b8983;
+  --ui-placeholder: #a9a7a1;
+
+  /* accent = Notion blue */
+  --ui-blue: #2383e2;
+  --ui-blue-hover: #0b6bcb;
+  --ui-blue-fg: #ffffff;
+  --ui-blue-soft: #eaf3fd;
+  --ui-blue-line: #b3d4f4;
+
+  --ui-accent: var(--ui-blue);
+  --ui-accent-hover: var(--ui-blue-hover);
+  --ui-accent-fg: var(--ui-blue-fg);
+  --ui-accent-soft: var(--ui-blue-soft);
+  --ui-accent-line: rgb(35 131 226 / 35%);
+  --ui-focus-ring: rgb(35 131 226 / 28%);
+
+  /* semantic feedback — used sparingly (form / answer correctness only) */
+  --ui-success: #22c55e;
+  --ui-warning: #d99a2b;
+  --ui-danger: #e5484d;
+
+  /* geometry */
+  --ui-radius-sm: 4px;
+  --ui-radius-md: 6px;
+  --ui-radius-lg: 8px;
+  --ui-shadow: 0 1px 2px rgb(15 15 15 / 6%);
+  --ui-shadow-dialog: 0 0 0 1px rgb(15 15 15 / 5%), 0 8px 24px rgb(15 15 15 / 12%);
+  --ui-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* type */
+  --ui-font-sans:
+    Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --ui-font-mono:
+    ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+
+  /* ---- shadcn bridge (kept for existing components) ---- */
+  --background: var(--ui-surface);
+  --foreground: var(--ui-ink);
+  --card: var(--ui-surface);
+  --card-foreground: var(--ui-ink);
+  --popover: var(--ui-surface);
+  --popover-foreground: var(--ui-ink);
+  --primary: var(--ui-accent);
+  --primary-foreground: var(--ui-accent-fg);
+  --secondary: var(--ui-soft);
+  --secondary-foreground: var(--ui-ink);
+  --muted: var(--ui-soft);
+  --muted-foreground: var(--ui-muted);
+  --accent: var(--ui-soft);
+  --accent-foreground: var(--ui-ink);
+  --destructive: var(--ui-danger);
+  --destructive-foreground: #ffffff;
+  --border: var(--ui-line);
+  --input: var(--ui-field-line);
+  --ring: var(--ui-accent);
+  --chart-1: var(--ui-blue);
+  --chart-2: var(--ui-blue-line);
+  --chart-3: var(--ui-muted);
+  --chart-4: var(--ui-ink);
+  --chart-5: var(--ui-field-line);
+  --radius: 6px;
+}
 
 @theme inline {
   --color-background: var(--background);
@@ -36,65 +121,32 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-}
 
-:root {
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(0 0% 15.7%);
-  --card: hsl(0 0% 100%);
-  --card-foreground: hsl(0 0% 15.7%);
-  --popover: hsl(0 0% 100%);
-  --popover-foreground: hsl(0 0% 15.7%);
-  --primary: hsl(217 91% 60%);
-  --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(210 40% 96.1%);
-  --secondary-foreground: hsl(217 91% 60%);
-  --muted: hsl(210 40% 96.1%);
-  --muted-foreground: hsl(0 0% 45.1%);
-  --accent: hsl(210 40% 96.1%);
-  --accent-foreground: hsl(217 91% 60%);
-  --destructive: hsl(0 84.2% 60.2%);
-  --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(0 0% 89.8%);
-  --input: hsl(0 0% 89.8%);
-  --ring: hsl(217 91% 60%);
-  --chart-1: hsl(217 91% 60%);
-  --chart-2: hsl(271 91% 65%);
-  --chart-3: hsl(197 37% 24%);
-  --chart-4: hsl(43 74% 66%);
-  --chart-5: hsl(27 87% 67%);
-  --radius: 0.5rem;
-}
+  /* semantic aliases so templates can use ink-* / line / soft / blue utilities */
+  --color-ink: var(--ui-ink);
+  --color-ink-strong: var(--ui-ink-strong);
+  --color-ink-sub: var(--ui-sub);
+  --color-ink-muted: var(--ui-muted);
+  --color-line: var(--ui-line);
+  --color-line-strong: var(--ui-field-line);
+  --color-soft: var(--ui-soft);
+  --color-soft-hover: var(--ui-soft-hover);
+  --color-page: var(--ui-page);
 
-.dark {
-  --background: hsl(0 0% 10.6%);
-  --foreground: hsl(0 0% 98%);
-  --card: hsl(0 0% 10.6%);
-  --card-foreground: hsl(0 0% 98%);
-  --popover: hsl(0 0% 10.6%);
-  --popover-foreground: hsl(0 0% 98%);
-  --primary: hsl(217 91% 60%);
-  --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(0 0% 14.9%);
-  --secondary-foreground: hsl(0 0% 98%);
-  --muted: hsl(0 0% 14.9%);
-  --muted-foreground: hsl(0 0% 63.9%);
-  --accent: hsl(0 0% 14.9%);
-  --accent-foreground: hsl(0 0% 98%);
-  --destructive: hsl(0 62.8% 30.6%);
-  --destructive-foreground: hsl(0 0% 98%);
-  --border: hsl(0 0% 14.9%);
-  --input: hsl(0 0% 14.9%);
-  --ring: hsl(217 91% 60%);
-  --chart-1: hsl(217 91% 60%);
-  --chart-2: hsl(271 91% 65%);
-  --chart-3: hsl(30 80% 55%);
-  --chart-4: hsl(280 65% 60%);
-  --chart-5: hsl(340 75% 55%);
+  --color-blue: var(--ui-blue);
+  --color-blue-hover: var(--ui-blue-hover);
+  --color-blue-soft: var(--ui-blue-soft);
+  --color-blue-line: var(--ui-blue-line);
+  --color-blue-fg: var(--ui-blue-fg);
+
+  --font-primary: var(--ui-font-sans);
+  --font-secondary: var(--ui-font-sans);
+  --font-mono: var(--ui-font-mono);
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
 }
 
 @layer base {
@@ -102,12 +154,13 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-body text-foreground;
   }
   @import "./base.css";
 }
 
 @layer components {
+  @import "./tech.css";
   @import "./components.css";
   @import "./navigation.css";
   @import "./buttons.css";

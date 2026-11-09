@@ -8,7 +8,6 @@ import {
 } from "@/lib/utils/languageParser";
 import { humanize, plainify, slugify } from "@/lib/utils/textConverter";
 
-import { FaRegFolder, FaRegUserCircle } from "react-icons/fa";
 import ImageMod from "./ImageMod.astro";
 
 const { summary_length }: { summary_length: number; blog_folder: string } =
@@ -23,52 +22,63 @@ const slugParts = data.id.split("/");
 slugParts[0] = "blog";
 const modifiedSlug = slugParts.join("/");
 data.id = modifiedSlug;
+const href = slugSelector(`/${data.id}`, lang);
 ---
 
-<div class="bg-body dark:bg-darkmode-body">
+<article class="group flex h-full flex-col overflow-hidden rounded-md border border-line bg-background transition-all duration-200 hover:-translate-y-0.5 hover:border-line-strong">
   {
     image && (
-      <ImageMod
-        class="mb-6 w-full rounded"
-        src={image}
-        alt={title}
-        width={445}
-        height={230}
-        format="webp"
-      />
+      <div class="aspect-[16/10] overflow-hidden border-b border-line bg-soft">
+        <ImageMod
+          class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+          src={image}
+          alt={title}
+          width={445}
+          height={230}
+          format="webp"
+          fit="cover"
+        />
+      </div>
     )
   }
-  <h4 class="mb-3">
-    <a href={slugSelector(`/${data.id}`, lang)}>
-      {title}
-    </a>
-  </h4>
-  <ul class="mb-4">
-    <li class="mr-4 inline-block">
-      <a href={slugSelector(`/authors/${slugify(author)}`, lang)}>
-        <FaRegUserCircle className={"mr-2 -mt-1 inline-block"} />
+  <div class="flex flex-1 flex-col p-5">
+    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
+      {date && <span>{dateFormat(date)}</span>}
+      {categories?.length > 0 && <span class="text-line-strong">/</span>}
+      {categories?.map((category: string, index: number) => (
+        <a
+          href={slugSelector(`/categories/${slugify(category)}`, lang)}
+          class="transition-colors duration-200 hover:text-ink"
+        >
+          {humanize(category)}
+          {index !== categories.length - 1 && ","}
+        </a>
+      ))}
+    </div>
+
+    <h4 class="mt-3 text-[18px] font-semibold leading-snug tracking-[-0.02em] text-ink">
+      <a href={href} class="transition-colors duration-200 hover:text-blue">
+        {title}
+      </a>
+    </h4>
+
+    <p class="mt-3 line-clamp-3 text-[14px] leading-[1.7] text-ink-sub">
+      {plainify(data.body?.slice(0, Number(summary_length)))}
+    </p>
+
+    <div class="mt-auto flex items-center justify-between pt-6">
+      <a href={href} class="tech-link text-[13px] font-medium">
+        {read_more}
+        <svg class="h-3 w-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.5 8h11M9.5 4l4 4-4 4" />
+        </svg>
+      </a>
+      <a
+        href={slugSelector(`/authors/${slugify(author)}`, lang)}
+        class="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-muted transition-colors duration-200 hover:text-ink"
+      >
         {humanize(author)}
       </a>
-    </li>
-
-    <li class="mr-4 inline-block">
-      <FaRegFolder className={"mr-2 -mt-1 inline-block"} />
-      {
-        categories.map((category: string, index: number) => (
-          <a href={slugSelector(`/categories/${slugify(category)}`, lang)}>
-            {humanize(category)}
-            {index !== categories.length - 1 && ","}
-          </a>
-        ))
-      }
-    </li>
-    {date && <li class="inline-block">{dateFormat(date)}</li>}
-  </ul>
-  <p class="mb-6">{plainify(data.body?.slice(0, Number(summary_length)))}</p>
-  <a
-    class="btn btn-outline-primary btn-sm"
-    href={slugSelector(`/${data.id}`, lang)}
-  >
-    {read_more}
-  </a>
-</div>
+    </div>
+  </div>
+</article>

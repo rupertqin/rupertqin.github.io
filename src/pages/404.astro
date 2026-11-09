@@ -28,20 +28,19 @@ const { page_not_found_content, page_not_found, back_to_home } =
 ---
 
 <Base title="Page Not Found">
-  <section class="section-sm text-center">
+  <section class="section-sm">
     <div class="container">
       <div class="row justify-center">
         <div class="sm:col-10 md:col-8 lg:col-6">
-          <span
-            class="text-[8rem] block font-bold text-text-dark dark:text-darkmode-text-dark"
-          >
+          <p class="eyebrow mb-6">Error / 404</p>
+          <span class="tech-num block text-[clamp(64px,12vw,120px)] font-semibold leading-none tracking-[-0.04em] text-line-strong">
             404
           </span>
-          <h1 class="h2 mb-4">{page_not_found}</h1>
-          <div class="content">
+          <h1 class="mt-8 text-[24px] font-semibold tracking-[-0.02em] text-ink">{page_not_found}</h1>
+          <div class="content mt-4 max-w-[420px]">
             <p>{page_not_found_content}</p>
           </div>
-          <a href={slugSelector("/", lang)} class="btn btn-primary mt-8"
+          <a href={slugSelector("/", lang)} class="btn btn-primary mt-10"
             >{back_to_home}</a
           >
         </div>

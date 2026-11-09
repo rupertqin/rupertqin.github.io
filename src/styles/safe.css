@@ -13,9 +13,9 @@ input#nav-toggle:checked ~ #nav-menu {
 
 /* swiper pagination */
 .swiper-pagination-bullet {
-  @apply size-2.5! bg-light! opacity-100! dark:bg-darkmode-light!;
+  @apply size-2! rounded-full! bg-line-strong! opacity-100!;
 }
 
 .swiper-pagination-bullet-active {
-  @apply size-4! bg-primary! dark:bg-darkmode-primary!;
+  @apply size-2! rounded-full! bg-blue!;
 }

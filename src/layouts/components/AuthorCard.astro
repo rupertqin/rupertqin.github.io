@@ -9,24 +9,25 @@ const { title, image, social } = data.data;
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<div class="rounded bg-light p-8 text-center dark:bg-darkmode-light">
+<div class="rounded-md border border-line bg-background p-8 text-center">
   {
     image && (
-      <ImageMod
-        class="mx-auto mb-6 rounded"
-        src={image}
-        alt={title}
-        width={120}
-        height={120}
-        format="webp"
-      />
+      <div class="mx-auto mb-6 h-[120px] w-[120px] overflow-hidden rounded-full border border-line">
+        <ImageMod
+          class="h-full w-full object-cover"
+          src={image}
+          alt={title}
+          width={120}
+          height={120}
+          format="webp"
+        />
+      </div>
     )
   }
-  <h4 class="mb-3">
-    <a href={slugSelector(`/authors/${data.id.split("/")[1]}`, lang)}>{title}</a
-    >
+  <h4 class="mb-2 text-[18px] font-semibold text-ink">
+    <a href={slugSelector(`/authors/${data.id.split("/")[1]}`, lang)}>{title}</a>
   </h4>
-  <p class="mb-4">
+  <p class="mb-6 text-[14px] leading-[1.7] text-ink-sub">
     {plainify(data.body?.slice(0, 100))}
   </p>
   <Social source={social} className="social-icons" />

@@ -6,24 +6,14 @@
 
 @theme {
   /* === Colors === */
-  --color-primary: #2563eb;
-  --color-body: #ffffff;
-  --color-border: #e5e7eb;
-  --color-light: #f9fafb;
-  --color-dark: #111827;
-  --color-text: #374151;
-  --color-text-dark: #111827;
-  --color-text-light: #6b7280;
-
-  /* === Darkmode Colors === */
-  --color-darkmode-primary: #60a5fa;
-  --color-darkmode-body: #111827;
-  --color-darkmode-border: #374151;
-  --color-darkmode-light: #1f2937;
-  --color-darkmode-dark: #f9fafb;
-  --color-darkmode-text: #d1d5db;
-  --color-darkmode-text-dark: #f9fafb;
-  --color-darkmode-text-light: #9ca3af;
+  --color-primary: #2383e2;
+  --color-body: #fbfbfa;
+  --color-border: #e9e9e7;
+  --color-light: #f7f7f5;
+  --color-dark: #1c1b19;
+  --color-text: #37352f;
+  --color-text-dark: #1c1b19;
+  --color-text-light: #8b8983;
 
   /* === Font Families === */
   --font-primary: system-ui, sans-serif;

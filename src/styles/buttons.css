@@ -1,39 +1,60 @@
 /* === Button Base === */
 .btn {
-  @apply inline-flex items-center justify-center rounded-md border border-transparent px-5 py-2 font-semibold transition-colors duration-200;
+  @apply inline-flex items-center justify-center gap-2 rounded-[6px] border border-transparent px-5 py-2.5 text-sm font-medium leading-none transition-colors duration-200;
+  transition-timing-function: var(--ui-ease);
 }
 
 .btn-sm {
-  @apply rounded-md px-4 py-1.5 text-sm;
+  @apply rounded-[6px] px-3.5 py-2 text-[13px];
 }
 
 .btn-lg {
-  @apply rounded-lg px-8 py-4 text-lg;
+  @apply rounded-[6px] px-6 py-3.5 text-[15px];
 }
 
-/* === Primary Button (Blue) === */
+/* === Primary Button (Notion blue) === */
 .btn-primary {
-  @apply border-blue-600 bg-blue-600 text-white hover:bg-blue-700 hover:border-blue-700;
-  @apply dark:border-blue-500 dark:bg-blue-500 dark:hover:bg-blue-600;
+  @apply border-blue bg-blue text-white;
 }
 
-/* === Outline Primary Button === */
+.btn-primary:hover {
+  background: var(--ui-blue-hover);
+  border-color: var(--ui-blue-hover);
+}
+
+/* === Outline Button (hairline, turns blue on hover) === */
 .btn-outline-primary {
-  @apply border-blue-600 bg-transparent text-blue-600 hover:bg-blue-600 hover:text-white;
-  @apply dark:border-blue-400 dark:text-blue-400 dark:hover:bg-blue-500 dark:hover:text-white;
+  @apply border-line-strong bg-background text-ink;
 }
 
-/* === White Button (for dark backgrounds) === */
+.btn-outline-primary:hover {
+  border-color: var(--ui-blue);
+  background: var(--ui-blue-soft);
+  color: var(--ui-blue);
+}
+
+/* === Solid / outline white (for blue or image sections) === */
 .btn-white {
-  @apply border-white bg-white text-blue-600 hover:bg-gray-100;
+  @apply border-white bg-white text-ink-strong;
+}
+
+.btn-white:hover {
+  @apply bg-soft-hover;
 }
 
 .btn-outline-white {
-  @apply border-white bg-transparent text-white hover:bg-white hover:text-blue-600;
+  @apply border-white/45 bg-transparent text-white;
+}
+
+.btn-outline-white:hover {
+  @apply border-white bg-white text-ink-strong;
 }
 
 /* === Ghost Button === */
 .btn-ghost {
-  @apply border-transparent bg-transparent text-blue-600 hover:bg-blue-50;
-  @apply dark:text-blue-400 dark:hover:bg-gray-800;
+  @apply border-transparent bg-transparent text-ink;
+}
+
+.btn-ghost:hover {
+  @apply bg-soft;
 }

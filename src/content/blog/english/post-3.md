@@ -3,7 +3,7 @@ title: "How to build an Application with modern Technology"
 meta_title: ""
 description: "this is meta description"
 date: 2025-04-04T05:00:00Z
-image: "/images/image-placeholder.png"
+image: "/images/blog-cover-3.jpg"
 categories: ["Software"]
 author: "John Doe"
 tags: ["software", "tailwind"]

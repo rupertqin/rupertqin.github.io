@@ -64,21 +64,21 @@ const LanguageSwitcher = ({
     <div
       className={`${
         sortedLanguages.length > 1 ? "block" : "hidden"
-      } relative inline-block mr-2`}
+      } relative inline-block`}
       ref={containerRef}
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="h-9 pl-2 pr-2 rounded-md border border-gray-300 bg-transparent text-gray-700 text-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-gray-600 dark:text-gray-300 dark:bg-gray-800 transition-colors flex items-center gap-1"
+        className="flex h-9 cursor-pointer items-center gap-1.5 rounded-sm border border-line px-2.5 font-mono text-[11px] uppercase tracking-[0.08em] text-ink-sub transition-colors duration-200 hover:border-blue-line hover:text-blue focus-visible:outline-none"
       >
         <span>{currentLang?.languageName}</span>
         <svg
-          className={`h-4 w-4 text-gray-500 dark:text-gray-400 transition-transform duration-200 ${
+          className={`h-3 w-3 text-ink-muted transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
           }`}
           fill="none"
           stroke="currentColor"
-          strokeWidth="2"
+          strokeWidth="1.8"
           viewBox="0 0 24 24"
         >
           <path
@@ -89,14 +89,14 @@ const LanguageSwitcher = ({
         </svg>
       </button>
       {isOpen && (
-        <div className="absolute top-full left-0 mt-1 w-full min-w-[100px] bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-lg z-50 overflow-hidden">
+        <div className="absolute left-0 top-full z-50 mt-1 w-full min-w-[120px] overflow-hidden rounded-sm border border-line bg-background p-1 shadow-[var(--ui-shadow)]">
           {sortedLanguages.map((language) => (
             <button
               key={language.languageCode}
-              className={`w-full px-3 py-2 text-left text-sm transition-colors ${
+              className={`w-full rounded-[4px] px-2.5 py-2 text-left text-[12px] transition-colors duration-150 ${
                 language.languageCode === lang
-                  ? "text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20"
-                  : "text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"
+                  ? "bg-soft text-ink"
+                  : "text-ink-sub hover:bg-blue-soft hover:text-blue"
               }`}
               onClick={() => {
                 setIsOpen(false);

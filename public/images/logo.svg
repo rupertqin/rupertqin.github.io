@@ -18,28 +18,28 @@
           stroke="url(#infinity-gradient)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
 
     <!-- Tech circuit elements with gradient fill -->
-    <circle cx="18" cy="20" r="1.5" fill="#8B5CF6" />
-    <circle cx="28.5" cy="20" r="1.5" fill="#8B5CF6" />
-    <circle cx="23" cy="12" r="1.5" fill="#3B82F6" />
-    <circle cx="34" cy="12" r="1.5" fill="#3B82F6" />
-    <circle cx="23" cy="28" r="1.5" fill="#3B82F6" />
-    <circle cx="34" cy="28" r="1.5" fill="#3B82F6" />
+    <circle cx="18" cy="20" r="1.5" fill="#0b6bcb" />
+    <circle cx="28.5" cy="20" r="1.5" fill="#0b6bcb" />
+    <circle cx="23" cy="12" r="1.5" fill="#2383e2" />
+    <circle cx="34" cy="12" r="1.5" fill="#2383e2" />
+    <circle cx="23" cy="28" r="1.5" fill="#2383e2" />
+    <circle cx="34" cy="28" r="1.5" fill="#2383e2" />
 
     <!-- Gradient definitions -->
     <defs>
         <linearGradient id="letter-gradient" x1="10" y1="12" x2="26" y2="32" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#3B82F6" /> <!-- blue-500 -->
-            <stop offset="100%" stop-color="#8B5CF6" /> <!-- purple-500 -->
+            <stop offset="0%" stop-color="#2383e2" /> <!-- notion blue -->
+            <stop offset="100%" stop-color="#0b6bcb" /> <!-- deep blue -->
         </linearGradient>
 
         <linearGradient id="x-gradient" x1="23" y1="12" x2="34" y2="28" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#8B5CF6" /> <!-- purple-500 -->
-            <stop offset="100%" stop-color="#3B82F6" /> <!-- blue-500 -->
+            <stop offset="0%" stop-color="#0b6bcb" /> <!-- deep blue -->
+            <stop offset="100%" stop-color="#2383e2" /> <!-- notion blue -->
         </linearGradient>
 
         <linearGradient id="infinity-gradient" x1="23.5" y1="19" x2="33.5" y2="21" gradientUnits="userSpaceOnUse">
-            <stop offset="0%" stop-color="#3B82F6" /> <!-- blue-500 -->
-            <stop offset="100%" stop-color="#8B5CF6" /> <!-- purple-500 -->
+            <stop offset="0%" stop-color="#2383e2" /> <!-- notion blue -->
+            <stop offset="100%" stop-color="#0b6bcb" /> <!-- deep blue -->
         </linearGradient>
     </defs>
 </svg>

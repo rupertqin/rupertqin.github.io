@@ -87,27 +87,7 @@ function generateThemeCSS() {
       addColorsToCss(cssLines, themeConfig.colors.default.text_color);
     }
 
-    // Add darkmode colors (if available)
-    if (themeConfig.colors.darkmode) {
-      cssLines.push("", "  /* === Darkmode Colors === */");
-
-      if (themeConfig.colors.darkmode.theme_color) {
-        addColorsToCss(
-          cssLines,
-          themeConfig.colors.darkmode.theme_color,
-          "darkmode",
-        );
-      }
-
-      if (themeConfig.colors.darkmode.text_color) {
-        addColorsToCss(
-          cssLines,
-          themeConfig.colors.darkmode.text_color,
-          "darkmode",
-        );
-      }
-    }
-
+    // Single light theme only — no darkmode palette is generated.
     // Add font families
     cssLines.push("", "  /* === Font Families === */");
     const fontFamily = themeConfig.fonts.font_family || {};
