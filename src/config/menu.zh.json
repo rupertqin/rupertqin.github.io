@@ -5,12 +5,12 @@
     { "name": "股票分析", "url": "/stock" },
     { "name": "心理分析", "url": "/psychoanalytic" },
     { "name": "博客", "url": "/blog" },
+    { "name": "公众号编辑排版", "url": "/typography" },
     {
       "name": "更多",
       "url": "",
       "hasChildren": true,
       "children": [
-        { "name": "排版", "url": "/typography" },
         { "name": "联系", "url": "/contact" },
         { "name": "作者", "url": "/authors" },
         { "name": "分类", "url": "/categories" },

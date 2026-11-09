@@ -5,12 +5,12 @@
     { "name": "Stock Analysis", "url": "/stock" },
     { "name": "Psychoanalytic", "url": "/psychoanalytic" },
     { "name": "Blog", "url": "/blog" },
+    { "name": "WeChat Editor", "url": "/typography" },
     {
       "name": "More",
       "url": "",
       "hasChildren": true,
       "children": [
-        { "name": "Typography", "url": "/typography" },
         { "name": "Contact", "url": "/contact" },
         { "name": "Authors", "url": "/authors" },
         { "name": "Categories", "url": "/categories" },
