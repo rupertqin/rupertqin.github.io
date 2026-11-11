@@ -62,7 +62,7 @@
 - astro/react
 - astro/sitemap
 - astro/tailwind
-- Cloudflare Workers (optional deployment)
+- Cloudflare Pages (optional deployment)
 
 ## 🚀 Getting Started
 
@@ -123,9 +123,11 @@ Configuration is in `src/config/config.json` under `llms`:
 
 ### 👉 发布
 
-推 `main` 触发 GitHub Actions（`.github/workflows/deploy.yml`）：一次构建，同一份 `dist` 发布到 GitHub Pages、Cloudflare Workers Static Assets、Cloudflare Pages 三处。
+推 `main` 触发 GitHub Actions（`.github/workflows/deploy.yml`）：一次构建，同一份 `dist` 发布到 GitHub Pages、Cloudflare Pages 两处。
 
-- Secrets：`CLOUDFLARE_API_TOKEN`（Workers Scripts:Edit、Pages:Edit、Account Settings:Read）、`CLOUDFLARE_ACCOUNT_ID`
+> 不再发布 Cloudflare Workers Static Assets。assets-only 部署会在控制台留一个与 Pages 同名的 Worker 资源，删掉后每次 CI 又会重建，而产物与 Pages 完全重复，故已移除（连带删除 `wrangler.jsonc`）。仓库里 `wrangler` 仅用于 Pages 直传（`pnpm deploy:pages`）。
+
+- Secrets：`CLOUDFLARE_API_TOKEN`（Cloudflare Pages:Edit、Account Settings:Read）、`CLOUDFLARE_ACCOUNT_ID`
 - Variables：`TYPOGRAPHY_URL` —— `/typography` 的跳转目标，构建期注入，不写死在源码里。填 `https://<域名>/`；只填域名会自动补 `https://`，留空则回退首页
 - GitHub Pages 需仓库 Settings → Pages → Source 设为 **GitHub Actions**
 
