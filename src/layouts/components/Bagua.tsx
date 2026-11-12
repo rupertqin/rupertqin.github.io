@@ -1,133 +1,90 @@
-import { useRef, useState, useEffect } from "react";
-import { Stage, Layer, Circle, Path, Group, Text } from "react-konva";
-import type { MbtiType } from "@/lib/mbti";
+import type { CSSProperties } from "react";
 import { MbtiService } from "@/lib/mbti";
+import type { MbtiType } from "@/lib/mbti";
 
 interface BaguaProps {
   type: MbtiType;
 }
 
+const DISC_RADIUS = 100;
+
+/** 认知功能配色（与 MbtiService.getColorByFunction 的 Tailwind 色阶一一对应） */
+const FUNCTION_COLORS: Record<string, string> = {
+  "blue-600": "#2563eb",
+  "blue-400": "#60a5fa",
+  "green-600": "#16a34a",
+  "green-400": "#4ade80",
+  "yellow-600": "#ca8a04",
+  "yellow-400": "#facc15",
+  "purple-600": "#9333ea",
+  "purple-400": "#c084fc",
+};
+
+/** 阴阳鱼半边的路径：大圆弧 + 两个小半圆，旋转 180° 后与自身互补成整圆 */
+const yinYangPath = (r: number) => `
+  M 0 ${-r}
+  A ${r} ${r} 0 1 1 0 ${r}
+  A ${r / 2} ${r / 2} 0 0 0 0 0
+  A ${r / 2} ${r / 2} 0 0 1 0 ${-r}
+  Z
+`;
+
+const colorOf = (func: string) => {
+  const token = MbtiService.getColorByFunction(func, true)
+    .replace("bg-", "")
+    .split(" ")[0];
+  return FUNCTION_COLORS[token] ?? "#6b7280";
+};
+
 export const Bagua = ({ type }: BaguaProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    setWidth(container.offsetWidth);
-    setHeight(Math.min(container.offsetWidth * (2 / 3), 300));
-  }, []);
-
-  const centerY = height / 2;
-  const radius = centerY * 0.5;
-  const centerX = width / 2;
-
-  const createYinYangPath = () => {
-    const r = radius;
-    const x = 0;
-    const y = 0;
-    return `
-      M ${x} ${y - r}
-      A ${r} ${r} 0 1 1 ${x} ${y + r}
-      A ${r / 2} ${r / 2} 0 0 0 ${x} ${y}
-      A ${r / 2} ${r / 2} 0 0 1 ${x} ${y - r}
-      Z
-    `;
-  };
-
-  const createBaguaSymbol = (word: string, index: number) => {
-    const angle = (index - 2) * 45;
-    const fontSize = 24;
-    const distance = radius + fontSize * 1.25;
-    const x = centerX + Math.cos((angle * Math.PI) / 180) * distance;
-    const y = centerY + Math.sin((angle * Math.PI) / 180) * distance;
-
-    const color = MbtiService.getColorByFunction(word, true)
-      .replace("bg-", "")
-      .split(" ")[0];
-
-    const colorMap: Record<string, string> = {
-      "blue-600": "#2563eb",
-      "blue-400": "#60a5fa",
-      "green-600": "#16a34a",
-      "green-400": "#4ade80",
-      "yellow-600": "#ca8a04",
-      "yellow-400": "#facc15",
-      "purple-600": "#9333ea",
-      "purple-400": "#c084fc",
-    };
-
-    const fillColor = colorMap[color] || "#000000";
-
-    return (
-      <Group key={index} x={x} y={y} rotation={angle}>
-        <Text
-          text={word}
-          rotation={90}
-          fontSize={fontSize}
-          y={-fontSize / 2}
-          fill={fillColor}
-          fontWeight="bold"
-        />
-      </Group>
-    );
-  };
+  const functions = type?.functions ?? [];
+  const viewBox = `${-DISC_RADIUS * 1.06} ${-DISC_RADIUS * 1.06} ${
+    DISC_RADIUS * 2.12
+  } ${DISC_RADIUS * 2.12}`;
 
   return (
-    <div ref={containerRef}>
-      {type && (
-        <Stage width={width} height={height}>
-          <Layer>
-            <Circle
-              x={centerX}
-              y={centerY}
-              radius={radius}
-              stroke="#666"
-              strokeWidth={2}
-            />
-            <Path
-              x={centerX}
-              y={centerY}
-              data={createYinYangPath()}
-              fill="white"
-            />
-            <Path
-              x={centerX}
-              y={centerY}
-              data={createYinYangPath()}
-              fill="black"
-              rotation={180}
-            />
-            <Circle
-              x={centerX}
-              y={centerY - radius / 2}
-              radius={radius / 8}
-              fill="black"
-            />
-            <Circle
-              x={centerX}
-              y={centerY + radius / 2}
-              radius={radius / 8}
-              fill="white"
-            />
-            <Text
-              text={type.type}
-              x={centerX}
-              y={centerY}
-              fill="white"
-              stroke="black"
-              strokeWidth={1}
-              fontSize={32}
-              offsetX={(type.type?.length * 16) / 2}
-              offsetY={16}
-            />
-            {type.functions.map((fun: string, i: number) =>
-              createBaguaSymbol(fun, i)
-            )}
-          </Layer>
-        </Stage>
-      )}
+    <div
+      className="bagua"
+      role="img"
+      aria-label={`${type?.type ?? ""} 认知功能八卦图`}
+    >
+      {/* 整圈（阴阳鱼 + 八个功能）顺时针自转，中心类型字母保持不动 */}
+      <div className="bagua__ring">
+        <svg className="bagua__disc" viewBox={viewBox} aria-hidden="true">
+          {/* 白色底圆 + 黑色半边 + 描边，避免两个互补路径拼接处的细缝 */}
+          <circle r={DISC_RADIUS} fill="#ffffff" />
+          <path
+            d={yinYangPath(DISC_RADIUS)}
+            fill="#111111"
+            transform="rotate(180)"
+          />
+          <circle cy={-DISC_RADIUS / 2} r={DISC_RADIUS / 8} fill="#111111" />
+          <circle cy={DISC_RADIUS / 2} r={DISC_RADIUS / 8} fill="#ffffff" />
+          <circle
+            r={DISC_RADIUS}
+            fill="none"
+            stroke="var(--ui-ink, #37352f)"
+            strokeWidth={1.5}
+          />
+        </svg>
+
+        {functions.map((func, index) => {
+          const angle = (index - 2) * 45;
+          return (
+            <div
+              key={`${func}-${index}`}
+              className="bagua__slot"
+              style={{ "--bagua-angle": `${angle}deg` } as CSSProperties}
+            >
+              <span className="bagua__label" style={{ color: colorOf(func) }}>
+                {func}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+
+      <span className="bagua__type">{type?.type}</span>
     </div>
   );
 };

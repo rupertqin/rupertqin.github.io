@@ -36,8 +36,6 @@ export default defineConfig({
         "tailwind-merge",
         "class-variance-authority",
         "@radix-ui/react-slot",
-        "konva",
-        "react-konva",
       ],
     },
   },

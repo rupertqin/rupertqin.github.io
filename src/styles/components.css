@@ -465,3 +465,81 @@
   color: var(--ui-ink);
   font-weight: 500;
 }
+
+/* ==========================================================================
+   认知功能八卦图（Bagua）
+   阴阳鱼与八个功能字整圈顺时针自转，中心类型字母固定不动。
+   尺寸全部用 cqw 跟随容器，无需 JS 测量。
+   ========================================================================== */
+.bagua {
+  position: relative;
+  container-type: inline-size;
+  /* 300px 见方 = 原版 canvas 画布高度；阴阳鱼直径 150px，与原版一致 */
+  width: min(100%, 300px);
+  aspect-ratio: 1 / 1;
+  margin: 8px auto 24px;
+}
+
+.bagua__ring {
+  position: absolute;
+  inset: 0;
+  animation: bagua-spin 36s linear infinite;
+  will-change: transform;
+}
+
+@keyframes bagua-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bagua__disc {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.bagua__slot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: rotate(var(--bagua-angle, 0deg)) translateY(-35cqw);
+}
+
+.bagua__label {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: clamp(13px, 8cqw, 24px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.bagua__type {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: clamp(20px, 10.7cqw, 32px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  -webkit-text-stroke: 1.2px #111111;
+  paint-order: stroke fill;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bagua__ring {
+    animation: none;
+  }
+}
