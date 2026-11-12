@@ -12,25 +12,25 @@
   @apply rounded-[6px] px-6 py-3.5 text-[15px];
 }
 
-/* === Primary Button (Notion blue) === */
+/* === Primary Button (ink) === */
 .btn-primary {
-  @apply border-blue bg-blue text-white;
+  @apply border-ink-strong bg-ink-strong text-white;
 }
 
 .btn-primary:hover {
-  background: var(--ui-blue-hover);
-  border-color: var(--ui-blue-hover);
+  background: #000;
+  border-color: #000;
 }
 
-/* === Outline Button (hairline, turns blue on hover) === */
+/* === Outline Button (hairline, deepens on hover) === */
 .btn-outline-primary {
   @apply border-line-strong bg-background text-ink;
 }
 
 .btn-outline-primary:hover {
-  border-color: var(--ui-blue);
-  background: var(--ui-blue-soft);
-  color: var(--ui-blue);
+  border-color: var(--ui-ink-strong);
+  background: var(--ui-soft);
+  color: var(--ui-ink-strong);
 }
 
 /* === Solid / outline white (for blue or image sections) === */

@@ -1,0 +1,35 @@
+---
+import type { SceneName } from "@/lib/canvas/scenes";
+
+interface Props {
+  scene: SceneName;
+  class?: string;
+  /** Drop the hairline frame so the drawing sits straight on the page. */
+  plain?: boolean;
+}
+
+const { scene, class: className = "", plain = false } = Astro.props;
+---
+
+<div
+  class={`${plain ? "canvas-plain" : "canvas-frame"} ${className}`}
+  data-canvas={scene}
+  aria-hidden="true"
+>
+  <canvas class="canvas-stage"></canvas>
+</div>
+
+<script>
+  import { destroyCanvasScenes, initCanvasScenes } from "@/lib/canvas/runtime";
+
+  const boot = () => initCanvasScenes();
+
+  document.addEventListener("astro:page-load", boot);
+  document.addEventListener("astro:before-swap", destroyCanvasScenes);
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot, { once: true });
+  } else {
+    boot();
+  }
+</script>

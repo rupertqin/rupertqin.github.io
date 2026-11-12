@@ -17,5 +17,5 @@ input#nav-toggle:checked ~ #nav-menu {
 }
 
 .swiper-pagination-bullet-active {
-  @apply size-2! rounded-full! bg-blue!;
+  @apply size-2! rounded-full! bg-ink-strong!;
 }

@@ -18,7 +18,7 @@
   @apply h-12 w-full rounded-sm border border-line bg-background pl-10 pr-4 text-ink outline-none transition-colors duration-200;
 }
 .search-wrapper-header-input:focus {
-  border-color: var(--ui-blue);
+  border-color: var(--ui-ink);
   box-shadow: 0 0 0 3px var(--ui-focus-ring);
 }
 .search-wrapper-body {
@@ -51,10 +51,10 @@
 .search-result-item:hover,
 .search-result-item-active,
 .search-result-item:focus {
-  @apply border-blue-line bg-blue-soft;
+  @apply border-line-strong bg-soft;
 }
 .search-result-item mark {
-  @apply rounded-[2px] bg-blue-soft px-0.5 text-blue;
+  @apply rounded-[2px] bg-soft px-0.5 text-ink;
 }
 .search-result-item-title {
   @apply text-[15px] font-medium leading-snug text-ink;

@@ -25,7 +25,7 @@
 }
 
 .tech-card:hover {
-  @apply border-blue-line;
+  @apply border-line-strong;
 }
 
 .tech-card--lift:hover {
@@ -33,16 +33,16 @@
   transform: translateY(-2px);
 }
 
-/* inline text link with underline — Notion blue */
+/* inline text link with underline — ink rule, blue only on hover */
 .tech-link {
-  @apply inline-flex items-center gap-1.5 text-blue underline underline-offset-4 transition-colors duration-200;
-  text-decoration-color: var(--ui-accent-line);
+  @apply inline-flex items-center gap-1.5 text-ink underline underline-offset-4 transition-colors duration-200;
+  text-decoration-color: var(--ui-field-line);
   text-decoration-thickness: 1px;
 }
 
 .tech-link:hover {
-  color: var(--ui-blue-hover);
-  text-decoration-color: var(--ui-blue-hover);
+  color: var(--ui-ink-strong);
+  text-decoration-color: var(--ui-ink-strong);
 }
 
 /* arrow affordance used on cards / learn-more links */
@@ -83,7 +83,7 @@
 }
 
 .tech-tag:hover {
-  @apply border-blue text-blue;
+  @apply border-line-strong text-ink;
 }
 
 /* numbered feature grid: 01 / 02 / 03 */
@@ -97,12 +97,12 @@
 }
 
 .tech-feature:hover {
-  @apply border-blue;
+  @apply border-ink-strong;
   transform: translateY(-2px);
 }
 
 .tech-feature-index {
-  @apply font-mono text-[11px] font-medium leading-none tracking-[0.14em] text-blue;
+  @apply font-mono text-[11px] font-medium leading-none tracking-[0.14em] text-ink-muted;
 }
 
 .tech-feature-title {
@@ -120,7 +120,7 @@
 }
 
 .callout .eyebrow {
-  @apply text-blue;
+  @apply text-ink-muted;
 }
 
 .callout .tech-kv,
@@ -158,7 +158,7 @@
 }
 
 .tech-card-link:hover {
-  @apply border-blue-line;
+  @apply border-line-strong;
 }
 
 /* stat block */
@@ -193,4 +193,21 @@
   font-size: 17px;
   line-height: 1.75;
   color: var(--ui-sub);
+}
+
+/* ==========================================================================
+   canvas graphics — square tiles drawn on the paper surface
+   ========================================================================== */
+
+.canvas-frame {
+  @apply relative overflow-hidden rounded-md border border-line bg-background;
+}
+
+/* borderless variant used when a graphic sits directly on the page */
+.canvas-plain {
+  @apply relative overflow-hidden;
+}
+
+.canvas-stage {
+  @apply absolute inset-0 block h-full w-full;
 }

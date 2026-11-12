@@ -42,8 +42,8 @@ description: "基于人工智能和大数据技术，为投资者提供专业、
 
 <div class="space-y-6 mb-16">
   <div class="flex items-start gap-4 border-b border-line pb-6">
-    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-blue-line bg-blue-soft">
-      <svg class="h-4 w-4 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-line-strong bg-soft">
+      <svg class="h-4 w-4 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
       </svg>
     </div>
@@ -56,8 +56,8 @@ description: "基于人工智能和大数据技术，为投资者提供专业、
   </div>
 
   <div class="flex items-start gap-4 border-b border-line pb-6">
-    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-blue-line bg-blue-soft">
-      <svg class="h-4 w-4 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-line-strong bg-soft">
+      <svg class="h-4 w-4 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     </div>
@@ -70,8 +70,8 @@ description: "基于人工智能和大数据技术，为投资者提供专业、
   </div>
 
   <div class="flex items-start gap-4">
-    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-blue-line bg-blue-soft">
-      <svg class="h-4 w-4 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm border border-line-strong bg-soft">
+      <svg class="h-4 w-4 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 12l2 2 4-4m5.618-4.016a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
       </svg>
     </div>
@@ -92,19 +92,19 @@ description: "基于人工智能和大数据技术，为投资者提供专业、
     <p class="mt-3 font-mono text-[28px] font-semibold tabular-nums leading-none text-ink">¥99<span class="ml-1 font-mono text-[11px] font-normal text-ink-muted">/月</span></p>
     <ul class="mt-5 mb-6 list-none space-y-2.5 pl-0 text-[14px] text-ink-sub">
       <li class="flex items-start">
-        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
         </svg>
         每日市场分析报告
       </li>
       <li class="flex items-start">
-        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
         </svg>
         10只股票趋势预测
       </li>
       <li class="flex items-start">
-        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
         </svg>
         基础技术指标分析
@@ -113,33 +113,33 @@ description: "基于人工智能和大数据技术，为投资者提供专业、
     <a href="#" class="btn btn-outline-primary w-full">选择方案</a>
   </div>
 
-  <div class="relative rounded-md border border-blue-line p-6 shadow-[0_1px_2px_rgb(15_15_15/6%)]">
-    <div class="absolute -top-2.5 left-6 bg-blue px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white">
+  <div class="relative rounded-md border border-line p-6 shadow-[0_1px_2px_rgb(15_15_15/6%)]">
+    <div class="absolute -top-2.5 left-6 bg-ink-strong px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white">
       最受欢迎
     </div>
     <h3 class="text-[15px] font-semibold text-ink">专业版</h3>
     <p class="mt-3 font-mono text-[28px] font-semibold tabular-nums leading-none text-ink">¥299<span class="ml-1 font-mono text-[11px] font-normal text-ink-muted">/月</span></p>
     <ul class="mt-5 mb-6 list-none space-y-2.5 pl-0 text-[14px] text-ink-sub">
       <li class="flex items-start">
-        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
         </svg>
         基础版全部功能
       </li>
       <li class="flex items-start">
-        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
         </svg>
         50只股票趋势预测
       </li>
       <li class="flex items-start">
-        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
         </svg>
         个性化投资组合建议
       </li>
       <li class="flex items-start">
-        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
         </svg>
         风险预警系统
@@ -153,25 +153,25 @@ description: "基于人工智能和大数据技术，为投资者提供专业、
     <p class="mt-3 font-mono text-[28px] font-semibold tabular-nums leading-none text-ink">¥999<span class="ml-1 font-mono text-[11px] font-normal text-ink-muted">/月</span></p>
     <ul class="mt-5 mb-6 list-none space-y-2.5 pl-0 text-[14px] text-ink-sub">
       <li class="flex items-start">
-        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
         </svg>
         专业版全部功能
       </li>
       <li class="flex items-start">
-        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
         </svg>
         无限股票分析
       </li>
       <li class="flex items-start">
-        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
         </svg>
         API接口访问
       </li>
       <li class="flex items-start">
-        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg class="mr-2 mt-0.5 h-4 w-4 shrink-0 text-ink" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 13l4 4L19 7" />
         </svg>
         专属投资顾问

@@ -33,19 +33,24 @@
   --ui-muted: #8b8983;
   --ui-placeholder: #a9a7a1;
 
-  /* accent = Notion blue */
-  --ui-blue: #2383e2;
-  --ui-blue-hover: #0b6bcb;
+  /* legacy "blue" tokens — repointed to neutral ink so nothing on the site renders blue */
+  --ui-blue: var(--ui-ink-strong);
+  --ui-blue-hover: #000000;
   --ui-blue-fg: #ffffff;
-  --ui-blue-soft: #eaf3fd;
-  --ui-blue-line: #b3d4f4;
+  --ui-blue-soft: var(--ui-soft);
+  --ui-blue-line: var(--ui-field-line);
 
-  --ui-accent: var(--ui-blue);
-  --ui-accent-hover: var(--ui-blue-hover);
-  --ui-accent-fg: var(--ui-blue-fg);
-  --ui-accent-soft: var(--ui-blue-soft);
-  --ui-accent-line: rgb(35 131 226 / 35%);
-  --ui-focus-ring: rgb(35 131 226 / 28%);
+  /* accent = ink. No colour accent anywhere on the site. */
+  --ui-accent: var(--ui-ink-strong);
+  --ui-accent-hover: #000000;
+  --ui-accent-fg: #ffffff;
+  --ui-accent-soft: var(--ui-soft);
+  --ui-accent-line: rgb(28 27 25 / 26%);
+  --ui-focus-ring: rgb(28 27 25 / 18%);
+
+  /* canvas graphics — the polar.sh ports read these two names directly */
+  --color-graphic-stroke: #9a9892;
+  --color-graphic-dim: #dcdad4;
 
   /* semantic feedback — used sparingly (form / answer correctness only) */
   --ui-success: #22c55e;

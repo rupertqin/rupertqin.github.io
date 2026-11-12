@@ -24,7 +24,7 @@
 
 .nav-link.active::after {
   content: "";
-  @apply absolute inset-x-3 -bottom-px h-0.5 bg-blue;
+  @apply absolute inset-x-3 -bottom-px h-0.5 bg-ink-strong;
 }
 
 /* === Dropdown === */
@@ -62,7 +62,7 @@
 }
 
 .nav-dropdown-link.active {
-  @apply bg-blue-soft text-blue;
+  @apply bg-soft text-ink;
 }
 
 /* === Mobile Menu === */

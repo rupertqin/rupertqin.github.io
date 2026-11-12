@@ -12,6 +12,11 @@
   @apply mx-auto w-full max-w-[1320px] px-5;
 }
 
+/* logo mark — the source SVG is blue; rendered as a deep neutral grey */
+.logo-mark {
+  filter: grayscale(1) brightness(0.45) contrast(1.05);
+}
+
 /* social icons */
 .social-icons {
   @apply space-x-2;
@@ -23,7 +28,7 @@
   @apply flex h-9 w-9 items-center justify-center rounded-sm border border-line bg-transparent text-center leading-9 text-ink transition-colors duration-200;
 }
 .social-icons li a:hover {
-  @apply border-blue bg-blue text-white;
+  @apply border-ink-strong bg-ink-strong text-white;
 }
 .social-icons li a svg {
   @apply h-4 w-4;
@@ -52,7 +57,7 @@
   @apply border-l-[3px] border-l-line-strong text-ink;
 }
 .notice.tip {
-  @apply border-l-[3px] border-l-blue bg-transparent text-ink;
+  @apply border-l-[3px] border-l-ink-strong bg-transparent text-ink;
 }
 .notice.info {
   @apply border-l-[3px] border-l-line-strong text-ink-sub;
@@ -72,7 +77,7 @@
   @apply cursor-pointer border-b border-line py-3 text-[13px] text-ink-sub transition-colors duration-200 !my-0 !px-6;
 }
 .tab-nav-item.active {
-  @apply border-b-2 border-blue text-ink;
+  @apply border-b-2 border-ink-strong text-ink;
 }
 .tab-content {
   @apply px-5;
@@ -231,7 +236,7 @@
 
 /* text links only — buttons keep their own colours */
 .content a:not(.btn) {
-  color: var(--ui-blue);
+  color: var(--ui-ink);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-decoration-color: var(--ui-accent-line);
@@ -242,8 +247,8 @@
 }
 
 .content a:not(.btn):hover {
-  color: var(--ui-blue-hover);
-  text-decoration-color: var(--ui-blue-hover);
+  color: var(--ui-ink-strong);
+  text-decoration-color: var(--ui-ink-strong);
 }
 
 /* buttons embedded in markdown must keep their own foreground colour */
@@ -252,7 +257,7 @@
 }
 
 .content .btn-primary {
-  color: var(--ui-blue-fg);
+  color: var(--ui-accent-fg);
 }
 
 .content .btn-outline-primary {

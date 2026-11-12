@@ -21,7 +21,7 @@ const lang = getLangFromUrl(Astro.url);
           return (
             <li>
               <a
-                class="flex items-baseline justify-between border-b border-line py-2.5 text-[14px] text-ink-sub transition-colors duration-200 hover:text-blue"
+                class="flex items-baseline justify-between border-b border-line py-2.5 text-[14px] text-ink-sub transition-colors duration-200 hover:text-ink"
                 href={slugSelector(`/categories/${category}`, lang)}
               >
                 <span>{humanize(category)}</span>

@@ -17,7 +17,7 @@ const logo = config.site.logo || "/images/logo.svg";
       <!-- Logo -->
       <div class="flex items-center">
         <a href={slugSelector("/", lang)} class="flex items-center gap-2.5">
-          <img src={logo} alt="Logo" class="h-8 w-8" />
+          <img src={logo} alt="Logo" class="logo-mark h-8 w-8" />
           <span class="text-[17px] font-semibold leading-none tracking-[-0.01em] text-ink">
             {siteName}
           </span>
@@ -68,7 +68,7 @@ const logo = config.site.logo || "/images/logo.svg";
         <!-- Search button -->
         {config.settings.search && (
           <button
-            class="flex h-9 w-9 items-center justify-center rounded-sm text-ink-muted transition-colors duration-200 hover:bg-blue-soft hover:text-blue"
+            class="flex h-9 w-9 items-center justify-center rounded-sm text-ink-muted transition-colors duration-200 hover:bg-soft hover:text-ink"
             aria-label="search"
             data-search-trigger
           >
@@ -80,7 +80,7 @@ const logo = config.site.logo || "/images/logo.svg";
         <!-- Mobile menu button -->
         <button
           id="mobile-menu-button"
-          class="flex h-9 w-9 items-center justify-center rounded-sm text-ink-muted transition-colors duration-200 hover:bg-blue-soft hover:text-blue lg:hidden"
+          class="flex h-9 w-9 items-center justify-center rounded-sm text-ink-muted transition-colors duration-200 hover:bg-soft hover:text-ink lg:hidden"
           aria-label="Menu"
         >
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.6">

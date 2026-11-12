@@ -28,19 +28,19 @@ const lang = getLangFromUrl(Astro.url);
 
         <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
           <div class="rounded-md border border-line p-5">
-            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-blue">主导功能 · Dominant</h3>
+            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">主导功能 · Dominant</h3>
             <p id="dominant-function" class="mt-3 text-[16px] font-medium text-ink"></p>
           </div>
           <div class="rounded-md border border-line p-5">
-            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-blue">辅助功能 · Auxiliary</h3>
+            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">辅助功能 · Auxiliary</h3>
             <p id="auxiliary-function" class="mt-3 text-[16px] font-medium text-ink"></p>
           </div>
           <div class="rounded-md border border-line p-5">
-            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-blue">第三功能 · Tertiary</h3>
+            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">第三功能 · Tertiary</h3>
             <p id="tertiary-function" class="mt-3 text-[16px] font-medium text-ink"></p>
           </div>
           <div class="rounded-md border border-line p-5">
-            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-blue">劣势功能 · Inferior</h3>
+            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">劣势功能 · Inferior</h3>
             <p id="inferior-function" class="mt-3 text-[16px] font-medium text-ink"></p>
           </div>
         </div>
@@ -158,9 +158,9 @@ const lang = getLangFromUrl(Astro.url);
     document.getElementById("type-result")!.textContent = analysis.type;
     document.getElementById("type-description")!.textContent = analysis.description;
 
-    const checkIcon = `<svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-blue" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>`;
+    const checkIcon = `<svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-muted" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path></svg>`;
     const dashIcon = `<svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-muted" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14"></path></svg>`;
-    const arrowIcon = `<svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-blue" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 12h13M13 7l5 5-5 5"></path></svg>`;
+    const arrowIcon = `<svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-ink-muted" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 12h13M13 7l5 5-5 5"></path></svg>`;
 
     const fillList = (id: string, items: string[], icon: string) => {
       const el = document.getElementById(id)!;

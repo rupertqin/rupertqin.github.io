@@ -1,4 +1,5 @@
 ---
+import CanvasScene from "@/components/canvas/CanvasScene.astro";
 import ImageMod from "@/components/ImageMod.astro";
 import Base from "@/layouts/Base.astro";
 import { getListPage } from "@/lib/contentParser.astro";
@@ -30,7 +31,12 @@ const { title, description, meta_title, image } = about[0].data;
   image={image}
 >
   <section class="section-sm">
-    <div class="container">
+    <div class="container relative">
+      <CanvasScene
+        scene="venn"
+        plain
+        class="pointer-events-none absolute right-5 top-0 hidden aspect-square w-[260px] lg:block"
+      />
       <div class="row justify-center">
         <div class="md:col-10 lg:col-8">
           <p class="eyebrow mb-6">About / 关于我们</p>

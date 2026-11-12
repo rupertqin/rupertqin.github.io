@@ -1,6 +1,8 @@
 ---
 import Button from "@/components/Button.astro";
+import CanvasScene from "@/components/canvas/CanvasScene.astro";
 import Base from "@/layouts/Base.astro";
+import { getGraphic } from "@/lib/canvas/catalog";
 import { getLangFromUrl } from "@/lib/utils/languageParser";
 import { supportedLang } from "@/lib/utils/languageParser";
 
@@ -146,6 +148,12 @@ const specRows = isEn
       ["服务模块", "06"],
       ["交付方式", "API · Web"],
     ];
+
+const figures = [
+  getGraphic("slices"),
+  getGraphic("gauge"),
+  getGraphic("orbit"),
+];
 ---
 
 <Base title={isEn ? "Qinxiang Tech - Leader in Tech Innovation" : "秦项科技 - 科技创新的引领者"} lang={lang}>
@@ -187,7 +195,7 @@ const specRows = isEn
               ))}
             </dl>
             <div class="mt-5 flex items-center gap-2">
-              <span class="inline-block h-1.5 w-1.5 rounded-full bg-blue"></span>
+              <span class="inline-block h-1.5 w-1.5 rounded-full bg-ink-strong"></span>
               <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted">
                 {isEn ? "All systems operational" : "服务运行正常"}
               </span>
@@ -208,8 +216,22 @@ const specRows = isEn
               <p class="text-[14px] font-medium text-ink">{item.name}</p>
               <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted">{item.note}</p>
             </div>
-            <span class="font-mono text-[10px] text-blue">{String(i + 1).padStart(2, "0")}</span>
+            <span class="font-mono text-[10px] text-ink-muted">{String(i + 1).padStart(2, "0")}</span>
           </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Figures -->
+  <section class="border-b border-line">
+    <div class="container py-14 md:py-16">
+      <p class="eyebrow">{isEn ? "Figures / System" : "图形 / 系统"}</p>
+      <div class="mt-8 grid gap-6 md:grid-cols-3">
+        {figures.map((figure) => (
+          <figure>
+            <CanvasScene scene={figure.key} class="aspect-square w-full" />
+          </figure>
         ))}
       </div>
     </div>
@@ -268,7 +290,7 @@ const specRows = isEn
           <ul class="mt-10 border-t border-line">
             {stockPoints.map((point, i) => (
               <li class="flex gap-4 border-b border-line py-5">
-                <span class="mt-0.5 font-mono text-[10px] leading-none text-blue">
+                <span class="mt-0.5 font-mono text-[10px] leading-none text-ink-muted">
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <div>
@@ -293,8 +315,8 @@ const specRows = isEn
               <span class="eyebrow">{isEn ? "Model / Snapshot" : "MODEL / 指标快照"}</span>
               <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted">2026</span>
             </div>
-            <div class="flex items-center justify-center border-b border-line bg-white py-10">
-              <img src="/images/icons/chart.svg" alt="Chart" class="h-24 w-24 opacity-90" />
+            <div class="border-b border-line bg-white">
+              <CanvasScene scene="wave" plain class="h-[180px] w-full" />
             </div>
             <div class="grid grid-cols-2 gap-6 pt-6">
               <div>
@@ -355,9 +377,16 @@ const specRows = isEn
               : "立即体验我们的智能解决方案，提升您的业务效率和决策能力。"}
           </p>
         </div>
-        <div class="flex flex-wrap gap-3">
-          <Button variant="default" size="lg">{isEn ? "Free Trial" : "免费试用"}</Button>
-          <Button variant="outline" size="lg">{isEn ? "Contact Sales" : "联系销售"}</Button>
+        <div class="flex items-end gap-8">
+          <CanvasScene
+            scene="concentric"
+            plain
+            class="hidden aspect-square w-[180px] shrink-0 sm:block"
+          />
+          <div class="flex flex-wrap gap-3">
+            <Button variant="default" size="lg">{isEn ? "Free Trial" : "免费试用"}</Button>
+            <Button variant="outline" size="lg">{isEn ? "Contact Sales" : "联系销售"}</Button>
+          </div>
         </div>
       </div>
     </div>

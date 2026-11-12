@@ -1,4 +1,5 @@
 ---
+import CanvasScene from "@/components/canvas/CanvasScene.astro";
 import config from "@/config/config.json";
 import Base from "@/layouts/Base.astro";
 import { getListPage } from "@/lib/contentParser.astro";
@@ -45,6 +46,9 @@ const {
     <div class="container">
       <div class="row">
         <div class="mx-auto md:col-10 lg:col-6">
+          <div class="mb-8 flex justify-end">
+            <CanvasScene scene="dumbbell" plain class="aspect-square w-[200px]" />
+          </div>
           <form action={contact_form_action} method="POST">
             <div class="mb-6">
               <label for="name" class="form-label">

@@ -69,7 +69,7 @@ const LanguageSwitcher = ({
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex h-9 cursor-pointer items-center gap-1.5 rounded-sm border border-line px-2.5 font-mono text-[11px] uppercase tracking-[0.08em] text-ink-sub transition-colors duration-200 hover:border-blue-line hover:text-blue focus-visible:outline-none"
+        className="flex h-9 cursor-pointer items-center gap-1.5 rounded-sm border border-line px-2.5 font-mono text-[11px] uppercase tracking-[0.08em] text-ink-sub transition-colors duration-200 hover:border-line-strong hover:text-ink focus-visible:outline-none"
       >
         <span>{currentLang?.languageName}</span>
         <svg
@@ -96,7 +96,7 @@ const LanguageSwitcher = ({
               className={`w-full rounded-[4px] px-2.5 py-2 text-left text-[12px] transition-colors duration-150 ${
                 language.languageCode === lang
                   ? "bg-soft text-ink"
-                  : "text-ink-sub hover:bg-blue-soft hover:text-blue"
+                  : "text-ink-sub hover:bg-soft hover:text-ink"
               }`}
               onClick={() => {
                 setIsOpen(false);
