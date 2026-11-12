@@ -1,5 +1,6 @@
 ---
 import BlogCard from "@/components/BlogCard.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
 import Share from "@/components/Share.astro";
 import config from "@/config/config.json";
 import Disqus from "@/helpers/Disqus";
@@ -35,17 +36,30 @@ const { title, description, author, categories, image, date, tags } = post.data;
       <article class="lg:col-9">
         {
           image && (
-            <div class="media-frame mb-10 aspect-[16/9]">
-              <ImageMod
-                src={image}
-                height={500}
-                width={1200}
-                alt={title}
-                class="h-full w-full object-cover"
-                format="webp"
-                fit="cover"
-              />
-            </div>
+            <figure class="plate mb-10">
+              <div class="plate__head">
+                <span class="flex min-w-0 items-baseline gap-2.5">
+                  <span class="plate__fig">FIG.C1</span>
+                  <span class="plate__title">COVER</span>
+                </span>
+                <span class="plate__scale">Scale 1:1</span>
+              </div>
+              <div class="plate__body aspect-[16/9]">
+                <ImageMod
+                  src={image}
+                  height={500}
+                  width={1200}
+                  alt={title}
+                  class="h-full w-full object-cover"
+                  format="webp"
+                  fit="cover"
+                />
+              </div>
+              <figcaption class="plate__foot">
+                <span class="plate__caption">{title}</span>
+                <span class="plate__scale">FIG.C1</span>
+              </figcaption>
+            </figure>
           )
         }
 
@@ -54,7 +68,7 @@ const { title, description, author, categories, image, date, tags } = post.data;
           {
             categories.map((category: string, index: number) => (
               <>
-                <span class="text-line-strong">/</span>
+                <span class="inline-block h-2.5 w-px bg-line-strong" aria-hidden="true" />
                 <a
                   class="transition-colors duration-200 hover:text-ink"
                   href={slugSelector(`/categories/${slugify(category)}`, lang)}
@@ -69,16 +83,25 @@ const { title, description, author, categories, image, date, tags } = post.data;
 
         <h1
           set:html={markdownify(title)}
-          class="mt-4 text-[clamp(26px,3.6vw,40px)] font-semibold leading-[1.2] tracking-[-0.03em] text-ink"
+          class="mt-4 text-[clamp(26px,3.6vw,40px)] font-semibold leading-[1.2] tracking-[-0.025em] text-ink"
         />
 
-        <div class="mt-5 flex items-center gap-3 border-y border-line py-4">
+        <div class="dim mt-6">
+          <span class="dim__value">type measure</span>
+        </div>
+
+        <div class="mt-5 flex items-center justify-between gap-4 border-y border-line py-3.5">
           <a
             href={slugSelector(`/authors/${slugify(author)}`, lang)}
             class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-sub transition-colors duration-200 hover:text-ink"
           >
-            {humanize(author)}
+            Drawn by / {humanize(author)}
           </a>
+          <span class="sheet-meta hidden sm:inline-flex">
+            <span>{date ? dateFormat(date) : "Undated"}</span>
+            <i class="sheet-meta__dot"></i>
+            <span>Sheet 01</span>
+          </span>
         </div>
 
         <div class="content mt-10">
@@ -113,12 +136,15 @@ const { title, description, author, categories, image, date, tags } = post.data;
 
     <!-- Related posts -->
     <div class="mt-20 border-t border-line pt-14">
-      <div class="mb-10 flex items-end justify-between">
-        <h2 class="text-[22px] font-semibold tracking-[-0.02em] text-ink">Related Posts</h2>
-        <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
-          {String(similarPosts.length).padStart(2, "0")}
-        </span>
-      </div>
+      <SectionHeader
+        index="05"
+        eyebrow="Index"
+        title="Related Posts"
+        note={`${String(similarPosts.length).padStart(2, "0")} records`}
+        fig="05"
+        sheet="06"
+        class="mb-10"
+      />
       <div class="row justify-center">
         {
           similarPosts.map((post) => (

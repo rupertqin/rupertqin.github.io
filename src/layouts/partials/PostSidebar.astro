@@ -7,12 +7,13 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <div class="lg:col-4">
-  <!-- categories -->
-  <div class="mb-10">
-    <h5 class="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">
-      Categories
-    </h5>
-    <ul class="border-t border-line">
+  <!-- categories — a register with counts, closed by a rule -->
+  <div class="callout mb-8">
+    <div class="flex items-center justify-between border-b border-line pb-3">
+      <span class="eyebrow">Categories</span>
+      <span class="sheet-meta">{String(categories.length).padStart(2, "0")}</span>
+    </div>
+    <ul class="mt-1">
       {
         categories.map((category: any) => {
           const count = allCategories.filter(
@@ -37,11 +38,12 @@ const lang = getLangFromUrl(Astro.url);
   </div>
 
   <!-- tags -->
-  <div class="mb-10">
-    <h5 class="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">
-      Tags
-    </h5>
-    <ul class="flex flex-wrap gap-2">
+  <div class="callout mb-8">
+    <div class="flex items-center justify-between border-b border-line pb-3">
+      <span class="eyebrow">Tags</span>
+      <span class="sheet-meta">{String(tags.length).padStart(2, "0")}</span>
+    </div>
+    <ul class="mt-3 flex flex-wrap gap-2">
       {
         tags.map((tag: any) => {
           return (

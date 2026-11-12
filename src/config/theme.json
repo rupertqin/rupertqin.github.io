@@ -19,8 +19,8 @@
     "font_family": {
       "primary": "system-ui:wght@400;500;600",
       "primary_type": "sans-serif",
-      "secondary": "system-ui:wght@500;600",
-      "secondary_type": "sans-serif"
+      "secondary": "Space Grotesk:wght@500;600",
+      "secondary_type": "\"PingFang SC\", \"Hiragino Sans GB\", \"Noto Sans SC\", \"Microsoft YaHei\", sans-serif"
     },
     "font_size": {
       "base": "16",

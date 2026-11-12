@@ -61,16 +61,21 @@ const postFilterByAuthor = posts.filter(
         <div class="text-center lg:col-4">
           {
             image && (
-              <ImageMod
-                src={image}
-                class="mx-auto mb-8 h-[160px] w-[160px] rounded-full border border-line object-cover"
-                height={200}
-                width={200}
-                alt={title}
-                format="webp"
-              />
+              <div class="mx-auto mb-6 inline-flex border border-line-field bg-background p-2">
+                <ImageMod
+                  src={image}
+                  class="block h-[160px] w-[160px] object-cover"
+                  height={200}
+                  width={200}
+                  alt={title}
+                  format="webp"
+                />
+              </div>
             )
           }
+          <p class="mb-3 font-mono text-[9.5px] uppercase tracking-[0.18em] text-placeholder">
+            FIG.P1 / Portrait
+          </p>
           <h1 class="h3 mb-6">{title}</h1>
           <div class="content">
             <Content />

@@ -1,20 +1,51 @@
-/* === Button Base === */
+/* ==========================================================================
+   buttons — square plates, one ink fill per page at most
+   ========================================================================== */
+
 .btn {
-  @apply inline-flex items-center justify-center gap-2 rounded-[6px] border border-transparent px-5 py-2.5 text-sm font-medium leading-none transition-colors duration-200;
-  transition-timing-function: var(--ui-ease);
+  @apply inline-flex items-center justify-center gap-2 border border-transparent px-5 py-2.5 text-sm font-medium leading-none;
+  border-radius: 0;
+  letter-spacing: 0.01em;
+  transition:
+    background-color var(--ui-dur) var(--ui-ease),
+    border-color var(--ui-dur) var(--ui-ease),
+    color var(--ui-dur) var(--ui-ease);
 }
 
 .btn-sm {
-  @apply rounded-[6px] px-3.5 py-2 text-[13px];
+  @apply px-3.5 py-2 text-[13px];
 }
 
 .btn-lg {
-  @apply rounded-[6px] px-6 py-3.5 text-[15px];
+  @apply px-6 py-3.5 text-[15px];
+}
+
+.btn:active {
+  transform: translateY(1px);
 }
 
 /* === Primary Button (ink) === */
 .btn-primary {
-  @apply border-ink-strong bg-ink-strong text-white;
+  @apply relative border-ink-strong bg-ink-strong text-white;
+}
+
+/* a 1px folded corner mark — the plate's own registration tick */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 6px;
+  height: 6px;
+  border-top: 1px solid rgb(255 255 255 / 55%);
+  border-right: 1px solid rgb(255 255 255 / 55%);
+  pointer-events: none;
+  opacity: 0.7;
+  transition: opacity var(--ui-dur) var(--ui-ease);
+}
+
+.btn-primary:hover::after {
+  opacity: 1;
 }
 
 .btn-primary:hover {
@@ -22,18 +53,19 @@
   border-color: #000;
 }
 
-/* === Outline Button (hairline, deepens on hover) === */
+/* === Outline Button — 1px rule that darkens, never fills === */
 .btn-outline-primary {
-  @apply border-line-strong bg-background text-ink;
+  @apply bg-transparent text-ink;
+  border-color: var(--ui-line-field);
 }
 
 .btn-outline-primary:hover {
   border-color: var(--ui-ink-strong);
-  background: var(--ui-soft);
   color: var(--ui-ink-strong);
+  background: transparent;
 }
 
-/* === Solid / outline white (for blue or image sections) === */
+/* === Solid / outline white (for image sections) === */
 .btn-white {
   @apply border-white bg-white text-ink-strong;
 }

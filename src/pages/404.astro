@@ -32,23 +32,48 @@ const { page_not_found_content, page_not_found, back_to_home } =
   <section class="section-sm">
     <div class="container">
       <div class="row justify-center">
-        <div class="sm:col-10 md:col-8 lg:col-6">
-          <div class="flex items-start justify-between gap-6">
-            <div>
-              <p class="eyebrow mb-6">Error / 404</p>
-              <span class="tech-num block text-[clamp(64px,12vw,120px)] font-semibold leading-none tracking-[-0.04em] text-line-strong">
+        <div class="sm:col-10 md:col-8 lg:col-7">
+          <div class="plate">
+            <div class="plate__head">
+              <span class="flex min-w-0 items-baseline gap-2.5">
+                <span class="plate__fig">FIG.404</span>
+                <span class="plate__title">Missing plate</span>
+              </span>
+              <span class="plate__scale">Void</span>
+            </div>
+
+            <div class="relative px-6 py-10">
+              <span
+                class="tech-num block text-[clamp(64px,12vw,120px)] font-semibold leading-none tracking-[-0.04em] text-line-strong"
+              >
                 404
               </span>
+              <CanvasScene
+                scene="compass"
+                plain
+                class="pointer-events-none absolute right-4 top-8 hidden aspect-square w-[180px] sm:block"
+              />
+              <div class="dim mt-6 max-w-[360px]">
+                <span class="dim__value">sheet not found</span>
+              </div>
+              <h1 class="mt-7 text-[24px] font-semibold tracking-[-0.02em] text-ink">
+                {page_not_found}
+              </h1>
+              <div class="content mt-4 max-w-[420px]">
+                <p>{page_not_found_content}</p>
+              </div>
+              <a href={slugSelector("/", lang)} class="btn btn-primary mt-8"
+                >{back_to_home}</a
+              >
             </div>
-            <CanvasScene scene="compass" plain class="hidden aspect-square w-[300px] shrink-0 sm:block" />
+
+            <div class="plate__foot">
+              <span class="plate__caption"
+                >The sheet you requested is not part of this set.</span
+              >
+              <span class="plate__scale">FIG.404</span>
+            </div>
           </div>
-          <h1 class="mt-8 text-[24px] font-semibold tracking-[-0.02em] text-ink">{page_not_found}</h1>
-          <div class="content mt-4 max-w-[420px]">
-            <p>{page_not_found_content}</p>
-          </div>
-          <a href={slugSelector("/", lang)} class="btn btn-primary mt-10"
-            >{back_to_home}</a
-          >
         </div>
       </div>
     </div>

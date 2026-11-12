@@ -20,16 +20,19 @@ for (let i = 1; i <= totalPages; i++) {
 }
 
 const navItem =
-  "flex h-9 min-w-9 items-center justify-center rounded-sm border border-line px-2.5 font-mono text-[12px] tabular-nums text-ink-sub transition-colors duration-200 hover:border-ink hover:text-ink";
+  "flex h-9 min-w-9 items-center justify-center border border-line px-2.5 font-mono text-[12px] tabular-nums text-ink-sub transition-colors duration-200 hover:border-ink hover:text-ink";
 const navActive =
-  "flex h-9 min-w-9 items-center justify-center rounded-sm border border-primary bg-primary px-2.5 font-mono text-[12px] tabular-nums text-primary-foreground";
+  "flex h-9 min-w-9 items-center justify-center border border-primary bg-primary px-2.5 font-mono text-[12px] tabular-nums text-primary-foreground";
 const navDisabled =
-  "flex h-9 min-w-9 items-center justify-center rounded-sm border border-line/60 px-2.5 text-line-strong";
+  "flex h-9 min-w-9 items-center justify-center border border-line/60 px-2.5 text-line-strong";
 ---
 
 {
   totalPages > 1 && (
-    <nav class="flex items-center justify-center gap-2" aria-label="Pagination">
+    <nav
+      class="flex flex-wrap items-center justify-center gap-2 border-t border-line pt-8"
+      aria-label="Pagination"
+    >
       {/* previous */}
       {hasPrevPage ? (
         <a

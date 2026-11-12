@@ -92,26 +92,61 @@ const beian = config.params.beian || "";
       </div>
     </div>
 
-    <!-- Bottom Bar -->
-    <div class="mt-14 flex flex-col gap-4 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
-      <div class="flex items-center gap-2.5">
-        <img src={logo} alt="Logo" class="logo-mark h-7 w-7" />
-        <span class="text-[15px] font-semibold leading-none tracking-[-0.01em] text-ink">
-          {siteName}
-        </span>
+    <!-- Title block — the drawing's own paperwork -->
+    <div class="mt-14">
+      <div
+        class="mb-3 flex items-center justify-between gap-6 font-mono text-[9.5px] uppercase tracking-[0.16em] text-placeholder"
+      >
+        <span>END OF DRAWING</span>
+        <span>QINXIANG / TITLE BLOCK</span>
       </div>
-      <div class="flex flex-col gap-1 md:items-end">
-        <p class="font-mono text-[11px] uppercase tracking-[0.08em] text-ink-muted">
-          &copy; {new Date().getFullYear()} {siteName}
-          {beian && (
-            <a href="https://beian.miit.gov.cn/" target="_blank" class="ml-2 text-ink-muted transition-colors duration-200 hover:text-ink">
-              {beian}
-            </a>
+
+      <div class="titleblock">
+        <div class="titleblock__cell">
+          <span class="titleblock__key">Drawn by</span>
+          <span class="titleblock__val">{siteName}</span>
+        </div>
+        <div class="titleblock__cell">
+          <span class="titleblock__key">Scale</span>
+          <span class="titleblock__val">1:1</span>
+        </div>
+        <div class="titleblock__cell">
+          <span class="titleblock__key">Sheet</span>
+          <span class="titleblock__val">01 / 01</span>
+        </div>
+        <div class="titleblock__cell">
+          <span class="titleblock__key">Rev</span>
+          <span class="titleblock__val">{gitHash || "2026.11"}</span>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col gap-3 border-x border-b border-line px-3 py-3 md:flex-row md:items-center md:justify-between"
+      >
+        <div class="flex items-center gap-2.5">
+          <img src={logo} alt="Logo" class="logo-mark h-6 w-6" />
+          <span class="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-muted">
+            &copy; {new Date().getFullYear()} {siteName}
+            {beian && (
+              <a
+                href="https://beian.miit.gov.cn/"
+                target="_blank"
+                class="ml-2 text-ink-muted transition-colors duration-200 hover:text-ink"
+              >
+                {beian}
+              </a>
+            )}
+          </span>
+        </div>
+        <span class="sheet-meta">
+          <span>All rights reserved</span>
+          {gitHash && (
+            <>
+              <i class="sheet-meta__dot"></i>
+              <span>build {gitHash}</span>
+            </>
           )}
-        </p>
-        {gitHash && (
-          <p class="font-mono text-[11px] uppercase tracking-[0.08em] text-ink-muted">Build: {gitHash}</p>
-        )}
+        </span>
       </div>
     </div>
   </div>

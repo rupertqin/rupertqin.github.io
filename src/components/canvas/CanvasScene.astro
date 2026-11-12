@@ -6,9 +6,16 @@ interface Props {
   class?: string;
   /** Drop the hairline frame so the drawing sits straight on the page. */
   plain?: boolean;
+  /** Let the drawn lines wobble ±0.4px through the drafting filter. */
+  sketch?: boolean;
 }
 
-const { scene, class: className = "", plain = false } = Astro.props;
+const {
+  scene,
+  class: className = "",
+  plain = false,
+  sketch = true,
+} = Astro.props;
 ---
 
 <div
@@ -16,7 +23,7 @@ const { scene, class: className = "", plain = false } = Astro.props;
   data-canvas={scene}
   aria-hidden="true"
 >
-  <canvas class="canvas-stage"></canvas>
+  <canvas class={`canvas-stage${sketch ? " sketch-canvas" : ""}`}></canvas>
 </div>
 
 <script>

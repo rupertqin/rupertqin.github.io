@@ -18,23 +18,39 @@ const mbtiQuestionsJson = JSON.stringify(mbtiQuestions);
 <Base title={isEn ? "MBTI Test - Psychoanalytic" : "MBTI 测试 - 心理分析"} lang={lang}>
   <div class="container py-14 md:py-20">
     <div class="mx-auto max-w-4xl">
-      <p class="eyebrow">{isEn ? "Psychoanalytic / MBTI" : "心理分析 / MBTI"}</p>
-      <h1 class="mt-4 text-[clamp(28px,4vw,40px)] font-semibold leading-[1.15] tracking-[-0.03em] text-ink">
+      <div class="flex items-center justify-between gap-6">
+        <p class="eyebrow">{isEn ? "Psychoanalytic / MBTI" : "心理分析 / MBTI"}</p>
+        <span class="sheet-meta hidden sm:inline-flex">
+          <span>Form 01</span>
+          <i class="sheet-meta__dot"></i>
+          <span>Scale 1:1</span>
+        </span>
+      </div>
+      <h1 class="mt-4 text-[clamp(28px,4vw,40px)] font-semibold leading-[1.15] tracking-[-0.025em] text-ink">
         {isEn ? "MBTI Test" : "MBTI 测试"}
       </h1>
-      <div class="mt-8 border-t border-line"></div>
+      <div class="dim mt-6">
+        <span class="dim__value">60 items</span>
+      </div>
+      <div class="rule-pair mt-6" aria-hidden="true"></div>
 
       <!-- Intro -->
-      <div id="intro-container" class="mt-8 rounded-md border border-line bg-background p-6 md:p-8">
-        <div>
-          <h2 class="text-[20px] font-semibold tracking-[-0.02em] text-ink">{isEn ? "Test Instructions" : "测试说明"}</h2>
-          <p class="mt-3 max-w-[640px] text-[15px] leading-[1.75] text-ink-sub">
+      <div id="intro-container" class="plate mt-8">
+        <div class="plate__head">
+          <span class="flex min-w-0 items-baseline gap-2.5">
+            <span class="plate__fig">FORM.01</span>
+            <span class="plate__title">{isEn ? "Brief" : "测试说明"}</span>
+          </span>
+          <span class="plate__scale">60 Q / 20 min</span>
+        </div>
+        <div class="px-6 py-6 md:px-8 md:py-8">
+          <p class="max-w-[640px] text-[15px] leading-[1.75] text-ink-sub">
             {isEn
               ? "This test consists of 60 questions. Please choose the option that best matches your true thoughts. The test takes about 10-20 minutes."
               : "本测试包含60个问题，请根据你的真实想法选择最符合你的选项。测试大约需要10-20分钟完成。"}
           </p>
 
-          <div class="mt-6 rounded-sm border border-line bg-soft p-5">
+          <div class="mt-6 border border-line p-5">
             <h3 class="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-ink">
               {isEn ? "Test Tips" : "测试提示"}
             </h3>
@@ -67,8 +83,15 @@ const mbtiQuestionsJson = JSON.stringify(mbtiQuestions);
       </div>
 
       <!-- Test Questions -->
-      <div id="test-container" class="mt-8 hidden rounded-md border border-line bg-background p-6 md:p-8">
-        <div class="mx-auto max-w-3xl">
+      <div id="test-container" class="plate mt-8 hidden">
+        <div class="plate__head">
+          <span class="flex min-w-0 items-baseline gap-2.5">
+            <span class="plate__fig">FORM.02</span>
+            <span class="plate__title">{isEn ? "Answer sheet" : "答题纸"}</span>
+          </span>
+          <span class="plate__scale">01 / 60</span>
+        </div>
+        <div class="mx-auto max-w-3xl px-6 py-6 md:px-8 md:py-8">
           <h2 class="text-[20px] font-semibold tracking-[-0.02em] text-ink">
             {isEn ? "MBTI Personality Test" : "MBTI 人格测试"}
           </h2>
@@ -85,8 +108,8 @@ const mbtiQuestionsJson = JSON.stringify(mbtiQuestions);
                 </span>
                 <span class="font-mono text-[11px] text-ink-muted">01 / 60</span>
               </div>
-              <div class="h-1 w-full overflow-hidden rounded-full bg-soft">
-                <div id="progress-bar" class="h-1 rounded-full bg-ink-strong transition-all duration-300" style="width: 0%"></div>
+              <div class="h-1.5 w-full border border-line">
+                <div id="progress-bar" class="h-full bg-ink-strong transition-all duration-300" style="width: 0%"></div>
               </div>
             </div>
 

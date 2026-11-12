@@ -8,18 +8,32 @@
   @apply fixed left-0 top-0 h-full w-full bg-black opacity-50;
 }
 .search-wrapper {
-  @apply relative z-10 mt-24 w-[660px] max-w-[96%] rounded-md border border-line bg-background;
+  @apply relative z-10 mt-24 w-[660px] max-w-[96%] border border-ink-strong bg-background;
   box-shadow: var(--ui-shadow-dialog);
+}
+
+/* plate head for the popup: label rail + the query's own dimension */
+.search-wrapper::before {
+  content: "SEARCH / INDEX";
+  display: block;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--ui-line);
+  font-family: var(--ui-font-mono);
+  font-size: 9.5px;
+  line-height: 1;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ui-placeholder);
 }
 .search-wrapper-header {
   @apply relative border-b border-line p-4;
 }
 .search-wrapper-header-input {
-  @apply h-12 w-full rounded-sm border border-line bg-background pl-10 pr-4 text-ink outline-none transition-colors duration-200;
+  @apply h-12 w-full border border-line-strong bg-background pl-10 pr-4 text-ink outline-none transition-colors duration-200;
 }
 .search-wrapper-header-input:focus {
-  border-color: var(--ui-ink);
-  box-shadow: 0 0 0 3px var(--ui-focus-ring);
+  border-color: var(--ui-ink-strong);
+  box-shadow: inset 0 -2px 0 var(--ui-ink-strong);
 }
 .search-wrapper-body {
   @apply max-h-[calc(100vh-350px)] overflow-y-auto bg-background p-3;
@@ -28,7 +42,7 @@
   @apply hidden select-none border-t border-line px-3.5 py-2 text-[11px] leading-none text-ink-muted md:flex md:items-center;
 }
 .search-wrapper-footer kbd {
-  @apply mr-[3px] rounded-[3px] border border-line bg-soft px-1 py-0.5 text-center font-mono text-[11px] leading-none text-ink-sub;
+  @apply mr-[3px] rounded-none border border-line bg-soft px-1 py-0.5 text-center font-mono text-[11px] leading-none text-ink-sub;
 }
 .search-wrapper-footer span:not(:last-child) {
   @apply mr-4;
@@ -46,15 +60,18 @@
   @apply mb-2 px-2 font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted;
 }
 .search-result-item {
-  @apply relative mb-1 flex items-start rounded-sm border border-line bg-background p-4 transition-colors duration-150 scroll-my-[30px];
+  @apply relative mb-0 flex items-start border border-line bg-background p-4 transition-colors duration-150 scroll-my-[30px];
+  border-left-width: 2px;
 }
 .search-result-item:hover,
 .search-result-item-active,
 .search-result-item:focus {
-  @apply border-line-strong bg-soft;
+  @apply bg-soft;
+  border-color: var(--ui-line-ink);
+  border-left-color: var(--ui-ink-strong);
 }
 .search-result-item mark {
-  @apply rounded-[2px] bg-soft px-0.5 text-ink;
+  @apply rounded-none bg-soft px-0.5 text-ink;
 }
 .search-result-item-title {
   @apply text-[15px] font-medium leading-snug text-ink;
@@ -66,7 +83,7 @@
   @apply mr-3.5 shrink-0;
 }
 .search-result-item-image img {
-  @apply h-[60px] w-[60px] rounded-sm border border-line object-cover md:h-[80px] md:w-[80px];
+  @apply h-[60px] w-[60px] border border-line object-cover md:h-[80px] md:w-[80px];
 }
 .search-result-item-description {
   @apply mt-1 line-clamp-1 text-[13px] text-ink-sub;

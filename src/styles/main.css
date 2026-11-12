@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./fonts.css";
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
 @plugin 'tailwind-bootstrap-grid';
@@ -22,9 +23,13 @@
   --ui-soft-hover: #f1f1ef;
   --ui-selected: #efefed;
 
-  /* hairlines */
+  /* hairlines — three weights only: hairline / field / ink */
   --ui-line: #e9e9e7;
   --ui-field-line: #d3d1cb;
+  --ui-line-hairline: #e9e9e7;
+  --ui-line-field: #d3d1cb;
+  --ui-line-ink: rgb(28 27 25 / 88%);
+  --ui-rule-dashed: rgb(28 27 25 / 14%);
 
   /* warm ink */
   --ui-ink-strong: #1c1b19;
@@ -52,18 +57,36 @@
   --color-graphic-stroke: #9a9892;
   --color-graphic-dim: #dcdad4;
 
+  /* drafting — the 2.0 drawing grammar (additive, nothing above is redefined) */
+  --ui-hatch-ink: rgb(28 27 25 / 9%);
+  --ui-hatch-ink-strong: rgb(28 27 25 / 16%);
+  --ui-annot-ink: rgb(28 27 25 / 62%);
+  --ui-dim-ink: rgb(28 27 25 / 38%);
+  --ui-grid-line: rgb(28 27 25 / 5%);
+  --ui-grid-line-strong: rgb(28 27 25 / 8%);
+  --ui-tick-sm: 6px;
+  --ui-tick-lg: 12px;
+  --ui-sketch-scale: 0.4;
+  --ui-plate-pad: 18px;
+
   /* semantic feedback — used sparingly (form / answer correctness only) */
   --ui-success: #22c55e;
   --ui-warning: #d99a2b;
   --ui-danger: #e5484d;
 
-  /* geometry */
-  --ui-radius-sm: 4px;
-  --ui-radius-md: 6px;
-  --ui-radius-lg: 8px;
-  --ui-shadow: 0 1px 2px rgb(15 15 15 / 6%);
-  --ui-shadow-dialog: 0 0 0 1px rgb(15 15 15 / 5%), 0 8px 24px rgb(15 15 15 / 12%);
+  /* geometry — square by default; 2px only where a plate needs an edge */
+  --ui-radius-sm: 0px;
+  --ui-radius-md: 2px;
+  --ui-radius-lg: 2px;
+  --ui-radius-pill: 999px;
+  --ui-shadow: none;
+  --ui-shadow-dialog: 0 0 0 1px rgb(28 27 25 / 10%), 0 6px 20px rgb(28 27 25 / 8%);
   --ui-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ui-dur: 160ms;
+
+  /* section rhythm — the vertical beat of the manual */
+  --ui-section-y: clamp(64px, 7vw, 112px);
+  --ui-gutter: 20px;
 
   /* type */
   --ui-font-sans:
@@ -72,6 +95,10 @@
   --ui-font-mono:
     ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
+  --ui-font-display:
+    "Space Grotesk", Inter, -apple-system, BlinkMacSystemFont, "PingFang SC",
+    "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --ui-tracking-display: -0.015em;
 
   /* ---- shadcn bridge (kept for existing components) ---- */
   --background: var(--ui-surface);
@@ -93,12 +120,12 @@
   --border: var(--ui-line);
   --input: var(--ui-field-line);
   --ring: var(--ui-accent);
-  --chart-1: var(--ui-blue);
-  --chart-2: var(--ui-blue-line);
+  --chart-1: var(--ui-ink);
+  --chart-2: var(--ui-field-line);
   --chart-3: var(--ui-muted);
-  --chart-4: var(--ui-ink);
-  --chart-5: var(--ui-field-line);
-  --radius: 6px;
+  --chart-4: var(--ui-sub);
+  --chart-5: var(--ui-line);
+  --radius: 2px;
 }
 
 @theme inline {
@@ -137,6 +164,7 @@
   --color-soft: var(--ui-soft);
   --color-soft-hover: var(--ui-soft-hover);
   --color-page: var(--ui-page);
+  --color-placeholder: var(--ui-placeholder);
 
   --color-blue: var(--ui-blue);
   --color-blue-hover: var(--ui-blue-hover);
@@ -166,6 +194,7 @@
 
 @layer components {
   @import "./tech.css";
+  @import "./drafting.css";
   @import "./components.css";
   @import "./navigation.css";
   @import "./buttons.css";

@@ -115,7 +115,7 @@ const Announcement: React.FC<AnnouncementProps> = ({ lang = default_language }) 
       />
       <button
         onClick={handleClose}
-        className="absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer flex items-center justify-center w-7 h-7 border border-line-strong rounded-full text-xl transition-colors duration-200 hover:border-ink hover:text-ink"
+        className="absolute top-1/2 right-4 -translate-y-1/2 cursor-pointer flex items-center justify-center w-7 h-7 border border-line-strong text-xl transition-colors duration-200 hover:border-ink hover:text-ink"
         aria-label="Close announcement"
       >
         &times;

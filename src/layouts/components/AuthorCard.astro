@@ -9,10 +9,10 @@ const { title, image, social } = data.data;
 const lang = getLangFromUrl(Astro.url);
 ---
 
-<div class="rounded-md border border-line bg-background p-8 text-center">
+<div class="border border-line bg-background p-8 text-center">
   {
     image && (
-      <div class="mx-auto mb-6 h-[120px] w-[120px] overflow-hidden rounded-full border border-line">
+      <div class="mx-auto mb-6 h-[120px] w-[120px] overflow-hidden border border-line">
         <ImageMod
           class="h-full w-full object-cover"
           src={image}

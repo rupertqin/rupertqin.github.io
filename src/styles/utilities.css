@@ -1,6 +1,6 @@
 /* form style */
 @utility form-input {
-  @apply w-full rounded-md border border-line-strong bg-background px-4 py-3 text-base text-ink transition-colors duration-200;
+  @apply w-full border border-line-strong bg-background px-4 py-3 text-base text-ink transition-colors duration-200;
   color: var(--ui-ink);
 }
 
@@ -9,9 +9,10 @@
 }
 
 .form-input:focus {
-  border-color: var(--ui-ink);
-  outline: none;
-  box-shadow: 0 0 0 3px var(--ui-focus-ring);
+  border-color: var(--ui-ink-strong);
+  outline: 2px solid var(--ui-ink-strong);
+  outline-offset: 0;
+  box-shadow: none;
   --tw-ring-shadow: 0 0 #0000;
   --tw-ring-color: transparent;
 }

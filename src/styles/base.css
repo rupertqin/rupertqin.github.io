@@ -24,20 +24,20 @@ h5,
 h6 {
   @apply font-secondary text-text-dark;
   font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
+  line-height: 1.22;
+  letter-spacing: var(--ui-tracking-display);
 }
 
 h1,
 .h1 {
   @apply text-h1-sm md:text-h1;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
 }
 
 h2,
 .h2 {
   @apply text-h2-sm md:text-h2;
-  letter-spacing: -0.028em;
+  letter-spacing: -0.018em;
 }
 
 h3,

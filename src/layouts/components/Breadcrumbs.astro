@@ -40,7 +40,14 @@ paths.forEach((label: string, i: number) => {
     {
       parts.map(({ label, ...attrs }, index) => (
         <li class="flex items-center" role="listitem">
-          {index > 0 && <span class="mx-2 text-line-strong">/</span>}
+          {
+            index > 0 && (
+              <span
+                class="mx-2.5 inline-block h-2.5 w-px bg-line-strong"
+                aria-hidden="true"
+              />
+            )
+          }
           {index !== parts.length - 1 ? (
             <a class="text-ink-muted transition-colors duration-200 hover:text-ink" {...attrs}>
               {label}

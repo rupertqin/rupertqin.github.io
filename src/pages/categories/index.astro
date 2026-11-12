@@ -11,7 +11,7 @@ const allCategories = await getAllTaxonomy(BLOG_FOLDER, "categories");
 ---
 
 <Base title={"Categories"}>
-  <PageHeader title={"Categories"} />
+  <PageHeader title={"Categories"} eyebrow="Taxonomy" fig="11" />
   <section class="section">
     <div class="container text-center">
       <ul>
@@ -22,7 +22,7 @@ const allCategories = await getAllTaxonomy(BLOG_FOLDER, "categories");
               <li class="m-3 inline-block">
                 <a
                   href={`/categories/${category}`}
-                  class="inline-flex items-baseline gap-2 rounded-md border border-line bg-background px-4 py-2 text-[16px] font-medium text-ink transition-colors duration-200 hover:border-ink hover:text-ink"
+                  class="inline-flex items-baseline gap-2 border border-line bg-background px-4 py-2 text-[16px] font-medium text-ink transition-colors duration-200 hover:border-ink hover:text-ink"
                 >
                   {humanize(category)}{" "}
                   <span class="font-mono text-[12px] tabular-nums text-ink-muted">

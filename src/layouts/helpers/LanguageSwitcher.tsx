@@ -69,7 +69,7 @@ const LanguageSwitcher = ({
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex h-9 cursor-pointer items-center gap-1.5 rounded-sm border border-line px-2.5 font-mono text-[11px] uppercase tracking-[0.08em] text-ink-sub transition-colors duration-200 hover:border-line-strong hover:text-ink focus-visible:outline-none"
+        className="flex h-9 cursor-pointer items-center gap-1.5 border border-line px-2.5 font-mono text-[11px] uppercase tracking-[0.08em] text-ink-sub transition-colors duration-200 hover:border-line-strong hover:text-ink focus-visible:outline-none"
       >
         <span>{currentLang?.languageName}</span>
         <svg
@@ -89,7 +89,7 @@ const LanguageSwitcher = ({
         </svg>
       </button>
       {isOpen && (
-        <div className="absolute left-0 top-full z-50 mt-1 w-full min-w-[120px] overflow-hidden rounded-sm border border-line bg-background p-1 shadow-[var(--ui-shadow)]">
+        <div className="absolute left-0 top-full z-50 mt-1 w-full min-w-[120px] overflow-hidden border border-line bg-background p-0">
           {sortedLanguages.map((language) => (
             <button
               key={language.languageCode}
