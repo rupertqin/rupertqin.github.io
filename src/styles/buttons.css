@@ -1,23 +1,27 @@
 /* ==========================================================================
-   buttons — square plates, one ink fill per page at most
+   buttons — one pill shape, ink or hairline, no shadow, never a gradient
    ========================================================================== */
 
 .btn {
-  @apply inline-flex items-center justify-center gap-2 border border-transparent px-5 py-2.5 text-sm font-medium leading-none;
-  border-radius: 0;
-  letter-spacing: 0.01em;
+  @apply inline-flex items-center justify-center gap-2 border border-transparent px-5 text-sm font-medium leading-none;
+  height: 44px;
+  border-radius: var(--ui-radius-pill);
+  letter-spacing: 0.005em;
   transition:
     background-color var(--ui-dur) var(--ui-ease),
     border-color var(--ui-dur) var(--ui-ease),
-    color var(--ui-dur) var(--ui-ease);
+    color var(--ui-dur) var(--ui-ease),
+    opacity var(--ui-dur) var(--ui-ease);
 }
 
 .btn-sm {
-  @apply px-3.5 py-2 text-[13px];
+  @apply px-4 text-[13px];
+  height: 36px;
 }
 
 .btn-lg {
-  @apply px-6 py-3.5 text-[15px];
+  @apply px-6 text-[15px];
+  height: 50px;
 }
 
 .btn:active {
@@ -26,36 +30,18 @@
 
 /* === Primary Button (ink) === */
 .btn-primary {
-  @apply relative border-ink-strong bg-ink-strong text-white;
-}
-
-/* a 1px folded corner mark — the plate's own registration tick */
-.btn-primary::after {
-  content: "";
-  position: absolute;
-  top: 4px;
-  right: 4px;
-  width: 6px;
-  height: 6px;
-  border-top: 1px solid rgb(255 255 255 / 55%);
-  border-right: 1px solid rgb(255 255 255 / 55%);
-  pointer-events: none;
-  opacity: 0.7;
-  transition: opacity var(--ui-dur) var(--ui-ease);
-}
-
-.btn-primary:hover::after {
-  opacity: 1;
+  @apply border-ink-strong bg-ink-strong text-white;
 }
 
 .btn-primary:hover {
-  background: #000;
-  border-color: #000;
+  opacity: 0.85;
+  background: var(--ui-ink-strong);
+  border-color: var(--ui-ink-strong);
 }
 
-/* === Outline Button — 1px rule that darkens, never fills === */
+/* === Outline Button — a hairline that darkens, never fills === */
 .btn-outline-primary {
-  @apply bg-transparent text-ink;
+  @apply bg-transparent text-ink-strong;
   border-color: var(--ui-line-field);
 }
 
@@ -85,8 +71,11 @@
 /* === Ghost Button === */
 .btn-ghost {
   @apply border-transparent bg-transparent text-ink;
+  height: auto;
+  padding-inline: 0;
 }
 
 .btn-ghost:hover {
-  @apply bg-soft;
+  color: var(--ui-ink-strong);
+  opacity: 0.7;
 }

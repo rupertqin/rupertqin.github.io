@@ -13,7 +13,7 @@ import ImageMod from "./ImageMod.astro";
 const { summary_length }: { summary_length: number; blog_folder: string } =
   config.settings;
 const { data } = Astro.props;
-const { title, image, date, author, categories } = data.data;
+const { title, image, date, categories } = data.data;
 
 const lang = getLangFromUrl(Astro.url);
 const { read_more } = await getTranslations(lang);
@@ -25,12 +25,12 @@ data.id = modifiedSlug;
 const href = slugSelector(`/${data.id}`, lang);
 ---
 
-<article class="group flex h-full flex-col overflow-hidden border border-line bg-background transition-colors duration-200 hover:border-line-strong">
+<article class="group flex h-full flex-col">
   {
     image && (
-      <div class="relative aspect-[16/10] overflow-hidden border-b border-line bg-soft">
+      <a href={href} class="overflow-hidden rounded-[12px] bg-soft" aria-hidden="true" tabindex="-1">
         <ImageMod
-          class="h-full w-full object-cover"
+          class="aspect-[16/10] h-full w-full object-cover opacity-100 transition-opacity duration-300 group-hover:opacity-90"
           src={image}
           alt={title}
           width={445}
@@ -38,53 +38,40 @@ const href = slugSelector(`/${data.id}`, lang);
           format="webp"
           fit="cover"
         />
-        <span
-          class="hatch pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
-          aria-hidden="true"
-        />
-      </div>
+      </a>
     )
   }
-  <div class="flex flex-1 flex-col p-5">
-    <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
-      {date && <span>{dateFormat(date)}</span>}
-      {categories?.length > 0 && (
-        <span class="inline-block h-2.5 w-px bg-line-strong" aria-hidden="true" />
-      )}
-      {categories?.map((category: string, index: number) => (
-        <a
-          href={slugSelector(`/categories/${slugify(category)}`, lang)}
-          class="transition-colors duration-200 hover:text-ink"
-        >
-          {humanize(category)}
-          {index !== categories.length - 1 && ","}
-        </a>
-      ))}
-    </div>
 
-    <h4 class="mt-3 text-[17px] font-semibold leading-snug tracking-[-0.02em] text-ink">
-      <a href={href} class="transition-colors duration-200 hover:text-ink">
-        {title}
-      </a>
-    </h4>
-
-    <p class="mt-3 line-clamp-3 text-[14px] leading-[1.7] text-ink-sub">
-      {plainify(data.body?.slice(0, Number(summary_length)))}
-    </p>
-
-    <div class="mt-auto flex items-center justify-between gap-3 border-t border-line pt-4">
-      <a href={href} class="tech-link text-[13px] font-medium">
-        {read_more}
-        <svg class="h-3 w-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M2.5 8h11M9.5 4l4 4-4 4" />
-        </svg>
-      </a>
-      <a
-        href={slugSelector(`/authors/${slugify(author)}`, lang)}
-        class="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-muted transition-colors duration-200 hover:text-ink"
-      >
-        {humanize(author)}
-      </a>
-    </div>
+  <div class="mt-4 flex flex-wrap items-center gap-x-2 gap-y-1 text-[12.5px] text-ink-muted">
+    {date && <span>{dateFormat(date)}</span>}
+    {
+      categories?.length > 0 && (
+        <>
+          <span class="text-placeholder">·</span>
+          {categories.map((category: string, index: number) => (
+            <a
+              href={slugSelector(`/categories/${slugify(category)}`, lang)}
+              class="transition-colors duration-200 hover:text-ink-strong"
+            >
+              {humanize(category)}
+              {index !== categories.length - 1 && ","}
+            </a>
+          ))}
+        </>
+      )
+    }
   </div>
+
+  <h3 class="mt-2 text-[16.5px] font-medium leading-snug tracking-[-0.01em] text-ink-strong">
+    <a href={href} class="transition-opacity duration-200 hover:opacity-70">{title}</a>
+  </h3>
+
+  <p class="mt-2 line-clamp-2 text-[13.5px] leading-[1.65] text-ink-muted">
+    {plainify(data.body?.slice(0, Number(summary_length)))}
+  </p>
+
+  <a href={href} class="arrow-link mt-4 text-[13px]">
+    {read_more}
+    <span class="arrow-link__arrow">→</span>
+  </a>
 </article>

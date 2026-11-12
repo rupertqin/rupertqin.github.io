@@ -1,5 +1,6 @@
 ---
-import Figure from "@/components/Figure.astro";
+import SectionHeader from "@/components/SectionHeader.astro";
+import CanvasScene from "@/components/canvas/CanvasScene.astro";
 import Base from "@/layouts/Base.astro";
 import { getGraphic } from "@/lib/canvas/catalog";
 import { getLangFromUrl } from "@/lib/utils/languageParser";
@@ -103,101 +104,103 @@ const graphics = [
 
 <Base title={t.pageTitle} lang={lang}>
   <!-- Hero -->
-  <section class="border-b border-line">
-    <div class="container py-16 md:py-24">
-      <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
-        <div class="lg:col-span-7">
-          <div class="flex items-center justify-between gap-6">
-            <p class="eyebrow">{isEn ? "Psychoanalytic / MBTI" : "心理分析 / MBTI"}</p>
-            <span class="sheet-meta hidden sm:inline-flex">
-              <span>Plate 05</span>
-              <i class="sheet-meta__dot"></i>
-              <span>Scale 1:1</span>
+  <section class="band--first pb-16 md:pb-24">
+    <div class="wrap">
+      <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-6">
+          <p class="kicker">{isEn ? "Psychoanalytic / MBTI" : "心理分析 / MBTI"}</p>
+          <h1 class="display mt-6">
+            {isEn ? "MBTI Test" : "MBTI 测试"}
+            <br />
+            <span class="display__muted">
+              {isEn ? "Discover your true self" : "发现真实的自己"}
             </span>
-          </div>
-          <h1 class="mt-6 text-[clamp(32px,4.6vw,52px)] font-semibold leading-[1.1] tracking-[-0.03em] text-ink">
-            {t.heroTitle}
           </h1>
-          <div class="dim mt-6">
-            <span class="dim__value">type measure</span>
-          </div>
-          <p class="mt-6 max-w-[560px] text-[17px] leading-[1.75] text-ink-sub">
-            {t.heroDesc}
-          </p>
-          <div class="mt-8 flex flex-wrap items-center gap-4">
+          <p class="lede mt-7">{t.heroDesc}</p>
+          <div class="mt-9 flex flex-wrap items-center gap-4">
             <a href={mbtiTestUrl} class="btn btn-primary btn-lg">{t.startTest}</a>
-            <a href={cogFuncUrl} class="tech-link text-[14px]">{t.cognitiveFuncLink}</a>
+            <a href={cogFuncUrl} class="arrow-link">
+              {t.cognitiveFuncLink}
+              <span class="arrow-link__arrow">→</span>
+            </a>
           </div>
         </div>
 
-        <div class="lg:col-span-5">
-          <div class="plate">
-            <div class="plate__head">
-              <span class="flex min-w-0 items-baseline gap-2.5">
-                <span class="plate__fig">FIG.05</span>
-                <span class="plate__title">{isEn ? "Live stats" : "实时数据"}</span>
-              </span>
-              <span class="plate__scale">24h</span>
-            </div>
-            <div class="hatch--bar h-1.5 w-full opacity-60" aria-hidden="true"></div>
-            <div class="space-y-5 px-5 py-5">
-              {stats.map((stat) => (
-                <div class="flex items-baseline justify-between gap-4">
-                  <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">{stat.label}</span>
-                  <span class="tech-num text-[24px] font-semibold leading-none text-ink">{stat.value}</span>
-                </div>
-              ))}
-            </div>
-            <div class="border-t border-line px-5 py-4">
-              <img src="/images/test-users.png" alt="User" class="h-auto w-[161px]" />
-              <p class="mt-3 text-[12px] leading-[1.6] text-ink-muted">{t.userPotential}</p>
-            </div>
+        <div class="lg:col-span-6">
+          <div class="media media--field aspect-square">
+            <CanvasScene
+              scene="textRings"
+              plain
+              class="media__art absolute inset-0 h-full w-full"
+            />
           </div>
         </div>
       </div>
+
+      <dl class="stat-row mt-16">
+        {stats.map((stat) => (
+          <div class="stat">
+            <dd class="stat__value">{stat.value}</dd>
+            <dt class="stat__label">{stat.label}</dt>
+          </div>
+        ))}
+      </dl>
     </div>
   </section>
 
   <!-- Figures -->
-  <section class="border-b border-line">
-    <div class="container py-14 md:py-16">
-      <div class="flex items-end justify-between gap-6">
-        <p class="eyebrow">{isEn ? "Figures / Set" : "图形 / 组"}</p>
-        <span class="sheet-meta">04 plates</span>
-      </div>
-      <div class="mt-8 grid grid-cols-2 gap-5 md:grid-cols-4 md:gap-6">
-        {graphics.map((tile, i) => (
-          <Figure
-            fig={String(i + 6).padStart(2, "0")}
-            title={isEn ? tile.en : tile.zh}
-            scene={tile.key}
-            bodyClass="aspect-square"
-          />
-        ))}
-      </div>
+  <section class="band">
+    <div class="wrap">
+      <SectionHeader
+        index="01"
+        eyebrow={isEn ? "Figures" : "图版"}
+        title={isEn ? "Site figures" : "站点图形"}
+        desc={isEn
+          ? "Line art from the Polar open-source graphics library, drawn with one stroke weight and one grey."
+          : "线条图形取自 POLAR 开源图形库，全站统一一种线宽、一种灰。"}
+      >
+        <div class="mt-12 grid grid-cols-2 gap-6">
+          {graphics.map((tile) => (
+            <figure>
+              <div class="media media--field aspect-square">
+                <CanvasScene
+                  scene={tile.key}
+                  plain
+                  class="media__art absolute inset-0 h-full w-full"
+                />
+              </div>
+              <figcaption class="media__note">
+                <span>{isEn ? tile.en : tile.zh}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </SectionHeader>
     </div>
   </section>
 
   <!-- Personality types -->
-  <section class="border-b border-line">
-    <div class="container py-16 md:py-20">
+  <section class="band">
+    <div class="wrap">
       <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
-        <div class="lg:col-span-7">
-          <p class="eyebrow">{t.sectionPersonalityType}</p>
-          <h2 class="mt-4 text-[clamp(24px,3vw,32px)] font-semibold leading-tight tracking-[-0.03em] text-ink">
+        <div class="lg:col-span-6">
+          <p class="kicker">{t.sectionPersonalityType}</p>
+          <h2 class="headline mt-5">
             {t.exploreTitle}
           </h2>
-          <p class="mt-5 max-w-[560px] text-[16px] leading-[1.75] text-ink-sub">{t.exploreDesc}</p>
-          <a href={cogFuncUrl} class="tech-link mt-7 text-[14px] font-medium">
+          <p class="lede">{t.exploreDesc}</p>
+          <a href={cogFuncUrl} class="arrow-link mt-8">
             {t.cognitiveFuncLink}
-            <svg class="h-3 w-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M2.5 8h11M9.5 4l4 4-4 4" />
-            </svg>
+            <span class="arrow-link__arrow">→</span>
           </a>
         </div>
-        <div class="lg:col-span-5">
-          <div class="media-frame flex items-center justify-center p-6">
-            <img src="/images/personality-types.jpg" alt="Personality Types Illustration" class="w-[280px]" />
+        <div class="lg:col-span-6">
+          <div class="media flex items-center justify-center p-10">
+            <img
+              src="/images/personality-types.jpg"
+              alt="Personality Types Illustration"
+              class="w-full max-w-[320px]"
+            />
           </div>
         </div>
       </div>
@@ -205,97 +208,94 @@ const graphics = [
   </section>
 
   <!-- Teams -->
-  <section class="border-b border-line">
-    <div class="container py-16 md:py-20">
-      <div class="grid items-center gap-12 md:grid-cols-2 md:gap-16">
-        <div>
-          <p class="eyebrow">{t.sectionTeams}</p>
-          <h2 class="mt-4 text-[clamp(24px,3vw,32px)] font-semibold leading-tight tracking-[-0.03em] text-ink">
-            {t.teamsTitle}
-          </h2>
-          <p class="mt-5 max-w-[520px] text-[16px] leading-[1.75] text-ink-sub">{t.teamsDesc}</p>
-          <a href={mbtiTestUrl} class="btn btn-primary mt-8">{t.startNow}</a>
+  <section class="band">
+    <div class="wrap">
+      <div class="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+        <div class="lg:col-span-6">
+          <div class="media flex items-center justify-center p-8">
+            <img
+              src="/images/team-assessments.jpg"
+              alt="Team Assessments Illustration"
+              class="w-full max-w-[480px]"
+            />
+          </div>
         </div>
-        <div class="media-frame flex items-center justify-center p-6">
-          <img src="/images/team-assessments.jpg" alt="Team Assessments Illustration" class="w-full max-w-[520px]" />
+        <div class="lg:col-span-6">
+          <p class="kicker">{t.sectionTeams}</p>
+          <h2 class="headline mt-5">{t.teamsTitle}</h2>
+          <p class="lede">{t.teamsDesc}</p>
+          <a href={mbtiTestUrl} class="btn btn-primary mt-8">{t.startNow}</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- How it works -->
-  <section class="border-b border-line">
-    <div class="container py-16 md:py-20">
-      <div class="tech-section-head">
-        <p class="eyebrow">{isEn ? "Process" : "流程"}</p>
-        <h2 class="mt-4 text-[clamp(24px,3vw,32px)] font-semibold leading-tight tracking-[-0.03em] text-ink">
-          {t.howTitle}
-        </h2>
-      </div>
-      <div class="tech-grid">
-        {steps.map((step, i) => (
-          <div class="tech-feature">
-            <span class="tech-feature-index">{String(i + 1).padStart(2, "0")}</span>
-            <h3 class="tech-feature-title">{step.title}</h3>
-            <p class="mt-3 text-[15px] leading-[1.7] text-ink-sub">{step.desc}</p>
-          </div>
-        ))}
-      </div>
-      <div class="mt-12">
-        <a href={mbtiTestUrl} class="btn btn-outline-primary">{t.startNow}</a>
-      </div>
+  <section class="band">
+    <div class="wrap">
+      <SectionHeader
+        index="03"
+        eyebrow={isEn ? "Process" : "流程"}
+        title={t.howTitle}
+      >
+        <div class="feature-row">
+          {steps.map((step) => (
+            <div class="feature">
+              <h3 class="feature__label">{step.title}</h3>
+              <p class="feature__text">{step.desc}</p>
+            </div>
+          ))}
+        </div>
+      </SectionHeader>
     </div>
   </section>
 
   <!-- Success stories -->
-  <section class="border-b border-line">
-    <div class="container py-16 md:py-20">
-      <div class="tech-section-head">
-        <p class="eyebrow">{isEn ? "References" : "用户反馈"}</p>
-        <h2 class="mt-4 text-[clamp(24px,3vw,32px)] font-semibold leading-tight tracking-[-0.03em] text-ink">
-          {t.storyTitle}
-        </h2>
-        <p class="mt-3 max-w-[560px] text-[15px] leading-[1.7] text-ink-muted">{t.storyDesc}</p>
-      </div>
-      <div class="grid gap-8 md:grid-cols-3">
-        {stories.map((story, i) => (
-          <figure class="tech-quote">
-            <p class="mb-3 font-mono text-[9.5px] uppercase tracking-[0.16em] text-placeholder">
-              REF.{String(i + 1).padStart(2, "0")}
-            </p>
-            <blockquote class="text-[15px] leading-[1.75] text-ink-sub">{story.quote}</blockquote>
-            <figcaption class="mt-6 flex items-center gap-3 border-t border-line pt-4">
-              <img src={story.avatar} alt={story.name} class="h-10 w-10 border border-line" />
-              <div>
-                <p class="text-[14px] font-medium text-ink">{story.name}</p>
-                <p class="mt-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">{story.type}</p>
-              </div>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+  <section class="band">
+    <div class="wrap">
+      <SectionHeader
+        index="04"
+        eyebrow={isEn ? "References" : "用户反馈"}
+        title={t.storyTitle}
+        desc={t.storyDesc}
+      >
+        <figure class="mt-12 max-w-[800px]">
+          <blockquote class="quote">{stories[0].quote}</blockquote>
+          <figcaption class="quote__by">{stories[0].name} · {stories[0].type}</figcaption>
+        </figure>
+
+        <div class="mt-12 grid gap-8 border-t border-line pt-8 md:grid-cols-2 md:gap-10">
+          {stories.slice(1).map((story) => (
+            <figure>
+              <blockquote class="text-[15px] leading-[1.7] text-ink-sub">{story.quote}</blockquote>
+              <figcaption class="quote__by">{story.name} · {story.type}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </SectionHeader>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section>
-    <div class="container py-16 md:py-20">
-      <div class="grid gap-10 lg:grid-cols-12 lg:gap-16">
-        <div class="lg:col-span-4">
-          <p class="eyebrow">{isEn ? "FAQ" : "常见问题"}</p>
-          <h2 class="mt-4 text-[clamp(24px,3vw,32px)] font-semibold leading-tight tracking-[-0.03em] text-ink">
-            {isEn ? "Frequently Asked Questions" : "关于MBTI测试的常见问题"}
-          </h2>
-        </div>
-        <div class="lg:col-span-8">
-          <div class="border-t border-line">
+  <section class="band">
+    <div class="wrap">
+      <div class="band-grid">
+        <p class="kicker">
+          <span class="kicker__index">05</span>
+          {isEn ? "FAQ" : "常见问题"}
+        </p>
+        <div>
+          <h2 class="headline">{isEn ? "Frequently asked questions" : "关于 MBTI 测试的常见问题"}</h2>
+          <div class="mt-10 border-t border-line">
             {faqs.map((faq) => (
               <details class="group border-b border-line py-5">
-                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[15px] font-medium text-ink">
+                <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-[15.5px] font-medium text-ink-strong">
                   {faq.q}
-                  <span class="font-mono text-[13px] text-ink-muted transition-transform duration-200 group-open:rotate-45">+</span>
+                  <span class="text-[15px] text-ink-muted transition-transform duration-200 group-open:rotate-45">
+                    +
+                  </span>
                 </summary>
-                <div class="mt-3 max-w-[680px] text-[14px] leading-[1.75] text-ink-sub">
+                <div class="mt-3 max-w-[680px] text-[14.5px] leading-[1.75] text-ink-sub">
                   <p>{faq.a}</p>
                   {faq.list && (
                     <ul class="mt-2 list-disc space-y-1 pl-5">
@@ -314,15 +314,12 @@ const graphics = [
   </section>
 
   <!-- CTA -->
-  <section class="tech-band">
-    <div class="container py-16 md:py-20">
+  <section class="band">
+    <div class="wrap">
       <div class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-        <div>
-          <p class="eyebrow">{isEn ? "Get Started" : "开始测试"}</p>
-          <h2 class="mt-4 text-[clamp(24px,3vw,34px)] font-semibold leading-tight tracking-[-0.03em] text-ink">
-            {t.ctaTitle}
-          </h2>
-          <p class="mt-4 max-w-[520px] text-[16px] leading-[1.75] text-ink-sub">{t.ctaDesc}</p>
+        <div class="max-w-[620px]">
+          <h2 class="headline">{t.ctaTitle}</h2>
+          <p class="lede">{t.ctaDesc}</p>
         </div>
         <a href={mbtiTestUrl} class="btn btn-primary btn-lg shrink-0">{t.startNow}</a>
       </div>

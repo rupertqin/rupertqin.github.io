@@ -7,147 +7,97 @@ const siteName = config.site.title || "秦项科技";
 const logo = config.site.logo || "/images/logo.svg";
 const gitHash = import.meta.env.PUBLIC_GIT_HASH || "";
 const beian = config.params.beian || "";
+
+const columns = [
+  {
+    title: "产品",
+    links: [
+      { name: "心理分析", url: slugSelector("/psychoanalytic", lang) },
+      { name: "股票分析", url: slugSelector("/stock", lang) },
+    ],
+  },
+  {
+    title: "解决方案",
+    links: [
+      { name: "企业数字化转型", url: "#" },
+      { name: "人工智能应用", url: "#" },
+      { name: "数据分析服务", url: "#" },
+    ],
+  },
+  {
+    title: "资源",
+    links: [
+      { name: "博客", url: slugSelector("/blog", lang) },
+      { name: "文档中心", url: "#" },
+      { name: "常见问题", url: "#" },
+    ],
+  },
+  {
+    title: "公司",
+    links: [
+      { name: "关于我们", url: slugSelector("/about", lang) },
+      { name: "联系我们", url: slugSelector("/contact", lang) },
+    ],
+  },
+];
 ---
 
-<footer class="mt-24 border-t border-line bg-background">
-  <div class="container py-16">
-    <!-- Main Footer Content -->
-    <div class="grid grid-cols-2 gap-x-8 gap-y-10 md:grid-cols-4">
-      <!-- Product Column -->
-      <div>
-        <h3 class="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">产品</h3>
-        <ul class="space-y-2.5">
-          <li>
-            <a href={slugSelector("/psychoanalytic", lang)} class="text-[14px] text-ink-sub transition-colors duration-200 hover:text-ink">
-              心理分析
-            </a>
-          </li>
-          <li>
-            <a href={slugSelector("/stock", lang)} class="text-[14px] text-ink-sub transition-colors duration-200 hover:text-ink">
-              股票分析
-            </a>
-          </li>
-        </ul>
+<footer class="border-t border-line">
+  <div class="wrap py-16 md:py-20">
+    <div class="grid gap-12 md:grid-cols-12">
+      <div class="md:col-span-4">
+        <a href={slugSelector("/", lang)} class="flex items-center gap-2.5">
+          <img src={logo} alt="Logo" class="logo-mark h-7 w-7" />
+          <span class="text-[15px] font-medium leading-none tracking-[-0.01em] text-ink-strong">
+            {siteName}
+          </span>
+        </a>
+        <p class="mt-4 max-w-[280px] text-[14px] leading-[1.65] text-ink-muted">
+          秦项科技 · 专注于人工智能与科技创新。
+        </p>
       </div>
 
-      <!-- Solutions Column -->
-      <div>
-        <h3 class="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">解决方案</h3>
-        <ul class="space-y-2.5">
-          <li>
-            <a href="#" class="text-[14px] text-ink-sub transition-colors duration-200 hover:text-ink">
-              企业数字化转型
-            </a>
-          </li>
-          <li>
-            <a href="#" class="text-[14px] text-ink-sub transition-colors duration-200 hover:text-ink">
-              人工智能应用
-            </a>
-          </li>
-          <li>
-            <a href="#" class="text-[14px] text-ink-sub transition-colors duration-200 hover:text-ink">
-              数据分析服务
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Resources Column -->
-      <div>
-        <h3 class="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">资源</h3>
-        <ul class="space-y-2.5">
-          <li>
-            <a href={slugSelector("/blog", lang)} class="text-[14px] text-ink-sub transition-colors duration-200 hover:text-ink">
-              博客
-            </a>
-          </li>
-          <li>
-            <a href="#" class="text-[14px] text-ink-sub transition-colors duration-200 hover:text-ink">
-              文档中心
-            </a>
-          </li>
-          <li>
-            <a href="#" class="text-[14px] text-ink-sub transition-colors duration-200 hover:text-ink">
-              常见问题
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Company Column -->
-      <div>
-        <h3 class="mb-4 font-mono text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted">公司</h3>
-        <ul class="space-y-2.5">
-          <li>
-            <a href={slugSelector("/about", lang)} class="text-[14px] text-ink-sub transition-colors duration-200 hover:text-ink">
-              关于我们
-            </a>
-          </li>
-          <li>
-            <a href={slugSelector("/contact", lang)} class="text-[14px] text-ink-sub transition-colors duration-200 hover:text-ink">
-              联系我们
-            </a>
-          </li>
-        </ul>
+      <div class="grid grid-cols-2 gap-8 sm:grid-cols-4 md:col-span-8">
+        {
+          columns.map((column) => (
+            <div>
+              <h3 class="text-[13px] text-ink-strong">{column.title}</h3>
+              <ul class="mt-4 space-y-2.5">
+                {column.links.map((link) => (
+                  <li>
+                    <a
+                      href={link.url}
+                      class="text-[13.5px] text-ink-muted transition-colors duration-200 hover:text-ink-strong"
+                    >
+                      {link.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
       </div>
     </div>
 
-    <!-- Title block — the drawing's own paperwork -->
-    <div class="mt-14">
-      <div
-        class="mb-3 flex items-center justify-between gap-6 font-mono text-[9.5px] uppercase tracking-[0.16em] text-placeholder"
-      >
-        <span>END OF DRAWING</span>
-        <span>QINXIANG / TITLE BLOCK</span>
-      </div>
-
-      <div class="titleblock">
-        <div class="titleblock__cell">
-          <span class="titleblock__key">Drawn by</span>
-          <span class="titleblock__val">{siteName}</span>
-        </div>
-        <div class="titleblock__cell">
-          <span class="titleblock__key">Scale</span>
-          <span class="titleblock__val">1:1</span>
-        </div>
-        <div class="titleblock__cell">
-          <span class="titleblock__key">Sheet</span>
-          <span class="titleblock__val">01 / 01</span>
-        </div>
-        <div class="titleblock__cell">
-          <span class="titleblock__key">Rev</span>
-          <span class="titleblock__val">{gitHash || "2026.11"}</span>
-        </div>
-      </div>
-
-      <div
-        class="flex flex-col gap-3 border-x border-b border-line px-3 py-3 md:flex-row md:items-center md:justify-between"
-      >
-        <div class="flex items-center gap-2.5">
-          <img src={logo} alt="Logo" class="logo-mark h-6 w-6" />
-          <span class="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-muted">
-            &copy; {new Date().getFullYear()} {siteName}
-            {beian && (
-              <a
-                href="https://beian.miit.gov.cn/"
-                target="_blank"
-                class="ml-2 text-ink-muted transition-colors duration-200 hover:text-ink"
-              >
-                {beian}
-              </a>
-            )}
-          </span>
-        </div>
-        <span class="sheet-meta">
-          <span>All rights reserved</span>
-          {gitHash && (
-            <>
-              <i class="sheet-meta__dot"></i>
-              <span>build {gitHash}</span>
-            </>
-          )}
-        </span>
-      </div>
+    <div
+      class="mt-16 flex flex-col gap-3 border-t border-line pt-6 text-[12.5px] text-ink-muted md:flex-row md:items-center md:justify-between"
+    >
+      <span>
+        &copy; {new Date().getFullYear()} {siteName}
+        {
+          beian && (
+            <a
+              href="https://beian.miit.gov.cn/"
+              target="_blank"
+              class="ml-2 transition-colors duration-200 hover:text-ink-strong"
+            >
+              {beian}
+            </a>
+          )
+        }
+      </span>
+      {gitHash && <span class="text-placeholder">build {gitHash}</span>}
     </div>
   </div>
 </footer>

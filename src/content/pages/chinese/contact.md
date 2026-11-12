@@ -9,7 +9,7 @@ description: "广西南宁秦项信息科技有限责任公司 - 联系我们"
 
 <div class="rounded-md border border-line p-8 mb-6">
   <div class="mb-8">
-    <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted mb-3">Company</p>
+    <p class="text-[12px] text-placeholder mb-3">Company</p>
     <h2 class="text-[20px] font-semibold text-ink mb-4">公司信息</h2>
     <div class="space-y-3 text-ink-sub">
       <p class="text-[16px] font-medium text-ink">广西南宁秦项信息科技有限责任公司</p>
@@ -53,7 +53,7 @@ description: "广西南宁秦项信息科技有限责任公司 - 联系我们"
 </div>
 
 <div class="rounded-md border border-line p-8">
-  <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted mb-3">Follow</p>
+  <p class="text-[12px] text-placeholder mb-3">Follow</p>
   <h2 class="text-[20px] font-semibold text-ink mb-6">关注我们</h2>
   <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
     <div class="rounded-sm border border-line bg-soft p-4">

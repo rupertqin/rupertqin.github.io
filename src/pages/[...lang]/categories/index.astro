@@ -26,7 +26,7 @@ const allCategories = await getAllTaxonomy(langCollection, "categories");
 ---
 
 <Base title={"Categories"}>
-  <PageHeader title={"Categories"} eyebrow="Taxonomy" fig="11" />
+  <PageHeader title={"Categories"} eyebrow="Taxonomy" />
   <section class="section-sm">
     <div class="container">
       <ul class="flex flex-wrap gap-2">
@@ -37,7 +37,7 @@ const allCategories = await getAllTaxonomy(langCollection, "categories");
               <li>
                 <a
                   href={slugSelector(`/categories/${category}`, lang)}
-                  class="tech-tag px-3.5 py-2 text-[13px]"
+                  class="inline-flex rounded-full border border-line px-3.5 py-2 text-[13px] text-ink-muted transition-colors duration-200 hover:border-line-strong hover:text-ink-strong"
                 >
                   {humanize(category)}
                   <span class="ml-2 font-mono text-[10px] tabular-nums text-ink-muted">

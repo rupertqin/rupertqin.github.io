@@ -19,15 +19,15 @@
   /* surfaces */
   --ui-page: #fbfbfa;
   --ui-surface: #ffffff;
-  --ui-soft: #f7f7f5;
-  --ui-soft-hover: #f1f1ef;
-  --ui-selected: #efefed;
+  --ui-soft: #f5f4f1;
+  --ui-soft-hover: #eeece8;
+  --ui-selected: #eae8e3;
 
-  /* hairlines — three weights only: hairline / field / ink */
-  --ui-line: #e9e9e7;
-  --ui-field-line: #d3d1cb;
-  --ui-line-hairline: #e9e9e7;
-  --ui-line-field: #d3d1cb;
+  /* hairlines — an 8% ink line is the only structural rule on the site */
+  --ui-line: rgb(28 27 25 / 9%);
+  --ui-field-line: rgb(28 27 25 / 17%);
+  --ui-line-hairline: rgb(28 27 25 / 9%);
+  --ui-line-field: rgb(28 27 25 / 17%);
   --ui-line-ink: rgb(28 27 25 / 88%);
   --ui-rule-dashed: rgb(28 27 25 / 14%);
 
@@ -35,8 +35,8 @@
   --ui-ink-strong: #1c1b19;
   --ui-ink: #37352f;
   --ui-sub: #5f5d57;
-  --ui-muted: #8b8983;
-  --ui-placeholder: #a9a7a1;
+  --ui-muted: #7c7a73;
+  --ui-placeholder: #a4a29b;
 
   /* legacy "blue" tokens — repointed to neutral ink so nothing on the site renders blue */
   --ui-blue: var(--ui-ink-strong);
@@ -57,36 +57,28 @@
   --color-graphic-stroke: #9a9892;
   --color-graphic-dim: #dcdad4;
 
-  /* drafting — the 2.0 drawing grammar (additive, nothing above is redefined) */
-  --ui-hatch-ink: rgb(28 27 25 / 9%);
-  --ui-hatch-ink-strong: rgb(28 27 25 / 16%);
-  --ui-annot-ink: rgb(28 27 25 / 62%);
-  --ui-dim-ink: rgb(28 27 25 / 38%);
-  --ui-grid-line: rgb(28 27 25 / 5%);
-  --ui-grid-line-strong: rgb(28 27 25 / 8%);
-  --ui-tick-sm: 6px;
-  --ui-tick-lg: 12px;
-  --ui-sketch-scale: 0.4;
-  --ui-plate-pad: 18px;
+  /* engraved line field — the light-mode stand-in for polar's soft grey mass */
+  --ui-engrave-ink: rgb(28 27 25 / 5%);
+  --ui-engrave-ink-strong: rgb(28 27 25 / 10%);
 
   /* semantic feedback — used sparingly (form / answer correctness only) */
   --ui-success: #22c55e;
   --ui-warning: #d99a2b;
   --ui-danger: #e5484d;
 
-  /* geometry — square by default; 2px only where a plate needs an edge */
-  --ui-radius-sm: 0px;
-  --ui-radius-md: 2px;
-  --ui-radius-lg: 2px;
+  /* geometry — media and controls are rounded, text blocks are not */
+  --ui-radius-sm: 6px;
+  --ui-radius-md: 10px;
+  --ui-radius-lg: 14px;
   --ui-radius-pill: 999px;
   --ui-shadow: none;
   --ui-shadow-dialog: 0 0 0 1px rgb(28 27 25 / 10%), 0 6px 20px rgb(28 27 25 / 8%);
   --ui-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
   --ui-dur: 160ms;
 
-  /* section rhythm — the vertical beat of the manual */
-  --ui-section-y: clamp(64px, 7vw, 112px);
-  --ui-gutter: 20px;
+  /* section rhythm — one hairline, then a lot of air */
+  --ui-section-y: clamp(72px, 8vw, 128px);
+  --ui-gutter: 24px;
 
   /* type */
   --ui-font-sans:
@@ -96,9 +88,9 @@
     ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
   --ui-font-display:
-    "Space Grotesk", Inter, -apple-system, BlinkMacSystemFont, "PingFang SC",
+    Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
     "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
-  --ui-tracking-display: -0.015em;
+  --ui-tracking-display: -0.02em;
 
   /* ---- shadcn bridge (kept for existing components) ---- */
   --background: var(--ui-surface);
@@ -125,7 +117,7 @@
   --chart-3: var(--ui-muted);
   --chart-4: var(--ui-sub);
   --chart-5: var(--ui-line);
-  --radius: 2px;
+  --radius: 10px;
 }
 
 @theme inline {
@@ -176,10 +168,10 @@
   --font-secondary: var(--ui-font-sans);
   --font-mono: var(--ui-font-mono);
 
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
 }
 
 @layer base {
@@ -193,8 +185,7 @@
 }
 
 @layer components {
-  @import "./tech.css";
-  @import "./drafting.css";
+  @import "./ui.css";
   @import "./components.css";
   @import "./navigation.css";
   @import "./buttons.css";

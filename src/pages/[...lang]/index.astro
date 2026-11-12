@@ -1,13 +1,10 @@
 ---
 import Button from "@/components/Button.astro";
 import SectionHeader from "@/components/SectionHeader.astro";
-import Figure from "@/components/Figure.astro";
-import Annotation from "@/components/Annotation.astro";
 import CanvasScene from "@/components/canvas/CanvasScene.astro";
 import Base from "@/layouts/Base.astro";
 import { getGraphic } from "@/lib/canvas/catalog";
-import { getLangFromUrl } from "@/lib/utils/languageParser";
-import { supportedLang } from "@/lib/utils/languageParser";
+import { getLangFromUrl, supportedLang } from "@/lib/utils/languageParser";
 
 export function getStaticPaths() {
   return supportedLang.map((lang) => ({
@@ -17,24 +14,6 @@ export function getStaticPaths() {
 
 const lang = getLangFromUrl(Astro.url);
 const isEn = lang === "en";
-
-const capabilities = isEn
-  ? [
-      { name: "AI Analysis", note: "Models" },
-      { name: "Psychoanalysis", note: "Personality" },
-      { name: "Stock Analysis", note: "Markets" },
-      { name: "Blog", note: "Notes" },
-      { name: "Data Viz", note: "Charts" },
-      { name: "Consulting", note: "Advisory" },
-    ]
-  : [
-      { name: "AI分析", note: "模型" },
-      { name: "精神分析助手", note: "人格" },
-      { name: "股票分析", note: "行情" },
-      { name: "博客", note: "笔记" },
-      { name: "数据可视化", note: "图表" },
-      { name: "企业咨询", note: "顾问" },
-    ];
 
 const features = isEn
   ? [
@@ -138,338 +117,223 @@ const testimonials = isEn
       },
     ];
 
-const specRows = isEn
-  ? [
-      ["Latency", "Real-time"],
-      ["Intelligence", "Level 9"],
-      ["Modules", "06"],
-      ["Delivery", "API · Web"],
-    ]
-  : [
-      ["响应速度", "实时"],
-      ["智能程度", "L9"],
-      ["服务模块", "06"],
-      ["交付方式", "API · Web"],
-    ];
-
 const figures = [
   { graphic: getGraphic("slices"), fig: "01" },
   { graphic: getGraphic("gauge"), fig: "02" },
   { graphic: getGraphic("orbit"), fig: "03" },
 ];
+
+const heroGraphic = getGraphic("orbit");
 ---
 
-<Base title={isEn ? "Qinxiang Tech - Leader in Tech Innovation" : "秦项科技 - 科技创新的引领者"} lang={lang}>
-  <!-- Hero — PLATE 00 -->
-  <section class="border-b border-line">
-    <div class="container grid gap-14 py-16 md:py-24 lg:grid-cols-12 lg:gap-16">
-      <div class="lg:col-span-7">
-        <div class="flex items-center justify-between gap-6">
-          <p class="marker"><strong>00</strong><span>/ {isEn ? "Overview" : "总览"}</span></p>
-          <span class="sheet-meta hidden sm:inline-flex">
-            <span>Plate 00</span>
-            <i class="sheet-meta__dot"></i>
-            <span>Scale 1:1</span>
-          </span>
-        </div>
+<Base
+  title={isEn ? "Qinxiang Tech - Leader in Tech Innovation" : "秦项科技 - 科技创新的引领者"}
+  lang={lang}
+>
+  <!-- Hero -->
+  <section class="band--first pb-16 md:pb-24">
+    <div class="wrap">
+      <p class="kicker">
+        {isEn ? "Qinxiang · AI and technology" : "秦项科技 · 专注于人工智能与科技创新"}
+      </p>
 
-        <h1 class="mt-8 text-[clamp(34px,5vw,58px)] font-semibold leading-[1.04] tracking-[-0.025em] text-ink">
-          {isEn ? "One-Stop Enterprise" : "一站式企业"}
-          <br />
-          {isEn ? "AI Solutions" : "智能解决方案"}
-        </h1>
+      <h1 class="display mt-6 max-w-[900px]">
+        {isEn ? "One-stop enterprise" : "一站式企业"}
+        <br />
+        <span class="display__muted">{isEn ? "AI solutions" : "智能解决方案"}</span>
+      </h1>
 
-        <!-- measured width of the title block -->
-        <div class="dim mt-8">
-          <span class="dim__value">{isEn ? "type measure" : "标题栏宽度"}</span>
-        </div>
+      <p class="lede mt-7 max-w-[560px]">
+        {isEn
+          ? "Simple, efficient and affordable. Integrate AI, data analytics and professional services to empower enterprise digital transformation."
+          : "简单、高效且经济实惠。整合人工智能、数据分析和专业服务，助力企业数字化转型。"}
+      </p>
 
-        <p class="tech-lede mt-7">
-          {isEn
-            ? "Simple, efficient and affordable. Integrate AI, data analytics and professional services to empower enterprise digital transformation."
-            : "简单、高效且经济实惠。整合人工智能、数据分析和专业服务，助力企业数字化转型。"}
-        </p>
-        <div class="mt-10 flex flex-wrap gap-3">
-          <Button variant="default" size="lg">{isEn ? "Free Trial" : "免费试用"}</Button>
-          <Button variant="outline" size="lg">{isEn ? "Book Demo" : "预约演示"}</Button>
-        </div>
-
-        <dl class="mt-14 grid grid-cols-3 gap-6 border-t border-line-strong pt-5">
-          {[
-            ["06", isEn ? "Service modules" : "服务模块"],
-            ["85%", isEn ? "Forecast accuracy" : "预测准确率"],
-            ["32%", isEn ? "Return uplift" : "收益提升"],
-          ].map(([value, label]) => (
-            <div>
-              <dd class="tech-num text-[26px] font-semibold leading-none text-ink md:text-[30px]">{value}</dd>
-              <dt class="tech-stat-label mt-2">{label}</dt>
-            </div>
-          ))}
-        </dl>
+      <div class="mt-9 flex flex-wrap items-center gap-3">
+        <Button variant="default" size="lg">{isEn ? "Free Trial" : "免费试用"}</Button>
+        <Button variant="outline" size="lg" href={isEn ? "/en/contact" : "/contact"}>
+          {isEn ? "Book Demo" : "预约演示"}
+        </Button>
       </div>
 
-      <!-- Spec plate -->
-      <aside class="lg:col-span-5">
-        <div class="plate">
-          <div class="plate__head">
-            <span class="flex min-w-0 items-baseline gap-2.5">
-              <span class="plate__fig">SPEC</span>
-              <span class="plate__title">{isEn ? "Capability matrix" : "能力矩阵"}</span>
-            </span>
-            <span class="plate__scale">v6.1</span>
-          </div>
-
-          <div class="hatch--bar h-1.5 w-full opacity-60" aria-hidden="true"></div>
-
-          <div class="px-5">
-            <dl>
-              {specRows.map(([k, v]) => (
-                <div class="tech-kv">
-                  <dt>{k}</dt>
-                  <dd>{v}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <div class="plate__foot">
-            <span class="flex items-center gap-2">
-              <span class="inline-block size-1.5 bg-ink-strong"></span>
-              <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted">
-                {isEn ? "All systems operational" : "服务运行正常"}
-              </span>
-            </span>
-            <CanvasScene scene="compass" plain class="hidden w-[88px] shrink-0 sm:block" />
-          </div>
+      <figure class="mt-14 md:mt-20">
+        <div class="media media--field grid aspect-[4/3] place-items-center sm:aspect-[16/8]">
+          <CanvasScene
+            scene={heroGraphic.key}
+            plain
+            class="media__art aspect-square w-[min(72%,520px)]"
+          />
         </div>
-      </aside>
-    </div>
-  </section>
+        <figcaption class="media__note">
+          <span>{isEn ? heroGraphic.en : heroGraphic.zh}</span>
+          <span>{isEn ? "Line art, one weight, one grey" : "线稿 · 一种线宽 · 一种灰"}</span>
+        </figcaption>
+      </figure>
 
-  <!-- Capability index -->
-  <section class="border-b border-line">
-    <div class="container">
-      <div class="hidden items-end justify-between pt-5 lg:flex">
-        <span class="sheet-meta">Index / 能力索引</span>
-        <span class="sheet-meta">06 modules</span>
-      </div>
-      <div class="ruler-x mt-2 hidden lg:block" aria-hidden="true"></div>
-      <div class="grid grid-cols-2 divide-y divide-line sm:grid-cols-3 lg:grid-cols-6 lg:divide-y-0 lg:divide-x">
-        {capabilities.map((item, i) => (
-          <div class="flex items-baseline justify-between gap-2 py-5 pr-5 sm:pr-0 lg:px-5 lg:first:pl-0 lg:last:pr-0">
-            <div>
-              <p class="text-[14px] font-medium text-ink">{item.name}</p>
-              <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted">{item.note}</p>
-            </div>
-            <span class="font-mono text-[10px] text-ink-muted">{String(i + 1).padStart(2, "0")}</span>
+      <dl class="stat-row">
+        {[
+          ["06", isEn ? "Service modules" : "服务模块"],
+          ["85%", isEn ? "Forecast accuracy" : "预测准确率"],
+          ["32%", isEn ? "Return uplift" : "收益提升"],
+        ].map(([value, label]) => (
+          <div class="stat">
+            <dd class="stat__value">{value}</dd>
+            <dt class="stat__label">{label}</dt>
           </div>
         ))}
-      </div>
+      </dl>
     </div>
   </section>
 
   <!-- 01 · Platform -->
-  <section class="border-b border-line">
-    <div class="container py-20 md:py-28">
+  <section class="band">
+    <div class="wrap">
       <SectionHeader
         index="01"
         eyebrow={isEn ? "Platform" : "平台"}
-        title={isEn ? "All-in-One Solution" : "一体化解决方案"}
+        title={isEn ? "All-in-one solution" : "一体化解决方案"}
         desc={isEn
-          ? "Three product lines share one delivery pipeline: research, modelling and advisory."
-          : "三条产品线共用同一套交付管线：研究、建模与顾问服务。"}
-        fig="01"
-        sheet="02"
-      />
-
-      <div class="mt-14 grid gap-x-10 gap-y-12 md:grid-cols-3">
-        {features.map((feature, i) => (
-          <div class="border-t border-line-strong pt-6">
-            <div class="flex items-baseline justify-between">
-              <span class="tech-feature-index">{String(i + 1).padStart(2, "0")}</span>
-              <span class="font-mono text-[10px] uppercase tracking-[0.14em] text-ink-muted">PL-0{i + 1}</span>
+          ? "Integrate AI, data analytics and professional services to empower enterprise digital transformation."
+          : "整合人工智能、数据分析和专业服务，助力企业数字化转型。"}
+      >
+        <div class="feature-row">
+          {features.map((feature) => (
+            <div class="feature">
+              <h3 class="feature__label">{feature.title}</h3>
+              <p class="feature__text">{feature.desc}</p>
             </div>
-            <h3 class="mt-6 text-[20px] font-semibold leading-snug text-ink">{feature.title}</h3>
-            <p class="mt-3 text-[15px] leading-[1.7] text-ink-sub">{feature.desc}</p>
-            <a href="#" class="tech-link mt-7 text-[13px] font-medium">
-              {isEn ? "Learn More" : "了解更多"}
-              <svg class="ml-1 h-3 w-3" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2.5 8h11M9.5 4l4 4-4 4" />
-              </svg>
-            </a>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </SectionHeader>
     </div>
   </section>
 
-  <!-- 02 · Plates -->
-  <section class="border-b border-line">
-    <div class="container py-20 md:py-28">
+  <!-- 02 · Stock -->
+  <section class="band">
+    <div class="wrap">
       <SectionHeader
         index="02"
-        eyebrow={isEn ? "Figures" : "图版"}
-        title={isEn ? "Stroke, graduation, orbit" : "描边、刻度、轨道"}
+        eyebrow={isEn ? "Quant" : "量化"}
+        title={isEn ? "AI stock trend analysis" : "智能股票趋势分析"}
         desc={isEn
-          ? "Three readings of the same instrument. One line weight, one grey — drawn, never decorated."
-          : "同一件仪器的三种读法。一支线宽、一支灰，只绘制，不装饰。"}
-        fig="02"
-        sheet="03"
-      />
+          ? "Our AI-driven stock analysis system helps investors make smarter decisions. Predict market trends and identify opportunities through deep learning and big data analytics."
+          : "我们的 AI 驱动股票分析系统能够帮助投资者做出更明智的决策。通过深度学习和大数据分析，预测市场趋势，识别投资机会。"}
+      >
+        <div class="mt-12 grid gap-10 lg:grid-cols-2 lg:gap-16">
+          <div>
+            <ul class="border-t border-line">
+              {stockPoints.map((point) => (
+                <li class="border-b border-line py-5">
+                  <h3 class="text-[15px] font-medium text-ink-strong">{point.title}</h3>
+                  <p class="mt-1.5 text-[14px] leading-[1.65] text-ink-muted">{point.desc}</p>
+                </li>
+              ))}
+            </ul>
 
-      <div class="mt-14 grid gap-6 md:grid-cols-3">
-        {figures.map(({ graphic, fig }) => (
-          <Figure
-            fig={fig}
-            title={isEn ? graphic.en : graphic.zh}
-            scene={graphic.key}
-            bodyClass="aspect-square"
-            note={isEn
-              ? "One line weight, one grey. Drawn, never decorated."
-              : "一支线宽、一支灰，只绘制，不装饰。"}
-          />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Stock analysis -->
-  <section class="border-b border-line">
-    <div class="container py-16 md:py-24">
-      <div class="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
-        <div class="lg:col-span-6">
-          <p class="eyebrow">{isEn ? "Quant / Research" : "量化 / 研究"}</p>
-          <h2 class="mt-4 text-[clamp(24px,3vw,32px)] font-semibold leading-tight tracking-[-0.03em] text-ink">
-            {isEn ? "AI Stock Trend Analysis" : "智能股票趋势分析"}
-          </h2>
-          <p class="mt-5 max-w-[540px] text-[16px] leading-[1.75] text-ink-sub">
-            {isEn
-              ? "Our AI-driven stock analysis system helps investors make smarter decisions. Predict market trends and identify opportunities through deep learning and big data analytics."
-              : "我们的 AI 驱动股票分析系统能够帮助投资者做出更明智的决策。通过深度学习和大数据分析，预测市场趋势，识别投资机会。"}
-          </p>
-
-          <ul class="mt-10 border-t border-line">
-            {stockPoints.map((point, i) => (
-              <li class="flex gap-4 border-b border-line py-5">
-                <span class="mt-0.5 font-mono text-[10px] leading-none text-ink-muted">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 class="text-[15px] font-semibold text-ink">{point.title}</h3>
-                  <p class="mt-1.5 text-[14px] leading-[1.65] text-ink-sub">{point.desc}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
-
-          <div class="mt-8 flex flex-wrap gap-3">
-            <Button href={isEn ? "/en/stock" : "/stock"} variant="default">
-              {isEn ? "Learn More" : "了解更多"}
-            </Button>
-            <Button variant="outline">{isEn ? "Free Trial" : "免费试用"}</Button>
+            <a href={isEn ? "/en/stock" : "/stock"} class="arrow-link mt-8">
+              {isEn ? "Learn more" : "了解更多"}
+              <span class="arrow-link__arrow">→</span>
+            </a>
           </div>
-        </div>
 
-        <div class="lg:col-span-6">
-          <div class="plate">
-            <div class="plate__head">
-              <span class="flex min-w-0 items-baseline gap-2.5">
-                <span class="plate__fig">FIG.04</span>
-                <span class="plate__title">{isEn ? "Model snapshot" : "指标快照"}</span>
-              </span>
-              <span class="plate__scale">2026</span>
+          <div>
+            <div class="media media--field aspect-[16/10]">
+              <CanvasScene scene="stepped" plain class="media__art absolute inset-0 h-full w-full" />
             </div>
-
-            <div class="relative border-b border-line bg-white">
-              <div class="hatch pointer-events-none absolute inset-0 opacity-70" aria-hidden="true"></div>
-              <CanvasScene scene="wave" plain class="relative h-[180px] w-full" />
-              <Annotation
-                text={isEn ? "signal / 12m" : "信号 / 12月"}
-                x="58%"
-                y="18%"
-                dir="right"
-                class="hidden sm:flex"
-              />
-            </div>
-
-            <div class="grid grid-cols-2 gap-6 px-5 py-5">
+            <div class="mt-6 grid grid-cols-2 gap-6 border-t border-line pt-6">
               <div>
-                <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
-                  {isEn ? "Accuracy" : "预测准确率"}
-                </p>
-                <p class="tech-num mt-2 text-[30px] font-semibold leading-none text-ink">85%</p>
+                <p class="stat__value">85%</p>
+                <p class="stat__label">{isEn ? "Forecast accuracy" : "预测准确率"}</p>
               </div>
               <div>
-                <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
-                  {isEn ? "Return Boost" : "用户收益提升"}
-                </p>
-                <p class="tech-num mt-2 text-[30px] font-semibold leading-none text-ink">32%</p>
+                <p class="stat__value">32%</p>
+                <p class="stat__label">{isEn ? "Return uplift" : "用户收益提升"}</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </SectionHeader>
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section>
-    <div class="container py-16 md:py-24">
-      <div class="tech-section-head">
-        <p class="eyebrow">{isEn ? "References" : "客户反馈"}</p>
-        <h2 class="mt-4 text-[clamp(24px,3vw,32px)] font-semibold leading-tight tracking-[-0.03em] text-ink">
-          {isEn ? "Client Reviews" : "客户评价"}
-        </h2>
-      </div>
+  <!-- 03 · References -->
+  <section class="band">
+    <div class="wrap">
+      <SectionHeader
+        index="03"
+        eyebrow={isEn ? "References" : "客户反馈"}
+        title={isEn ? "What clients say" : "客户评价"}
+      >
+        <figure class="mt-12 max-w-[820px]">
+          <blockquote class="quote">{testimonials[0].quote}</blockquote>
+          <figcaption class="quote__by">
+            {testimonials[0].author} · {testimonials[0].role}
+          </figcaption>
+        </figure>
 
-      <div class="grid gap-10 md:grid-cols-3 md:gap-8">
-        {testimonials.map((item, i) => (
-          <figure class="tech-quote">
-            <p class="mb-3 font-mono text-[9.5px] uppercase tracking-[0.16em] text-placeholder">
-              REF.{String(i + 1).padStart(2, "0")}
-            </p>
-            <blockquote class="text-[15px] leading-[1.75] text-ink-sub">{item.quote}</blockquote>
-            <figcaption class="mt-5 flex items-end justify-between gap-4 border-t border-line pt-4">
-              <div>
-                <p class="text-[14px] font-medium text-ink">{item.author}</p>
-                <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">{item.role}</p>
+        <div class="mt-12 grid gap-8 border-t border-line pt-8 md:grid-cols-2 md:gap-10">
+          {testimonials.slice(1).map((item) => (
+            <figure>
+              <blockquote class="text-[15px] leading-[1.7] text-ink-sub">{item.quote}</blockquote>
+              <figcaption class="quote__by">{item.author} · {item.role}</figcaption>
+            </figure>
+          ))}
+        </div>
+      </SectionHeader>
+    </div>
+  </section>
+
+  <!-- 04 · Figures -->
+  <section class="band">
+    <div class="wrap">
+      <SectionHeader
+        index="04"
+        eyebrow={isEn ? "Figures" : "图形"}
+        title={isEn ? "Site figures" : "站点图形"}
+        desc={isEn
+          ? "Line art from the Polar open-source graphics library, drawn with one stroke weight and one grey."
+          : "线条图形取自 POLAR 开源图形库，全站统一一种线宽、一种灰。"}
+      >
+        <div class="mt-12 grid gap-8 md:grid-cols-3 md:gap-6">
+          {figures.map(({ graphic }) => (
+            <figure>
+              <div class="media media--field aspect-square">
+                <CanvasScene
+                  scene={graphic.key}
+                  plain
+                  class="media__art absolute inset-0 h-full w-full"
+                />
               </div>
-              <span class="hatch--bar h-6 w-10 shrink-0 opacity-60" aria-hidden="true"></span>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
+              <figcaption class="media__note">
+                <span>{isEn ? graphic.en : graphic.zh}</span>
+                <span>1:1</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </SectionHeader>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="tech-band">
-    <div class="container py-16 md:py-20">
+  <section class="band">
+    <div class="wrap">
       <div class="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
-        <div>
-          <div class="dim mb-6 max-w-[420px]">
-            <span class="dim__value">offset 64</span>
-          </div>
-          <p class="eyebrow">{isEn ? "Get Started" : "开始合作"}</p>
-          <h2 class="mt-4 text-[clamp(24px,3vw,34px)] font-semibold leading-tight tracking-[-0.03em] text-ink">
-            {isEn ? "Ready to Get Started?" : "准备好开始了吗？"}
-          </h2>
-          <p class="mt-4 max-w-[520px] text-[16px] leading-[1.75] text-ink-sub">
+        <div class="max-w-[620px]">
+          <h2 class="headline">{isEn ? "Ready to get started?" : "准备好开始了吗？"}</h2>
+          <p class="lede">
             {isEn
               ? "Experience our smart solutions now and boost your business efficiency and decision-making."
               : "立即体验我们的智能解决方案，提升您的业务效率和决策能力。"}
           </p>
         </div>
-        <div class="flex items-end gap-8">
-          <CanvasScene
-            scene="concentric"
-            plain
-            class="hidden aspect-square w-[180px] shrink-0 sm:block"
-          />
-          <div class="flex flex-wrap gap-3">
-            <Button variant="default" size="lg">{isEn ? "Free Trial" : "免费试用"}</Button>
-            <Button variant="outline" size="lg">{isEn ? "Contact Sales" : "联系销售"}</Button>
-          </div>
+        <div class="flex flex-wrap items-center gap-3">
+          <Button variant="default" size="lg" href={isEn ? "/en/contact" : "/contact"}>
+            {isEn ? "Contact Sales" : "联系销售"}
+          </Button>
+          <Button variant="outline" size="lg" href={isEn ? "/en/blog" : "/blog"}>
+            {isEn ? "Read the blog" : "读博客"}
+          </Button>
         </div>
       </div>
     </div>

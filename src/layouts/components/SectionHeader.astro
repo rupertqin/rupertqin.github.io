@@ -1,27 +1,16 @@
 ---
 /**
- * SectionHeader — the site's single chapter head, now a plate head.
- *
- * Left: index + section name + figure number.
- * Middle: title (h1 on `page`, h2 on `section`).
- * Right: description, note and the scale/sheet rail.
- *
- * Every field except `title` is optional, so older call sites keep working.
+ * SectionHeader — polar's section skeleton: a quiet label column, then the
+ * statement. Two lines at most; the second one is grey.
  */
 interface Props {
   title: string;
   index?: string;
   eyebrow?: string;
+  /** second line of the headline, printed in grey */
+  titleMuted?: string;
   desc?: string;
-  /** figure number without the prefix, e.g. "03" renders as FIG.03 */
-  fig?: string;
-  /** drawing scale shown in the right rail, defaults to 1:1 */
-  scale?: string;
-  /** sheet number shown in the right rail */
-  sheet?: string;
-  /** monospace annotation under the title */
-  note?: string;
-  /** `page` renders an h1 at page-title scale, `section` an h2. */
+  /** `page` renders an h1 at display scale, `section` an h2. */
   size?: "page" | "section";
   class?: string;
 }
@@ -30,47 +19,44 @@ const {
   title,
   index,
   eyebrow,
-  desc,
-  fig = "",
-  scale = "1:1",
-  sheet = "",
-  note = "",
+  titleMuted = "",
+  desc = "",
   size = "section",
   class: className = "",
 } = Astro.props;
-
-const plate = Boolean(fig || sheet || note);
 ---
 
-<header class={`chapter-head${plate ? " chapter-head--plate" : ""} ${className}`}>
-  <div class="chapter-head__mark">
-    <div class="marker">
-      {index && <strong>{index}</strong>}
-      {eyebrow && <span>{index ? `/ ${eyebrow}` : eyebrow}</span>}
-    </div>
-    {fig && <p class="chapter-head__fig">FIG.{fig}</p>}
+<header class={`band-grid ${className}`}>
+  <p class="kicker">
+    {index && <span class="kicker__index">{index}</span>}
+    {eyebrow}
+  </p>
+
+  <div>
+    {
+      size === "page" ? (
+        <h1 class="display">
+          {title}
+          {titleMuted && (
+            <>
+              <br />
+              <span class="display__muted">{titleMuted}</span>
+            </>
+          )}
+        </h1>
+      ) : (
+        <h2 class="headline">
+          {title}
+          {titleMuted && (
+            <>
+              <br />
+              <span class="headline__muted">{titleMuted}</span>
+            </>
+          )}
+        </h2>
+      )
+    }
+    {desc && <p class="lede" set:text={desc} />}
+    <slot />
   </div>
-
-  {
-    size === "page" ? (
-      <h1 class="tech-title" set:text={title} />
-    ) : (
-      <h2 class="chapter-head__title" set:text={title} />
-    )
-  }
-
-  {
-    (desc || plate) && (
-      <div class="chapter-head__side">
-        {desc && <p class="chapter-head__desc" set:text={desc} />}
-        {note && <p class="chapter-head__note" set:text={note} />}
-        {plate && (
-          <p class="chapter-head__scale">
-            <span>SCALE {scale}</span>
-            {sheet && <span>SHEET {sheet}</span>}
-          </p>
-        )}
-      </div>
-    )
-  }
 </header>

@@ -11,21 +11,21 @@ const allCategories = await getAllTaxonomy(BLOG_FOLDER, "categories");
 ---
 
 <Base title={"Categories"}>
-  <PageHeader title={"Categories"} eyebrow="Taxonomy" fig="11" />
+  <PageHeader title={"Categories"} eyebrow="Taxonomy" />
   <section class="section">
-    <div class="container text-center">
-      <ul>
+    <div class="wrap">
+      <ul class="flex flex-wrap gap-2">
         {
           categories.map((category: string) => {
             const count = allCategories.filter((c) => c === category).length;
             return (
-              <li class="m-3 inline-block">
+              <li>
                 <a
                   href={`/categories/${category}`}
-                  class="inline-flex items-baseline gap-2 border border-line bg-background px-4 py-2 text-[16px] font-medium text-ink transition-colors duration-200 hover:border-ink hover:text-ink"
+                  class="inline-flex items-baseline gap-2 rounded-full border border-line px-4 py-2 text-[14px] text-ink-sub transition-colors duration-200 hover:border-line-strong hover:text-ink-strong"
                 >
                   {humanize(category)}{" "}
-                  <span class="font-mono text-[12px] tabular-nums text-ink-muted">
+                  <span class="text-[12px] tabular-nums text-ink-muted">
                     {count}
                   </span>
                 </a>

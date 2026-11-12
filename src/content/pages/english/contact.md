@@ -9,7 +9,7 @@ description: "Guangxi Nanning Qinxiang Information Technology Co., Ltd. - Contac
 
 <div class="rounded-md border border-line p-8 mb-6">
   <div class="mb-8">
-    <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted mb-3">Company</p>
+    <p class="text-[12px] text-placeholder mb-3">Company</p>
     <h2 class="text-[20px] font-semibold text-ink mb-4">Company Information</h2>
     <div class="space-y-3 text-ink-sub">
       <p class="text-[16px] font-medium text-ink">Guangxi Nanning Qinxiang Information Technology Co., Ltd.</p>
@@ -53,7 +53,7 @@ description: "Guangxi Nanning Qinxiang Information Technology Co., Ltd. - Contac
 </div>
 
 <div class="rounded-md border border-line p-8">
-  <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted mb-3">Follow</p>
+  <p class="text-[12px] text-placeholder mb-3">Follow</p>
   <h2 class="text-[20px] font-semibold text-ink mb-6">Follow Us</h2>
   <div class="grid grid-cols-2 gap-3 md:grid-cols-4">
     <div class="rounded-sm border border-line bg-soft p-4">

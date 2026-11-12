@@ -32,7 +32,7 @@ export default function MBTIIChingTable() {
   const mbtiTypes = MbtiService.getAllTypes();
 
   return (
-    <div className="container mx-auto py-10">
+    <div>
       <Bagua type={selectedType} />
       <Hexagrams selectedFunctions={items} onFunctionSelect={chooseFunction} />
       <div className="overflow-x-auto">

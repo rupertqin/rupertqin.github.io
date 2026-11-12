@@ -1,0 +1,478 @@
+/* ==========================================================================
+   ui.css — the polar.sh landing grammar, translated to light.
+   Quiet type, one hairline per section, and a lot of air. The only ornament
+   is line work: the engraved fields the canvas figures sit on.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   layout
+   -------------------------------------------------------------------------- */
+
+.wrap {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--ui-gutter);
+}
+
+/* a section: one hairline above, generous air below */
+.band {
+  border-top: 1px solid var(--ui-line);
+  padding-block: var(--ui-section-y);
+}
+
+.band--first {
+  border-top: 0;
+  padding-top: clamp(40px, 5vw, 72px);
+}
+
+.band--soft {
+  background: var(--ui-soft);
+}
+
+/* label column / content column, 3:9 — polar's section skeleton */
+.band-grid {
+  display: grid;
+  gap: 28px;
+}
+
+@media (min-width: 1024px) {
+  .band-grid {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 9fr);
+    gap: 48px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   type
+   -------------------------------------------------------------------------- */
+
+.kicker {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ui-muted);
+}
+
+.kicker__index {
+  display: inline-block;
+  min-width: 2.2em;
+  color: var(--ui-placeholder);
+}
+
+/* the section headline: a statement in ink, its continuation in grey */
+.headline {
+  font-family: var(--ui-font-display);
+  font-size: clamp(26px, 3.2vw, 40px);
+  font-weight: 500;
+  line-height: 1.16;
+  letter-spacing: var(--ui-tracking-display);
+  color: var(--ui-ink-strong);
+}
+
+.headline__muted {
+  color: var(--ui-muted);
+}
+
+.display {
+  font-family: var(--ui-font-display);
+  font-size: clamp(34px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--ui-ink-strong);
+}
+
+.display__muted {
+  color: var(--ui-muted);
+}
+
+.lede {
+  margin-top: 18px;
+  max-width: 54ch;
+  font-size: 17px;
+  line-height: 1.62;
+  color: var(--ui-muted);
+}
+
+.lede--tight {
+  margin-top: 12px;
+}
+
+.meta {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ui-muted);
+}
+
+/* --------------------------------------------------------------------------
+   media — a canvas figure on an engraved field.
+   polar floats product shots on soft grey artwork; ours is drawn with lines,
+   so the field is a slow radial hatch instead of a gradient.
+   -------------------------------------------------------------------------- */
+
+.media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--ui-radius-lg);
+  background: var(--ui-soft);
+  isolation: isolate;
+}
+
+.media--field::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: repeating-radial-gradient(
+    circle at 50% 46%,
+    var(--ui-engrave-ink) 0 1px,
+    transparent 1px 9px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.media__art {
+  position: relative;
+  z-index: 2;
+}
+
+.media__note {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 4px;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--ui-muted);
+}
+
+/* --------------------------------------------------------------------------
+   feature columns — polar prints three of these under a section headline
+   -------------------------------------------------------------------------- */
+
+.feature-row {
+  display: grid;
+  margin-top: clamp(32px, 4vw, 56px);
+  border-top: 1px solid var(--ui-line);
+}
+
+@media (min-width: 768px) {
+  .feature-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.feature {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--ui-line);
+}
+
+@media (min-width: 768px) {
+  .feature {
+    padding: 26px 32px;
+    border-bottom: 0;
+    border-right: 1px solid var(--ui-line);
+  }
+
+  .feature:first-child {
+    padding-left: 0;
+  }
+
+  .feature:last-child {
+    padding-right: 0;
+    border-right: 0;
+  }
+}
+
+.feature__label {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ui-ink-strong);
+}
+
+.feature__text {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.62;
+  color: var(--ui-muted);
+}
+
+/* --------------------------------------------------------------------------
+   stats — numbers do the talking, hairlines keep the row honest
+   -------------------------------------------------------------------------- */
+
+.stat-row {
+  display: grid;
+  gap: 0;
+  margin-top: clamp(32px, 4vw, 52px);
+  border-top: 1px solid var(--ui-line);
+}
+
+@media (min-width: 640px) {
+  .stat-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.stat {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--ui-line);
+}
+
+@media (min-width: 640px) {
+  .stat {
+    padding: 26px 32px;
+    border-bottom: 0;
+    border-right: 1px solid var(--ui-line);
+  }
+
+  .stat:first-child {
+    padding-left: 0;
+  }
+
+  .stat:last-child {
+    padding-right: 0;
+    border-right: 0;
+  }
+}
+
+.stat__value {
+  font-family: var(--ui-font-display);
+  font-size: clamp(28px, 3vw, 38px);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ui-ink-strong);
+  font-variant-numeric: tabular-nums;
+}
+
+.stat__label {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ui-muted);
+}
+
+/* --------------------------------------------------------------------------
+   quotes
+   -------------------------------------------------------------------------- */
+
+.quote {
+  font-size: clamp(17px, 1.5vw, 20px);
+  line-height: 1.6;
+  color: var(--ui-ink);
+  letter-spacing: -0.01em;
+}
+
+.quote__by {
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--ui-muted);
+}
+
+/* --------------------------------------------------------------------------
+   inline chevron link
+   -------------------------------------------------------------------------- */
+
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--ui-ink-strong);
+  transition: opacity var(--ui-dur) var(--ui-ease);
+}
+
+.arrow-link:hover {
+  opacity: 0.6;
+}
+
+.arrow-link__arrow {
+  transition: transform var(--ui-dur) var(--ui-ease);
+}
+
+.arrow-link:hover .arrow-link__arrow {
+  transform: translateX(3px);
+}
+
+/* --------------------------------------------------------------------------
+   canvas wrappers — the scenes draw into an absolutely-filled stage
+   -------------------------------------------------------------------------- */
+
+.canvas-frame {
+  position: relative;
+  overflow: hidden;
+}
+
+.canvas-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--ui-line);
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.canvas-plain {
+  position: relative;
+  overflow: hidden;
+}
+
+.canvas-stage {
+  position: absolute;
+  inset: 0;
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.sketch-canvas {
+  filter: url("#sketch-line");
+}
+
+/* --------------------------------------------------------------------------
+   responsive: keep the air, drop the ornament
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 639px) {
+  .media--field::before {
+    opacity: 0.7;
+  }
+}
+
+@media (prefers-contrast: more) {
+  .media--field::before,
+  .media--field::after {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   legacy aliases — markdown content still carries the old class names.
+   They resolve to the current grammar instead of being rewritten in content.
+   -------------------------------------------------------------------------- */
+
+.eyebrow {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--ui-muted);
+  letter-spacing: 0;
+}
+
+.tech-card,
+.callout,
+.media-frame {
+  border-radius: var(--ui-radius-md);
+  background: var(--ui-soft);
+  border: 0;
+  padding: 24px;
+}
+
+.tech-grid {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .tech-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.tech-feature {
+  border-radius: var(--ui-radius-md);
+  border: 0;
+  background: var(--ui-soft);
+  padding: 24px;
+}
+
+.tech-feature-index {
+  font-family: var(--ui-font-mono);
+  font-size: 11px;
+  color: var(--ui-placeholder);
+}
+
+.tech-feature-title {
+  margin-top: 14px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ui-ink-strong);
+}
+
+.tech-kv {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--ui-line);
+  padding: 12px 0;
+  font-size: 14px;
+}
+
+.tech-kv:last-child {
+  border-bottom: 0;
+}
+
+.tech-tag {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--ui-line);
+  border-radius: var(--ui-radius-pill);
+  padding: 6px 14px;
+  font-size: 12.5px;
+  color: var(--ui-muted);
+}
+
+.tech-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ui-ink-strong);
+  font-size: 14px;
+}
+
+.tech-num {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.tech-quote {
+  border-left: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ui-sub);
+}
+
+.tech-band {
+  background: var(--ui-soft);
+}
+
+.tech-section-head {
+  display: block;
+}
+
+.tech-title {
+  font-family: var(--ui-font-display);
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: var(--ui-tracking-display);
+  color: var(--ui-ink-strong);
+}
+
+.tech-lede {
+  font-size: 17px;
+  line-height: 1.62;
+  color: var(--ui-muted);
+}
+
+.tech-stat-label {
+  font-size: 13px;
+  color: var(--ui-muted);
+}

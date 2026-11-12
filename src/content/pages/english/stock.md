@@ -13,24 +13,24 @@ Professional and accurate stock trend analysis and intelligent stock selection s
 ## Core Features
 
 <div class="grid md:grid-cols-3 gap-4 mb-16">
-  <div class="rounded-md border border-line p-6">
-    <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">01</p>
+  <div class="rounded-[12px] bg-soft p-6">
+    <p class="text-[12px] text-placeholder">01</p>
     <h3 class="mt-3 text-[17px] font-semibold text-ink">Trend Prediction</h3>
     <p class="mt-2 text-[14px] leading-[1.7] text-ink-sub">
       Using advanced machine learning algorithms to analyze historical data and market sentiment, predicting future stock trends.
     </p>
   </div>
 
-  <div class="rounded-md border border-line p-6">
-    <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">02</p>
+  <div class="rounded-[12px] bg-soft p-6">
+    <p class="text-[12px] text-placeholder">02</p>
     <h3 class="mt-3 text-[17px] font-semibold text-ink">Smart Stock Selection</h3>
     <p class="mt-2 text-[14px] leading-[1.7] text-ink-sub">
       Automatically filter high-quality stocks that meet the criteria based on user risk preferences and investment goals.
     </p>
   </div>
 
-  <div class="rounded-md border border-line p-6">
-    <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">03</p>
+  <div class="rounded-[12px] bg-soft p-6">
+    <p class="text-[12px] text-placeholder">03</p>
     <h3 class="mt-3 text-[17px] font-semibold text-ink">Risk Assessment</h3>
     <p class="mt-2 text-[14px] leading-[1.7] text-ink-sub">
       Comprehensively assess investment portfolio risks, providing risk warnings and asset allocation suggestions.
@@ -87,7 +87,7 @@ Professional and accurate stock trend analysis and intelligent stock selection s
 ## Pricing Plans
 
 <div class="grid md:grid-cols-3 gap-4 mb-16">
-  <div class="rounded-md border border-line p-6">
+  <div class="rounded-[12px] bg-soft p-6">
     <h3 class="text-[15px] font-semibold text-ink">Basic</h3>
     <p class="mt-3 font-mono text-[28px] font-semibold tabular-nums leading-none text-ink">¥99<span class="ml-1 font-mono text-[11px] font-normal text-ink-muted">/month</span></p>
     <ul class="mt-5 mb-6 list-none space-y-2.5 pl-0 text-[14px] text-ink-sub">
@@ -113,7 +113,7 @@ Professional and accurate stock trend analysis and intelligent stock selection s
     <a href="#" class="btn btn-outline-primary w-full">Choose Plan</a>
   </div>
 
-  <div class="relative rounded-md border border-line p-6 shadow-[0_1px_2px_rgb(15_15_15/6%)]">
+  <div class="relative rounded-[12px] bg-soft p-6 shadow-[0_1px_2px_rgb(15_15_15/6%)]">
     <div class="absolute -top-2.5 left-6 bg-ink-strong px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white">
       Most Popular
     </div>
@@ -148,7 +148,7 @@ Professional and accurate stock trend analysis and intelligent stock selection s
     <a href="#" class="btn btn-primary w-full">Choose Plan</a>
   </div>
 
-  <div class="rounded-md border border-line p-6">
+  <div class="rounded-[12px] bg-soft p-6">
     <h3 class="text-[15px] font-semibold text-ink">Enterprise</h3>
     <p class="mt-3 font-mono text-[28px] font-semibold tabular-nums leading-none text-ink">¥999<span class="ml-1 font-mono text-[11px] font-normal text-ink-muted">/month</span></p>
     <ul class="mt-5 mb-6 list-none space-y-2.5 pl-0 text-[14px] text-ink-sub">

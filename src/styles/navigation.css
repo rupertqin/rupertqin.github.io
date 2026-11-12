@@ -1,49 +1,28 @@
 /* ==========================================================================
-   navigation — hairline rails, square panels, ink underline for the current page
+   navigation — a quiet bar: muted links, ink on hover, one pill at the end
    ========================================================================== */
 
-/* === Header === */
 .header {
-  @apply z-50 bg-background py-0;
+  @apply z-50 bg-page/85 py-0;
+  backdrop-filter: blur(12px);
 }
 
 /* === Navbar === */
 .navbar {
-  @apply relative mx-auto flex max-w-[1320px] flex-wrap items-center justify-between px-5;
+  @apply relative mx-auto flex max-w-[1200px] flex-wrap items-center justify-between px-6;
+  min-height: 68px;
 }
 
 /* === Desktop Nav Links === */
 .nav-link {
-  @apply relative px-3 py-2 text-[13.5px] font-medium tracking-[0.01em] text-ink-sub transition-colors;
+  @apply relative px-3 py-2 text-[14px] font-normal text-ink-muted transition-colors;
   transition-duration: var(--ui-dur);
   transition-timing-function: var(--ui-ease);
 }
 
-.nav-link:hover {
-  @apply text-ink;
-}
-
+.nav-link:hover,
 .nav-link.active {
-  @apply text-ink;
-}
-
-/* active page: a bracket, not a bar — 2px ink rule with two 5px end ticks */
-.nav-link.active::after {
-  content: "";
-  @apply absolute inset-x-1 bottom-0 h-[5px];
-  background-image:
-    linear-gradient(var(--ui-ink-strong) 0 0),
-    linear-gradient(var(--ui-ink-strong) 0 0),
-    linear-gradient(var(--ui-ink-strong) 0 0);
-  background-repeat: no-repeat;
-  background-size:
-    100% 2px,
-    1px 5px,
-    1px 5px;
-  background-position:
-    left bottom,
-    left bottom,
-    right bottom;
+  @apply text-ink-strong;
 }
 
 /* === Dropdown === */
@@ -52,38 +31,22 @@
 }
 
 .nav-dropdown-label {
-  @apply relative inline-flex cursor-pointer items-center gap-1 px-3 py-2 text-[13.5px] font-medium tracking-[0.01em] text-ink-sub transition-colors;
+  @apply relative inline-flex cursor-pointer items-center gap-1 px-3 py-2 text-[14px] font-normal text-ink-muted transition-colors;
   transition-duration: var(--ui-dur);
   transition-timing-function: var(--ui-ease);
-}
-
-.nav-dropdown-label.active::after {
-  content: "";
-  @apply absolute inset-x-1 bottom-0 h-[5px];
-  background-image:
-    linear-gradient(var(--ui-ink-strong) 0 0),
-    linear-gradient(var(--ui-ink-strong) 0 0),
-    linear-gradient(var(--ui-ink-strong) 0 0);
-  background-repeat: no-repeat;
-  background-size:
-    100% 2px,
-    1px 5px,
-    1px 5px;
-  background-position:
-    left bottom,
-    left bottom,
-    right bottom;
 }
 
 .nav-dropdown-label:hover,
 .nav-dropdown-label.active {
-  @apply text-ink;
+  @apply text-ink-strong;
 }
 
 .nav-dropdown-list {
-  @apply invisible absolute left-0 top-full z-50 mt-0 w-52 overflow-hidden border border-line bg-background p-0 opacity-0 transition-all;
-  transition-duration: var(--ui-dur);
-  transition-timing-function: var(--ui-ease);
+  @apply invisible absolute left-0 top-full z-50 mt-1 w-52 rounded-[10px] border border-line bg-background p-1.5 opacity-0;
+  box-shadow: 0 12px 28px rgb(28 27 25 / 8%);
+  transition:
+    opacity var(--ui-dur) var(--ui-ease),
+    visibility var(--ui-dur) var(--ui-ease);
 }
 
 .group:hover .nav-dropdown-list,
@@ -92,21 +55,16 @@
 }
 
 .nav-dropdown-link {
-  @apply block border-b border-line px-3 py-2.5 text-[13px] text-ink-sub transition-colors;
+  @apply block rounded-[6px] px-2.5 py-2 text-[13.5px] text-ink-sub transition-colors;
   transition-duration: var(--ui-dur);
 }
 
-.nav-dropdown-link:last-child {
-  border-bottom: 0;
-}
-
 .nav-dropdown-link:hover {
-  @apply bg-soft text-ink;
+  @apply bg-soft text-ink-strong;
 }
 
 .nav-dropdown-link.active {
-  @apply bg-transparent pl-2.5 text-ink;
-  border-left: 2px solid var(--ui-ink-strong);
+  @apply bg-soft text-ink-strong;
 }
 
 /* === Mobile Menu === */

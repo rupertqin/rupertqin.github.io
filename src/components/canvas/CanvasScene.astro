@@ -6,7 +6,7 @@ interface Props {
   class?: string;
   /** Drop the hairline frame so the drawing sits straight on the page. */
   plain?: boolean;
-  /** Let the drawn lines wobble ±0.4px through the drafting filter. */
+  /** Let the drawn lines wobble ±0.4px (opt-in; the polar look is crisp). */
   sketch?: boolean;
 }
 
@@ -14,7 +14,7 @@ const {
   scene,
   class: className = "",
   plain = false,
-  sketch = true,
+  sketch = false,
 } = Astro.props;
 ---
 

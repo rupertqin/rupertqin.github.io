@@ -13,97 +13,79 @@ const lang = getLangFromUrl(Astro.url);
 ---
 
 <Base title={lang === "en" ? "MBTI Test Result" : "MBTI 测试结果"} lang={lang}>
-  <section class="section-sm">
-    <div class="container">
+  <section class="band--first pb-20">
+    <div class="wrap">
       <div id="result-container" class="mx-auto max-w-4xl">
-        <div class="flex items-center justify-between gap-6">
-          <p class="eyebrow">{lang === "en" ? "Psychoanalytic / Result" : "心理分析 / 测试结果"}</p>
-          <span class="sheet-meta hidden sm:inline-flex">
-            <span>Plate 07</span>
-            <i class="sheet-meta__dot"></i>
-            <span>Scale 1:1</span>
-          </span>
-        </div>
+        <p class="kicker">{lang === "en" ? "Psychoanalytic / Result" : "心理分析 / 测试结果"}</p>
 
-        <div class="mt-5 border-b border-line pb-8">
-          <div class="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p class="font-mono text-[9.5px] uppercase tracking-[0.18em] text-placeholder">
-                FIG.07 / Result
-              </p>
-              <h1
-                id="type-result"
-                class="tech-num mt-3 text-[clamp(48px,9vw,84px)] font-semibold leading-none tracking-[-0.04em] text-ink"
-              ></h1>
-            </div>
-            <span class="hatch--bar mb-2 hidden h-12 w-24 opacity-50 sm:block" aria-hidden="true"></span>
-          </div>
-          <div class="dim mt-6 max-w-[520px]">
-            <span class="dim__value">type designation</span>
-          </div>
-          <p id="type-description" class="mt-5 max-w-[640px] text-[16px] leading-[1.75] text-ink-sub"></p>
+        <div class="mt-5 border-b border-line pb-10">
+          <h1
+            id="type-result"
+            class="display text-[clamp(52px,9vw,88px)]"
+          ></h1>
+          <p id="type-description" class="lede mt-6 max-w-[640px]"></p>
         </div>
 
         <div class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          <div class="border border-line p-5">
-            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">主导功能 · Dominant</h3>
-            <p id="dominant-function" class="mt-3 text-[16px] font-medium text-ink"></p>
+          <div class="rounded-[12px] bg-soft p-5">
+            <h3 class="text-[12px] text-ink-muted">主导功能 · Dominant</h3>
+            <p id="dominant-function" class="mt-2 text-[16px] font-medium text-ink-strong"></p>
           </div>
-          <div class="border border-line p-5">
-            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">辅助功能 · Auxiliary</h3>
-            <p id="auxiliary-function" class="mt-3 text-[16px] font-medium text-ink"></p>
+          <div class="rounded-[12px] bg-soft p-5">
+            <h3 class="text-[12px] text-ink-muted">辅助功能 · Auxiliary</h3>
+            <p id="auxiliary-function" class="mt-2 text-[16px] font-medium text-ink-strong"></p>
           </div>
-          <div class="border border-line p-5">
-            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">第三功能 · Tertiary</h3>
-            <p id="tertiary-function" class="mt-3 text-[16px] font-medium text-ink"></p>
+          <div class="rounded-[12px] bg-soft p-5">
+            <h3 class="text-[12px] text-ink-muted">第三功能 · Tertiary</h3>
+            <p id="tertiary-function" class="mt-2 text-[16px] font-medium text-ink-strong"></p>
           </div>
-          <div class="border border-line p-5">
-            <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">劣势功能 · Inferior</h3>
-            <p id="inferior-function" class="mt-3 text-[16px] font-medium text-ink"></p>
+          <div class="rounded-[12px] bg-soft p-5">
+            <h3 class="text-[12px] text-ink-muted">劣势功能 · Inferior</h3>
+            <p id="inferior-function" class="mt-2 text-[16px] font-medium text-ink-strong"></p>
           </div>
         </div>
 
         <div class="mt-12 border-t border-line pt-8">
-          <h2 class="title-tick text-[20px] font-semibold tracking-[-0.02em] text-ink">
+          <h2 class="text-[20px] font-medium tracking-[-0.01em] text-ink-strong">
             {lang === "en" ? "Strengths" : "优势"}
           </h2>
           <ul id="strengths-list" class="mt-5 grid grid-cols-1 gap-x-8 gap-y-0 md:grid-cols-2"></ul>
         </div>
 
         <div class="mt-12 border-t border-line pt-8">
-          <h2 class="title-tick text-[20px] font-semibold tracking-[-0.02em] text-ink">
+          <h2 class="text-[20px] font-medium tracking-[-0.01em] text-ink-strong">
             {lang === "en" ? "Growth Areas" : "发展领域"}
           </h2>
           <ul id="weaknesses-list" class="mt-5 grid grid-cols-1 gap-x-8 gap-y-0 md:grid-cols-2"></ul>
         </div>
 
         <div class="mt-12 border-t border-line pt-8">
-          <h2 class="title-tick text-[20px] font-semibold tracking-[-0.02em] text-ink">
+          <h2 class="text-[20px] font-medium tracking-[-0.01em] text-ink-strong">
             {lang === "en" ? "Career Suggestions" : "职业建议"}
           </h2>
           <div id="career-suggestions" class="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2"></div>
         </div>
 
         <div class="mt-12 border-t border-line pt-8">
-          <h2 class="title-tick text-[20px] font-semibold tracking-[-0.02em] text-ink">
+          <h2 class="text-[20px] font-medium tracking-[-0.01em] text-ink-strong">
             {lang === "en" ? "Development" : "发展建议"}
           </h2>
           <div id="development-areas" class="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2"></div>
         </div>
 
         <div class="mt-12 border-t border-line pt-8">
-          <h2 class="title-tick text-[20px] font-semibold tracking-[-0.02em] text-ink">
+          <h2 class="text-[20px] font-medium tracking-[-0.01em] text-ink-strong">
             {lang === "en" ? "Relationships" : "人际关系"}
           </h2>
           <div class="mt-5 grid grid-cols-1 gap-8 md:grid-cols-2">
             <div>
-              <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
+              <h3 class="text-[12px] text-ink-muted">
                 {lang === "en" ? "Strengths" : "优势"}
               </h3>
               <ul id="relationship-strengths" class="mt-3"></ul>
             </div>
             <div>
-              <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
+              <h3 class="text-[12px] text-ink-muted">
                 {lang === "en" ? "Challenges" : "挑战"}
               </h3>
               <ul id="relationship-challenges" class="mt-3"></ul>
@@ -112,18 +94,18 @@ const lang = getLangFromUrl(Astro.url);
         </div>
 
         <div class="mt-12 border-t border-line pt-8">
-          <h2 class="title-tick text-[20px] font-semibold tracking-[-0.02em] text-ink">
+          <h2 class="text-[20px] font-medium tracking-[-0.01em] text-ink-strong">
             {lang === "en" ? "Work Style" : "工作风格"}
           </h2>
           <div class="mt-5 grid grid-cols-1 gap-8 md:grid-cols-2">
             <div>
-              <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
+              <h3 class="text-[12px] text-ink-muted">
                 {lang === "en" ? "Strengths" : "优势"}
               </h3>
               <ul id="work-strengths" class="mt-3"></ul>
             </div>
             <div>
-              <h3 class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
+              <h3 class="text-[12px] text-ink-muted">
                 {lang === "en" ? "Challenges" : "挑战"}
               </h3>
               <ul id="work-challenges" class="mt-3"></ul>

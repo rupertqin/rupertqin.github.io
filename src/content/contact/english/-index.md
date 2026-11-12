@@ -1,7 +1,7 @@
 ---
-title: "Contact"
+title: "Contact Us"
 meta_title: ""
-description: "this is meta description"
+description: "Guangxi Nanning Qinxiang Information Technology Co., Ltd. - Contact Us"
 image: ""
 draft: false
 ---

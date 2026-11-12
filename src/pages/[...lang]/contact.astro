@@ -6,7 +6,6 @@ import { getListPage } from "@/lib/contentParser.astro";
 import { getTranslations, supportedLang } from "@/lib/utils/languageParser";
 import PageHeader from "@/partials/PageHeader.astro";
 
-
 export function getStaticPaths() {
   const paths = supportedLang.map((lang) => ({
     params: { lang: lang || undefined },
@@ -15,10 +14,7 @@ export function getStaticPaths() {
 }
 
 const { lang } = Astro.params;
-const contactIndex = await getListPage(
-  "contact",
-  lang
-);
+const contactIndex = await getListPage("contact", lang);
 if (contactIndex[0].data.draft) {
   return Astro.redirect("/404");
 }
@@ -26,98 +22,96 @@ if (contactIndex[0].data.draft) {
 const { contact_form_action }: { contact_form_action: string } = config.params;
 const { title, description, meta_title, image } = contactIndex[0].data;
 
-const {
-  working_mail,
-  full_name,
-  anything_else,
-  contact_message_placeholder,
-  submit,
-} = await getTranslations(lang!);
+const { working_mail, full_name, anything_else, contact_message_placeholder, submit } =
+  await getTranslations(lang!);
+
+const isEn = lang === "en";
 ---
 
-<Base
-  title={title}
-  meta_title={meta_title}
-  description={description}
-  image={image}
->
-  <PageHeader title={title} eyebrow="Contact" fig="14" />
-  <section class="section-sm">
-    <div class="container">
-      <div class="row">
-        <div class="mx-auto md:col-10 lg:col-6">
-          <div class="mb-8 flex items-end justify-between gap-6">
-            <span class="sheet-meta">
-              <span>Form 03</span>
-              <i class="sheet-meta__dot"></i>
-              <span>Enquiry</span>
-            </span>
-            <CanvasScene scene="dumbbell" plain class="aspect-square w-[140px]" />
+<Base title={title} meta_title={meta_title} description={description} image={image}>
+  <PageHeader title={title} />
+
+  <section class="band--first pb-20 md:pb-28">
+    <div class="wrap grid gap-14 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-5">
+        <h2 class="headline">{isEn ? "Contact details" : "联系方式"}</h2>
+
+        <dl class="mt-8 space-y-4 border-t border-line pt-6 text-[14px] leading-[1.7]">
+          <div>
+            <dt class="text-ink-muted">{isEn ? "Company" : "公司"}</dt>
+            <dd class="mt-1 text-ink-sub">
+              {isEn
+                ? "Guangxi Nanning Qinxiang Information Technology Co., Ltd."
+                : "广西南宁秦项信息科技有限责任公司"}
+            </dd>
           </div>
-
-          <div class="plate">
-            <div class="plate__head">
-              <span class="flex min-w-0 items-baseline gap-2.5">
-                <span class="plate__fig">FORM.03</span>
-                <span class="plate__title">Enquiry</span>
-              </span>
-              <span class="plate__scale">Scale 1:1</span>
-            </div>
-            <div class="hatch--bar h-1.5 w-full opacity-60" aria-hidden="true"></div>
-
-            <div class="px-5 py-6 md:px-7 md:py-8">
-              <form action={contact_form_action} method="POST">
-                <div class="mb-6">
-                  <label for="name" class="form-label">
-                    <span class="text-placeholder">01 ·</span>
-                    {full_name}
-                    <span class="text-destructive">*</span>
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    class="form-input"
-                    placeholder="John Doe"
-                    type="text"
-                  />
-                </div>
-                <div class="mb-6">
-                  <label for="email" class="form-label">
-                    <span class="text-placeholder">02 ·</span>
-                    {working_mail}
-                    <span class="text-destructive">*</span>
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    class="form-input"
-                    placeholder="john.doe@email.com"
-                    type="email"
-                  />
-                </div>
-                <div class="mb-6">
-                  <label for="message" class="form-label">
-                    <span class="text-placeholder">03 ·</span>
-                    {anything_else}
-                    <span class="text-destructive">*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    class="form-input"
-                    placeholder={contact_message_placeholder}
-                    rows="8"></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">{submit}</button>
-              </form>
-            </div>
-
-            <div class="plate__foot">
-              <span class="plate__caption">Three fields, one sheet. Replies within two working days.</span>
-              <span class="plate__scale">Sheet 14</span>
-            </div>
+          <div>
+            <dt class="text-ink-muted">{isEn ? "Address" : "地址"}</dt>
+            <dd class="mt-1 text-ink-sub">
+              {isEn
+                ? "No.17 Liangqing Avenue, Nanning Area, China (Guangxi) Pilot Free Trade Zone"
+                : "中国（广西）自由贸易试验区南宁片区良庆大道17号"}
+            </dd>
           </div>
+          <div>
+            <dt class="text-ink-muted">{isEn ? "Business" : "商务合作"}</dt>
+            <dd class="mt-1 text-ink-sub">
+              {isEn
+                ? "If you are interested in our services, please contact us for business discussions."
+                : "如果您对我们的服务感兴趣，欢迎联系我们进行商务洽谈。"}
+            </dd>
+          </div>
+          <div>
+            <dt class="text-ink-muted">{isEn ? "Support" : "技术支持"}</dt>
+            <dd class="mt-1 text-ink-sub">
+              {isEn
+                ? "If you run into a problem with our products, please contact technical support."
+                : "如果您在使用我们的产品过程中遇到问题，请联系技术支持。"}
+            </dd>
+          </div>
+        </dl>
+
+        <div class="media media--field mt-10 aspect-square">
+          <CanvasScene scene="dumbbell" plain class="media__art absolute inset-0 h-full w-full" />
         </div>
+      </div>
+
+      <div class="lg:col-span-6 lg:col-start-7">
+        <form action={contact_form_action} method="POST" class="border-t border-line pt-8">
+          <div class="mb-6">
+            <label for="name" class="form-label">
+              {full_name}
+              <span class="text-destructive">*</span>
+            </label>
+            <input id="name" name="name" class="form-input" placeholder="John Doe" type="text" />
+          </div>
+          <div class="mb-6">
+            <label for="email" class="form-label">
+              {working_mail}
+              <span class="text-destructive">*</span>
+            </label>
+            <input
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="john.doe@email.com"
+              type="email"
+            />
+          </div>
+          <div class="mb-6">
+            <label for="message" class="form-label">
+              {anything_else}
+              <span class="text-destructive">*</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              class="form-input"
+              placeholder={contact_message_placeholder}
+              rows="8"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">{submit}</button>
+        </form>
       </div>
     </div>
   </section>

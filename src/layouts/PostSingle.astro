@@ -21,139 +21,97 @@ if (!lang) {
   lang = default_language;
 }
 
-const posts = await getSinglePage(
-  COLLECTION_FOLDER,
-  lang
-);
+const posts = await getSinglePage(COLLECTION_FOLDER, lang);
 const similarPosts = similarItems(post, posts);
 const { Content } = await render(post);
 const { title, description, author, categories, image, date, tags } = post.data;
 ---
 
-<section class="section-sm pt-10">
-  <div class="container">
-    <div class="row justify-center">
-      <article class="lg:col-9">
+<article class="pt-12 md:pt-16">
+  <div class="wrap">
+    <div class="mx-auto max-w-[760px]">
+      <p class="kicker">
         {
-          image && (
-            <figure class="plate mb-10">
-              <div class="plate__head">
-                <span class="flex min-w-0 items-baseline gap-2.5">
-                  <span class="plate__fig">FIG.C1</span>
-                  <span class="plate__title">COVER</span>
-                </span>
-                <span class="plate__scale">Scale 1:1</span>
-              </div>
-              <div class="plate__body aspect-[16/9]">
-                <ImageMod
-                  src={image}
-                  height={500}
-                  width={1200}
-                  alt={title}
-                  class="h-full w-full object-cover"
-                  format="webp"
-                  fit="cover"
-                />
-              </div>
-              <figcaption class="plate__foot">
-                <span class="plate__caption">{title}</span>
-                <span class="plate__scale">FIG.C1</span>
-              </figcaption>
-            </figure>
-          )
+          categories.map((category: string, index: number) => (
+            <>
+              <a
+                class="transition-colors duration-200 hover:text-ink-strong"
+                href={slugSelector(`/categories/${slugify(category)}`, lang)}
+              >
+                {humanize(category)}
+              </a>
+              {index !== categories.length - 1 && " · "}
+            </>
+          ))
         }
+        {date && <span class="text-placeholder"> · {dateFormat(date)}</span>}
+      </p>
 
-        <div class="flex flex-wrap items-center gap-x-3 gap-y-2 font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">
-          {date && <span>{dateFormat(date)}</span>}
+      <h1
+        set:html={markdownify(title)}
+        class="mt-5 text-[clamp(28px,4.2vw,48px)] font-medium leading-[1.14] tracking-[-0.025em] text-ink-strong"
+      />
+
+      <div class="mt-6 flex flex-wrap items-center gap-x-2 gap-y-1 text-[13px] text-ink-muted">
+        <a
+          href={slugSelector(`/authors/${slugify(author)}`, lang)}
+          class="transition-colors duration-200 hover:text-ink-strong"
+        >
+          {humanize(author)}
+        </a>
+        <span class="text-placeholder">·</span>
+        <span>{date ? dateFormat(date) : "—"}</span>
+      </div>
+
+      {
+        image && (
+          <ImageMod
+            src={image}
+            height={500}
+            width={1200}
+            alt={title}
+            class="mt-10 aspect-[16/9] w-full rounded-[14px] object-cover"
+            format="webp"
+            fit="cover"
+          />
+        )
+      }
+
+      <div class="content mt-12">
+        <Content />
+      </div>
+
+      <div class="mt-14 flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
+        <div class="flex flex-wrap items-center gap-2">
           {
-            categories.map((category: string, index: number) => (
-              <>
-                <span class="inline-block h-2.5 w-px bg-line-strong" aria-hidden="true" />
-                <a
-                  class="transition-colors duration-200 hover:text-ink"
-                  href={slugSelector(`/categories/${slugify(category)}`, lang)}
-                >
-                  {humanize(category)}
-                  {index !== categories.length - 1 && ","}
-                </a>
-              </>
+            tags.map((tag: string) => (
+              <a
+                class="rounded-full border border-line px-3 py-1.5 text-[12.5px] text-ink-muted transition-colors duration-200 hover:border-line-strong hover:text-ink-strong"
+                href={slugSelector(`/tags/${slugify(tag)}`, lang)}
+              >
+                #{humanize(tag)}
+              </a>
             ))
           }
         </div>
-
-        <h1
-          set:html={markdownify(title)}
-          class="mt-4 text-[clamp(26px,3.6vw,40px)] font-semibold leading-[1.2] tracking-[-0.025em] text-ink"
-        />
-
-        <div class="dim mt-6">
-          <span class="dim__value">type measure</span>
+        <div class="flex items-center gap-3">
+          <span class="meta">Share</span>
+          <Share className="social-icons" title={title} description={description} slug={post.id} />
         </div>
-
-        <div class="mt-5 flex items-center justify-between gap-4 border-y border-line py-3.5">
-          <a
-            href={slugSelector(`/authors/${slugify(author)}`, lang)}
-            class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-sub transition-colors duration-200 hover:text-ink"
-          >
-            Drawn by / {humanize(author)}
-          </a>
-          <span class="sheet-meta hidden sm:inline-flex">
-            <span>{date ? dateFormat(date) : "Undated"}</span>
-            <i class="sheet-meta__dot"></i>
-            <span>Sheet 01</span>
-          </span>
-        </div>
-
-        <div class="content mt-10">
-          <Content />
-        </div>
-
-        <div class="mt-12 flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">Tags</span>
-            {
-              tags.map((tag: string) => (
-                <a class="tech-tag" href={slugSelector(`/tags/${slugify(tag)}`, lang)}>
-                  {humanize(tag)}
-                </a>
-              ))
-            }
-          </div>
-          <div class="flex items-center gap-3">
-            <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">Share</span>
-            <Share
-              className="social-icons"
-              title={title}
-              description={description}
-              slug={post.id}
-            />
-          </div>
-        </div>
-
-        <Disqus className="mt-16" client:only="react" />
-      </article>
-    </div>
-
-    <!-- Related posts -->
-    <div class="mt-20 border-t border-line pt-14">
-      <SectionHeader
-        index="05"
-        eyebrow="Index"
-        title="Related Posts"
-        note={`${String(similarPosts.length).padStart(2, "0")} records`}
-        fig="05"
-        sheet="06"
-        class="mb-10"
-      />
-      <div class="row justify-center">
-        {
-          similarPosts.map((post) => (
-            <div class="lg:col-4 md:col-6 mb-10">
-              <BlogCard data={post} />
-            </div>
-          ))
-        }
       </div>
+
+      <Disqus className="mt-16" client:only="react" />
     </div>
   </div>
-</section>
+
+  <!-- Related posts -->
+  <div class="band mt-16">
+    <div class="wrap">
+      <SectionHeader eyebrow={lang === "en" ? "Keep reading" : "继续阅读"} title={lang === "en" ? "Related posts" : "相关文章"}>
+        <div class="mt-12 grid gap-10 md:grid-cols-3">
+          {similarPosts.map((post) => <BlogCard data={post} />)}
+        </div>
+      </SectionHeader>
+    </div>
+  </div>
+</article>

@@ -1,48 +1,22 @@
 ---
 import Breadcrumbs from "@/components/Breadcrumbs.astro";
-import SectionHeader from "@/components/SectionHeader.astro";
 import { humanize } from "@/lib/utils/textConverter";
 
 const {
   title = "",
-  eyebrow = "",
   desc = "",
-  index = "",
-  fig = "",
-  scale = "1:1",
-  note = "",
 }: {
   title?: string;
   eyebrow?: string;
   desc?: string;
   index?: string;
-  fig?: string;
-  scale?: string;
-  note?: string;
 } = Astro.props;
 ---
 
-<section class="border-b border-line">
-  <div class="container pb-6 pt-10 md:pb-8 md:pt-14">
-    <SectionHeader
-      size="page"
-      index={index}
-      eyebrow={eyebrow}
-      title={humanize(title)}
-      desc={desc}
-      fig={fig}
-      scale={scale}
-      note={note}
-    />
-
-    <!-- index rail: where this plate sits in the set -->
-    <div class="mt-7 flex items-center justify-between gap-6">
-      <Breadcrumbs />
-      <span class="sheet-meta hidden md:inline-flex">
-        <span>PLATE {fig || "00"}</span>
-        <i class="sheet-meta__dot"></i>
-        <span>SCALE {scale}</span>
-      </span>
-    </div>
+<div class="border-b border-line">
+  <div class="wrap pb-14 pt-10 md:pb-16 md:pt-14">
+    <Breadcrumbs current={title} />
+    <h1 class="display mt-6">{humanize(title)}</h1>
+    {desc && <p class="lede mt-5 max-w-[560px]" set:text={desc} />}
   </div>
-</section>
+</div>

@@ -18,63 +18,44 @@ const mbtiQuestionsJson = JSON.stringify(mbtiQuestions);
 <Base title={isEn ? "MBTI Test - Psychoanalytic" : "MBTI 测试 - 心理分析"} lang={lang}>
   <div class="container py-14 md:py-20">
     <div class="mx-auto max-w-4xl">
-      <div class="flex items-center justify-between gap-6">
-        <p class="eyebrow">{isEn ? "Psychoanalytic / MBTI" : "心理分析 / MBTI"}</p>
-        <span class="sheet-meta hidden sm:inline-flex">
-          <span>Form 01</span>
-          <i class="sheet-meta__dot"></i>
-          <span>Scale 1:1</span>
-        </span>
-      </div>
-      <h1 class="mt-4 text-[clamp(28px,4vw,40px)] font-semibold leading-[1.15] tracking-[-0.025em] text-ink">
+      <p class="kicker">{isEn ? "Psychoanalytic / MBTI" : "心理分析 / MBTI"}</p>
+      <h1 class="display mt-5 text-[clamp(30px,4.4vw,52px)]">
         {isEn ? "MBTI Test" : "MBTI 测试"}
       </h1>
-      <div class="dim mt-6">
-        <span class="dim__value">60 items</span>
-      </div>
-      <div class="rule-pair mt-6" aria-hidden="true"></div>
+      <p class="lede mt-6">
+        {isEn
+          ? "This test consists of 60 questions. Please choose the option that best matches your true thoughts. The test takes about 10-20 minutes."
+          : "本测试包含 60 个问题，请根据你的真实想法选择最符合你的选项。测试大约需要 10-20 分钟完成。"}
+      </p>
 
       <!-- Intro -->
-      <div id="intro-container" class="plate mt-8">
-        <div class="plate__head">
-          <span class="flex min-w-0 items-baseline gap-2.5">
-            <span class="plate__fig">FORM.01</span>
-            <span class="plate__title">{isEn ? "Brief" : "测试说明"}</span>
-          </span>
-          <span class="plate__scale">60 Q / 20 min</span>
-        </div>
-        <div class="px-6 py-6 md:px-8 md:py-8">
-          <p class="max-w-[640px] text-[15px] leading-[1.75] text-ink-sub">
-            {isEn
-              ? "This test consists of 60 questions. Please choose the option that best matches your true thoughts. The test takes about 10-20 minutes."
-              : "本测试包含60个问题，请根据你的真实想法选择最符合你的选项。测试大约需要10-20分钟完成。"}
-          </p>
-
-          <div class="mt-6 border border-line p-5">
-            <h3 class="font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-ink">
-              {isEn ? "Test Tips" : "测试提示"}
+      <div id="intro-container" class="mt-12 border-t border-line pt-10">
+        <div>
+          <div class="mt-8 rounded-[12px] bg-soft p-6">
+            <h3 class="text-[13px] font-medium text-ink-strong">
+              {isEn ? "Test tips" : "测试提示"}
             </h3>
             <ul class="mt-3 space-y-2 text-[14px] leading-[1.7] text-ink-sub">
               <li class="flex gap-2.5">
-                <span class="font-mono text-[11px] text-ink-muted">01</span>
+                <span class="text-[12px] tabular-nums text-placeholder">01</span>
                 <span>{isEn ? "Choose the option that best matches your true thoughts" : "选择最符合你真实想法的选项"}</span>
               </li>
               <li class="flex gap-2.5">
-                <span class="font-mono text-[11px] text-ink-muted">02</span>
+                <span class="text-[12px] tabular-nums text-placeholder">02</span>
                 <span>{isEn ? "Don't overthink, trust your first instinct" : "不要过度思考，相信你的第一直觉"}</span>
               </li>
               <li class="flex gap-2.5">
-                <span class="font-mono text-[11px] text-ink-muted">03</span>
+                <span class="text-[12px] tabular-nums text-placeholder">03</span>
                 <span>{isEn ? "Choose the option you prefer, not the one you think is 'correct'" : "选择你更倾向于的选项，而不是你认为正确的选项"}</span>
               </li>
               <li class="flex gap-2.5">
-                <span class="font-mono text-[11px] text-ink-muted">04</span>
+                <span class="text-[12px] tabular-nums text-placeholder">04</span>
                 <span>{isEn ? "If neither option fits perfectly, choose the closer one" : "如果两个选项都不完全符合，选择更接近你真实想法的那个"}</span>
               </li>
             </ul>
           </div>
 
-          <div class="mt-8">
+          <div class="mt-10">
             <button id="start-test-btn" class="btn btn-primary btn-lg">
               {isEn ? "Start Test" : "开始测试"}
             </button>
@@ -83,33 +64,31 @@ const mbtiQuestionsJson = JSON.stringify(mbtiQuestions);
       </div>
 
       <!-- Test Questions -->
-      <div id="test-container" class="plate mt-8 hidden">
-        <div class="plate__head">
-          <span class="flex min-w-0 items-baseline gap-2.5">
-            <span class="plate__fig">FORM.02</span>
-            <span class="plate__title">{isEn ? "Answer sheet" : "答题纸"}</span>
-          </span>
-          <span class="plate__scale">01 / 60</span>
-        </div>
-        <div class="mx-auto max-w-3xl px-6 py-6 md:px-8 md:py-8">
-          <h2 class="text-[20px] font-semibold tracking-[-0.02em] text-ink">
+      <div id="test-container" class="mt-12 hidden border-t border-line pt-10">
+        <div class="mx-auto max-w-3xl">
+          <h2 class="text-[20px] font-medium tracking-[-0.01em] text-ink-strong">
             {isEn ? "MBTI Personality Test" : "MBTI 人格测试"}
           </h2>
-          <p class="mt-2 text-[14px] text-ink-sub">
+          <p class="mt-2 text-[14px] text-ink-muted">
             {isEn ? "60 questions total, choose the option that best matches your situation" : "共 60 题，请根据您的实际情况选择最符合的选项"}
           </p>
         </div>
 
-        <div id="test-questions" class="mt-8 space-y-8">
+        <div id="test-questions" class="mx-auto mt-10 max-w-3xl space-y-8">
             <div class="space-y-3">
               <div class="flex items-baseline justify-between">
-                <span id="progress-text" class="font-mono text-[11px] uppercase tracking-[0.12em] text-ink-muted">
+                <span id="progress-text" class="text-[12.5px] text-ink-muted">
                   {isEn ? "Question 1 of 60" : "第 1 题，共 60 题"}
                 </span>
-                <span class="font-mono text-[11px] text-ink-muted">01 / 60</span>
+                <span class="text-[12px] tabular-nums text-placeholder">01 / 60</span>
               </div>
-              <div class="h-1.5 w-full border border-line">
-                <div id="progress-bar" class="h-full bg-ink-strong transition-all duration-300" style="width: 0%"></div>
+              <div class="h-1.5 w-full rounded-full bg-soft">
+                <div
+                  id="progress-bar"
+                  class="h-full rounded-full bg-ink-strong transition-all duration-300"
+                  style="width: 0%"
+                >
+                </div>
               </div>
             </div>
 

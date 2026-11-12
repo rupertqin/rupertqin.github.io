@@ -17,7 +17,7 @@
 
   /* === Font Families === */
   --font-primary: system-ui, sans-serif;
-  --font-secondary: Space Grotesk, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+  --font-secondary: Inter, "PingFang SC", "Hiragino Sans GB", "Noto Sans SC", "Microsoft YaHei", sans-serif;
 
   /* === Font Sizes === */
   --text-base: 16px;

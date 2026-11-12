@@ -28,6 +28,18 @@ export default defineConfig({
   trailingSlash: config.site.trailing_slash ? "always" : "ignore",
   vite: {
     plugins: [tailwindcss()],
+    optimizeDeps: {
+      // 预打包 React 岛依赖，避免 dev 时按需优化触发 "504 Outdated Optimize Dep"，
+      // 导致 client:only 岛（如八维组件）动态导入失败、页面空白
+      include: [
+        "clsx",
+        "tailwind-merge",
+        "class-variance-authority",
+        "@radix-ui/react-slot",
+        "konva",
+        "react-konva",
+      ],
+    },
   },
   i18n: { locales: filteredSupportedLang, defaultLocale: default_language },
   image: { service: sharp() },

@@ -17,13 +17,13 @@ const {
 } = Astro.props;
 
 // Base classes — border colour lives in each variant so it never ties with `border-transparent`
-const baseClasses = "inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-[6px] border text-sm font-medium leading-none transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0";
+const baseClasses = "inline-flex cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-full border text-sm font-medium leading-none transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0";
 
 // Variant classes
 const variantClasses = {
-	default: "border-primary bg-primary text-primary-foreground hover:border-[var(--ui-accent-hover)] hover:bg-[var(--ui-accent-hover)]",
+	default: "border-primary bg-primary text-primary-foreground hover:opacity-85",
 	destructive: "border-destructive bg-destructive text-destructive-foreground hover:bg-destructive/90",
-	outline: "border-line-strong bg-background text-ink hover:border-ink-strong hover:bg-soft hover:text-ink-strong",
+	outline: "border-line-strong bg-transparent text-ink-strong hover:border-ink-strong",
 	"outline-white": "border-white/45 bg-transparent text-white hover:border-white hover:bg-white hover:text-ink-strong",
 	white: "border-white bg-white text-ink-strong hover:bg-soft-hover",
 	secondary: "border-secondary bg-secondary text-secondary-foreground hover:bg-soft-hover",
@@ -33,9 +33,9 @@ const variantClasses = {
 
 // Size classes
 const sizeClasses = {
-	default: "h-10 px-5",
-	sm: "h-8 rounded-[6px] px-3.5 text-[13px]",
-	lg: "h-11 rounded-[6px] px-6",
+	default: "h-11 px-5",
+	sm: "h-9 px-4 text-[13px]",
+	lg: "h-12 px-6 text-[15px]",
 	icon: "h-9 w-9"
 };
 

@@ -13,24 +13,24 @@ description: "基于人工智能和大数据技术，为投资者提供专业、
 ## 核心功能
 
 <div class="grid md:grid-cols-3 gap-4 mb-16">
-  <div class="rounded-md border border-line p-6">
-    <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">01</p>
+  <div class="rounded-[12px] bg-soft p-6">
+    <p class="text-[12px] text-placeholder">01</p>
     <h3 class="mt-3 text-[17px] font-semibold text-ink">趋势预测</h3>
     <p class="mt-2 text-[14px] leading-[1.7] text-ink-sub">
       利用先进的机器学习算法，分析历史数据和市场情绪，预测股票未来走势。
     </p>
   </div>
 
-  <div class="rounded-md border border-line p-6">
-    <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">02</p>
+  <div class="rounded-[12px] bg-soft p-6">
+    <p class="text-[12px] text-placeholder">02</p>
     <h3 class="mt-3 text-[17px] font-semibold text-ink">智能选股</h3>
     <p class="mt-2 text-[14px] leading-[1.7] text-ink-sub">
       根据用户风险偏好和投资目标，自动筛选符合条件的优质股票。
     </p>
   </div>
 
-  <div class="rounded-md border border-line p-6">
-    <p class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-muted">03</p>
+  <div class="rounded-[12px] bg-soft p-6">
+    <p class="text-[12px] text-placeholder">03</p>
     <h3 class="mt-3 text-[17px] font-semibold text-ink">风险评估</h3>
     <p class="mt-2 text-[14px] leading-[1.7] text-ink-sub">
       全面评估投资组合风险，提供风险预警和资产配置建议。
@@ -87,7 +87,7 @@ description: "基于人工智能和大数据技术，为投资者提供专业、
 ## 价格方案
 
 <div class="grid md:grid-cols-3 gap-4 mb-16">
-  <div class="rounded-md border border-line p-6">
+  <div class="rounded-[12px] bg-soft p-6">
     <h3 class="text-[15px] font-semibold text-ink">基础版</h3>
     <p class="mt-3 font-mono text-[28px] font-semibold tabular-nums leading-none text-ink">¥99<span class="ml-1 font-mono text-[11px] font-normal text-ink-muted">/月</span></p>
     <ul class="mt-5 mb-6 list-none space-y-2.5 pl-0 text-[14px] text-ink-sub">
@@ -113,7 +113,7 @@ description: "基于人工智能和大数据技术，为投资者提供专业、
     <a href="#" class="btn btn-outline-primary w-full">选择方案</a>
   </div>
 
-  <div class="relative rounded-md border border-line p-6 shadow-[0_1px_2px_rgb(15_15_15/6%)]">
+  <div class="relative rounded-[12px] bg-soft p-6 shadow-[0_1px_2px_rgb(15_15_15/6%)]">
     <div class="absolute -top-2.5 left-6 bg-ink-strong px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.12em] text-white">
       最受欢迎
     </div>
@@ -148,7 +148,7 @@ description: "基于人工智能和大数据技术，为投资者提供专业、
     <a href="#" class="btn btn-primary w-full">选择方案</a>
   </div>
 
-  <div class="rounded-md border border-line p-6">
+  <div class="rounded-[12px] bg-soft p-6">
     <h3 class="text-[15px] font-semibold text-ink">企业版</h3>
     <p class="mt-3 font-mono text-[28px] font-semibold tabular-nums leading-none text-ink">¥999<span class="ml-1 font-mono text-[11px] font-normal text-ink-muted">/月</span></p>
     <ul class="mt-5 mb-6 list-none space-y-2.5 pl-0 text-[14px] text-ink-sub">
